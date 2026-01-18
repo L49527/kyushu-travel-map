@@ -151,7 +151,6 @@ const dataDay3to7 = [
                 { name: "友永麵包", hours: "08:30-17:30", desc: "別府百年麵包店，紅豆奶油必買", tag: "名店", lat: 33.2795, lng: 131.5015 },
                 { name: "Musubi Cafe", hours: "08:30-17:00", desc: "鐵輪溫泉區健康蒸食早餐", tag: "健康", lat: 33.3195, lng: 131.4425 },
                 { name: "別府車站麵包店", hours: "07:00-21:00", desc: "方便攜帶路上吃", tag: "便利", lat: 33.2795, lng: 131.4985 },
-                { name: "Mister Donut", hours: "09:00-22:00", desc: "甜甜圈當早餐", tag: "甜點", lat: 33.2805, lng: 131.4975 },
                 { name: "Joyfull", hours: "24H", desc: "九州連鎖家庭餐廳早餐", tag: "連鎖", lat: 33.2815, lng: 131.4965 },
                 { name: "便利商店", hours: "24H", desc: "車上備好飯糰飲料", tag: "輕食", lat: 33.2785, lng: 131.4955 }
             ],
@@ -320,3 +319,4 @@ const dataDay3to7 = [
         ]
     }
 ];
+
