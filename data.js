@@ -136,8 +136,9 @@ const data = [
             { name: "Tirolian 捲心酥", hours: "09:00-21:00", desc: "千鳥屋經典，福岡人氣洋菓子", tag: "甜點", lat: 33.5902, lng: 130.4207, image: "images/tirolian_real.jpg", mapUrl: "https://www.google.com/maps/search/千鳥屋本家+博多駅マイング店" }
         ],
         supermarkets: [
-            { name: "MaxValu 由布院店", hours: "09:00-22:00", desc: "大型超市，品項豐富，距離飯店車程約 5 分鐘", tag: "大型", lat: 33.2585, lng: 131.3655, mapUrl: "https://www.google.com/maps/search/マックスバリュ湯布院店" },
-            { name: "A-Coop 由布院", hours: "09:30-19:00", desc: "當地農產直銷，距離金鱗湖步行約 15 分鐘", tag: "在地", lat: 33.2625, lng: 131.3585, mapUrl: "https://www.google.com/maps/search/Aコープ+ゆふいん店" }
+            { name: "Reganet Cute 博多巴士總站", hours: "07:00-23:00", desc: "位於B1，距離飯店步行約 3 分鐘", tag: "便利", lat: 33.5915, lng: 130.4205 },
+            { name: "Lopia 博多 Yodobashi", hours: "10:00-20:00", desc: "高CP值生鮮超市，距離飯店步行約 2 分鐘", tag: "便宜", lat: 33.5885, lng: 130.4225 },
+            { name: "Sunny 博多住吉店", hours: "24H", desc: "24小時營業，品項齊全，步行約 12 分鐘", tag: "24H", lat: 33.5855, lng: 130.4185 }
         ]
     }
 ];
