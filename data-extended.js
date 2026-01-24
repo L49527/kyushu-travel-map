@@ -20,7 +20,7 @@ const dataDay3to7 = [
         meals: {
             breakfast: [
                 { name: "博多站 朝食喜水丸", hours: "07:30-22:00", desc: "明太子吃到飽！福岡最豪邁早餐", tag: "定食", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=喜水丸+博多一番街店" },
-                { name: "天神 麵包工房", hours: "08:00-20:00", desc: "博多名物明太子麵包，剛出爐最好吃", tag: "麵包", lat: 33.5922, lng: 130.3980, mapUrl: "https://www.google.com/maps/search/?api=1&query=FullFull+Tenjin" },
+                { name: "天神 麵包工房", hours: "08:00-20:00", desc: "博多名物明太子麵包，剛出爐最好吃", tag: "麵包", lat: 33.5922, lng: 130.3980, mapUrl: "https://maps.app.goo.gl/wCbnQWMeSwT1oeBm9" },
                 { name: "珈琲館 (博多)", hours: "07:30-22:00", desc: "經典日式厚片吐司套餐", tag: "咖啡", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一番街" },
                 { name: "西鐵車站 輕食", hours: "07:00-21:00", desc: "搭車前隨手買的美味飯糰或三明治", tag: "輕食", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=西鉄天神駅" },
                 { name: "太宰府 暖暮拉麵 (早場)", hours: "10:00-22:00", desc: "曾經排名九州第一的拉麵店", tag: "拉麵", lat: 33.5205, lng: 130.5345, mapUrl: "https://www.google.com/maps/search/?api=1&query=暖暮+太宰府駅前店" }
@@ -52,9 +52,8 @@ const dataDay3to7 = [
         specialties: [
             { name: "梅枝餅 (かさの家)", hours: "09:00-18:00", desc: "太宰府必吃現烤紅豆甜點", tag: "甜點", lat: 33.5205, lng: 130.5345, image: "images/梅枝餅.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=かさの家" },
             { name: "太宰府合格御守", hours: "06:00-19:00", desc: "學問之神加持，考生必備", tag: "紀念品", lat: 33.5197, lng: 130.5358, image: "images/學業御守.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府天満宮" },
-            { name: "隈研吾星巴克周邊", hours: "08:00-20:00", desc: "限定商品，設計愛好者必收", tag: "限定", lat: 33.5207, lng: 130.5347, image: "images/starbucks_dazaifu.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=スターバックス+太宰府天満宮表参道店" },
-            { name: "太宰府和紙小物", hours: "09:00-17:00", desc: "精緻細膩的傳統工藝", tag: "工藝", lat: 33.5205, lng: 130.5345, image: "images/washi.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府+和紙" },
-            { name: "明太子脆餅 (FullFull)", hours: "08:00-18:00", desc: "麵包名店推出的熱門零食", tag: "零食", lat: 33.5922, lng: 130.3980, image: "images/fullfull_rusk.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=FullFull+Tenjin" },
+            { name: "隈研吾星巴克周邊", hours: "08:00-20:00", desc: "限定商品，設計愛好者必收", tag: "限定", lat: 33.5207, lng: 130.5347, image: "images/隈研吾星巴克周邊.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=スターバックス+太宰府天満宮表参道店" },
+            { name: "明太子脆餅 (FullFull)", hours: "08:00-18:00", desc: "麵包名店推出的熱門零食", tag: "零食", lat: 33.5922, lng: 130.3980, image: "images/Full Full.jpg", mapUrl: "https://maps.app.goo.gl/wCbnQWMeSwT1oeBm9" },
             { name: "鬼瓦最中 (天山)", hours: "08:30-17:30", desc: "太宰府名物，巨大鬼瓦造型最中", tag: "甜點", lat: 33.5204, lng: 130.5348, image: "images/鬼瓦最中.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府参道+天山" },
             { name: "鷽餅 (梅園)", hours: "10:00-17:00", desc: "包著小木雕鷽鳥的幸運和菓子", tag: "和菓子", lat: 33.5200, lng: 130.5350, image: "images/鷽餅.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府+梅園" },
             { name: "太宰府限定一蘭", hours: "09:00-19:00", desc: "五角形合格碗拉麵，祈求考試合格", tag: "拉麵", lat: 33.5208, lng: 130.5348, image: "images/太宰府限定一蘭.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+太宰府参道店" }
@@ -116,10 +115,10 @@ const dataDay3to7 = [
             { name: "金鱗湖畔小店", hours: "09:00-17:00", desc: "手工皂、在地特產", tag: "雜貨", lat: 33.2615, lng: 131.3725, mapUrl: "https://www.google.com/maps/search/金鱗湖" }
         ],
         specialties: [
-            { name: "動物園限定周邊", hours: "09:30-17:00", desc: "可愛的獅子與長頸鹿娃娃", tag: "紀念品", lat: 33.3439, lng: 131.4733, image: "images/safari_goods.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=九州自然動物公園" },
+            { name: "動物園限定周邊", hours: "09:30-17:00", desc: "可愛的獅子與長頸鹿娃娃", tag: "紀念品", lat: 33.3439, lng: 131.4733, image: "images/動物園周邊.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=九州自然動物公園" },
             { name: "地獄蒸布丁", hours: "08:30-18:30", desc: "明礬溫泉名物，苦甜焦糖味", tag: "甜點", lat: 33.3355, lng: 131.4345, image: "images/pudding.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋+売店" },
-            { name: "別府溫泉粉", hours: "09:00-18:00", desc: "在家享受別府名湯", tag: "用品", lat: 33.2798, lng: 131.5005, image: "images/bath_powder.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+溫泉粉" },
-            { name: "竹細工器皿", hours: "09:00-17:00", desc: "別府傳統工藝，精緻耐用", tag: "工藝", lat: 33.3055, lng: 131.4855, image: "images/bamboo.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府市竹細工伝統産業会館" },
+            { name: "別府溫泉粉", hours: "09:00-18:00", desc: "在家享受別府名湯", tag: "用品", lat: 33.2798, lng: 131.5005, image: "images/別府溫泉粉.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+溫泉粉" },
+            { name: "竹細工器皿", hours: "09:00-17:00", desc: "別府傳統工藝，精緻耐用", tag: "工藝", lat: 33.3055, lng: 131.4855, image: "images/竹細工器皿.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府市竹細工伝統産業会館" },
             { name: "品客 九州限定 (明太子口味)", hours: "09:00-18:00", desc: "九州限定伴手禮，各大土產店皆有", tag: "零食", lat: 33.2624, lng: 131.3549, image: "images/品客 九州限定.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院駅+お土産" },
             { name: "B-Speak 蛋糕捲", hours: "10:00-17:00", desc: "由布院超人氣蛋糕捲，鬆軟充滿蛋香", tag: "甜點", lat: 33.2645, lng: 131.3678, image: "images/bspeak.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=B-Speak+由布院" },
             { name: "Jazz Yokan (爵士羊羹)", hours: "10:00-17:00", desc: "鋼琴鍵盤造型羊羹，絕美伴手禮", tag: "甜點", lat: 33.2668, lng: 131.3610, image: "images/Jazz Yokan.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=ジャズとようかん+湯布院本店" },
@@ -259,9 +258,9 @@ const dataDay3to7 = [
             { name: "地獄蒸布丁", hours: "08:30-18:30", desc: "溫泉蒸氣手工製作", tag: "甜點", lat: 33.3355, lng: 131.4345, image: "images/pudding.png", mapUrl: "https://www.google.com/maps/search/明礬温泉+岡本屋売店" },
             { name: "湯之花", hours: "09:00-17:00", desc: "別府溫泉天然入浴結晶", tag: "用品", lat: 33.3345, lng: 131.4335, image: "images/湯之花.jpg", mapUrl: "https://www.google.com/maps/search/みょうばん+湯の里" },
             { name: "雞肉天婦羅仙貝", hours: "店鋪營業時間", desc: "大分名物雞天風味", tag: "餅乾", lat: 33.2798, lng: 131.5005, image: "images/雞肉天婦羅仙貝.jpg", mapUrl: "https://www.google.com/maps/search/別府銘品蔵+別府駅" },
-            { name: "地獄限定吊飾", hours: "09:00-17:00", desc: "把地獄的熱氣帶回家", tag: "紀念品", lat: 33.3200, lng: 131.4430, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=海地獄+売店" },
-            { name: "血池地獄軟膏", hours: "08:00-17:00", desc: "別府特產神藥，紅色軟膏", tag: "藥妝", lat: 33.3225, lng: 131.4512, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=血の池地獄" },
-            { name: "九州限定酒精飲品", hours: "09:00-21:00", desc: "各式九州水果酒與燒落", tag: "伴手禮", lat: 33.5897, lng: 130.4207, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=博多駅+住吉酒販" }
+
+            { name: "血池地獄軟膏", hours: "08:00-17:00", desc: "別府特產神藥，紅色軟膏", tag: "藥妝", lat: 33.3225, lng: 131.4512, image: "images/血池地獄軟膏.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=血の池地獄" },
+            { name: "九州限定酒精飲品", hours: "09:00-21:00", desc: "各式九州水果酒與燒落", tag: "伴手禮", lat: 33.5897, lng: 130.4207, image: "images/九州限定酒精飲品.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=博多駅+住吉酒販" }
         ],
         supermarkets: [
             { name: "Reganet Cute 中洲川端店", hours: "07:00-23:00", desc: "地鐵站共構，距離飯店步行約 7 分鐘", tag: "最近", lat: 33.5935, lng: 130.4045 },
@@ -329,12 +328,7 @@ const dataDay3to7 = [
             { name: "茅乃舍高湯包", hours: "10:00-20:00", desc: "主婦必備，送禮自用兩相宜", tag: "調料", lat: 33.5897, lng: 130.4207, image: "images/kayanoya.png", mapUrl: "https://www.google.com/maps/search/久原本家+茅乃舎+博多駅デイトス店" },
             { name: "管狀明太子", hours: "08:00-21:00", desc: "Fukuya便利包裝，像牙膏擠", tag: "海鮮", lat: 33.5902, lng: 130.4194, image: "images/tube.png", mapUrl: "https://www.google.com/maps/search/味の明太子+ふくや+博多駅" },
             { name: "Press Butter Sand", hours: "08:00-21:00", desc: "博多限定草莓口味", tag: "餅乾", lat: 33.5897, lng: 130.4207, image: "images/butter_sand.png", mapUrl: "https://www.google.com/maps/search/PRESS+BUTTER+SAND+博多駅店" },
-            { name: "鶴乃子", hours: "08:00-21:00", desc: "棉花糖外層，黃味餡內餡", tag: "甜點", lat: 33.5897, lng: 130.4207, image: "images/tsurunoko.png", mapUrl: "https://www.google.com/maps/search/石村萬盛堂+博多駅店" },
-            { name: "機場限定名產", hours: "06:30-21:00", desc: "各式機場限定伴手禮", tag: "伴手禮", lat: 33.5850, lng: 130.4514, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡機場+免税店" },
-            { name: "博多拉麵滑走路", hours: "10:00-21:00", desc: "機場內集合多家名店的拉麵街", tag: "拉麵", lat: 33.5850, lng: 130.4514, image: "images/ichiran_pack.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡機場+拉麵滑走路" },
-            { name: "Royce 九州限定巧克力", hours: "06:30-21:00", desc: "機場限定口味", tag: "甜點", lat: 33.5850, lng: 130.4514, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡空港" },
-            { name: "長崎蛋糕 (福砂屋)", hours: "06:30-21:00", desc: "必買伴手禮", tag: "甜點", lat: 33.5850, lng: 130.4514, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福砂屋+福岡空港" },
-            { name: "福岡草莓巧克力", hours: "06:30-21:00", desc: "酸甜好滋味", tag: "甜點", lat: 33.5850, lng: 130.4514, image: "images/icon-192.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡空港+ANA+FESTA" }
+            { name: "鶴乃子", hours: "08:00-21:00", desc: "棉花糖外層，黃味餡內餡", tag: "甜點", lat: 33.5897, lng: 130.4207, image: "images/tsurunoko.png", mapUrl: "https://www.google.com/maps/search/石村萬盛堂+博多駅店" }
         ],
         supermarkets: [
             { name: "Reganet Cute 中洲川端店", hours: "07:00-23:00", desc: "最後採買好去處，步行約 7 分鐘", tag: "便利", lat: 33.5935, lng: 130.4045 },
