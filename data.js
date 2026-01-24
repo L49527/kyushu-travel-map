@@ -30,25 +30,21 @@ const data = [
         ],
         meals: {
             breakfast: [
-                { name: "飛機餐", hours: "依航班時間", desc: "機上享用", tag: "旅途", lat: 0, lng: 0 }
+                { name: "機上餐點", hours: "航程中", desc: "前往福岡的飛機上享用早餐", tag: "旅途", lat: 0, lng: 0, mapUrl: "" }
             ],
             lunch: [
-                { name: "一蘭拉麵 本社總本店", hours: "24H", desc: "福岡限定「釜燒豚骨」昭和風裝潢", tag: "博多拉麵", lat: 33.5905, lng: 130.4185 },
-                { name: "博多拉麵 Shin-Shin", hours: "11:00-03:00", desc: "博多純情拉麵，麵條極細", tag: "在地人氣", lat: 33.5908, lng: 130.4015 },
-                { name: "因幡烏龍麵", hours: "10:00-21:00", desc: "博多烏龍麵發源地，口感軟糯", tag: "烏龍麵", lat: 33.5892, lng: 130.4188 },
-                { name: "Tanya HAKATA", hours: "07:00-23:00", desc: "博多一番街著名牛舌定食", tag: "牛舌", lat: 33.5897, lng: 130.4207 },
-                { name: "大地烏龍麵", hours: "11:00-21:00", desc: "巨大透明牛蒡天婦羅招牌", tag: "特色", lat: 33.5893, lng: 130.4195 },
-                { name: "博多魚米", hours: "11:00-22:00", desc: "平價新鮮的迴轉壽司", tag: "壽司", lat: 33.5895, lng: 130.4200 },
-                { name: "努努雞", hours: "09:00-21:00", desc: "車站內買冷炸雞當點心", tag: "小吃", lat: 33.5897, lng: 130.4207 }
+                { name: "博多一雙 拉麵", hours: "11:00-00:00", desc: "「拉麵界的卡布奇諾」，濃醇豚骨湯", tag: "拉麵", lat: 33.5905, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一雙" },
+                { name: "吉塚鰻魚屋", hours: "10:30-21:00", desc: "百年鰻魚老店，口感酥脆不油膩", tag: "鰻魚", lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
+                { name: "稚加榮 (料亭午餐)", hours: "11:30-14:00", desc: "壯觀魚池環繞，超值料亭午餐", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
+                { name: "天麩羅 Hirao", hours: "10:30-21:00", desc: "福岡在地首選，醃漬魷魚吃到飽", tag: "天婦羅", lat: 33.5839, lng: 130.4566, mapUrl: "https://www.google.com/maps/search/?api=1&query=天麩羅ひらお" }, ,
+                { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物，焦脆底部的爆漿餃子", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" }
             ],
             dinner: [
-                { name: "中洲屋台 小金ちゃん", hours: "18:30-01:30", desc: "炒拉麵始祖，排隊名店", tag: "屋台", lat: 33.5917, lng: 130.4042 },
-                { name: "中洲屋台 司", hours: "18:00-01:00", desc: "明太子天婦羅與關東煮", tag: "屋台", lat: 33.5915, lng: 130.4045 },
-                { name: "博多摩滋鍋 前田屋", hours: "17:00-23:00", desc: "味噌牛腸鍋濃郁不膩", tag: "鍋物", lat: 33.5885, lng: 130.4175 },
-                { name: "博多水炊 華味鳥", hours: "17:00-22:00", desc: "博多必吃雞肉鍋，膠原蛋白", tag: "鍋物", lat: 33.5902, lng: 130.4125 },
-                { name: "海鮮居酒屋 磯貝", hours: "17:30-23:00", desc: "玄界灘海鮮，藤壺燒特色", tag: "海鮮", lat: 33.5878, lng: 130.3565 },
-                { name: "博多祇園 鐵鍋", hours: "17:00-23:00", desc: "一口大小煎餃，鐵板滋滋作響", tag: "居酒屋", lat: 33.5888, lng: 130.4155 },
-                { name: "鳥皮屋", hours: "17:00-23:00", desc: "博多特色烤雞皮，纏繞串上烤得酥脆", tag: "串燒", lat: 33.5892, lng: 130.4148 }
+                { name: "大山牛腸鍋 (Oyama)", hours: "11:00-23:00", desc: "博多必吃牛腸鍋，味噌口味最推", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋おおやま" },
+                { name: "博多華味鳥 (水炊鍋)", hours: "11:30-22:00", desc: "清爽雞湯鍋，體驗極致雞鮮味", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多華味鳥" },
+                { name: "屋台小金ちゃん", hours: "18:00-00:00", desc: "炒拉麵創始屋台，福岡夜晚的靈魂", tag: "屋台", lat: 33.5917, lng: 130.4042, mapUrl: "https://www.google.com/maps/search/?api=1&query=小金ちゃん" },
+                { name: "燒肉 多牛", hours: "17:30-22:30", desc: "低調的高品質和牛燒肉，炭火直燒", tag: "燒肉", lat: 33.5892, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉多牛" },
+                { name: "河太郎 (活烏賊)", hours: "11:30-21:00", desc: "新鮮現切透明烏賊，一魚兩吃", tag: "海鮮", lat: 33.5912, lng: 130.4048, mapUrl: "https://www.google.com/maps/search/?api=1&query=河太郎+中洲本店" }
             ]
         },
         shopping: [
@@ -60,11 +56,14 @@ const data = [
             { name: "博多Deitos", hours: "08:00-21:00", desc: "車站內伴手禮區，努努雞在此", tag: "車站", lat: 33.5897, lng: 130.4207 }
         ],
         specialties: [
-            { name: "味之明太子 FUKUYA", hours: "09:00-21:00", desc: "福岡最具代表性的明太子", tag: "海鮮", lat: 33.5902, lng: 130.4194, image: "images/fukuya.png", mapUrl: "https://www.google.com/maps/search/味の明太子+ふくや+博多駅地下街店" },
-            { name: "博多通饅頭", hours: "08:00-21:00", desc: "連續多年金賞，奶香濃郁白豆沙", tag: "甜點", lat: 33.5895, lng: 130.4205, image: "images/torimon.png", mapUrl: "https://maps.app.goo.gl/TSLEoJNovvgh3d817" },
-            { name: "明貝 Menbei", hours: "08:00-21:00", desc: "明太子海鮮仙貝，酥脆微辣", tag: "零食", lat: 33.5897, lng: 130.4207, image: "images/menbei.png", mapUrl: "https://maps.app.goo.gl/1ZiBX1QhcCLmn9Gv6" },
-            { name: "Hakata Nakanaka", hours: "09:00-20:00", desc: "明太子乾燥製成的肉乾狀零食", tag: "乾貨", lat: 33.5902, lng: 130.4207, image: "images/nakanaka_real.webp", mapUrl: "https://www.google.com/maps/search/博多銘品蔵+博多口+博多駅" },
-            { name: "吉野堂 小雞饅頭", hours: "08:00-21:00", desc: "福岡發源的百年名產", tag: "甜點", lat: 33.5902, lng: 130.4207, image: "images/hiyoko.png", mapUrl: "https://www.google.com/maps/search/ひよ子本舗吉野堂+博多駅マイング店" }
+            { name: "博多通饅頭 (明月堂)", hours: "09:00-21:00", desc: "博多最具代表性甜點，連續金賞", tag: "甜點", lat: 33.5895, lng: 130.4205, image: "images/torimon.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=明月堂+JR博多シティ店" },
+            { name: "明太子禮盒 (やまや)", hours: "09:00-21:00", desc: "福岡必買特產，送禮首選", tag: "海鮮", lat: 33.5902, lng: 130.4194, image: "images/fukuya.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=やまや+博多店" },
+            { name: "茅乃舍高湯包", hours: "10:00-20:00", desc: "主婦最愛，讓料理升級的神奇高湯", tag: "調料", lat: 33.5902, lng: 130.4207, image: "images/kayanoya.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=茅乃舎+博多デイトス店" },
+            { name: "博多織精品", hours: "10:00-20:00", desc: "傳統工藝織品，質感極佳", tag: "工藝", lat: 33.5897, lng: 130.4207, image: "images/hakataori.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=サヌイ織物+博多駅" },
+            { name: "一蘭經典拉麵包", hours: "24H", desc: "在家也能還原豚骨湯頭", tag: "拉麵", lat: 33.5905, lng: 130.4185, image: "images/ichiran_pack.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+博多駅" },
+            { name: "Menbei 明貝 (福太郎)", hours: "09:00-20:00", desc: "博多必買明太子仙貝", tag: "伴手禮", lat: 33.5897, lng: 130.4207, image: "images/menbei.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福太郎+博多デイトス店" },
+            { name: "博多Nakanaka (乾燥明太子)", hours: "09:00-20:00", desc: "像肉乾一樣的濃縮明太子下酒菜", tag: "下酒菜", lat: 33.5897, lng: 130.4207, image: "images/nakanaka_real.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=中島商店+博多駅" },
+            { name: "名菓 小雞饅頭 (吉野堂)", hours: "09:00-21:00", desc: "百年歴史的可愛小雞造型甜點", tag: "甜點", lat: 33.5897, lng: 130.4207, image: "images/hiyoko.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=ひよ子本舗吉野堂+博多デイトス店" }
         ],
         supermarkets: [
             { name: "Reganet Cute 博多巴士總站", hours: "07:00-23:00", desc: "位於B1，距離飯店步行約 3 分鐘", tag: "便利", lat: 33.5915, lng: 130.4205 },
@@ -85,42 +84,36 @@ const data = [
             { time: "19:00", act: "天神/大名晚餐", desc: "福岡熱鬧的夜生活" }
         ],
         spots: [
-            { name: "LaLaport福岡", lat: 33.6178, lng: 130.4283 },
+            { name: "LaLaport福岡", lat: 33.5665, lng: 130.4283 },
             { name: "天神地下街", lat: 33.5902, lng: 130.3985 },
             { name: "大名", lat: 33.5885, lng: 130.3925 }
         ],
         meals: {
             breakfast: [
-                { name: "Tanya HAKATA", hours: "07:00-10:00", desc: "牛舌早餐CP值超高", tag: "日式", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/たんやHAKATA" },
-                { name: "Pain Stock 天神店", hours: "08:00-19:00 (週一公休)", desc: "福岡超人氣麵包店，明太子法棍必買！地址：西中洲6-17", tag: "麵包", lat: 33.5898, lng: 130.4025, mapUrl: "https://maps.app.goo.gl/smVL5DepWhqi94MRA" },
-                { name: "むつか堂", hours: "10:00-20:00", desc: "厚片吐司專賣，如雲朵柔軟", tag: "吐司", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/むつか堂+アミュプラザ博多店" },
-                { name: "Komeda Coffee", hours: "07:00-23:00", desc: "點飲料送吐司經典早餐", tag: "連鎖", lat: 33.5905, lng: 130.4012, mapUrl: "https://www.google.com/maps/search/コメダ珈琲店" },
-                { name: "Full Full", hours: "08:00-18:00", desc: "明太子法國麵包名店", tag: "麵包", lat: 33.5815, lng: 130.4025, mapUrl: "https://www.google.com/maps/search/フルフル天神パン工房" },
-                { name: "Ueshima Coffee", hours: "07:30-22:00", desc: "黑糖牛奶咖啡配三明治", tag: "咖啡", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/上島珈琲店" },
-                { name: "飯店早餐", hours: "06:30-10:00", desc: "Blossom 飯店精緻日西式自助餐", tag: "飯店", lat: 33.5897, lng: 130.4195 }
+                { name: "Rec Coffee (博多店)", hours: "08:00-22:00", desc: "精品手沖，遠眺博多站街景", tag: "咖啡", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=REC+COFFEE+博多" },
+                { name: "博多一番街 朝食專賣", hours: "07:00-11:00", desc: "提供道地日式飯、魚、味噌湯定食", tag: "定食", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一番街" },
+                { name: "il FORNO del Mignon", hours: "07:00-23:00", desc: "排隊可頌，剛出爐的香甜味", tag: "麵包", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=ミニクロワッサン+博多駅" },
+                { name: "天神早餐 (喫茶店)", hours: "08:00-18:00", desc: "復古喫茶店的厚片吐司與咖啡", tag: "喫茶", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=西鉄天神駅" },
+                { name: "超商季節飯糰", hours: "24H", desc: "九州限定口味，快速又便利", tag: "便利", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=Lawson+博多駅" }
             ],
             lunch: [
-                { name: "金子半之助", hours: "11:00-21:00", desc: "東京名店，豪邁江戶前天丼", tag: "天丼", lat: 33.6178, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/金子半之助+ららぽーと福岡" },
-                { name: "久留米拉麵 清陽軒", hours: "11:00-21:00", desc: "豚骨拉麵發源地久留米老店", tag: "拉麵", lat: 33.6175, lng: 130.4280, mapUrl: "https://www.google.com/maps/search/久留米ラーメン+清陽軒+ららぽーと福岡店" },
-                { name: "炸豬排知青", hours: "11:00-21:00", desc: "九州知名炸豬排，肉質厚實", tag: "豬排", lat: 33.6172, lng: 130.4285, mapUrl: "https://www.google.com/maps/search/とんかつ知青" },
-                { name: "極味耶 漢堡排", hours: "11:00-21:00", desc: "伊萬里牛漢堡排，不用排隊", tag: "漢堡排", lat: 33.6180, lng: 130.4288, mapUrl: "https://www.google.com/maps/search/極味や+ららぽーと福岡店" },
-                { name: "茶寮 伊藤園", hours: "10:00-21:00", desc: "抹茶甜點休息站", tag: "甜點", lat: 33.6177, lng: 130.4282, mapUrl: "https://www.google.com/maps/search/茶寮伊藤園+ららぽーと福岡店" },
-                { name: "宍道湖蜆拉麵 琥珀", hours: "11:00-21:00", desc: "特色清爽系蜆貝拉麵", tag: "拉麵", lat: 33.6173, lng: 130.4278, mapUrl: "https://www.google.com/maps/search/宍道湖しじみ中華蕎麦+琥珀+ららぽーと福岡店" },
-                { name: "Godiva Café", hours: "10:00-21:00", desc: "Lalaport限定巧克力飲品", tag: "甜點", lat: 33.6176, lng: 130.4281, mapUrl: "https://www.google.com/maps/search/GODIVA+dessert+ららぽーと福岡" }
+                { name: "LaLaport 美食街", hours: "11:00-21:00", desc: "集合福岡多家名店的超大美食廣場", tag: "美食街", lat: 33.5665, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" }, ,
+                { name: "伊都Kingu (草莓)", hours: "10:00-20:00", desc: "福岡產草莓製作的特色點心", tag: "甜點", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ+天神店" },
+                { name: "天神博多華味鳥", hours: "11:30-14:30", desc: "中午也有划算的水炊雞肉套餐", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=華味鳥+天神店" },
+                { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "屋台起家，天神排隊名店拉麵", tag: "拉麵", lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
+                { name: "一蘭天神店 (方型碗)", hours: "10:00-23:00", desc: "只有特定分店才有的方型陶瓷碗", tag: "拉麵", lat: 33.5905, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" }
             ],
             dinner: [
-                { name: "博多摩滋鍋 山中", hours: "17:00-23:00", desc: "赤坂店環境優雅，味噌一絕", tag: "鍋物", lat: 33.5875, lng: 130.3945, mapUrl: "https://www.google.com/maps/search/やま中+赤坂店" },
-                { name: "葫蘆壽司", hours: "11:30-21:00", desc: "天神排隊名店，活鮑魚必點", tag: "壽司", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/ひょうたん寿司+天神" },
-                { name: "Chikae 稚加榮", hours: "11:30-22:00", desc: "氣派料亭，看魚池用餐", tag: "會席", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/稚加榮+福岡店" },
-                { name: "燒肉 Ponga", hours: "17:00-23:00", desc: "黑毛和牛，蔥鹽牛舌招牌", tag: "燒肉", lat: 33.5865, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/焼肉ぽんが+博多" },
-                { name: "元祖博多明太重", hours: "07:00-22:30", desc: "整條明太子配海苔飯", tag: "特色", lat: 33.5912, lng: 130.4048, mapUrl: "https://www.google.com/maps/search/元祖博多めんたい重" },
-                { name: "Daimyo Softcream", hours: "11:00-22:00", desc: "飯後甜點，口感綿密霜淇淋", tag: "甜點", lat: 33.5888, lng: 130.3935, mapUrl: "https://www.google.com/maps/search/Daimyo+Softcream+大名店" },
-                { name: "Yatai Bar Ebi-chan", hours: "19:00-02:00", desc: "天神地區有名的雞尾酒屋台", tag: "屋台", lat: 33.5905, lng: 130.3992, mapUrl: "https://www.google.com/maps/search/屋台バー+えびちゃん" }
+                { name: "博多水炊鍋 華味鳥", hours: "17:00-23:00", desc: "精緻雞湯火鍋，建議提前預約", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=水たき料亭+博多華味鳥+天神店" },
+                { name: "笑樂 牛腸鍋", hours: "11:00-23:00", desc: "天神站附近，口味道地的老牌牛腸鍋", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋+笑楽+天神店" },
+                { name: "燒肉 孫三郎", hours: "17:00-23:00", desc: "高品質黑毛和牛，就在天神中心", tag: "燒肉", lat: 33.5895, lng: 130.3965, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+孫三郎+天神店" },
+                { name: "稚加榮 (晚餐時段)", hours: "17:00-21:00", desc: "晚餐氛圍更顯高尚，海鮮極鮮", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
+                { name: "博多 魚米壽司", hours: "11:00-23:00", desc: "超受歡迎的迴轉壽司，新幹線送餐", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚べい+ヨドバシ博多店" }
             ]
         },
         shopping: [
-            { name: "LaLaport 福岡", hours: "10:00-21:00", desc: "1:1鋼彈、親子購物、GUNDAM SIDE-F", tag: "商場", lat: 33.6178, lng: 130.4283 },
-            { name: "ALPEN OUTDOORS", hours: "10:00-21:00", desc: "Lalaport內戶外運動用品大店", tag: "運動", lat: 33.6175, lng: 130.4280 },
+            { name: "LaLaport 福岡", hours: "10:00-21:00", desc: "1:1鋼彈、親子購物、GUNDAM SIDE-F", tag: "商場", lat: 33.5665, lng: 130.4283 },
+            { name: "ALPEN OUTDOORS", hours: "10:00-21:00", desc: "Lalaport內戶外運動用品大店", tag: "運動", lat: 33.5665, lng: 130.4280 },
             { name: "天神地下街", hours: "10:00-20:00", desc: "600米歐風地下街，150家店舖", tag: "地下街", lat: 33.5902, lng: 130.3985 },
             { name: "岩田屋百貨", hours: "10:00-20:00", desc: "老牌百貨，茅乃舍高湯包專櫃", tag: "百貨", lat: 33.5905, lng: 130.3988 },
             { name: "天神PARCO", hours: "10:00-20:30", desc: "年輕人潮流品牌聚集", tag: "百貨", lat: 33.5895, lng: 130.3978 },
@@ -129,11 +122,11 @@ const data = [
             { name: "Solaria Plaza", hours: "10:00-21:00", desc: "與天神站直結，便利購物", tag: "商場", lat: 33.5908, lng: 130.3995 }
         ],
         specialties: [
-            { name: "筑紫麻糬", hours: "09:00-20:00", desc: "如水庵名產，黑糖蜜配黃豆粉", tag: "甜點", lat: 33.5902, lng: 130.4207, image: "images/筑紫麻糬.webp", mapUrl: "https://www.google.com/maps/search/如水庵+博多駅デイトス店" },
-            { name: "伊都 King", hours: "10:00-19:00", desc: "王牌生銅鑼燒，包入整顆甘王草莓", tag: "甜點", lat: 33.5902, lng: 130.4207, image: "images/itoking_real.png", mapUrl: "https://www.google.com/maps/search/伊都きんぐ+博多デイトス店" },
-            { name: "二◯加煎餅", hours: "09:00-20:00", desc: "哆啦A夢聯名款，可愛面具造型", tag: "餅乾", lat: 33.5902, lng: 130.4207, image: "images/二◯加煎餅.jpg", mapUrl: "https://www.google.com/maps/search/東雲堂+博多駅マイング店" },
-            { name: "茅乃舍高湯包", hours: "10:00-20:00", desc: "主婦必備神物，料理美味升級", tag: "調料", lat: 33.5902, lng: 130.4207, image: "images/kayanoya.png", mapUrl: "https://www.google.com/maps/search/久原本家+茅乃舎+博多駅デイトス店" },
-            { name: "Tirolian 捲心酥", hours: "09:00-21:00", desc: "千鳥屋經典，福岡人氣洋菓子", tag: "甜點", lat: 33.5902, lng: 130.4207, image: "images/tirolian_real.jpg", mapUrl: "https://www.google.com/maps/search/千鳥屋本家+博多駅マイング店" }
+            { name: "鋼彈基地限定模型", hours: "10:00-21:00", desc: "LaLaport 獨家販售商品", tag: "模型", lat: 33.5665, lng: 130.4283, image: "images/gundam.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=Gundam+Side-F+Fukuoka" },
+            { name: "LaLaport 聯名甜點", hours: "10:00-21:00", desc: "鋼彈造型燒、限定飲料", tag: "甜點", lat: 33.5665, lng: 130.4283, image: "images/gundam_sweets.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" }, ,
+            { name: "天神地下街精品", hours: "10:00-20:00", desc: "各式高質感日系選品", tag: "精品", lat: 33.5902, lng: 130.3985, image: "images/tenjin_goods.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=天神地下街" },
+            { name: "一蘭拉麵泡麵禮盒", hours: "10:00-23:00", desc: "天神店限定包裝", tag: "伴手禮", lat: 33.5905, lng: 130.3985, image: "images/ichiran_gift.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" },
+            { name: "福岡八女茶", hours: "09:00-20:00", desc: "福岡代表性茗茶", tag: "茶葉", lat: 33.5898, lng: 130.4210, image: "images/yametcha.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=八女茶+福岡" }
         ],
         supermarkets: [
             { name: "Reganet Cute 博多巴士總站", hours: "07:00-23:00", desc: "位於B1，距離飯店步行約 3 分鐘", tag: "便利", lat: 33.5915, lng: 130.4205 },

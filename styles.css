@@ -2146,3 +2146,89 @@ body {
     font-size: 13px;
     font-weight: 700;
 }
+
+/* Travel Essentials Section */
+.essentials-section {
+    padding: 20px 20px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.essentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.tool-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--tatami);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--kinpaku);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(184, 160, 96, 0.15);
+    border-color: var(--kinpaku);
+}
+
+.tool-card:hover::before {
+    opacity: 1;
+    width: 6px;
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    filter: grayscale(0.2);
+    transition: transform 0.4s ease;
+}
+
+.tool-card:hover .tool-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: grayscale(0);
+}
+
+.tool-info {
+    text-align: left;
+}
+
+.tool-info h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: var(--sumi-black);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.tool-info p {
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
