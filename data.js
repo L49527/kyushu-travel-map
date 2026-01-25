@@ -36,7 +36,7 @@ const data = [
                 { name: "博多一雙 拉麵", hours: "11:00-00:00", desc: "「拉麵界的卡布奇諾」，濃醇豚骨湯", tag: "拉麵", lat: 33.5905, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一雙" },
                 { name: "吉塚鰻魚屋", hours: "10:30-21:00", desc: "百年鰻魚老店，口感酥脆不油膩", tag: "鰻魚", lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
                 { name: "稚加榮 (料亭午餐)", hours: "11:30-14:00", desc: "壯觀魚池環繞，超值料亭午餐", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
-                { name: "天麩羅 Hirao", hours: "10:30-21:00", desc: "福岡在地首選，醃漬魷魚吃到飽", tag: "天婦羅", lat: 33.5839, lng: 130.4566, mapUrl: "https://www.google.com/maps/search/?api=1&query=天麩羅ひらお" }, ,
+                { name: "天麩羅 Hirao", hours: "10:30-21:00", desc: "福岡在地首選，醃漬魷魚吃到飽", tag: "天婦羅", lat: 33.5839, lng: 130.4566, mapUrl: "https://www.google.com/maps/search/?api=1&query=天麩羅ひらお" },
                 { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物，焦脆底部的爆漿餃子", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" }
             ],
             dinner: [
@@ -48,12 +48,16 @@ const data = [
             ]
         },
         shopping: [
-            { name: "博多運河城", hours: "10:00-21:00", desc: "大型購物中心，MUJI、Uniqlo", tag: "商場", lat: 33.5897, lng: 130.4108 },
-            { name: "博多站 AMU Plaza", hours: "10:00-21:00", desc: "車站百貨，伴手禮一站購齊", tag: "百貨", lat: 33.5897, lng: 130.4207 },
-            { name: "博多一番街", hours: "09:00-21:00", desc: "車站地下街，美食與土產天堂", tag: "地下街", lat: 33.5895, lng: 130.4205 },
-            { name: "博多阪急", hours: "10:00-20:00", desc: "高級百貨，地下熟食區必逛", tag: "百貨", lat: 33.5898, lng: 130.4210 },
-            { name: "KITTE 博多", hours: "10:00-21:00", desc: "郵局大樓改建，特色商店", tag: "商場", lat: 33.5892, lng: 130.4215 },
-            { name: "博多Deitos", hours: "08:00-21:00", desc: "車站內伴手禮區，努努雞在此", tag: "車站", lat: 33.5897, lng: 130.4207 }
+            { name: "博多運河城", hours: "10:00-21:00", desc: "大型購物中心，MUJI、Uniqlo", tag: "商場", lat: 33.5897, lng: 130.4108, floorGuide: "https://canalcity.co.jp/zh-tw" },
+            { name: "博多站 AMU Plaza", hours: "10:00-21:00", desc: "車站百貨，伴手禮一站購齊", tag: "百貨", lat: 33.5897, lng: 130.4207, floorGuide: "https://www.jrhakatacity.com/floor/" },
+            { name: "Don Quijote 中洲店", hours: "24H", desc: "【優惠券】驚安殿堂，深夜購物首選", tag: "免稅", lat: 33.5932, lng: 130.4078, mapUrl: "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Nakasu" },
+            { name: "Welcia 博多駅前店", hours: "09:00-00:00", desc: "【優惠券】車站步行5分，買藥妝方便", tag: "藥妝", lat: 33.5905, lng: 130.4168, mapUrl: "https://www.google.com/maps/search/?api=1&query=Welcia+Hakata+Ekimae" },
+            { name: "Cocokara Fine 博多巴士站店", hours: "10:00-21:00", desc: "【優惠券】巴士總站內，搭車前補貨", tag: "藥妝", lat: 33.5915, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Hakata+Bus+Terminal" },
+            { name: "Sugi 藥局 博多駅東店", hours: "24H", desc: "【優惠券】車站筑紫口，優惠券最高18%", tag: "藥妝", lat: 33.5912, lng: 130.4255, mapUrl: "https://www.google.com/maps/search/?api=1&query=Sugi+Drug+Hakata+Ekihigashi" },
+            { name: "博多一番街", hours: "09:00-21:00", desc: "車站地下街，美食與土產天堂", tag: "地下街", lat: 33.5895, lng: 130.4205, floorGuide: "https://hakata-1bangai.com/floorguide/" },
+            { name: "博多阪急", hours: "10:00-20:00", desc: "高級百貨，地下熟食區必逛", tag: "百貨", lat: 33.5898, lng: 130.4210, floorGuide: "https://global.hankyu-hanshin-dept.co.jp/zh-CHT/store/hankyuhonten/" },
+            { name: "KITTE 博多", hours: "10:00-21:00", desc: "郵局大樓改建，特色商店", tag: "商場", lat: 33.5892, lng: 130.4215, floorGuide: "https://hakata.jp-kitte.jp/shop/floor-top.jsp" },
+            { name: "博多Deitos", hours: "08:00-21:00", desc: "車站內伴手禮區，努努雞在此", tag: "車站", lat: 33.5897, lng: 130.4207, floorGuide: "https://www.jrhakatacity.com/floor/" }
         ],
         specialties: [
             { name: "博多通饅頭 (明月堂)", hours: "09:00-21:00", desc: "博多最具代表性甜點，連續金賞", tag: "甜點", lat: 33.5895, lng: 130.4205, image: "images/torimon.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=明月堂+JR博多シティ店" },
@@ -98,7 +102,7 @@ const data = [
                 { name: "超商季節飯糰", hours: "24H", desc: "九州限定口味，快速又便利", tag: "便利", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=Lawson+博多駅" }
             ],
             lunch: [
-                { name: "LaLaport 美食街", hours: "11:00-21:00", desc: "集合福岡多家名店的超大美食廣場", tag: "美食街", lat: 33.5665, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" }, ,
+                { name: "LaLaport 美食街", hours: "11:00-21:00", desc: "集合福岡多家名店的超大美食廣場", tag: "美食街", lat: 33.5665, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" },
                 { name: "伊都Kingu (草莓)", hours: "10:00-20:00", desc: "福岡產草莓製作的特色點心", tag: "甜點", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ+天神店" },
                 { name: "天神博多華味鳥", hours: "11:30-14:30", desc: "中午也有划算的水炊雞肉套餐", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=華味鳥+天神店" },
                 { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "屋台起家，天神排隊名店拉麵", tag: "拉麵", lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
@@ -113,14 +117,20 @@ const data = [
             ]
         },
         shopping: [
-            { name: "LaLaport 福岡", hours: "10:00-21:00", desc: "1:1鋼彈、親子購物、GUNDAM SIDE-F", tag: "商場", lat: 33.5665, lng: 130.4283 },
-            { name: "ALPEN OUTDOORS", hours: "10:00-21:00", desc: "Lalaport內戶外運動用品大店", tag: "運動", lat: 33.5665, lng: 130.4280 },
-            { name: "天神地下街", hours: "10:00-20:00", desc: "600米歐風地下街，150家店舖", tag: "地下街", lat: 33.5902, lng: 130.3985 },
-            { name: "岩田屋百貨", hours: "10:00-20:00", desc: "老牌百貨，茅乃舍高湯包專櫃", tag: "百貨", lat: 33.5905, lng: 130.3988 },
-            { name: "天神PARCO", hours: "10:00-20:30", desc: "年輕人潮流品牌聚集", tag: "百貨", lat: 33.5895, lng: 130.3978 },
-            { name: "大丸福岡天神", hours: "10:00-20:00", desc: "高級百貨，地下美食街", tag: "百貨", lat: 33.5898, lng: 130.3982 },
+            { name: "Bic Camera 天神2號館", hours: "10:00-21:00", desc: "【優惠券】天神中心區，電器藥妝齊全", tag: "電器", lat: 33.5888, lng: 130.3995, mapUrl: "https://www.google.com/maps/search/?api=1&query=Bic+Camera+Tenjin" },
+            { name: "Don Quijote 福岡天神本店", hours: "24H", desc: "【優惠券】整棟多層樓，貨色最齊全", tag: "免稅", lat: 33.5875, lng: 130.3988, mapUrl: "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Fukuoka+Tenjin" },
+            { name: "Cosmos 藥妝 天神大丸前", hours: "10:00-23:00", desc: "【優惠券】九州必逛，價格極具競爭力", tag: "藥妝", lat: 33.5892, lng: 130.4025, mapUrl: "https://www.google.com/maps/search/?api=1&query=Cosmos+Tenjin+Daimaru" },
+            { name: "松本清 天神地下街店", hours: "09:00-22:00", desc: "【優惠券】位於地下街，交通方便", tag: "藥妝", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=Matsumoto+Kiyoshi+Tenjin+Underground" },
+            { name: "大丸福岡天神", hours: "10:00-20:00", desc: "【優惠券】高級百貨，地下美食街", tag: "百貨", lat: 33.5898, lng: 130.3982, floorGuide: "https://www.daimaru-fukuoka.jp.t.md.hp.transer.com/floorguide/" },
+            { name: "LaLaport 福岡", hours: "10:00-21:00", desc: "【優惠券】內有 Yamada/Alpen/Lopia", tag: "商場", lat: 33.5665, lng: 130.4283, floorGuide: "https://mitsui-shopping-park.com/lalaport/fukuoka/floor/" },
+            { name: "Yamada Denki Lalaport", hours: "10:00-21:00", desc: "【優惠券】Lalaport 3F，大型電器店", tag: "電器", lat: 33.5665, lng: 130.4283, floorGuide: "https://mitsui-shopping-park.com/lalaport/fukuoka/floor/" },
+            { name: "ALPEN OUTDOORS", hours: "10:00-21:00", desc: "【優惠券】Lalaport 內戶外運動用品大店", tag: "運動", lat: 33.5665, lng: 130.4280, floorGuide: "https://mitsui-shopping-park.com/lalaport/fukuoka/floor/" },
+            { name: "Sun Drug 天神西通店", hours: "10:00-23:15", desc: "【優惠券】很多觀光客愛去，營業到很晚", tag: "藥妝", lat: 33.5882, lng: 130.3965, mapUrl: "https://www.google.com/maps/search/?api=1&query=Sun+Drug+Tenjin+Nishidori" },
+            { name: "天神地下街", hours: "10:00-20:00", desc: "600米歐風地下街，150家店舖", tag: "地下街", lat: 33.5902, lng: 130.3985, floorGuide: "https://www.tenchika.com/map/" },
+            { name: "岩田屋百貨", hours: "10:00-20:00", desc: "老牌百貨，茅乃舍高湯包專櫃", tag: "百貨", lat: 33.5905, lng: 130.3988, floorGuide: "https://www.iwataya-mitsukoshi.mistore.jp.t.kq.hp.transer.com/iwataya/shops.html" },
+            { name: "天神PARCO", hours: "10:00-20:30", desc: "【優惠券】B1有Cocokara Fine藥妝", tag: "百貨", lat: 33.5895, lng: 130.3978, floorGuide: "https://fukuoka.parco.jp/floor/" },
             { name: "天神CORE", hours: "10:00-20:00", desc: "女性服飾雜貨為主", tag: "商場", lat: 33.5900, lng: 130.3980 },
-            { name: "Solaria Plaza", hours: "10:00-21:00", desc: "與天神站直結，便利購物", tag: "商場", lat: 33.5908, lng: 130.3995 }
+            { name: "Solaria Plaza", hours: "10:00-21:00", desc: "與天神站直結，便利購物", tag: "商場", lat: 33.5908, lng: 130.3995, floorGuide: "https://www.solariaplaza.com/floor/" }
         ],
         specialties: [
             { name: "鋼彈基地限定模型", hours: "10:00-21:00", desc: "LaLaport 獨家販售商品", tag: "模型", lat: 33.5665, lng: 130.4283, image: "images/鋼彈基地限定模型.jpeg", mapUrl: "https://www.google.com/maps/search/?api=1&query=Gundam+Side-F+Fukuoka" },
@@ -134,6 +144,59 @@ const data = [
             { name: "Reganet Cute 博多巴士總站", hours: "07:00-23:00", desc: "位於B1，距離飯店步行約 3 分鐘", tag: "便利", lat: 33.5915, lng: 130.4205 },
             { name: "Lopia 博多 Yodobashi", hours: "10:00-20:00", desc: "高CP值生鮮超市，距離飯店步行約 2 分鐘", tag: "便宜", lat: 33.5885, lng: 130.4225 },
             { name: "Sunny 博多住吉店", hours: "24H", desc: "24小時營業，品項齊全，步行約 12 分鐘", tag: "24H", lat: 33.5855, lng: 130.4185 }
+        ]
+    },
+    { day: 3, date: "6/13(六)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 4, date: "6/14(日)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 5, date: "6/15(一)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 6, date: "6/16(二)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    {
+        day: 7, date: "6/17(三)", title: "北九州購物與返程", area: "北九州・小倉",
+        hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.88, 130.88],
+        hotelImage: "images/都ホテル博多.jpg",
+        hotelDesc: "【JR博多站直結】交通方便，前往機場或搭乘新幹線皆宜",
+        transport: { drive: "前往北九州 Outlets 約 1 小時車程。Outlets 與 Aeon Mall 停車方便。", public: "【前往小倉】JR特急音速號 博多→小倉(40分)<br>【前往Outlets】JR太空世界站下車，步行2分" },
+        timeline: [
+            { time: "10:00", act: "THE OUTLETS 北九州", desc: "九州最大級 Outlets，盡情掃貨" },
+            { time: "13:00", act: "AEON MALL 八幡東", desc: "與 Outlets 相連，生活雜貨齊全" },
+            { time: "16:00", act: "小倉站購物", desc: "AMU Plaza 小倉，最後採買" },
+            { time: "18:00", act: "返回博多/機場", desc: "搭乘新幹線或特急返回" }
+        ],
+        spots: [
+            { name: "THE OUTLETS KITAKYUSHU", lat: 33.8715, lng: 130.8085 },
+            { name: "AEON MALL 八幡東", lat: 33.8705, lng: 130.8095 },
+            { name: "小倉站", lat: 33.8860, lng: 130.8825 },
+            { name: "Riverwalk 北九州", lat: 33.8865, lng: 130.8765 }
+        ],
+        meals: {
+            breakfast: [
+                { name: "Trandor 博多站", hours: "06:00-22:30", desc: "JR九州直營麵包店，種類豐富", tag: "麵包", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=Trandor+Hakata" }
+            ],
+            lunch: [
+                { name: "Outlets 美食廣場", hours: "10:00-21:00", desc: "多家九州名店進駐，選擇多樣", tag: "美食街", lat: 33.8715, lng: 130.8085 },
+                { name: "資桑烏龍麵 (資さんうどん)", hours: "24H", desc: "北九州靈魂美食，必吃肉牛蒡天烏龍麵", tag: "烏龍麵", lat: 33.8705, lng: 130.8095, mapUrl: "https://www.google.com/maps/search/?api=1&query=Sukesan+Udon" }
+            ],
+            dinner: [
+                { name: "小倉鐵鍋餃子", hours: "11:00-22:00", desc: "在此享用晚餐或外帶回車上吃", tag: "餃子", lat: 33.8860, lng: 130.8825 },
+                { name: "田舍庵 鰻魚", hours: "11:00-21:00", desc: "小倉知名鰻魚飯老店", tag: "鰻魚", lat: 33.8845, lng: 130.8805, mapUrl: "https://www.google.com/maps/search/?api=1&query=Inakaan+Kokura" }
+            ]
+        },
+        shopping: [
+            { name: "THE OUTLETS KITAKYUSHU", hours: "10:00-20:00", desc: "九州最大級 Outlets，品牌眾多", tag: "Outlet", lat: 33.8715, lng: 130.8085, floorGuide: "https://tw.aeonmall.global/catalog/floormap/theoutletskitakyushu/tw/index.html#page=1" },
+            { name: "AEON MALL 八幡東", hours: "10:00-21:00", desc: "大型購物中心，與 Outlets 直結", tag: "商場", lat: 33.8705, lng: 130.8095, floorGuide: "https://tw.aeonmall.global/mall/yahatahigashi" },
+            { name: "AMU Plaza 小倉", hours: "10:00-20:00", desc: "小倉站直結，伴手禮豐富", tag: "百貨", lat: 33.8860, lng: 130.8825, floorGuide: "https://www.amuplaza.jp/floor/" },
+            { name: "Riverwalk 北九州", hours: "10:00-20:00", desc: "小倉城旁，複合式購物中心", tag: "商場", lat: 33.8865, lng: 130.8765, floorGuide: "https://riverwalk.co.jp/ch-tra/floor/" },
+            { name: "Saint City 小倉", hours: "10:00-20:00", desc: "小倉站前，有Loft、無印良品", tag: "商場", lat: 33.8855, lng: 130.8830, floorGuide: "https://saintcity.jp/floor_guide/" },
+            { name: "福岡機場 國內線", hours: "06:30-21:00", desc: "拉麵滑走路樓下土產區，明太子必買", tag: "機場", lat: 33.5960, lng: 130.4350, floorGuide: "https://www.fukuoka-airport.jp/tw/map/" },
+            { name: "福岡機場 國際線", hours: "07:00-21:00", desc: "免稅店 Royce、白色戀人在此", tag: "免稅", lat: 33.5930, lng: 130.4450, floorGuide: "https://www.fukuoka-airport.jp/tw/map/?terminal=int&floor=3f" },
+            { name: "空港見送口 土產店", hours: "06:30-21:00", desc: "最後一刻補貨", tag: "機場", lat: 33.5965, lng: 130.4355, floorGuide: "https://www.fukuoka-airport.jp/tw/map/" }
+        ],
+        specialties: [
+            { name: "ネジチョコ (螺絲巧克力)", hours: "10:00-20:00", desc: "以八幡製鐵所為靈感的特色伴手禮", tag: "巧克力", lat: 33.8865, lng: 130.8765, image: "images/nejichoco.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=Nejibox" },
+            { name: "揚子江 肉包", hours: "10:00-20:00", desc: "小倉名物，肉汁豐富的大肉包", tag: "點心", lat: 33.8860, lng: 130.8825, image: "images/yousuko.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=Yousuko+Kokura" }
+        ],
+        supermarkets: [
+            { name: "Lopia 北九州店", hours: "10:00-20:00", desc: "位於 Riverwalk 內，價格實惠", tag: "超市", lat: 33.8865, lng: 130.8765 }
         ]
     }
 ];

@@ -1,5 +1,5 @@
 // Main application functions
-const allData = [...data, ...dataDay3to7];
+const allData = data;
 let mainMap, localMap;
 let currentMealType = 'breakfast';
 let currentSection = 'meals'; // 'meals', 'shopping', or 'specialties'
@@ -206,6 +206,9 @@ function renderShopping(shops) {
             </div>
             <div class="hours">🕒 ${s.hours}</div>
             <div class="desc">${s.desc}</div>
+            <div class="links">
+                ${s.floorGuide ? `<a href="${s.floorGuide}" target="_blank" class="floor-guide-link">🗺️ 樓層地圖</a>` : ''}
+            </div>
         </div>
     `).join('');
 }
