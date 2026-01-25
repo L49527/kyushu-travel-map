@@ -138,6 +138,27 @@
         <p>✦ Have a wonderful trip to Kyushu ✦</p>
     </footer>
 
+    <!-- Coupon Button & Modal -->
+    <div class="coupon-container">
+        <button id="coupon-btn" class="coupon-float-btn">
+            <span class="icon">🎟️</span>
+            <span class="text">優惠券</span>
+        </button>
+    </div>
+
+    <div id="coupon-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2>Travel Coupons</h2>
+                <p>九州購物精選優惠</p>
+            </div>
+            <div id="coupon-list" class="coupon-grid">
+                <!-- Coupons will be injected here -->
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="data.js"></script>
     <script src="data-extended.js"></script>

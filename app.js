@@ -412,23 +412,18 @@ function focusOnSpot(index) {
 }
 
 function focusOnSpecialty(index, lat, lng) {
+    if (!localMap || !lat || lat === 0) return;
+    document.querySelectorAll('.specialty-item').forEach(el => el.classList.remove('focused'));
+    document.querySelector(`.specialty-item[data-index="${index}"]`)?.classList.add('focused');
     localMap.setView([lat, lng], 16, { animate: true });
+    if (specialtyMarkers[index]) specialtyMarkers[index].openPopup();
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    specialtyMarkers[index]?.openPopup();
 }
 
 function focusOnSupermarket(index, lat, lng) {
     localMap.setView([lat, lng], 16, { animate: true });
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     supermarketMarkers[index]?.openPopup();
-}
-
-function focusOnSpot(index) {
-    const d = allData.find(x => x.day === state.day);
-    if (!d.spots || !d.spots[index]) return;
-    const spot = d.spots[index];
-    localMap.setView([spot.lat, spot.lng], 15, { animate: true });
-    document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function focusOnMeal(index, lat, lng) {
@@ -453,11 +448,50 @@ function focusOnShopping(index, lat, lng) {
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-function focusOnSpecialty(index, lat, lng) {
-    if (!localMap || !lat || lat === 0) return;
-    document.querySelectorAll('.specialty-item').forEach(el => el.classList.remove('focused'));
-    document.querySelector(`.specialty-item[data-index="${index}"]`)?.classList.add('focused');
-    localMap.setView([lat, lng], 16, { animate: true });
-    if (specialtyMarkers[index]) specialtyMarkers[index].openPopup();
-    document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+// Coupon System Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const couponBtn = document.getElementById('coupon-btn');
+    const couponModal = document.getElementById('coupon-modal');
+    const modalClose = document.querySelector('.modal-close');
+    const couponList = document.getElementById('coupon-list');
+
+    // Only proceed if elements exist
+    if (!couponBtn || !couponModal || !couponList) return;
+
+    // Render Coupons
+    function renderCoupons() {
+        if (typeof coupons === 'undefined') return;
+
+        couponList.innerHTML = coupons.map(coupon => `
+            <div class="coupon-card">
+                <div class="coupon-card-header" style="background-color: ${coupon.color}; color: ${coupon.textColor}">
+                    <div class="coupon-card-icon">${coupon.icon}</div>
+                    <h3>${coupon.name}</h3>
+                </div>
+                <div class="coupon-card-body">
+                    <div class="coupon-discount">${coupon.discount}</div>
+                    <div class="coupon-desc">${coupon.desc}</div>
+                    <div class="coupon-tips">💡 ${coupon.tips}</div>
+                    <a href="${coupon.link}" target="_blank" class="coupon-btn">領取優惠券</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Event Listeners
+    couponBtn.addEventListener('click', () => {
+        renderCoupons();
+        couponModal.style.display = 'block';
+    });
+
+    modalClose.addEventListener('click', () => {
+        couponModal.style.display = 'none';
+    });
+
+    // Close on click outside
+    window.addEventListener('click', (event) => {
+        if (event.target === couponModal) {
+            couponModal.style.display = 'none';
+        }
+    });
+});

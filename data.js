@@ -90,6 +90,7 @@ const data = [
         ],
         meals: {
             breakfast: [
+                { name: "Blue Bottle 藍瓶咖啡", hours: "08:00-20:00", desc: "福岡天神店 (警固神社內)，清幽的早晨咖啡", tag: "咖啡", lat: 33.5878, lng: 130.3995, mapUrl: "https://www.google.com/maps/search/?api=1&query=Blue+Bottle+Coffee+Fukuoka+Tenjin" },
                 { name: "Rec Coffee (博多店)", hours: "08:00-22:00", desc: "精品手沖，遠眺博多站街景", tag: "咖啡", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=REC+COFFEE+博多" },
                 { name: "博多一番街 朝食專賣", hours: "07:00-11:00", desc: "提供道地日式飯、魚、味噌湯定食", tag: "定食", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一番街" },
                 { name: "il FORNO del Mignon", hours: "07:00-23:00", desc: "排隊可頌，剛出爐的香甜味", tag: "麵包", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=ミニクロワッサン+博多駅" },
@@ -134,5 +135,308 @@ const data = [
             { name: "Lopia 博多 Yodobashi", hours: "10:00-20:00", desc: "高CP值生鮮超市，距離飯店步行約 2 分鐘", tag: "便宜", lat: 33.5885, lng: 130.4225 },
             { name: "Sunny 博多住吉店", hours: "24H", desc: "24小時營業，品項齊全，步行約 12 分鐘", tag: "24H", lat: 33.5855, lng: 130.4185 }
         ]
+    }
+];
+
+const coupons = [
+    {
+        id: "bic_camera",
+        name: "Bic Camera",
+        nameEn: "Bic Camera",
+        discount: "10% + 7%",
+        desc: "免稅 10% + 電器 7% / 藥妝 5% / 日本酒 3%",
+        color: "#ED1A3D",
+        textColor: "#FFFFFF",
+        icon: "📷",
+        link: "https://app.likejapan.com/zh-hk/coupon/BIC-CAMERA-%E5%84%AA%E6%83%A0%E5%88%B8",
+        tips: "結帳時出示優惠券條碼截圖即可使用"
+    },
+    {
+        id: "don_quijote",
+        name: "唐吉訶德",
+        nameEn: "Don Quijote",
+        discount: "10% + 5%~7%",
+        desc: "免稅 10% + 滿萬折 5% / 滿三萬折 7%",
+        color: "#1E2A5E",
+        textColor: "#FFFFFF",
+        icon: "🐧",
+        link: "https://japanportal.donki-global.com/coupon/?id=EA1A",
+        tips: "必須使用手機點擊連結顯示動態條碼，截圖無效"
+    },
+    {
+        id: "edion",
+        name: "愛電王",
+        nameEn: "EDION",
+        discount: "10% + 7%",
+        desc: "免稅 10% + 電器/手錶/玩具 7%",
+        color: "#005BAC",
+        textColor: "#FFFFFF",
+        icon: "⚡",
+        link: "https://app.likejapan.com/zh-hk/coupon/EDION-7percent-discount-coupon",
+        tips: "適用於大部分家電產品，部分商品除外"
+    },
+    {
+        id: "matsumoto",
+        name: "松本清",
+        nameEn: "Matsumoto Kiyoshi",
+        discount: "10% + 3%~7%",
+        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+        color: "#FFF100",
+        textColor: "#000000",
+        icon: "💊",
+        link: "https://app.likejapan.com/zh-hk/coupon/%E8%97%A5%E5%A6%9D%E5%BA%97%E6%9D%BE%E6%9C%AC%E6%B8%85%E5%84%AA%E6%83%A0%E5%88%B8",
+        tips: "藥妝類商品最划算，部分化妝品不適用"
+    },
+    {
+        id: "sundrug",
+        name: "Sun Drug",
+        nameEn: "Sun Drug",
+        discount: "10% + 3%~7%",
+        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+        color: "#D91F26",
+        textColor: "#FFFFFF",
+        icon: "💊",
+        link: "https://app.likejapan.com/zh-hk/coupon/sundrug-coupon-7percent-off",
+        tips: "尚都樂客藥妝，店舖數量多，價格競爭力強"
+    },
+    {
+        id: "tsuruha",
+        name: "鶴羽藥妝",
+        nameEn: "Tsuruha Drug",
+        discount: "10% + 3%~7%",
+        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+        color: "#E60012",
+        textColor: "#FFFFFF",
+        icon: "🏗️",
+        link: "https://app.likejapan.com/zh-hk/coupon/tsuruha-drug",
+        tips: "北海道起家的大型藥妝連鎖，九州也有分店"
+    },
+    {
+        id: "sugi",
+        name: "杉藥局",
+        nameEn: "Sugi Pharmacy",
+        discount: "10% + 4%~8%",
+        desc: "免稅 10% + 滿額享 4% / 6% / 8% 折扣",
+        color: "#183883",
+        textColor: "#FFFFFF",
+        icon: "🌲",
+        link: "https://app.likejapan.com/zh-hk/coupon/sugi-pharmacy",
+        tips: "折數較高，最高可達 18% (含稅及折扣)"
+    },
+    {
+        id: "cocokara",
+        name: "Cocokara Fine",
+        nameEn: "Cocokara Fine",
+        discount: "10% + 3%~7%",
+        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+        color: "#EA5480",
+        textColor: "#FFFFFF",
+        icon: "✨",
+        link: "https://app.likejapan.com/zh-hk/coupon/cocokarafine-coupon",
+        tips: "店舖明亮時尚，化妝品種類豐富"
+    },
+    {
+        id: "cosmos",
+        name: "Cosmos 藥妝",
+        nameEn: "Cosmos",
+        discount: "高達 19%",
+        desc: "免稅 10% + 5%~7% + 額外優惠",
+        color: "#2E8B57", // Usually pink/green, using green for distinction
+        textColor: "#FFFFFF",
+        icon: "🌸",
+        link: "https://app.likejapan.com/zh-hk/coupon/COSMOS-%E8%97%A5%E5%A6%9D-%E5%84%AA%E6%83%A0%E5%88%B8-7percent-off",
+        tips: "福岡起家，九州店舖極多，必逛！"
+    },
+    {
+        id: "welcia",
+        name: "Welcia 藥局",
+        nameEn: "Welcia",
+        discount: "10% + 3%~8%",
+        desc: "免稅 10% + 滿額享優惠",
+        color: "#285FAC",
+        textColor: "#FFFFFF",
+        icon: "⚕️",
+        link: "https://app.likejapan.com/zh-hk/coupon/welcia-drugstore-discount",
+        tips: "24小時營業店舖多，深夜急用方便"
+    },
+    {
+        id: "mitsui",
+        name: "MITSUI OUTLET",
+        nameEn: "Mitsui Outlet Park",
+        discount: "9折 + 免稅",
+        desc: "享 9 折 + 免稅 + 精美禮品",
+        color: "#000000",
+        textColor: "#FFFFFF",
+        icon: "🛍️",
+        link: "https://app.likejapan.com/zh-hk/coupon/mitsui-coupon",
+        tips: "適用於全日本 Mitsui Outlet Park (九州無分店，但可於其他地區使用)"
+    },
+    {
+        id: "daikoku",
+        name: "大國藥妝 (線上)",
+        nameEn: "Daikoku Online",
+        discount: "¥1,200 OFF",
+        desc: "線上商店滿萬折 ¥1,200",
+        color: "#FF6600",
+        textColor: "#FFFFFF",
+        icon: "💊",
+        link: "https://app.likejapan.com/zh-hk/coupon/daikoku-ec-coupon",
+        tips: "網路旗艦店專用，與實體店不同"
+    },
+    {
+        id: "sinseido",
+        name: "新生堂藥局",
+        nameEn: "Sinseido",
+        discount: "10% + 5%",
+        desc: "免稅 10% + 5% OFF",
+        color: "#8BC34A",
+        textColor: "#FFFFFF",
+        icon: "🏥",
+        link: "https://app.likejapan.com/zh-hk/coupon/sinseido",
+        tips: "九州在地藥局，服務親切"
+    },
+    {
+        id: "ohga",
+        name: "大賀藥局",
+        nameEn: "Ohga Pharmacy",
+        discount: "折抵 ¥500",
+        desc: "每滿 10,000 日圓折 500",
+        color: "#EF7D00",
+        textColor: "#FFFFFF",
+        icon: "💊",
+        link: "https://app.likejapan.com/zh-hk/coupon/ohga-drugstore-fukuoka-coupon",
+        tips: "福岡在地老牌藥局"
+    },
+    {
+        id: "yamada",
+        name: "山田電機 LABI",
+        nameEn: "Yamada Denki",
+        discount: "10% + 7%",
+        desc: "免稅 10% + 7% OFF",
+        color: "#FFD700",
+        textColor: "#000000",
+        icon: "⚡",
+        link: "https://app.likejapan.com/zh-hk/coupon/labi-yamada-7percent-coupon",
+        tips: "日本最大電器連鎖"
+    },
+    {
+        id: "kitamura",
+        name: "北村相機",
+        nameEn: "Kitamura Camera",
+        discount: "10% + 5%",
+        desc: "免稅 10% + 5% OFF",
+        color: "#000000",
+        textColor: "#FFFFFF",
+        icon: "📷",
+        link: "https://app.likejapan.com/zh-hk/coupon/kitamura-camera-discount",
+        tips: "二手相機與新品皆有"
+    },
+    {
+        id: "alpen",
+        name: "Alpen Group",
+        nameEn: "Alpen Group",
+        discount: "10% + 5%",
+        desc: "免稅 10% + 5% OFF",
+        color: "#003399",
+        textColor: "#FFFFFF",
+        icon: "⚽",
+        link: "https://app.likejapan.com/zh-hk/coupon/alpen-coupon",
+        tips: "運動用品專賣，包含 Sports Depot"
+    },
+    {
+        id: "victoria",
+        name: "Victoria / L-Breath",
+        nameEn: "Victoria Sports",
+        discount: "10% + 5%",
+        desc: "免稅 10% + 5% OFF",
+        color: "#0099CC",
+        textColor: "#FFFFFF",
+        icon: "⛺",
+        link: "https://app.likejapan.com/zh-hk/coupon/Victoria-L-Breath-SuperSportsXebio-sportwear-5percent-coupon",
+        tips: "戶外與運動用品專門店 (含 Super Sports Xebio)"
+    },
+    {
+        id: "daimaru",
+        name: "大丸・松坂屋",
+        nameEn: "Daimaru Matsuzakaya",
+        discount: "95折",
+        desc: "免稅 10% + 5% OFF",
+        color: "#006633",
+        textColor: "#FFFFFF",
+        icon: "🏬",
+        link: "https://app.likejapan.com/zh-hk/coupon/daimaru-departmentstore-5percent-off",
+        tips: "適用於大丸與松坂屋百貨 (福岡天神有店)"
+    },
+    {
+        id: "aoki",
+        name: "AOKI 西服",
+        nameEn: "AOKI",
+        discount: "10% + 10%",
+        desc: "免稅 10% + 10% OFF",
+        color: "#000000",
+        textColor: "#FFFFFF",
+        icon: "👔",
+        link: "https://app.likejapan.com/zh-hk/coupon/AOKI-10percent-off",
+        tips: "商務西裝、休閒服飾"
+    },
+    {
+        id: "orihica",
+        name: "ORIHICA",
+        nameEn: "ORIHICA",
+        discount: "10% + 10%",
+        desc: "免稅 10% + 10% OFF",
+        color: "#003366",
+        textColor: "#FFFFFF",
+        icon: "👔",
+        link: "https://app.likejapan.com/zh-hk/coupon/orihica",
+        tips: "休閒商務風格"
+    },
+    {
+        id: "sf_express",
+        name: "順豐國際 x eBackHome",
+        nameEn: "SF Express",
+        discount: "95折",
+        desc: "行李寄送 / 集運 95 折",
+        color: "#DC1E32",
+        textColor: "#FFFFFF",
+        icon: "📦",
+        link: "https://app.likejapan.com/zh-hk/coupon/%E9%A0%86%E8%B1%90%E5%9C%8B%E9%9A%9B%E6%97%A5%E6%9C%ACxeBackHome%E5%84%AA%E6%83%A0",
+        tips: "機場行李寄送服務"
+    },
+    {
+        id: "ninja",
+        name: "NINJA WiFi",
+        nameEn: "NINJA WiFi",
+        discount: "MAX 20%",
+        desc: "WiFi / SIM / eSIM 優惠",
+        color: "#000000",
+        textColor: "#FFFFFF",
+        icon: "📶",
+        link: "https://app.likejapan.com/zh-hk/coupon/NINJA-Wifi-discount",
+        tips: "日本上網服務"
+    },
+    {
+        id: "kappu",
+        name: "Kappu Coffee",
+        nameEn: "Kappu Coffee",
+        discount: "95折",
+        desc: "5% OFF 折扣優惠",
+        color: "#6F4E37",
+        textColor: "#FFFFFF",
+        icon: "☕",
+        link: "https://app.likejapan.com/zh-hk/coupon/Kappu-Coffee%E5%84%AA%E6%83%A0%E5%88%B8",
+        tips: "咖啡豆與器具"
+    },
+    {
+        id: "wamazing",
+        name: "完美行 WAmazing",
+        nameEn: "WAmazing",
+        discount: "購物優惠",
+        desc: "免排隊購買人氣伴手禮",
+        color: "#FF3366",
+        textColor: "#FFFFFF",
+        icon: "🎁",
+        link: "https://app.likejapan.com/zh-hk/coupon/wamazing-offer",
+        tips: "線上預訂，機場領取"
     }
 ];
