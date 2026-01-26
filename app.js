@@ -112,10 +112,12 @@ function renderDayPanel(d) {
             </div>
             ` : ''}
             
+            ${d.transport ? `
             <div class="transport-box">
                 <h4>${icon} ${label}</h4>
                 <p>${d.transport[state.mode]}</p>
             </div>
+            ` : ''}
             
             <div class="map-legend">
                 <span class="legend-item"><span class="legend-dot" style="background:#B8A060"></span> 景點</span>
@@ -178,42 +180,78 @@ function renderDayPanel(d) {
 }
 
 function renderMeals(meals) {
-    return meals.map((m, i) => `
+    if (!meals || meals.length === 0) return '<div class="no-data">此時段暫無推薦餐廳</div>';
+    return meals.map((m, i) => {
+        const igBadge = m.igRecommend ? `<span class="ig-badge">IG推薦</span>` : '';
+        return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
                 <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
                     <span class="item-num">${i + 1}</span> ${m.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
-                <span class="tag">${m.tag}</span>
+                <div class="tag-group">
+                    ${igBadge}
+                    <span class="tag">${m.tag}</span>
+                </div>
             </div>
             <div class="hours">🕒 ${m.hours}</div>
             <div class="desc">${m.desc}</div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 function renderShopping(shops) {
-    if (!shops) return '<p>暫無購物資訊</p>';
-    return shops.map((s, i) => `
+    if (!shops || shops.length === 0) return '<div class="no-data">暫無購物資訊</div>';
+    return shops.map((s, i) => {
+        // Coupon badge detection & matching
+        let matchedCouponId = null;
+        if (typeof coupons !== 'undefined') {
+            // Simple matching logic
+            const sName = s.name.toLowerCase();
+            const found = coupons.find(c =>
+                sName.includes(c.name.toLowerCase()) ||
+                sName.includes(c.nameEn.toLowerCase()) ||
+                (c.keywords && c.keywords.some(k => sName.includes(k)))
+            );
+            if (found) matchedCouponId = found.id;
+        }
+
+        const hasCouponDesc = (s.desc || '').indexOf('優惠') > -1;
+
+        let couponBadge = '';
+        if (hasCouponDesc || matchedCouponId) {
+            const clickAttr = matchedCouponId ? `onclick="event.stopPropagation(); window.openCouponModal('${matchedCouponId}')"` : '';
+            const cursorStyle = matchedCouponId ? 'cursor:pointer;' : '';
+            const titleAttr = matchedCouponId ? 'title="點擊查看優惠券"' : '';
+            couponBadge = `<span class="coupon-badge" ${clickAttr} ${titleAttr} style="background:#E60012;color:white;padding:2px 6px;border-radius:4px;font-size:0.7rem;margin-left:6px;display:inline-block;${cursorStyle}">優惠券</span>`;
+        }
+
+        const displayDesc = s.desc ? s.desc.replace('【優惠券】', '').trim() : '';
+
+        return `
         <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
             <div class="shopping-header">
                 <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
                     <span class="item-num purple">${i + 1}</span> ${s.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
-                <span class="tag purple">${s.tag}</span>
+                <div class="tag-group">
+                    ${couponBadge}
+                    <span class="tag purple">${s.tag}</span>
+                </div>
             </div>
             <div class="hours">🕒 ${s.hours}</div>
-            <div class="desc">${s.desc}</div>
+            <div class="desc">${displayDesc}</div>
             <div class="links">
                 ${s.floorGuide ? `<a href="${s.floorGuide}" target="_blank" class="floor-guide-link">🗺️ 樓層地圖</a>` : ''}
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 function renderSpecialties(specs) {
+    if (!specs || specs.length === 0) return '<div class="no-data">暫無特產資訊</div>';
     return specs.map((s, i) => {
         // Image Element (if exists)
         const imageHtml = s.image ? `
@@ -229,12 +267,18 @@ function renderSpecialties(specs) {
             </a>
         ` : '';
 
+        // IG Recommend badge (if exists)
+        const igBadge = s.igRecommend ? `<span class="ig-badge">IG推薦</span>` : '';
+
         return `
         <div class="specialty-item" data-index="${i}" onclick="focusOnSpecialty(${i}, ${s.lat}, ${s.lng})">
             ${imageHtml}
             <div class="specialty-header">
                 <h4><span class="item-num gold">${i + 1}</span> ${s.name}</h4>
-                <span class="tag">${s.tag}</span>
+                <div class="tag-group">
+                    ${igBadge}
+                    <span class="tag">${s.tag}</span>
+                </div>
             </div>
             <div class="hours">🕒 ${s.hours}</div>
             <p>${s.desc}</p>
@@ -452,6 +496,7 @@ function focusOnShopping(index, lat, lng) {
 }
 
 // Coupon System Logic
+// Coupon System Logic
 document.addEventListener('DOMContentLoaded', () => {
     const couponBtn = document.getElementById('coupon-btn');
     const couponModal = document.getElementById('coupon-modal');
@@ -466,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof coupons === 'undefined') return;
 
         couponList.innerHTML = coupons.map(coupon => `
-            <div class="coupon-card">
+            <div class="coupon-card" id="coupon-${coupon.id}">
                 <div class="coupon-card-header" style="background-color: ${coupon.color}; color: ${coupon.textColor}">
                     <div class="coupon-card-icon">${coupon.icon}</div>
                     <h3>${coupon.name}</h3>
@@ -481,10 +526,33 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
+    // Expose open function globally
+    window.openCouponModal = function (targetId) {
+        if (couponList.children.length === 0) {
+            renderCoupons();
+        }
+        couponModal.style.display = 'block';
+
+        if (targetId) {
+            setTimeout(() => {
+                const el = document.getElementById(`coupon-${targetId}`);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.style.boxShadow = '0 0 0 4px rgba(255, 215, 0, 0.6)';
+                    el.style.transform = 'scale(1.02)';
+                    el.style.transition = 'all 0.3s';
+                    setTimeout(() => {
+                        el.style.boxShadow = '';
+                        el.style.transform = '';
+                    }, 2000);
+                }
+            }, 100);
+        }
+    };
+
     // Event Listeners
     couponBtn.addEventListener('click', () => {
-        renderCoupons();
-        couponModal.style.display = 'block';
+        window.openCouponModal();
     });
 
     modalClose.addEventListener('click', () => {

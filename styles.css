@@ -2232,6 +2232,7 @@ body {
     margin: 0;
     letter-spacing: 0.5px;
 }
+
 /* Coupon Styles */
 .tag-group {
     display: flex;
@@ -2320,7 +2321,7 @@ body {
     border: 1px solid var(--kinpaku);
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     overflow: hidden;
 }
@@ -2365,7 +2366,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     animation: fadeIn 0.3s ease;
 }
@@ -2377,14 +2378,21 @@ body {
     max-width: 900px;
     border-radius: 12px;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(184, 160, 96, 0.3);
     animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .modal-close {
@@ -2407,7 +2415,7 @@ body {
 .modal-header {
     background: linear-gradient(to right, #f8f8f8, #f0f0f0);
     padding: 30px 40px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     text-align: center;
@@ -2441,16 +2449,16 @@ body {
     background: white;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
 }
 
 .coupon-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .coupon-card-header {
@@ -2518,4 +2526,35 @@ body {
 
 .coupon-btn:hover {
     background: var(--kinpaku);
+}
+
+/* IG Recommend Badge - Instagram風格推薦標籤 */
+.tag-group {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ig-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.coupon-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(255, 75, 43, 0.3);
 }

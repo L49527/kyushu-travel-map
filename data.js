@@ -37,14 +37,18 @@ const data = [
                 { name: "吉塚鰻魚屋", hours: "10:30-21:00", desc: "百年鰻魚老店，口感酥脆不油膩", tag: "鰻魚", lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
                 { name: "稚加榮 (料亭午餐)", hours: "11:30-14:00", desc: "壯觀魚池環繞，超值料亭午餐", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
                 { name: "天麩羅 Hirao", hours: "10:30-21:00", desc: "福岡在地首選，醃漬魷魚吃到飽", tag: "天婦羅", lat: 33.5839, lng: 130.4566, mapUrl: "https://www.google.com/maps/search/?api=1&query=天麩羅ひらお" },
-                { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物，焦脆底部的爆漿餃子", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" }
+                { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物，焦脆底部的爆漿餃子", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" },
+                { name: "Sushi Sakaba Sashisu (KITTE)", hours: "11:00-23:00", desc: "鮪魚中腹超鮮甜，在地人愛店", tag: "壽司", igRecommend: true, lat: 33.5892, lng: 130.4215, mapUrl: "https://www.google.com/maps/search/?api=1&query=すし酒場+さしす+KITTE博多" },
+                { name: "Hakata seafood Uoden", hours: "11:00-22:00", desc: "明太子飯必吃，運河城旁新店", tag: "海鮮", igRecommend: true, lat: 33.5897, lng: 130.4108, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多魚介+うおでん" },
+                { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "開心果口味超讚！現買現吃", tag: "甜點", igRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" }
             ],
             dinner: [
                 { name: "大山牛腸鍋 (Oyama)", hours: "11:00-23:00", desc: "博多必吃牛腸鍋，味噌口味最推", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋おおやま" },
                 { name: "博多華味鳥 (水炊鍋)", hours: "11:30-22:00", desc: "清爽雞湯鍋，體驗極致雞鮮味", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多華味鳥" },
                 { name: "屋台小金ちゃん", hours: "18:00-00:00", desc: "炒拉麵創始屋台，福岡夜晚的靈魂", tag: "屋台", lat: 33.5917, lng: 130.4042, mapUrl: "https://www.google.com/maps/search/?api=1&query=小金ちゃん" },
                 { name: "燒肉 多牛", hours: "17:30-22:30", desc: "低調的高品質和牛燒肉，炭火直燒", tag: "燒肉", lat: 33.5892, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉多牛" },
-                { name: "河太郎 (活烏賊)", hours: "11:30-21:00", desc: "新鮮現切透明烏賊，一魚兩吃", tag: "海鮮", lat: 33.5912, lng: 130.4048, mapUrl: "https://www.google.com/maps/search/?api=1&query=河太郎+中洲本店" }
+                { name: "河太郎 (活烏賊)", hours: "11:30-21:00", desc: "新鮮現切透明烏賊，一魚兩吃", tag: "海鮮", lat: 33.5912, lng: 130.4048, mapUrl: "https://www.google.com/maps/search/?api=1&query=河太郎+中洲本店" },
+                { name: "Kawaya Gion かわ屋 (祇園店)", hours: "17:00-24:00", desc: "必點：雞皮串、手羽先", tag: "串燒", igRecommend: true, lat: 33.5945, lng: 130.4145, mapUrl: "https://www.google.com/maps/search/?api=1&query=かわ屋+祇園店" }
             ]
         },
         shopping: [
@@ -52,7 +56,7 @@ const data = [
             { name: "博多站 AMU Plaza", hours: "10:00-21:00", desc: "車站百貨，伴手禮一站購齊", tag: "百貨", lat: 33.5897, lng: 130.4207, floorGuide: "https://www.jrhakatacity.com/floor/" },
             { name: "Don Quijote 中洲店", hours: "24H", desc: "【優惠券】驚安殿堂，深夜購物首選", tag: "免稅", lat: 33.5932, lng: 130.4078, mapUrl: "https://www.google.com/maps/search/?api=1&query=Don+Quijote+Nakasu" },
             { name: "Welcia 博多駅前店", hours: "09:00-00:00", desc: "【優惠券】車站步行5分，買藥妝方便", tag: "藥妝", lat: 33.5905, lng: 130.4168, mapUrl: "https://www.google.com/maps/search/?api=1&query=Welcia+Hakata+Ekimae" },
-            { name: "Cocokara Fine 博多巴士站店", hours: "10:00-21:00", desc: "【優惠券】巴士總站內，搭車前補貨", tag: "藥妝", lat: 33.5915, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Hakata+Bus+Terminal" },
+            { name: "Cocokara Fine 博多巴士站店", hours: "10:00-21:00", desc: "【優惠券】巴士總站內，搭車前補貨", tag: "藥妝", lat: 33.5915, lng: 130.4205, floorGuide: "https://www.h-bt.jp/floor/shop51.html", mapUrl: "https://www.google.com/maps/search/?api=1&query=Cocokara+Fine+Hakata+Bus+Terminal" },
             { name: "Sugi 藥局 博多駅東店", hours: "24H", desc: "【優惠券】車站筑紫口，優惠券最高18%", tag: "藥妝", lat: 33.5912, lng: 130.4255, mapUrl: "https://www.google.com/maps/search/?api=1&query=Sugi+Drug+Hakata+Ekihigashi" },
             { name: "博多一番街", hours: "09:00-21:00", desc: "車站地下街，美食與土產天堂", tag: "地下街", lat: 33.5895, lng: 130.4205, floorGuide: "https://hakata-1bangai.com/floorguide/" },
             { name: "博多阪急", hours: "10:00-20:00", desc: "高級百貨，地下熟食區必逛", tag: "百貨", lat: 33.5898, lng: 130.4210, floorGuide: "https://global.hankyu-hanshin-dept.co.jp/zh-CHT/store/hankyuhonten/" },
@@ -67,7 +71,8 @@ const data = [
 
             { name: "Menbei 明貝 (福太郎)", hours: "09:00-20:00", desc: "博多必買明太子仙貝", tag: "伴手禮", lat: 33.5897, lng: 130.4207, image: "images/menbei.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=福太郎+博多デイトス店" },
             { name: "博多Nakanaka (乾燥明太子)", hours: "09:00-20:00", desc: "像肉乾一樣的濃縮明太子下酒菜", tag: "下酒菜", lat: 33.5897, lng: 130.4207, image: "images/nakanaka_real.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=中島商店+博多駅" },
-            { name: "名菓 小雞饅頭 (吉野堂)", hours: "09:00-21:00", desc: "百年歴史的可愛小雞造型甜點", tag: "甜點", lat: 33.5897, lng: 130.4207, image: "images/hiyoko.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=ひよ子本舗吉野堂+博多デイトス店" }
+            { name: "名菓 小雞饅頭 (吉野堂)", hours: "09:00-21:00", desc: "百年歴史的可愛小雞造型甜點", tag: "甜點", lat: 33.5897, lng: 130.4207, image: "images/hiyoko.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=ひよ子本舗吉野堂+博多デイトス店" },
+            { name: "もち吉 博多本店", hours: "10:00-19:00", desc: "在地傳統甜點，焙茶冰棒濃郁好吃", tag: "甜點", igRecommend: true, lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=もち吉+博多本店" }
         ],
         supermarkets: [
             { name: "Reganet Cute 博多巴士總站", hours: "07:00-23:00", desc: "位於B1，距離飯店步行約 3 分鐘", tag: "便利", lat: 33.5915, lng: 130.4205 },
@@ -106,14 +111,19 @@ const data = [
                 { name: "伊都Kingu (草莓)", hours: "10:00-20:00", desc: "福岡產草莓製作的特色點心", tag: "甜點", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ+天神店" },
                 { name: "天神博多華味鳥", hours: "11:30-14:30", desc: "中午也有划算的水炊雞肉套餐", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=華味鳥+天神店" },
                 { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "屋台起家，天神排隊名店拉麵", tag: "拉麵", lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
-                { name: "一蘭天神店 (方型碗)", hours: "10:00-23:00", desc: "只有特定分店才有的方型陶瓷碗", tag: "拉麵", lat: 33.5905, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" }
+                { name: "一蘭天神店 (方型碗)", hours: "10:00-23:00", desc: "只有特定分店才有的方型陶瓷碗", tag: "拉麵", lat: 33.5905, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" },
+                { name: "明太子 やまや総本店 (白金小径)", hours: "11:00-15:00", desc: "必點：明太子陶鍋飯套餐", tag: "博多料理", igRecommend: true, lat: 33.5825, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=やまや総本店+白金小径" }
             ],
             dinner: [
                 { name: "博多水炊鍋 華味鳥", hours: "17:00-23:00", desc: "精緻雞湯火鍋，建議提前預約", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=水たき料亭+博多華味鳥+天神店" },
                 { name: "笑樂 牛腸鍋", hours: "11:00-23:00", desc: "天神站附近，口味道地的老牌牛腸鍋", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋+笑楽+天神店" },
                 { name: "燒肉 孫三郎", hours: "17:00-23:00", desc: "高品質黑毛和牛，就在天神中心", tag: "燒肉", lat: 33.5895, lng: 130.3965, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+孫三郎+天神店" },
                 { name: "稚加榮 (晚餐時段)", hours: "17:00-21:00", desc: "晚餐氛圍更顯高尚，海鮮極鮮", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
-                { name: "博多 魚米壽司", hours: "11:00-23:00", desc: "超受歡迎的迴轉壽司，新幹線送餐", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚べい+ヨドバシ博多店" }
+                { name: "博多 魚米壽司", hours: "11:00-23:00", desc: "超受歡迎的迴轉壽司，新幹線送餐", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚べい+ヨドバシ博多店" },
+                { name: "魚ト肴 いとおか", hours: "17:00-23:00", desc: "必點：3000日圓御膳（烤鯖魚+刺生套餐）", tag: "海鮮", igRecommend: true, lat: 33.5890, lng: 130.4030, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚ト肴+いとおか" },
+                { name: "こみかん蜜柑 Akasaka Komikan", hours: "17:00-23:00", desc: "必點：太多了（可以參考先前11/20的Reels）", tag: "居酒屋", igRecommend: true, lat: 33.5890, lng: 130.3930, mapUrl: "https://www.google.com/maps/search/?api=1&query=こみかん+福岡" },
+                { name: "炭火焼肉バル AGITO HIRAO", hours: "18:00-00:00", desc: "必點：厚切牛舌、雞頸肉、和牛海膽", tag: "燒肉", igRecommend: true, lat: 33.5755, lng: 130.4055, mapUrl: "https://www.google.com/maps/search/?api=1&query=炭火焼肉バル+AGITO+HIRAO" },
+                { name: "炉端ノいとおかし", hours: "17:00-23:00", desc: "必點：烤鮭魚套餐", tag: "爐端燒", igRecommend: true, lat: 33.5780, lng: 130.3780, mapUrl: "https://www.google.com/maps/search/?api=1&query=炉端ノいとおかし" }
             ]
         },
         shopping: [
@@ -146,10 +156,10 @@ const data = [
             { name: "Sunny 博多住吉店", hours: "24H", desc: "24小時營業，品項齊全，步行約 12 分鐘", tag: "24H", lat: 33.5855, lng: 130.4185 }
         ]
     },
-    { day: 3, date: "6/13(六)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
-    { day: 4, date: "6/14(日)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
-    { day: 5, date: "6/15(一)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
-    { day: 6, date: "6/16(二)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 3, date: "6/13(六)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.59, 130.41], timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 4, date: "6/14(日)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.59, 130.41], timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 5, date: "6/15(一)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.59, 130.41], timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
+    { day: 6, date: "6/16(二)", title: "自由活動", area: "福岡市區", hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.59, 130.41], timeline: [], spots: [], meals: { breakfast: [], lunch: [], dinner: [] }, shopping: [] },
     {
         day: 7, date: "6/17(三)", title: "北九州購物與返程", area: "北九州・小倉",
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.88, 130.88],
@@ -283,6 +293,7 @@ const coupons = [
         color: "#183883",
         textColor: "#FFFFFF",
         icon: "🌲",
+        keywords: ["sugi"],
         link: "https://app.likejapan.com/zh-hk/coupon/sugi-pharmacy",
         tips: "折數較高，最高可達 18% (含稅及折扣)"
     },
@@ -295,6 +306,7 @@ const coupons = [
         color: "#EA5480",
         textColor: "#FFFFFF",
         icon: "✨",
+        keywords: ["parco"],
         link: "https://app.likejapan.com/zh-hk/coupon/cocokarafine-coupon",
         tips: "店舖明亮時尚，化妝品種類豐富"
     },
@@ -326,6 +338,7 @@ const coupons = [
         id: "mitsui",
         name: "MITSUI OUTLET",
         nameEn: "Mitsui Outlet Park",
+        keywords: ["lalaport", "outlet"],
         discount: "9折 + 免稅",
         desc: "享 9 折 + 免稅 + 精美禮品",
         color: "#000000",
@@ -403,6 +416,7 @@ const coupons = [
         color: "#003399",
         textColor: "#FFFFFF",
         icon: "⚽",
+        keywords: ["alpen"],
         link: "https://app.likejapan.com/zh-hk/coupon/alpen-coupon",
         tips: "運動用品專賣，包含 Sports Depot"
     },
@@ -427,6 +441,7 @@ const coupons = [
         color: "#006633",
         textColor: "#FFFFFF",
         icon: "🏬",
+        keywords: ["daimaru"],
         link: "https://app.likejapan.com/zh-hk/coupon/daimaru-departmentstore-5percent-off",
         tips: "適用於大丸與松坂屋百貨 (福岡天神有店)"
     },
