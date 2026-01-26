@@ -207,7 +207,6 @@ function renderShopping(shops) {
         // Coupon badge detection & matching
         let matchedCouponId = null;
         if (typeof coupons !== 'undefined') {
-            // Simple matching logic
             const sName = s.name.toLowerCase();
             const found = coupons.find(c =>
                 sName.includes(c.name.toLowerCase()) ||
@@ -253,21 +252,18 @@ function renderShopping(shops) {
 function renderSpecialties(specs) {
     if (!specs || specs.length === 0) return '<div class="no-data">暫無特產資訊</div>';
     return specs.map((s, i) => {
-        // Image Element (if exists)
         const imageHtml = s.image ? `
             <div class="specialty-image">
                 <img src="${s.image}" alt="${s.name}" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">
             </div>
         ` : '';
 
-        // Link Element (if exists)
         const linkHtml = s.link ? `
             <a href="${s.link}" target="_blank" class="blog-link">
                 🔗 閱讀詳細介紹
             </a>
         ` : '';
 
-        // IG Recommend badge (if exists)
         const igBadge = s.igRecommend ? `<span class="ig-badge">IG推薦</span>` : '';
 
         return `
@@ -332,7 +328,7 @@ function initLocalMap(d) {
     mealMarkers = { breakfast: [], lunch: [], dinner: [] };
     specialtyMarkers = [];
     shoppingMarkers = [];
-    supermarketMarkers = []; // New array
+    supermarketMarkers = [];
 
     localMap = L.map('local-map').setView(d.center, 13);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -425,18 +421,15 @@ function initLocalMap(d) {
         });
     }
 
-    // Initial update of markers visibility
     updateMapMarkers(allData.find(x => x.day === state.day));
 }
 
 function updateMapMarkers(d) {
-    // Hide all markers logic
     Object.values(mealMarkers).flat().forEach(m => m.remove());
     shoppingMarkers.forEach(m => m.remove());
     specialtyMarkers.forEach(m => m.remove());
     supermarketMarkers.forEach(m => m.remove());
 
-    // Show/Hide markers based on section
     if (currentSection === 'meals') {
         if (mealMarkers[currentMealType]) {
             mealMarkers[currentMealType].forEach(m => m.addTo(localMap));
@@ -479,7 +472,6 @@ function focusOnMeal(index, lat, lng) {
     document.querySelector(`.meal-item[data-index="${index}"]`)?.classList.add('focused');
     localMap.setView([lat, lng], 16, { animate: true });
 
-    // Open popup for the specific meal marker based on current type and index
     if (mealMarkers[currentMealType] && mealMarkers[currentMealType][index]) {
         mealMarkers[currentMealType][index].openPopup();
     }
@@ -495,18 +487,62 @@ function focusOnShopping(index, lat, lng) {
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// Coupon System Logic
-// Coupon System Logic
+// Floating Nav & Coupon System Logic
 document.addEventListener('DOMContentLoaded', () => {
+    const floatingNav = document.getElementById('floating-nav');
+    const jumpItineraryBtn = document.getElementById('jump-itinerary');
+    const jumpExploreBtn = document.getElementById('jump-explore');
     const couponBtn = document.getElementById('coupon-btn');
     const couponModal = document.getElementById('coupon-modal');
     const modalClose = document.querySelector('.modal-close');
     const couponList = document.getElementById('coupon-list');
+    const heroSection = document.querySelector('.hero-cover');
 
-    // Only proceed if elements exist
+    // 1. Floating Nav Visibility
+    if (floatingNav && heroSection) {
+        const toggleFloatingNav = () => {
+            const heroHeight = heroSection.offsetHeight;
+            const scrollY = window.scrollY;
+
+            if (scrollY > heroHeight * 0.8) {
+                floatingNav.classList.remove('hidden-on-hero');
+            } else {
+                floatingNav.classList.add('hidden-on-hero');
+            }
+        };
+        window.addEventListener('scroll', toggleFloatingNav, { passive: true });
+        toggleFloatingNav();
+    }
+
+    // 2. Jump Logic
+    if (jumpItineraryBtn) {
+        jumpItineraryBtn.addEventListener('click', () => {
+            const daysSection = document.querySelector('.days-section');
+            if (daysSection) {
+                daysSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+
+    if (jumpExploreBtn) {
+        jumpExploreBtn.addEventListener('click', () => {
+            const tabs = document.querySelector('.section-tabs');
+            if (tabs) {
+                const card = tabs.closest('.card');
+                if (card) {
+                    const yOffset = -20;
+                    const y = card.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                } else {
+                    tabs.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    }
+
+    // 3. Coupon Modal Logic
     if (!couponBtn || !couponModal || !couponList) return;
 
-    // Render Coupons
     function renderCoupons() {
         if (typeof coupons === 'undefined') return;
 
@@ -526,7 +562,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // Expose open function globally
     window.openCouponModal = function (targetId) {
         if (couponList.children.length === 0) {
             renderCoupons();
@@ -550,7 +585,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Event Listeners
     couponBtn.addEventListener('click', () => {
         window.openCouponModal();
     });
@@ -559,7 +593,6 @@ document.addEventListener('DOMContentLoaded', () => {
         couponModal.style.display = 'none';
     });
 
-    // Close on click outside
     window.addEventListener('click', (event) => {
         if (event.target === couponModal) {
             couponModal.style.display = 'none';

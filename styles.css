@@ -2307,26 +2307,45 @@ body {
 
 
 /* Coupon Floating Button */
-.coupon-float-btn {
+/* Floating Navigation */
+.floating-nav {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 900;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.floating-nav.hidden-on-hero {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.float-btn {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
+    gap: 10px;
+    padding: 12px 20px;
     background: var(--sumi-black);
     color: var(--kinpaku);
     border: 1px solid var(--kinpaku);
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    min-width: 120px;
+    justify-content: center;
 }
 
-.coupon-float-btn::before {
+.float-btn::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -2336,22 +2355,21 @@ body {
     z-index: -1;
 }
 
-.coupon-float-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(184, 160, 96, 0.4);
+.float-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 160, 96, 0.3);
     color: var(--sumi-black);
 }
 
-.coupon-float-btn:hover::before {
+.float-btn:hover::before {
     opacity: 1;
 }
 
-.coupon-float-btn .icon {
+.float-btn .icon {
     font-size: 1.2rem;
 }
 
-.coupon-float-btn .text {
-    font-size: 0.95rem;
+.float-btn .text {
     font-weight: 500;
     letter-spacing: 2px;
 }
