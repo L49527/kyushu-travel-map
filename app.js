@@ -269,12 +269,6 @@ function renderShopping(shops) {
 function renderSpecialties(specs) {
     if (!specs || specs.length === 0) return '<div class="no-data">暫無特產資訊</div>';
     return specs.map((s, i) => {
-        const imageHtml = s.image ? `
-            <div class="specialty-image">
-                <img src="${s.image}" alt="${s.name}" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">
-            </div>
-        ` : '';
-
         const linkHtml = s.link ? `
             <a href="${s.link}" target="_blank" class="blog-link">
                 🔗 閱讀詳細介紹
@@ -285,7 +279,22 @@ function renderSpecialties(specs) {
 
         return `
         <div class="specialty-item" data-index="${i}" onclick="focusOnSpecialty(${i}, ${s.lat}, ${s.lng})">
-            ${imageHtml}
+            ${s.images && s.images.length > 0 ? `
+                <div class="specialty-images-container">
+                    <div class="specialty-images-scroll" onscroll="const dots = this.parentElement.querySelectorAll('.dot'); const idx = Math.round(this.scrollLeft / this.offsetWidth); dots.forEach((d, i) => d.classList.toggle('active', i === idx))">
+                        ${s.images.map(img => `<img src="${img}" alt="${s.name}" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">`).join('')}
+                    </div>
+                    ${s.images.length > 1 ? `
+                        <div class="image-dots">
+                            ${s.images.map((_, idx) => `<span class="dot ${idx === 0 ? 'active' : ''}"></span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            ` : s.image ? `
+                <div class="specialty-image">
+                    <img src="${s.image}" alt="${s.name}" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">
+                </div>
+            ` : ''}
             <div class="specialty-header">
                 <h4><span class="item-num gold">${i + 1}</span> ${s.name}</h4>
                 <div class="tag-group">

@@ -1,7 +1,7 @@
 # 九州初夏之旅：手帳風動態導覽地圖 | Kyushu Early Summer Journey: Digital Travel Journal
 
-一個融合「日本高級雜誌」美學與「互動地圖」功能的旅遊導覽網頁，專為 6 月九州梅雨季設計。
-A web-based travel guide blending "Japanese Luxury Magazine" aesthetics with interactive map functionality, specifically optimized for the June rainy season in Kyushu.
+一個融合「日本高級雜誌」美學與「互動地圖」功能的旅遊導覽網頁，專為 6 月九州梅雨季與深入探索在地美食設計。
+A web-based travel guide blending "Japanese Luxury Magazine" aesthetics with interactive map functionality, specifically optimized for June's rainy season and deep culinary exploration in Kyushu.
 
 ---
 
@@ -14,6 +14,14 @@ A web-based travel guide blending "Japanese Luxury Magazine" aesthetics with int
   A curated palette featuring "Kinpaku" gold, "Sumi-black" ink, and "Stone" textures.
 - **人文襯線體 (Serif Typography)**：使用 `Noto Serif JP` 呈現優雅的手帳感。
   Elegant use of `Noto Serif JP` for a journal-like reading experience.
+
+### 🍣 全方位美食與特產導覽 (Comprehensive Culinary Guide)
+- **深度描述 (Enriched Descriptions)**：全行程（Day 1-7）美食介紹全面豐富化，包含店鋪歷史、必點推薦與口感細節。
+  Significantly enriched descriptions for all meals across 7 days, including shop history, "must-order" items, and tasting notes.
+- **IG 風格熱點 (Instagram Highlights)**：整合 `igRecommend` 標記，一眼識別在地人氣最高的必訪熱點。
+  Integrated Instagram-style highlighting to instantly identify the most popular local spots.
+- **視覺化呈現 (Visual Gallery)**：收錄多樣化的美食與特產影像，讓您的旅程在出發前就視覺化。
+  A rich collection of meal and specialty images to visualize the journey beforehand.
 
 ### ☂️ 梅雨季專屬建議 (Rainy Season Intelligence)
 - **整合天氣資訊 (Integrated Weather)**：同步顯示日期、地區、氣溫及降雨機率。
