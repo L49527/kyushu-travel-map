@@ -1,13 +1,13 @@
 const state = { day: 1, mode: 'drive' };
 
 const weather = [
-    { date: '06/11', dow: '四', icon: '🌤️', high: 27, low: 21, rain: 20 },
-    { date: '06/12', dow: '五', icon: '⛅', high: 28, low: 22, rain: 30 },
-    { date: '06/13', dow: '六', icon: '🌧️', high: 26, low: 21, rain: 60 },
-    { date: '06/14', dow: '日', icon: '🌦️', high: 25, low: 20, rain: 50 },
-    { date: '06/15', dow: '一', icon: '⛅', high: 26, low: 20, rain: 35 },
-    { date: '06/16', dow: '二', icon: '🌤️', high: 28, low: 22, rain: 25 },
-    { date: '06/17', dow: '三', icon: '☀️', high: 29, low: 23, rain: 15 }
+    { date: '06/11', dow: '四', icon: '🌦️', high: 26, low: 21, rain: 40, gear: '建議攜帶折傘', clothing: '短袖+薄休閒褲' },
+    { date: '06/12', dow: '五', icon: '🌧️', high: 25, low: 22, rain: 70, gear: '務必帶大傘/雨衣', clothing: '透氣排汗衣物' },
+    { date: '06/13', dow: '六', icon: '☁️', high: 27, low: 21, rain: 30, gear: '備用折傘', clothing: '短袖+短褲' },
+    { date: '06/14', dow: '日', icon: '🌧️', high: 24, low: 20, rain: 60, gear: '務必帶大傘', clothing: '防潑水外套+薄長褲' },
+    { date: '06/15', dow: '一', icon: '🌫️', high: 23, low: 18, rain: 50, gear: '建議帶折傘', clothing: '短袖+薄外套(阿蘇較涼)' },
+    { date: '06/16', dow: '二', icon: '⛅', high: 28, low: 22, rain: 20, gear: '遮陽傘/防曬', clothing: '短袖涼感衣' },
+    { date: '06/17', dow: '三', icon: '☀️', high: 29, low: 23, rain: 10, gear: '防曬/墨鏡', clothing: '夏日輕便服裝' }
 ];
 
 const data = [
@@ -33,14 +33,16 @@ const data = [
                 { name: "機上餐點", hours: "航程中", desc: "前往福岡的飛機上享用早餐", tag: "旅途", lat: 0, lng: 0, mapUrl: "" }
             ],
             lunch: [
-                { name: "博多一雙 拉麵", hours: "11:00-00:00", desc: "「拉麵界的卡布奇諾」，濃醇豚骨湯", tag: "拉麵", lat: 33.5905, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一雙" },
-                { name: "吉塚鰻魚屋", hours: "10:30-21:00", desc: "百年鰻魚老店，口感酥脆不油膩", tag: "鰻魚", lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
-                { name: "稚加榮 (料亭午餐)", hours: "11:30-14:00", desc: "壯觀魚池環繞，超值料亭午餐", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
+                { name: "博多一雙 拉麵", hours: "11:00-00:00", desc: "「拉麵界的卡布奇諾」，濃醇豚骨湯", tag: "拉麵", igRecommend: true, lat: 33.5905, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多一雙" },
+                { name: "吉塚鰻魚屋", hours: "10:30-21:00", desc: "百年鰻魚老店，口感酥脆不油膩", tag: "鰻魚", igRecommend: true, lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
+                { name: "稚加榮 (料亭午餐)", hours: "11:30-14:00", desc: "壯觀魚池環繞，超值料亭午餐", tag: "料亭", igRecommend: true, lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
                 { name: "天麩羅 Hirao", hours: "10:30-21:00", desc: "福岡在地首選，醃漬魷魚吃到飽", tag: "天婦羅", lat: 33.5839, lng: 130.4566, mapUrl: "https://www.google.com/maps/search/?api=1&query=天麩羅ひらお" },
                 { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物，焦脆底部的爆漿餃子", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" },
                 { name: "Sushi Sakaba Sashisu (KITTE)", hours: "11:00-23:00", desc: "鮪魚中腹超鮮甜，在地人愛店", tag: "壽司", igRecommend: true, lat: 33.5892, lng: 130.4215, mapUrl: "https://www.google.com/maps/search/?api=1&query=すし酒場+さしす+KITTE博多" },
                 { name: "Hakata seafood Uoden", hours: "11:00-22:00", desc: "明太子飯必吃，運河城旁新店", tag: "海鮮", igRecommend: true, lat: 33.5897, lng: 130.4108, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多魚介+うおでん" },
-                { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "開心果口味超讚！現買現吃", tag: "甜點", igRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" }
+                { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "開心果口味超讚！現買現吃", tag: "甜點", igRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" },
+                { name: "元祖博多めんたい重", hours: "07:00-22:30", desc: "明太子飯專賣店，獨家醬汁拌飯極鮮", tag: "海鮮", igRecommend: true, lat: 33.5905, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=元祖博多めんたい重" },
+                { name: "極味や 博多店", hours: "11:00-22:00", desc: "炭火直燒漢堡排，自己加熱調整熟度", tag: "燒肉", igRecommend: true, lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=極味や+博多店" }
             ],
             dinner: [
                 { name: "大山牛腸鍋 (Oyama)", hours: "11:00-23:00", desc: "博多必吃牛腸鍋，味噌口味最推", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋おおやま" },
@@ -110,7 +112,8 @@ const data = [
                 { name: "LaLaport 美食街", hours: "11:00-21:00", desc: "集合福岡多家名店的超大美食廣場", tag: "美食街", lat: 33.5665, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" },
                 { name: "伊都Kingu (草莓)", hours: "10:00-20:00", desc: "福岡產草莓製作的特色點心", tag: "甜點", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ+天神店" },
                 { name: "天神博多華味鳥", hours: "11:30-14:30", desc: "中午也有划算的水炊雞肉套餐", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=華味鳥+天神店" },
-                { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "屋台起家，天神排隊名店拉麵", tag: "拉麵", lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
+                { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "屋台起家，天神排隊名店拉麵", tag: "拉麵", igRecommend: true, lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
+                { name: "麺屋兼虎", hours: "10:30-23:00", desc: "超濃厚魚介沾麵，福岡排行第一推薦", tag: "拉麵", igRecommend: true, lat: 33.5890, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=麺屋兼虎+天神本店" },
                 { name: "一蘭天神店 (方型碗)", hours: "10:00-23:00", desc: "只有特定分店才有的方型陶瓷碗", tag: "拉麵", lat: 33.5905, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" },
                 { name: "明太子 やまや総本店 (白金小径)", hours: "11:00-15:00", desc: "必點：明太子陶鍋飯套餐", tag: "博多料理", igRecommend: true, lat: 33.5825, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=やまや総本店+白金小径" }
             ],

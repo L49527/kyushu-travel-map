@@ -812,30 +812,49 @@ body {
     letter-spacing: 2px;
 }
 
-.day-meta {
+/* Day Info Strip - 統一資訊條 */
+.day-info-strip {
     display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
+    gap: 0;
     padding-left: 20px;
+    border-top: 1px solid rgba(184, 160, 96, 0.15);
+    margin-top: 15px;
+    padding-top: 18px;
+    flex-wrap: wrap;
 }
 
-.day-meta span {
+.info-cell {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: var(--stone);
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 20px;
+    border-right: 1px solid rgba(184, 160, 96, 0.15);
+    flex: 1;
+    min-width: 120px;
 }
 
-.day-meta a {
-    color: var(--kinpaku);
-    text-decoration: none;
+.info-cell:first-child {
+    padding-left: 0;
+}
+
+.info-cell:last-child {
+    border-right: none;
+}
+
+.info-label {
+    font-size: 0.72rem;
+    color: #9a8a55;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    color: #1a1a1a;
     font-weight: 600;
-    transition: color 0.3s;
-}
-
-.day-meta a:hover {
-    color: var(--sumi-black);
+    line-height: 1.5;
 }
 
 /* Transport Box - 交通提示框 */
@@ -1951,9 +1970,16 @@ body {
         font-size: 1.3rem;
     }
 
-    .day-meta {
-        flex-direction: column;
-        gap: 5px;
+    .day-info-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 0;
+        padding-left: 15px;
+    }
+
+    .info-cell {
+        padding: 0 12px;
+        min-width: unset;
     }
 
     /* Hotel Showcase */
@@ -2331,12 +2357,14 @@ body {
     align-items: center;
     gap: 10px;
     padding: 12px 20px;
-    background: var(--sumi-black);
-    color: var(--kinpaku);
-    border: 1px solid var(--kinpaku);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--sumi-black);
+    border: 1px solid rgba(184, 160, 96, 0.3);
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     overflow: hidden;
     position: relative;
@@ -2349,7 +2377,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--kinpaku), white);
+    background: linear-gradient(135deg, rgba(184, 160, 96, 0.15), rgba(255, 255, 255, 0.9));
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
@@ -2357,8 +2385,8 @@ body {
 
 .float-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(184, 160, 96, 0.3);
-    color: var(--sumi-black);
+    box-shadow: 0 8px 25px rgba(184, 160, 96, 0.2);
+    border-color: var(--kinpaku);
 }
 
 .float-btn:hover::before {
@@ -2370,8 +2398,9 @@ body {
 }
 
 .float-btn .text {
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 2px;
+    color: var(--sumi-black);
 }
 
 /* Coupon Modal */
@@ -2575,4 +2604,800 @@ body {
     letter-spacing: 0.5px;
     white-space: nowrap;
     box-shadow: 0 2px 5px rgba(255, 75, 43, 0.3);
+}
+
+/* Side Drawer - Windy Weather Viewer */
+.side-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 450px;
+    height: 100vh;
+    background: var(--washi-white);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--tatami);
+}
+
+.side-drawer.active {
+    right: 0;
+}
+
+.drawer-header {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--tatami);
+    background: white;
+}
+
+.drawer-header h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--sumi-black);
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--stone);
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.drawer-close:hover {
+    color: var(--vermillion);
+}
+
+.drawer-body {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: #f0f0f0;
+}
+
+#windy-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .side-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+
+/* Loading State for Weather Drawer */
+.drawer-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--washi-white);
+    color: var(--stone);
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#windy-iframe {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+
+/* Magazine Weather Tips - 雨具穿搭建議 Square Design Language */
+.magazine-weather-tips {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    padding-left: 20px;
+    flex-wrap: wrap;
+}
+
+.tip-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 15px;
+    border-left: 1px solid var(--kinpaku);
+}
+
+.tip-label {
+    font-size: 0.65rem;
+    color: var(--kinpaku);
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.tip-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    color: var(--sumi-black);
+    font-weight: 500;
+}
+
+/* Responsive: Magazine Weather Tips - Mobile */
+@media (max-width: 768px) {
+    .magazine-weather-tips {
+        flex-direction: column;
+        gap: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* Responsive: Day Navigation - Swipeable on Mobile */
+@media (max-width: 768px) {
+    .day-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 5px;
+    }
+
+    .day-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .day-nav-btn {
+        min-width: 70px;
+        flex-shrink: 0;
+    }
+}
+
+/* Footer - 精緻頁尾 */
+.footer {
+    background: var(--sumi-black);
+    padding: 50px 20px 35px;
+    text-align: center;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: var(--kinpaku);
+}
+
+.footer-inner {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.footer-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    color: var(--kinpaku);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.footer-summary {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 1.5px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.back-to-top {
+    background: transparent;
+    border: 1px solid rgba(184, 160, 96, 0.3);
+    color: rgba(184, 160, 96, 0.7);
+    padding: 8px 24px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    background: rgba(184, 160, 96, 0.1);
+    border-color: var(--kinpaku);
+    color: var(--kinpaku);
+}
+
+/* Day Advice - 雨具穿搭建議（與 Header 整合） */
+.day-advice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    margin-top: 15px;
+    background: rgba(184, 160, 96, 0.06);
+    border-top: 1px solid rgba(184, 160, 96, 0.15);
+    flex-wrap: wrap;
+}
+
+.advice-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--sumi-black);
+    font-weight: 500;
+}
+
+.advice-icon {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.advice-sep {
+    color: var(--tatami);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .day-advice {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .advice-sep {
+        display: none;
+    }
+}
+
+/* STYLE REFINEMENTS - 風格優化 (Section Titles, Essentials, Hero, Floating Nav) */
+
+/* 1. Section Titles - 裝飾性標題 */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    display: table;
+    /* Center alignment hack */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title span {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    color: var(--sumi-black);
+    letter-spacing: 0.2em;
+    position: relative;
+    z-index: 2;
+    display: block;
+    padding: 0 40px;
+}
+
+.section-title::before {
+    content: attr(data-en);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: rgba(184, 160, 96, 0.08);
+    font-family: 'Noto Serif JP', serif;
+    white-space: nowrap;
+    z-index: 1;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--kinpaku);
+    margin: 20px auto 0;
+}
+
+/* 2. Essentials Icons - 必備工具圖示優化 */
+.tool-card {
+    background: white;
+    border: 1px solid rgba(184, 160, 96, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(184, 160, 96, 0.15);
+    border-color: var(--kinpaku);
+}
+
+.tool-icon {
+    font-size: 1.8rem;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fffcf5, #fff);
+    border: 1px solid var(--kinpaku);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(184, 160, 96, 0.15);
+    color: var(--sumi-black);
+}
+
+/* 3. Hero Typography - 主視覺字體優化 */
+.hero-center .hero-title {
+    letter-spacing: 0.4em !important;
+    /* Force override */
+    text-transform: uppercase;
+    font-weight: 400 !important;
+}
+
+/* 4. Floating Navigation - 毛玻璃效果 */
+.floating-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(184, 160, 96, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.float-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.float-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.float-btn:hover::after {
+    border-color: var(--kinpaku);
+    box-shadow: 0 0 15px rgba(184, 160, 96, 0.3);
+}
+
+/* --- Aesthetic Refinements: Japanese Luxury Magazine --- */
+
+/* 1. Global Typography & Texture Overrides */
+body {
+    font-family: 'Noto Serif JP', 'Noto Sans JP', sans-serif !important;
+    line-height: 2 !important;
+    letter-spacing: 0.03em;
+}
+
+/* Washi Paper Texture Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    z-index: 9999;
+}
+
+/* 2. Hero Masthead Redesign */
+.hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.magazine-brand {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-indent: 1.2em;
+}
+
+.hero-title-group {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px 0;
+    margin-bottom: 25px;
+    width: clamp(300px, 80vw, 800px);
+}
+
+.hero-title {
+    font-family: 'Noto Serif JP', serif !important;
+    font-size: clamp(2rem, 6vw, 4rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 20px !important;
+    text-shadow: none !important;
+}
+
+.hero-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--kinpaku);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.hero-date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-year {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: white;
+}
+
+.hero-date-range {
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 3. Component Refinements */
+.float-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.float-btn:hover {
+    background: rgba(184, 160, 96, 0.2) !important;
+    border-color: var(--kinpaku) !important;
+}
+
+.tool-card {
+    background: white !important;
+    border: 1px solid rgba(184, 160, 96, 0.1) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(184, 160, 96, 0.1) !important;
+    border-color: rgba(184, 160, 96, 0.3) !important;
+}
+
+.card {
+    border: 1px solid rgba(184, 160, 96, 0.1) !important;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 4. Elegant Scroll Animations */
+@keyframes fadeInReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.day-panel,
+.map-section,
+.essentials-section {
+    animation: fadeInReveal 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* 5. Typography Polish: Section Titles */
+.section-title span {
+    font-family: 'Noto Serif JP', serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4em !important;
+    text-transform: uppercase;
+}
+
+.map-title {
+    font-family: 'Noto Serif JP', serif !important;
+    letter-spacing: 0.3em !important;
+}
+
+/* 6. Footer — no overrides needed */
+
+/* --- Magazine Aesthetic Refinement: Floating Nav & Advice --- */
+
+/* 1. Reset Floating Nav Box & Buttons */
+.floating-nav {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    gap: 10px !important;
+}
+
+.float-btn {
+    border-radius: 50px !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(184, 160, 96, 0.35) !important;
+    color: var(--sumi-black) !important;
+    padding: 12px 22px !important;
+    min-width: 130px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+    position: relative;
+    overflow: hidden !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.float-btn::after {
+    display: none !important;
+}
+
+.float-btn:hover {
+    transform: translateY(-3px) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: var(--kinpaku) !important;
+    box-shadow: 0 8px 25px rgba(184, 160, 96, 0.15) !important;
+}
+
+.float-btn .icon {
+    font-size: 1.1rem !important;
+    margin-right: 6px !important;
+}
+
+.float-btn .text {
+    font-family: 'Noto Serif JP', serif !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.15em !important;
+    color: var(--sumi-black) !important;
+}
+
+/* 2. Integrate Advice Bar even deeper */
+.day-advice {
+    background: transparent !important;
+    border-top: 1px dotted rgba(184, 160, 96, 0.3) !important;
+    padding: 10px 20px 0 !important;
+    margin-top: 20px !important;
+}
+
+.advice-item {
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
+
+
+/* Luxury Refinements - 高級感精緻化 */
+
+/* 1. Body Washi Texture */
+body {
+    background-image: url('images/washi.png');
+    background-attachment: fixed;
+}
+
+/* 2. Premium Typography Hierarchy */
+.day-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.day-header-number {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 8rem;
+    font-weight: 200;
+    line-height: 0.8;
+    color: rgba(184, 160, 96, 0.12);
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    letter-spacing: -5px;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 3. Premium Map Marker Style */
+.premium-marker-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+.premium-marker-dot {
+    width: 14px;
+    height: 14px;
+    background: var(--kinpaku);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.premium-marker-line {
+    width: 1px;
+    height: 25px;
+    background: linear-gradient(to bottom, var(--kinpaku), transparent);
+    z-index: 1;
+}
+
+.premium-marker-label {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sumi-black);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 8px;
+    border: 1px solid var(--kinpaku);
+    margin-top: 4px;
+    white-space: nowrap;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Timeline Redinement */
+.timeline-item h4 {
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 1px;
+}
+
+.timeline-num {
+    border: 1px solid var(--kinpaku) !important;
+    background: transparent !important;
+    color: var(--kinpaku) !important;
+    font-weight: 400 !important;
+}
+
+/* Transitions & Animations */
+.fade-in {
+    animation: fadeInSlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Day Navigation Refinement */
+.day-nav-btn.active {
+    border-bottom: 3px solid var(--kinpaku) !important;
+    background: rgba(184, 160, 96, 0.05) !important;
+}
+
+.nav-day {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+}
+
+/* Marker Hover Effect */
+.premium-marker-wrap:hover .premium-marker-label {
+    background: var(--kinpaku);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Local Map Markers - 奢華地圖標記系列 */
+.spot-marker,
+.meal-marker,
+.shopping-marker,
+.specialty-marker,
+.supermarket-marker,
+.hotel-marker {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.spot-marker:hover,
+.meal-marker:hover,
+.shopping-marker:hover,
+.specialty-marker:hover,
+.supermarket-marker:hover,
+.hotel-marker:hover {
+    transform: scale(1.25);
+    z-index: 1000 !important;
+}
+
+.spot-marker {
+    background: var(--kinpaku);
+}
+
+.meal-marker {
+    background: var(--vermillion);
+}
+
+.shopping-marker {
+    background: var(--indigo);
+}
+
+.specialty-marker {
+    background: var(--kinpaku);
+}
+
+.supermarket-marker {
+    background: var(--matcha);
+}
+
+.hotel-marker {
+    background: var(--sumi-black);
+    font-size: 14px;
+}
+
+/* Popup Refinement */
+.leaflet-popup-content-wrapper {
+    border-radius: 0;
+    background: var(--sakura);
+    border-left: 4px solid var(--kinpaku);
+}
+
+.popup-day {
+    font-family: 'Noto Serif JP', serif;
+    color: var(--kinpaku);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.popup-title {
+    font-weight: 700;
+    color: var(--sumi-black);
+    font-size: 0.95rem;
 }

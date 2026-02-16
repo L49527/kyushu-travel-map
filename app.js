@@ -83,12 +83,36 @@ function renderDayPanel(d) {
         <div class="day-panel active">
             <div class="day-header">
                 <h2>Day ${d.day}: ${d.title}</h2>
-                <div class="day-meta">
-                    <span>📅 ${d.date}</span>
-                    <span>📍 ${d.area}</span>
-                    <span class="weather-info">${w.icon} ${w.high}°/${w.low}° 💧${w.rain}%</span>
+                <div class="day-info-strip">
+                    <div class="info-cell">
+                        <span class="info-label">DATE</span>
+                        <span class="info-value">📅 ${d.date}</span>
+                    </div>
+                    <div class="info-cell">
+                        <span class="info-label">AREA</span>
+                        <span class="info-value">📍 ${d.area}</span>
+                    </div>
+                    <div class="info-cell">
+                        <span class="info-label">WEATHER</span>
+                        <span class="info-value">${w.icon} ${w.high}°/${w.low}° 💧${w.rain}%</span>
+                    </div>
+                    <div class="info-cell">
+                        <span class="info-label">☂️ GEAR</span>
+                        <span class="info-value">${w.gear}</span>
+                    </div>
+                    <div class="info-cell">
+                        <span class="info-label">👕 OUTFIT</span>
+                        <span class="info-value">${w.clothing}</span>
+                    </div>
                 </div>
             </div>
+            
+            ${d.transport ? `
+            <div class="transport-box">
+                <h4>${icon} ${label}</h4>
+                <p>${d.transport[state.mode]}</p>
+            </div>
+            ` : ''}
             
             ${d.hotelImage ? `
             <div class="hotel-showcase">
@@ -109,13 +133,6 @@ function renderDayPanel(d) {
                 <span>🏨</span>
                 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}" target="_blank">${d.hotel}</a>
                 ${d.hotelDesc ? `<p>${d.hotelDesc}</p>` : ''}
-            </div>
-            ` : ''}
-            
-            ${d.transport ? `
-            <div class="transport-box">
-                <h4>${icon} ${label}</h4>
-                <p>${d.transport[state.mode]}</p>
             </div>
             ` : ''}
             
