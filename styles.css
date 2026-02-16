@@ -2352,6 +2352,44 @@ body {
     transform: translateY(20px);
 }
 
+.main-trigger {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .floating-nav {
+        right: 20px;
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .main-trigger {
+        display: flex !important;
+        z-index: 1001;
+        background: var(--sumi-black) !important;
+        color: var(--kinpaku) !important;
+    }
+
+    .float-btn:not(.main-trigger) {
+        display: none !important;
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-nav.expanded .float-btn:not(.main-trigger) {
+        display: flex !important;
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    .floating-nav.expanded .main-trigger {
+        background: var(--kinpaku) !important;
+        color: var(--sumi-black) !important;
+        transform: rotate(90deg);
+    }
+}
+
 .float-btn {
     display: flex;
     align-items: center;

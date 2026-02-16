@@ -507,6 +507,7 @@ function focusOnShopping(index, lat, lng) {
 // Floating Nav & Coupon System Logic
 document.addEventListener('DOMContentLoaded', () => {
     const floatingNav = document.getElementById('floating-nav');
+    const fabTrigger = document.getElementById('fab-trigger');
     const jumpItineraryBtn = document.getElementById('jump-itinerary');
     const jumpExploreBtn = document.getElementById('jump-explore');
     const couponBtn = document.getElementById('coupon-btn');
@@ -615,4 +616,24 @@ document.addEventListener('DOMContentLoaded', () => {
             couponModal.style.display = 'none';
         }
     });
+
+    // --- Floating Navigation (FAB) Toggle Logic ---
+    if (fabTrigger && floatingNav) {
+        fabTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            floatingNav.classList.toggle('expanded');
+        });
+
+        // Close menu when clicking anywhere else
+        document.addEventListener('click', () => {
+            floatingNav.classList.remove('expanded');
+        });
+
+        // Close menu after clicking an option
+        floatingNav.querySelectorAll('.float-btn:not(.main-trigger)').forEach(btn => {
+            btn.addEventListener('click', () => {
+                floatingNav.classList.remove('expanded');
+            });
+        });
+    }
 });

@@ -26,6 +26,8 @@ A web-based travel guide blending "Japanese Luxury Magazine" aesthetics with int
   Auto-updating itinerary, transport tips, and map markers based on selected days.
 - **毛玻璃導航 (Glassmorphic Nav)**：優雅的半透明浮動按鈕，與背景美景融為一體。
   Glassmorphic floating navigation that blends seamlessly with hero imagery.
+- **智慧收納選單 (Collapsible Navigation)**：手機版自動收摺為單一入口，點擊展開，優化小螢幕觀看體驗。
+  Smart collapsible FAB menu on mobile optimizes screen space and visibility.
 - **離線支援 (PWA Ready)**：具備 Service Worker 快取，確保在景區網路不佳時仍可讀取核心行程。
   Service Worker caching ensures travel plans are accessible even with poor signal.
 
