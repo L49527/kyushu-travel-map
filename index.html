@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 九州七日深渡探險 | Kyushu Travel Map</title>
     <meta name="description" content="2026年6月九州七日自由行完整攻略：福岡、由布院、別府、阿蘇火山行程規劃，含美食推薦、特產購物、交通建議與互動式地圖">
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="2026 九州七日深渡探險 | Kyushu Travel Map">
-    <meta property="og:description" content="福岡・由布院・別府・阿蘇 — 七天六夜自駕行程完整攻略，含互動式地圖、美食推薦與特產購物指南">
-    <meta property="og:image" content="images/icon-512.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -36,6 +31,44 @@
             });
         }
     </script>
+    <!-- Floating Side Navigation 浮動側邊導覽 -->
+    <nav class="float-nav" id="float-nav">
+        <button class="float-nav-toggle" id="float-nav-toggle" aria-label="導覽選單">
+            <span class="float-nav-icon">☰</span>
+            <span class="float-nav-close">✕</span>
+        </button>
+        <div class="float-nav-menu">
+            <a href="#main-map" class="float-nav-item" data-section="map-section">
+                <span class="float-nav-emoji">🗾</span>
+                <span class="float-nav-label">地圖</span>
+            </a>
+            <a href="#day-content" class="float-nav-item" data-section="days-section">
+                <span class="float-nav-emoji">📅</span>
+                <span class="float-nav-label">行程</span>
+            </a>
+            <a href="#day-content" class="float-nav-item" data-section="days-section" data-tab="meals">
+                <span class="float-nav-emoji">🍽️</span>
+                <span class="float-nav-label">美食</span>
+            </a>
+            <a href="#day-content" class="float-nav-item" data-section="days-section" data-tab="specialties">
+                <span class="float-nav-emoji">🎁</span>
+                <span class="float-nav-label">特產</span>
+            </a>
+            <a href="#essentials" class="float-nav-item" data-section="essentials-section">
+                <span class="float-nav-emoji">🧰</span>
+                <span class="float-nav-label">工具</span>
+            </a>
+            <a href="#prep" class="float-nav-item" data-section="prep-section">
+                <span class="float-nav-emoji">✈️</span>
+                <span class="float-nav-label">準備</span>
+            </a>
+            <a href="#" class="float-nav-item float-nav-top">
+                <span class="float-nav-emoji">⬆</span>
+                <span class="float-nav-label">頂部</span>
+            </a>
+        </div>
+    </nav>
+
     <header class="header">
         <div class="hero-cover hero-grid">
             <!-- 4-Panel Grid Cover - 四個九州代表景點 -->
@@ -95,11 +128,15 @@
             <button class="mode-btn active" data-mode="drive">🚗 自駕租車</button>
             <button class="mode-btn" data-mode="public">🚌 公共交通</button>
         </div>
+        <div class="plan-toggle" id="plan-toggle" style="display: none;">
+            <button class="plan-btn active" data-plan="A">深度方案 A：阿蘇火山</button>
+            <button class="plan-btn" data-plan="B">悠閒方案 B：別府慢遊</button>
+        </div>
         <div class="day-nav" id="day-nav"></div>
         <div id="day-content"></div>
     </section>
 
-    <section class="essentials-section">
+    <section class="essentials-section" id="essentials">
         <h2 class="section-title"><span>旅行必備工具</span></h2>
         <div class="essentials-grid">
             <!-- GPT Translator -->
@@ -139,53 +176,57 @@
         </div>
     </section>
 
+    <section class="prep-section" id="prep">
+        <h2 class="section-title"><span>行前準備清單</span></h2>
+        <div class="prep-countdown" id="prep-countdown"></div>
+        <div class="prep-grid">
+            <div class="prep-card" onclick="openPrepModal('insurance')">
+                <div class="prep-card-icon">🛡️</div>
+                <div class="prep-card-body">
+                    <h3>保險準備</h3>
+                    <p>Travel Insurance</p>
+                </div>
+                <span class="prep-card-arrow">→</span>
+            </div>
+            <div class="prep-card" onclick="openPrepModal('immigration')">
+                <div class="prep-card-icon">🛂</div>
+                <div class="prep-card-body">
+                    <h3>入境審查</h3>
+                    <p>Immigration & Customs</p>
+                </div>
+                <span class="prep-card-arrow">→</span>
+            </div>
+        </div>
+        <div class="prep-timeline-preview">
+            <h3 class="prep-timeline-title">⏰ 建議準備時程 Suggested Timeline</h3>
+            <div class="prep-timeline-items">
+                <div class="prep-timeline-item">
+                    <span class="prep-timeline-date">5/14 — 5/21</span>
+                    <span class="prep-timeline-text">確認護照效期 Check passport validity</span>
+                </div>
+                <div class="prep-timeline-item">
+                    <span class="prep-timeline-date">5/21 — 5/28</span>
+                    <span class="prep-timeline-text">完成 Visit Japan Web 登錄</span>
+                </div>
+                <div class="prep-timeline-item">
+                    <span class="prep-timeline-date">5/28 — 6/4</span>
+                    <span class="prep-timeline-text">投保旅遊平安險 + 不便險</span>
+                </div>
+                <div class="prep-timeline-item">
+                    <span class="prep-timeline-date">6/4 — 6/10</span>
+                    <span class="prep-timeline-text">列印機票、飯店訂房確認單</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
-        <div class="footer-inner">
-            <p class="footer-main">✦ Have a wonderful trip to Kyushu ✦</p>
-            <p class="footer-summary">福岡 → 太宰府 → 由布院 → 別府 → 阿蘇 → 福岡<br>7天6夜 ・ 06.11 — 06.17</p>
-            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 回到頂部</button>
-        </div>
+        <p>✦ Have a wonderful trip to Kyushu ✦</p>
     </footer>
-
-    <!-- Coupon Button & Modal -->
-    <!-- Floating Navigation (Hidden on Hero) -->
-    <div class="floating-nav hidden-on-hero" id="floating-nav">
-        <!-- Mobile Trigger Button -->
-        <button id="fab-trigger" class="float-btn main-trigger" title="選單">
-            <span class="icon">🏮</span>
-            <span class="text">選單</span>
-        </button>
-
-        <button id="jump-itinerary" class="float-btn" title="當日行程">
-            <span class="icon">🗺️</span>
-            <span class="text">行程</span>
-        </button>
-        <button id="jump-explore" class="float-btn" title="周邊探索">
-            <span class="icon">🔭</span>
-            <span class="text">探索</span>
-        </button>
-        <button id="coupon-btn" class="float-btn" title="優惠券">
-            <span class="icon">🎟️</span>
-            <span class="text">優惠券</span>
-        </button>
-    </div>
-
-    <div id="coupon-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <h2>Travel Coupons</h2>
-                <p>九州購物精選優惠</p>
-            </div>
-            <div id="coupon-list" class="coupon-grid">
-                <!-- Coupons will be injected here -->
-            </div>
-        </div>
-    </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="data.js"></script>
-
+    <script src="data-extended.js"></script>
     <script src="app.js"></script>
 </body>
 
