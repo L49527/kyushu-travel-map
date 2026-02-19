@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026 九州七日深渡探險 | Kyushu Travel Map</title>
     <meta name="description" content="2026年6月九州七日自由行完整攻略：福岡、由布院、別府、阿蘇火山行程規劃，含美食推薦、特產購物、交通建議與互動式地圖">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="2026 九州七日深渡探險 | Kyushu Travel Map">
+    <meta property="og:description" content="福岡・由布院・別府・阿蘇 — 七天六夜自駕行程完整攻略，含互動式地圖、美食推薦與特產購物指南">
+    <meta property="og:image" content="images/icon-512.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -90,10 +95,6 @@
             <button class="mode-btn active" data-mode="drive">🚗 自駕租車</button>
             <button class="mode-btn" data-mode="public">🚌 公共交通</button>
         </div>
-        <div class="plan-toggle" id="plan-toggle" style="display: none;">
-            <button class="plan-btn active" data-plan="A">深度方案 A：阿蘇火山</button>
-            <button class="plan-btn" data-plan="B">悠閒方案 B：別府慢遊</button>
-        </div>
         <div class="day-nav" id="day-nav"></div>
         <div id="day-content"></div>
     </section>
@@ -139,12 +140,52 @@
     </section>
 
     <footer class="footer">
-        <p>✦ Have a wonderful trip to Kyushu ✦</p>
+        <div class="footer-inner">
+            <p class="footer-main">✦ Have a wonderful trip to Kyushu ✦</p>
+            <p class="footer-summary">福岡 → 太宰府 → 由布院 → 別府 → 阿蘇 → 福岡<br>7天6夜 ・ 06.11 — 06.17</p>
+            <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 回到頂部</button>
+        </div>
     </footer>
+
+    <!-- Coupon Button & Modal -->
+    <!-- Floating Navigation (Hidden on Hero) -->
+    <div class="floating-nav hidden-on-hero" id="floating-nav">
+        <!-- Mobile Trigger Button -->
+        <button id="fab-trigger" class="float-btn main-trigger" title="選單">
+            <span class="icon">🏮</span>
+            <span class="text">選單</span>
+        </button>
+
+        <button id="jump-itinerary" class="float-btn" title="當日行程">
+            <span class="icon">🗺️</span>
+            <span class="text">行程</span>
+        </button>
+        <button id="jump-explore" class="float-btn" title="周邊探索">
+            <span class="icon">🔭</span>
+            <span class="text">探索</span>
+        </button>
+        <button id="coupon-btn" class="float-btn" title="優惠券">
+            <span class="icon">🎟️</span>
+            <span class="text">優惠券</span>
+        </button>
+    </div>
+
+    <div id="coupon-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2>Travel Coupons</h2>
+                <p>九州購物精選優惠</p>
+            </div>
+            <div id="coupon-list" class="coupon-grid">
+                <!-- Coupons will be injected here -->
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="data.js"></script>
-    <script src="data-extended.js"></script>
+
     <script src="app.js"></script>
 </body>
 
