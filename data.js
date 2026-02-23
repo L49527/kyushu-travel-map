@@ -48,6 +48,7 @@ const data = [
             ]
         },
         shopping: [
+            { name: "Alpen Fukuoka", hours: "10:00-21:00", desc: "九州最大級體育用品店，位於運河城北棟 1F-3F，運動鞋、露營用品齊全", tag: "運動", lat: 33.5905, lng: 130.4105 },
             { name: "博多運河城", hours: "10:00-21:00", desc: "大型購物中心，Disney Store 與 Sanrio Gallery 旗艦店", tag: "商場", lat: 33.5897, lng: 130.4108 },
             { name: "PORTER STAND 福岡", hours: "10:00-21:00", desc: "博多 AMU PLAZA 內，吉田包車站概念店，品項齊全", tag: "精品", lat: 33.5897, lng: 130.4207 },
             { name: "博多阪急 (Sanrio/SABON)", hours: "10:00-20:00", desc: "8F 設有精品包款與 PORTER 專櫃，退稅便利", tag: "百貨", lat: 33.5898, lng: 130.4210 },
@@ -112,6 +113,7 @@ const data = [
             ]
         },
         shopping: [
+            { name: "Uniqlo 天神店", hours: "11:00-20:00", desc: "九州大型旗艦店，品項最齊全，免稅服務便利", tag: "服飾", lat: 33.5895, lng: 130.3985 },
             { name: "Aesop 天神旗艦店", hours: "11:00-20:00", desc: "大名區獨立店，裝潢極美，適合深度體驗", tag: "香氛", lat: 33.5885, lng: 130.3955 },
             { name: "Le Labo 福岡大名", hours: "11:00-20:00", desc: "九州唯一直營店，提供手工標籤定制服務", tag: "香氛", lat: 33.5875, lng: 130.3945 },
             { name: "KURA CHIKA PORTER", hours: "10:00-20:00", desc: "SOLARIA PLAZA 3F，吉田包直營旗艦概念店", tag: "精品", lat: 33.5892, lng: 130.3985 },

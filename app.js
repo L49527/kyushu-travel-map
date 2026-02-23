@@ -583,6 +583,10 @@ function openShoppingGuide() {
                 <h4>LOFT 天神店</h4>
                 <p>包包區有大量 PORTER 基本款與經典尼龍包款，適合順路補貨。</p>
             </div>
+            <div class="guide-item" style="background:rgba(184,160,96,0.05);border-left:3px solid #f3245d">
+                <h4>🔴 Uniqlo & GU (天神旗艦店)</h4>
+                <p><strong>九州最大規格旗艦店</strong>。Uniqlo 與 GU 並設，品項最齊全，還有福岡限定的聯名設計款，免稅服務非常快速。</p>
+            </div>
         </div>
 
         <div class="guide-section">
@@ -603,9 +607,13 @@ function openShoppingGuide() {
                 <h4>川久保玲 (CDG)</h4>
                 <p>JR 博多站旁獨立店面，潮流玩家聖地。</p>
             </div>
+            <div class="guide-item" style="background:rgba(0,103,177,0.05);border-left:3px solid #0067b1">
+                <h4>🟦 Alpen Fukuoka (博多運河城)</h4>
+                <p><strong>九州最大級體育用品旗艦店</strong>（北棟 1F-3F）。包含 Alpen Outdoors、Golf 5 及相關運動品牌，是戶外愛好者必逛聖地。</p>
+            </div>
             <div class="guide-item" style="background:rgba(184,160,96,0.08);border-left:3px solid #C9A962">
-                <h4>🏰 特別推薦：博多運河城 (Canal City)</h4>
-                <p>想一次找齊 <strong>Disney Store</strong> 與 <strong>Sanrio Gallery</strong>？運河城店面很大且有噴水秀，非常適合家庭遊客。</p>
+                <h4>🏰 博多運河城 (Canal City)</h4>
+                <p>包含 <strong>Disney Store</strong> 與 <strong>Sanrio Gallery</strong>，整點有噴水秀演出，適合家庭漫步購物。</p>
             </div>
         </div>
 
