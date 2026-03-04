@@ -33,40 +33,23 @@
     </script>
     <!-- Floating Side Navigation 浮動側邊導覽 -->
     <nav class="float-nav" id="float-nav">
-        <button class="float-nav-toggle" id="float-nav-toggle" aria-label="導覽選單">
-            <span class="float-nav-icon">☰</span>
-            <span class="float-nav-close">✕</span>
-        </button>
-        <div class="float-nav-menu">
-            <a href="#main-map" class="float-nav-item" data-section="map-section">
-                <span class="float-nav-emoji">🗾</span>
-                <span class="float-nav-label">地圖</span>
-            </a>
-            <a href="#day-content" class="float-nav-item" data-section="days-section">
-                <span class="float-nav-emoji">📅</span>
+        <div class="float-nav-items">
+            <a href="#day-content" class="float-nav-pill" data-section="days-section">
+                <span class="float-nav-emoji">🗺️</span>
                 <span class="float-nav-label">行程</span>
             </a>
-            <a href="#day-content" class="float-nav-item" data-section="days-section" data-tab="meals">
-                <span class="float-nav-emoji">🍽️</span>
-                <span class="float-nav-label">美食</span>
+            <a href="#day-content" class="float-nav-pill" id="explore-nav-btn" data-section="days-section">
+                <span class="float-nav-emoji">🔭</span>
+                <span class="float-nav-label">探索</span>
             </a>
-            <a href="#day-content" class="float-nav-item" data-section="days-section" data-tab="specialties">
-                <span class="float-nav-emoji">🎁</span>
-                <span class="float-nav-label">特產</span>
-            </a>
-            <a href="#essentials" class="float-nav-item" data-section="essentials-section">
-                <span class="float-nav-emoji">🧰</span>
-                <span class="float-nav-label">工具</span>
-            </a>
-            <a href="#prep" class="float-nav-item" data-section="prep-section">
-                <span class="float-nav-emoji">✈️</span>
-                <span class="float-nav-label">準備</span>
-            </a>
-            <a href="#" class="float-nav-item float-nav-top">
-                <span class="float-nav-emoji">⬆</span>
-                <span class="float-nav-label">頂部</span>
+            <a href="#" class="float-nav-pill" id="coupon-nav-btn">
+                <span class="float-nav-emoji">🎫</span>
+                <span class="float-nav-label">優惠券</span>
             </a>
         </div>
+        <button class="float-nav-toggle" id="float-nav-toggle" title="收合導覽">
+            ＋
+        </button>
     </nav>
 
     <header class="header">
@@ -219,6 +202,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Coupon Modal 優惠券彈窗 -->
+    <div id="coupon-modal">
+        <div class="modal-content">
+            <span class="modal-close">✕</span>
+            <div class="modal-header">
+                <h2>精選優惠券</h2>
+                <p>Exclusive Coupons for Your Trip</p>
+            </div>
+            <div id="coupon-list" class="coupon-grid">
+                <!-- Coupons will be rendered here by JS -->
+            </div>
+        </div>
+    </div>
+
+
+
 
     <footer class="footer">
         <p>✦ Have a wonderful trip to Kyushu ✦</p>

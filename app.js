@@ -267,19 +267,46 @@ function renderMeals(meals) {
 
 function renderShopping(shops) {
     if (!shops) return '<p>暫無購物資訊</p>';
-    return shops.map((s, i) => `
-        <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
-            <div class="shopping-header">
-                <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
-                    <span class="item-num purple">${i + 1}</span> ${s.name}
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
-                <span class="tag purple">${s.tag}</span>
+    return shops.map((s, i) => {
+        // Coupon matching logic
+        let matchedCouponId = null;
+        if (typeof coupons !== 'undefined') {
+            const sName = s.name.toLowerCase();
+            const found = coupons.find(c =>
+                sName.includes(c.name.toLowerCase()) ||
+                (c.nameEn && sName.includes(c.nameEn.toLowerCase())) ||
+                (c.keywords && c.keywords.some(k => sName.includes(k.toLowerCase())))
+            );
+            if (found) matchedCouponId = found.id;
+        }
+
+        const hasCouponDesc = (s.desc || '').indexOf('優惠') > -1;
+        let couponBadge = '';
+
+        if (hasCouponDesc || matchedCouponId) {
+            const clickAttr = matchedCouponId ? `onclick="event.stopPropagation(); window.openCouponModal('${matchedCouponId}')"` : '';
+            const cursorStyle = matchedCouponId ? 'cursor:pointer;' : '';
+            const titleAttr = matchedCouponId ? 'title="點擊查看優惠券 / Click to view coupon"' : '';
+            couponBadge = `<span class="coupon-badge" ${clickAttr} ${titleAttr} style="background:#E60012;color:white;padding:2px 8px;border-radius:4px;font-size:0.75rem;margin-left:8px;display:inline-block;font-weight:600;${cursorStyle}">優惠券</span>`;
+        }
+
+        return `
+            <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
+                <div class="shopping-header">
+                    <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
+                        <span class="item-num purple">${i + 1}</span> ${s.name}
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                    <div class="tag-group">
+                        ${couponBadge}
+                        <span class="tag purple">${s.tag}</span>
+                    </div>
+                </div>
+                <div class="hours">🕒 ${s.hours}</div>
+                <div class="desc">${s.desc}</div>
             </div>
-            <div class="hours">🕒 ${s.hours}</div>
-            <div class="desc">${s.desc}</div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function renderSpecialties(specs) {
@@ -857,48 +884,94 @@ function closePrepModal() {
 (function initFloatNav() {
     const nav = document.getElementById('float-nav');
     const toggle = document.getElementById('float-nav-toggle');
-    if (!nav || !toggle) return;
+    if (!nav) return;
 
     // Toggle menu open/close 切換選單
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+    }
 
     // Smooth scroll & close menu on click 點擊後平滑捲動
-    nav.querySelectorAll('.float-nav-item').forEach(item => {
+    nav.querySelectorAll('.float-nav-pill').forEach(item => {
         item.addEventListener('click', (e) => {
-            e.preventDefault();
-            nav.classList.remove('open');
             const href = item.getAttribute('href');
-            const tab = item.dataset.tab;
+
+            // Skip if it's the coupon button (handled separately)
+            if (item.id === 'coupon-nav-btn') {
+                e.preventDefault();
+                window.openCouponModal();
+                return;
+            }
+
+            // Explore button -> jump to meals
+            if (item.id === 'explore-nav-btn') {
+                e.preventDefault();
+                const target = document.querySelector('.section-tabs');
+                if (target) {
+                    const headerOffset = 100; // Offset for breathing room
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                setTimeout(() => {
+                    const tabs = Array.from(document.querySelectorAll('.section-tab'));
+                    const mealsTab = tabs.find(btn =>
+                        btn.textContent.includes('美食') ||
+                        btn.getAttribute('onclick')?.includes('meals')
+                    );
+
+                    if (mealsTab) {
+                        mealsTab.click();
+                    } else {
+                        // Direct call since switchSection is in scope in app.js
+                        const firstTab = document.querySelector('.section-tab');
+                        if (firstTab && typeof switchSection === 'function') {
+                            switchSection(firstTab, 'meals');
+                        }
+                    }
+                }, 400); // 400ms for smooth scroll/rendering
+
+                // Mobile behavior: close menu on click
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('open');
+                }
+                return;
+            }
+
             if (href === '#') {
+                e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
+                if (window.innerWidth <= 768) nav.classList.remove('open');
+            } else if (href) {
+                e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-                // Switch to specific tab after scrolling 切換標籤頁
-                if (tab) {
-                    setTimeout(() => {
-                        const tabBtn = document.querySelector(`.section-tab[onclick*="'${tab}'"]`);
-                        if (tabBtn) tabBtn.click();
-                    }, 400);
-                }
+                if (window.innerWidth <= 768) nav.classList.remove('open');
             }
         });
     });
 
-    // Show nav after scrolling past hero 離開首頁才顯示
+    const header = document.querySelector('.header');
+    const couponBtn = document.getElementById('coupon-btn');
+
+    // Show nav & coupon btn after scrolling past hero 離開首頁才顯示
     const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
             nav.classList.remove('visible');
+            if (couponBtn) couponBtn.classList.remove('visible');
         } else {
             nav.classList.add('visible');
+            if (couponBtn) couponBtn.classList.add('visible');
         }
     }, { threshold: 0.1 });
 
-    const header = document.querySelector('.header');
     if (header) observer.observe(header);
 
     // Active section highlighting 目前區塊高亮
@@ -917,7 +990,7 @@ function closePrepModal() {
                 current = s.attr;
             }
         });
-        nav.querySelectorAll('.float-nav-item').forEach(item => {
+        nav.querySelectorAll('.float-nav-pill').forEach(item => {
             item.classList.toggle('active', item.dataset.section === current);
         });
     }
@@ -925,3 +998,89 @@ function closePrepModal() {
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     updateActiveNav();
 })();
+
+// ======================================
+// Coupon Modal Logic 優惠券彈窗邏輯
+// ======================================
+
+function renderCoupons() {
+    const couponList = document.getElementById('coupon-list');
+    if (!couponList || typeof coupons === 'undefined') return;
+
+    couponList.innerHTML = coupons.map(coupon => `
+        <div class="coupon-card" id="coupon-${coupon.id}">
+            <div class="coupon-card-header" style="background-color: ${coupon.color}; color: ${coupon.textColor}">
+                <div class="coupon-card-icon">${coupon.icon}</div>
+                <h3>${coupon.name}</h3>
+            </div>
+            <div class="coupon-card-body">
+                <div class="coupon-discount">${coupon.discount}</div>
+                <div class="coupon-desc">${coupon.desc}</div>
+                <div class="coupon-tips">💡 ${coupon.tips}</div>
+                <a href="${coupon.link}" target="_blank" class="coupon-btn">領取優惠券 Get Coupon</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+window.openCouponModal = function (targetId) {
+    const modal = document.getElementById('coupon-modal');
+    const couponList = document.getElementById('coupon-list');
+    if (!modal || !couponList) return;
+
+    if (couponList.children.length === 0) {
+        renderCoupons();
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    if (targetId) {
+        setTimeout(() => {
+            const el = document.getElementById(`coupon-${targetId}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                el.style.boxShadow = '0 0 0 4px rgba(184, 160, 96, 0.6)';
+                el.style.transform = 'scale(1.02)';
+                el.style.transition = 'all 0.3s';
+                setTimeout(() => {
+                    el.style.boxShadow = '';
+                    el.style.transform = '';
+                }, 2000);
+            }
+        }, 100);
+    }
+};
+
+function closeCouponModal() {
+    const modal = document.getElementById('coupon-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Global Event Listeners for Coupon Modal
+document.addEventListener('DOMContentLoaded', () => {
+    // We already have DOMContentLoaded in init() or elsewhere, 
+    // but we can add another one or just call from init if we prefer.
+    // For simplicity, adding listeners here.
+
+    const closeBtn = document.querySelector('#coupon-modal .modal-close');
+    if (closeBtn) {
+        closeBtn.onclick = closeCouponModal;
+    }
+
+    const modal = document.getElementById('coupon-modal');
+    if (modal) {
+        modal.onclick = (e) => {
+            if (e.target === modal) closeCouponModal();
+        };
+    }
+
+    // Add listener for a floating coupon button if it exists
+    const couponFab = document.getElementById('coupon-btn');
+    if (couponFab) {
+        couponFab.onclick = () => window.openCouponModal();
+    }
+});
