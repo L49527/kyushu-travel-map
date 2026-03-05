@@ -250,19 +250,24 @@ function renderDayPanel(d) {
 }
 
 function renderMeals(meals) {
-    return meals.map((m, i) => `
+    return meals.map((m, i) => {
+        const igBadge = m.igRecommend ? '<span class="ig-badge">IG推薦</span>' : '';
+        return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
                 <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
                     <span class="item-num">${i + 1}</span> ${m.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
-                <span class="tag">${m.tag}</span>
+                <div class="tag-group">
+                    ${igBadge}
+                    <span class="tag">${m.tag}</span>
+                </div>
             </div>
             <div class="hours">🕒 ${m.hours}</div>
             <div class="desc">${m.desc}</div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
 function renderShopping(shops) {
@@ -325,12 +330,17 @@ function renderSpecialties(specs) {
             </a>
         ` : '';
 
+        const igBadge = s.igRecommend ? '<span class="ig-badge">IG推薦</span>' : '';
+
         return `
         <div class="specialty-item" data-index="${i}" onclick="focusOnSpecialty(${i}, ${s.lat}, ${s.lng})">
             ${imageHtml}
             <div class="specialty-header">
                 <h4><span class="item-num gold">${i + 1}</span> ${s.name}</h4>
-                <span class="tag">${s.tag}</span>
+                <div class="tag-group">
+                    ${igBadge}
+                    <span class="tag">${s.tag}</span>
+                </div>
             </div>
             <div class="hours">🕒 ${s.hours}</div>
             <p>${s.desc}</p>

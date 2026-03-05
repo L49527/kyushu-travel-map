@@ -2921,7 +2921,20 @@ html {
 .tag-group {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* IG Recommend Badge - Instagram風格推薦標籤 */
+.ig-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 /* Coupon Modal Structure */
