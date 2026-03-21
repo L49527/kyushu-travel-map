@@ -1,6 +1,6 @@
 // Day 3-7 Data
 const dataDay3to7 = [
-    {
+{
         day: 3, date: "6/13(六)", title: "太宰府古都散策", area: "太宰府",
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.52, 130.53],
         hotelImage: "images/都ホテル博多.jpg",
@@ -34,7 +34,7 @@ const dataDay3to7 = [
             ],
             dinner: [
                 { name: "博多 魚米壽司", hours: "11:00-23:00", desc: "高品質卻平價的迴轉壽司天堂！食材均由漁港直送，推薦本鮪魚中腹與炙燒鮭魚。新幹線列車送餐的高科技感與鮮美海味的完美融合，是結束太宰府行程後最省心又滿足的選擇壽司🍣。", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚べい+ヨドバシ博多店" },
-                { name: "天神 燒鳥 信長", hours: "17:00-00:00", desc: "博多夜晚最熱鬧的居酒屋氛圍！傳統博多燒鳥特色：隨桌附贈的「生包菜」與多汁的「豬五花串」。职人在炭火前揮灑汗水烤出的每一棒，都是下酒的最佳神隊友居酒屋🍻。", tag: "居酒屋", lat: 33.5925, lng: 130.4055, mapUrl: "https://www.google.com/maps/search/?api=1&query=天下の焼鳥+信秀本店" },
+                { name: "天神 燒鳥 信長", hours: "17:00-00:00", desc: "博多夜晚最熱鬧的居酒屋氛圍！傳統博多燒鳥特色：隨桌附贈的「生包菜」與多汁的「豬五花串」。职人在炭火前揮灑汗水烤出的每一棒，都是下酒的最佳神隊友居酒屋🍻。", tag: "居酒屋", threadRecommend: true, lat: 33.5925, lng: 130.4055, mapUrl: "https://www.google.com/maps/search/?api=1&query=天下の焼鳥+信秀本店" },
                 { name: "一風堂 本店 (大名)", hours: "11:00-22:00", desc: "重回拉麵傳奇的起點！大名本店限定「元祖赤丸/白丸」，湯頭比連鎖店更顯溫潤細膩。身為全球拉麵龍頭的母店，這裡乘載著一風堂走向世界的初心與極致職人魂拉麵🍜。", tag: "拉麵", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=一風堂+大名本店" },
                 { name: "中洲 鐵鍋餃子", hours: "17:00-23:00", desc: "宵夜場的第一選擇！一口一個、外皮烤到乾爽香脆的手工餃子，內餡充滿韭菜與豬肉的鮮香。搭配中洲那珂川的夜色與一杯冰涼的燒酎，這就是博多式的浪漫週末餃子🥟。", tag: "餃子", lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+中洲店" },
                 { name: "笑樂 牛腸鍋 (博多)", hours: "11:00-23:00", desc: "最後一晚，再給博多牛腸鍋一次機會！新鮮的牛大腸與大量韭菜在高湯中翻滾，香氣逼人。雖然已是第三天，但那種充滿膠原蛋白與在地熱情的滋味，依舊讓人回味無窮鍋物🍲。", tag: "鍋物", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋+笑楽+博多駅" }
@@ -124,7 +124,7 @@ const dataDay3to7 = [
                 igRecommend: true,
                 lat: 33.3355,
                 lng: 131.4345,
-                image: "images/pudding.png",
+                image: "images/地獄蒸布丁 (岡本屋).jpg",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋+売店"
             },
             {
@@ -192,13 +192,77 @@ const dataDay3to7 = [
             { name: "由布院之森 紀念品", hours: "JR車內", desc: "列車限定商品，錯過就買不到", tag: "限定", lat: 33.2624, lng: 131.3549, image: "images/由布院之森 紀念品.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院駅" }
         ],
         supermarkets: [
-            { name: "Marumiya Store 別府站店", hours: "09:30-21:00", desc: "位於車站內，最近最方便，距離飯店步行約 2 分鐘", tag: "便利", lat: 33.2798, lng: 131.5005 },
-            { name: "Youme Town Beppu", hours: "09:30-21:30", desc: "大型購物中心，步行約 10 分鐘，好逛好買", tag: "大型", lat: 33.2755, lng: 131.5055 },
-            { name: "Marushoku 流川通店", hours: "09:00-22:00", desc: "當地連鎖超市，步行約 7 分鐘", tag: "在地", lat: 33.2770, lng: 131.5030 }
+            { name: "Tokiwa Industry 鶴見園", hours: "09:00-21:00", desc: "飯店下山步行約10分鐘，建議自駕或搭接駁車", tag: "最近", lat: 33.2950, lng: 131.4780 },
+            { name: "Lawson 別府石垣東店", hours: "24H", desc: "最近便利商店，距離飯店步行約 12 分鐘", tag: "便利", lat: 33.2965, lng: 131.4805 }
         ]
     },
     {
-        day: 5, plan: "A", date: "6/15(一)", title: "阿蘇火山壯麗絕景", area: "阿蘇・草千里",
+        day: 5, plan: "B", date: "6/15(一)", title: "別府深度慢遊：山海溫泉 (室內方案)", area: "別府・鶴見岳",
+        hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [33.30, 131.45],
+        hotelImage: "images/杉乃井飯店 宙館.jpg",
+        hotelDesc: "【別府最大溫泉度假村】最新館別「宙館」<br>♨️ 頂樓無邊際展望露天風呂「宙湯」<br>🏊 Aqua Garden 溫泉泳池・夜間雷射水舞秀<br>🍽️ TERRAZZA 豪華自助餐廳 (鰻魚/牛排吃到飽)",
+        transport: {
+            drive: "別府自駕深度遊。景點距離都在20分鐘車程內。今日行程放鬆，午餐後可回飯店享受設施。",
+            public: "利用別府龜之井巴士一日券 (¥1,100)。搭乘36/37號巴士前往纜車站。"
+        },
+        timeline: [
+            { time: "09:30", act: "別府鶴見岳纜車", desc: "10分鐘直抵海拔1300公尺，眺望由布岳與別府灣全景" },
+            { time: "12:00", act: "地獄蒸工坊料理", desc: "體驗利用天然地溫蒸氣烹調當地食材，午餐首選" },
+            { time: "13:30", act: "海地獄 (Umi Jigoku)", desc: "參訪鈷藍色的絕美溫泉，別府最經典的地獄地景" },
+            { time: "15:30", act: "別府海濱砂湯", desc: "獨特海邊砂浴體驗，聽著海浪聲徹底放鬆身心" },
+            { time: "17:30", act: "宙館入居", desc: "提早享用宙湯與豪華自助晚餐" }
+        ],
+        spots: [
+            { name: "別府纜車", lat: 33.2842, lng: 131.4325 },
+            { name: "地獄蒸工坊", lat: 33.3195, lng: 131.4425 },
+            { name: "海地獄", lat: 33.3200, lng: 131.4430 },
+            { name: "海濱砂湯", lat: 33.3094, lng: 131.5034 }
+        ],
+        meals: {
+            breakfast: [
+                { name: "飯店悠閒早餐", hours: "07:00-10:00", desc: "在御宿野乃享用豐盛日式朝食，海鮮丼吃到飽", tag: "飯店", lat: 33.2795, lng: 131.4985, image: "images/御宿 野乃別府.webp" },
+                { name: "友永麵包屋", hours: "08:30-17:30", desc: "【別府百年老店】紅豆麵包與奶油捲必吃，在地人排隊名店", tag: "麵包", lat: 33.2735, lng: 131.5030, mapUrl: "https://www.google.com/maps/search/?api=1&query=友永パン屋" },
+                { name: "青山咖啡舍", hours: "08:00-18:00", desc: "復古喫茶店，提供經典厚片吐司早餐", tag: "咖啡", lat: 33.2770, lng: 131.4960, mapUrl: "https://www.google.com/maps/search/?api=1&query=青山コーヒー舎" },
+                { name: "岡本屋売店 (早茶)", hours: "08:30-18:30", desc: "明礬溫泉名物，地獄蒸布丁與雞蛋三明治", tag: "輕食", lat: 33.3355, lng: 131.4345, mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋売店" },
+                { name: "Lotteria 別府站", hours: "07:30-21:00", desc: "車站內快速早餐選擇", tag: "連鎖", lat: 33.2798, lng: 131.5005 }
+            ],
+            lunch: [
+                { name: "地獄蒸工坊 鐵輪", hours: "10:00-19:00", desc: "【體驗必選】利用98度溫泉蒸氣自煮蔬菜海鮮，健康美味", tag: "體驗", lat: 33.3195, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
+                { name: "龜正迴轉壽司", hours: "11:00-21:00", desc: "【排隊名店】別府最强壽司，魚料超大塊新鮮，近地獄區", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
+                { name: "胡月 冷麵", hours: "11:00-16:00", desc: "別府冷麵發源地之一，Q彈粗麵配上清爽牛骨湯", tag: "麵食", lat: 33.3065, lng: 131.4875, mapUrl: "https://www.google.com/maps/search/?api=1&query=胡月+冷麺" },
+                { name: "天丼 とよ常 (本店)", hours: "11:00-21:00", desc: "別府必吃特上天丼，大蝦天婦羅酥脆多汁", tag: "丼飯", lat: 33.2805, lng: 131.4945, mapUrl: "https://www.google.com/maps/search/?api=1&query=天丼+とよ常" },
+                { name: "甘味茶屋", hours: "10:00-20:00", desc: "古民家風格餐廳，大分名物糰子汁與炸雞天", tag: "鄉土", lat: 33.3205, lng: 131.4435, mapUrl: "https://www.google.com/maps/search/?api=1&query=甘味茶屋" }
+            ],
+            dinner: [
+                { name: "METEOR 自助餐", hours: "17:00-21:30", desc: "【宙館住客限定】豪華海鮮、牛排、壽司吃到飽，景觀極佳", tag: "飯店", lat: 33.2985, lng: 131.4725 },
+                { name: "燒肉 Somuri", hours: "17:00-22:00", desc: "【豐後牛】嚴選A5等級黑毛和牛，別府燒肉首選", tag: "燒肉", lat: 33.2815, lng: 131.4925, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉レストラン+ソムリ" },
+                { name: "海鮮居酒屋 魚心", hours: "17:00-23:00", desc: "在地人推薦，新鮮生魚片與當季海鮮料理", tag: "居酒屋", lat: 33.2755, lng: 131.5055, mapUrl: "https://www.google.com/maps/search/?api=1&query=海鮮いけす料理+魚心" },
+                { name: "爐端燒 人氣", hours: "17:30-23:00", desc: "熱鬧的爐端燒，氣氛極佳，適合小酌", tag: "居酒屋", lat: 33.2785, lng: 131.5015, mapUrl: "https://www.google.com/maps/search/?api=1&query=炉端+人気" },
+                { name: "東洋軒", hours: "11:00-21:00", desc: "大分名物「炸雞天婦羅」發源店，口感軟嫩", tag: "中華", lat: 33.2825, lng: 131.4915, mapUrl: "https://www.google.com/maps/search/?api=1&query=とり天發祥の店+東洋軒" }
+            ]
+        },
+        shopping: [
+            { name: "杉乃井 賣店", hours: "07:00-22:00", desc: "飯店內大型土產店，大分縣特產一應俱全", tag: "飯店", lat: 33.2985, lng: 131.4725 },
+            { name: "別府交通中心", hours: "09:00-18:00", desc: "別府港旁的大型物產館，種類豐富", tag: "物產", lat: 33.3035, lng: 131.4825 },
+            { name: "地獄巡禮 商店", hours: "09:00-17:00", desc: "海地獄、血池地獄皆有特色紀念品", tag: "景點", lat: 33.3200, lng: 131.4430 },
+            { name: "Tokiwa 百貨", hours: "10:00-19:00", desc: "別府市區老牌百貨公司", tag: "百貨", lat: 33.2790, lng: 131.5010 },
+            { name: "Youme Town", hours: "09:30-21:30", desc: "大型購物中心，超市、藥妝、服飾", tag: "商場", lat: 33.2755, lng: 131.5055 }
+        ],
+        specialties: [
+            { name: "別府溫泉粉", hours: "09:00-22:00", desc: "【Myoban湯之花】國家指定無形文化財，在家享受天然溫泉", tag: "用品", lat: 33.3345, lng: 131.4335, image: "images/湯之花.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=みょうばん湯の里" },
+            { name: "極樂饅頭", hours: "08:30-18:00", desc: "地獄蒸氣現蒸小饅頭，一口一個停不下來", tag: "甜點", lat: 33.3225, lng: 131.4512, image: "images/極樂饅頭.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=血の池地獄" },
+            { name: "地獄蒸布丁 (岡本屋)", hours: "08:30-18:30", desc: "苦甜焦糖與濃郁蛋香，別府最人氣甜點", tag: "甜點", lat: 33.3355, lng: 131.4345, image: "images/地獄蒸布丁 (岡本屋).jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋売店" },
+            { name: "Zabon漬 (ざぼん漬)", hours: "09:00-18:00", desc: "別府特產糖漬文旦皮，酸甜古早味", tag: "零食", lat: 33.2798, lng: 131.5005, image: "images/Zabon漬 (ざぼん漬).jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+ざぼん漬" },
+            { name: "別府竹細工", hours: "09:00-17:00", desc: "傳統工藝編織籃、餐具，質感極佳", tag: "工藝", lat: 33.3055, lng: 131.4855, image: "images/別府竹細工.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府市竹細工傳統產業會館" },
+            { name: "大分酸橙 (Kabosu)", hours: "超市皆有", desc: "各式酸橙調味料、果汁、餅乾", tag: "伴手禮", lat: 33.2798, lng: 131.5005, image: "images/大分酸橙 (Kabosu).webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+カボス" },
+            { name: "雞肉天婦羅仙貝", hours: "超市皆有", desc: "大分名物炸雞肉天婦羅仙貝，酥脆好吃", tag: "餅乾", lat: 33.2798, lng: 131.5005, image: "images/雞肉天婦羅仙貝.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+とり天せんべい" }
+        ],
+        supermarkets: [
+            { name: "Tokiwa 鶴見園", hours: "09:00-21:00", desc: "近飯店的大型超市", tag: "補給", lat: 33.2950, lng: 131.4780 }
+        ]
+    },
+    {
+        day: 5, plan: "A", date: "6/15(一)", title: "阿蘇火山壯麗絕景 (室外方案)", area: "阿蘇・草千里",
         hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [32.90, 131.10],
         hotelImage: "images/杉乃井飯店 宙館.jpg",
         hotelDesc: "【別府最大溫泉度假村】最新館別「宙館」<br>♨️ 頂樓無邊際展望露天風呂「宙湯」<br>🏊 Aqua Garden 溫泉泳池・夜間雷射水舞秀<br>🍽️ TERRAZZA 豪華自助餐廳 (鰻魚/牛排吃到飽)<br>🚌 別府車站免費接駁巴士・保齡球館",
@@ -277,18 +341,8 @@ const dataDay3to7 = [
                 igRecommend: true,
                 lat: 32.9495,
                 lng: 131.0555,
-                image: "images/ikinari Dango.jpg",
+                image: "images/赤牛味噌.jpg",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇+赤牛味噌"
-            },
-            {
-                name: "阿蘇火山灰御守",
-                hours: "店鋪營業時間",
-                desc: "利用阿蘇火山噴發後的天然火山灰製作而成的獨特御守。外型粗獷且帶有大地的力量，祈求如火山般屹立不搖的意志與身體健康。是極具地標紀念價值的特色小物。",
-                tag: "紀念品",
-                lat: 32.8844,
-                lng: 131.0844,
-                image: "images/阿蘇高菜漬.jpg",
-                mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇火山+賣店"
             },
             {
                 name: "內牧溫泉粉",
@@ -304,71 +358,6 @@ const dataDay3to7 = [
         supermarkets: [
             { name: "Tokiwa Industry 鶴見園", hours: "09:00-21:00", desc: "飯店下山步行約10分鐘，建議自駕或搭接駁車", tag: "最近", lat: 33.2950, lng: 131.4780 },
             { name: "Lawson 別府石垣東店", hours: "24H", desc: "最近便利商店，距離飯店步行約 12 分鐘", tag: "便利", lat: 33.2965, lng: 131.4805 }
-        ]
-    },
-    {
-        day: 5, plan: "B", date: "6/15(一)", title: "別府深度慢遊：山海溫泉", area: "別府・鶴見岳",
-        hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [33.30, 131.45],
-        hotelImage: "images/杉乃井飯店 宙館.jpg",
-        hotelDesc: "【別府最大溫泉度假村】最新館別「宙館」<br>♨️ 頂樓無邊際展望露天風呂「宙湯」<br>🏊 Aqua Garden 溫泉泳池・夜間雷射水舞秀<br>🍽️ TERRAZZA 豪華自助餐廳 (鰻魚/牛排吃到飽)",
-        transport: {
-            drive: "別府自駕深度遊。景點距離都在20分鐘車程內。今日行程放鬆，午餐後可回飯店享受設施。",
-            public: "利用別府龜之井巴士一日券 (¥1,100)。搭乘36/37號巴士前往纜車站。"
-        },
-        timeline: [
-            { time: "09:30", act: "別府鶴見岳纜車", desc: "10分鐘直抵海拔1300公尺，眺望由布岳與別府灣全景" },
-            { time: "12:00", act: "地獄蒸工坊料理", desc: "體驗利用天然地溫蒸氣烹調當地食材，午餐首選" },
-            { time: "13:30", act: "海地獄 (Umi Jigoku)", desc: "參訪鈷藍色的絕美溫泉，別府最經典的地獄地景" },
-            { time: "15:30", act: "別府海濱砂湯", desc: "獨特海邊砂浴體驗，聽著海浪聲徹底放鬆身心" },
-            { time: "17:30", act: "宙館入居", desc: "提早享用宙湯與豪華自助晚餐" }
-        ],
-        spots: [
-            { name: "別府纜車", lat: 33.2842, lng: 131.4325 },
-            { name: "地獄蒸工坊", lat: 33.3195, lng: 131.4425 },
-            { name: "海地獄", lat: 33.3200, lng: 131.4430 },
-            { name: "海濱砂湯", lat: 33.3094, lng: 131.5034 }
-        ],
-        meals: {
-            breakfast: [
-                { name: "飯店悠閒早餐", hours: "07:00-10:00", desc: "在御宿野乃享用豐盛日式朝食，海鮮丼吃到飽", tag: "飯店", lat: 33.2795, lng: 131.4985, image: "images/御宿 野乃別府.webp" },
-                { name: "友永麵包屋", hours: "08:30-17:30", desc: "【別府百年老店】紅豆麵包與奶油捲必吃，在地人排隊名店", tag: "麵包", lat: 33.2735, lng: 131.5030, mapUrl: "https://www.google.com/maps/search/?api=1&query=友永パン屋" },
-                { name: "青山咖啡舍", hours: "08:00-18:00", desc: "復古喫茶店，提供經典厚片吐司早餐", tag: "咖啡", lat: 33.2770, lng: 131.4960, mapUrl: "https://www.google.com/maps/search/?api=1&query=青山コーヒー舎" },
-                { name: "岡本屋売店 (早茶)", hours: "08:30-18:30", desc: "明礬溫泉名物，地獄蒸布丁與雞蛋三明治", tag: "輕食", lat: 33.3355, lng: 131.4345, mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋売店" },
-                { name: "Lotteria 別府站", hours: "07:30-21:00", desc: "車站內快速早餐選擇", tag: "連鎖", lat: 33.2798, lng: 131.5005 }
-            ],
-            lunch: [
-                { name: "地獄蒸工坊 鐵輪", hours: "10:00-19:00", desc: "【體驗必選】利用98度溫泉蒸氣自煮蔬菜海鮮，健康美味", tag: "體驗", lat: 33.3195, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
-                { name: "龜正迴轉壽司", hours: "11:00-21:00", desc: "【排隊名店】別府最强壽司，魚料超大塊新鮮，近地獄區", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
-                { name: "胡月 冷麵", hours: "11:00-16:00", desc: "別府冷麵發源地之一，Q彈粗麵配上清爽牛骨湯", tag: "麵食", lat: 33.3065, lng: 131.4875, mapUrl: "https://www.google.com/maps/search/?api=1&query=胡月+冷麺" },
-                { name: "天丼 とよ常 (本店)", hours: "11:00-21:00", desc: "別府必吃特上天丼，大蝦天婦羅酥脆多汁", tag: "丼飯", lat: 33.2805, lng: 131.4945, mapUrl: "https://www.google.com/maps/search/?api=1&query=天丼+とよ常" },
-                { name: "甘味茶屋", hours: "10:00-20:00", desc: "古民家風格餐廳，大分名物糰子汁與炸雞天", tag: "鄉土", lat: 33.3205, lng: 131.4435, mapUrl: "https://www.google.com/maps/search/?api=1&query=甘味茶屋" }
-            ],
-            dinner: [
-                { name: "METEOR 自助餐", hours: "17:00-21:30", desc: "【宙館住客限定】豪華海鮮、牛排、壽司吃到飽，景觀極佳", tag: "飯店", lat: 33.2985, lng: 131.4725 },
-                { name: "燒肉 Somuri", hours: "17:00-22:00", desc: "【豐後牛】嚴選A5等級黑毛和牛，別府燒肉首選", tag: "燒肉", lat: 33.2815, lng: 131.4925, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉レストラン+ソムリ" },
-                { name: "海鮮居酒屋 魚心", hours: "17:00-23:00", desc: "在地人推薦，新鮮生魚片與當季海鮮料理", tag: "居酒屋", lat: 33.2755, lng: 131.5055, mapUrl: "https://www.google.com/maps/search/?api=1&query=海鮮いけす料理+魚心" },
-                { name: "爐端燒 人氣", hours: "17:30-23:00", desc: "熱鬧的爐端燒，氣氛極佳，適合小酌", tag: "居酒屋", lat: 33.2785, lng: 131.5015, mapUrl: "https://www.google.com/maps/search/?api=1&query=炉端+人気" },
-                { name: "東洋軒", hours: "11:00-21:00", desc: "大分名物「炸雞天婦羅」發源店，口感軟嫩", tag: "中華", lat: 33.2825, lng: 131.4915, mapUrl: "https://www.google.com/maps/search/?api=1&query=とり天発祥の店+東洋軒" }
-            ]
-        },
-        shopping: [
-            { name: "杉乃井 賣店", hours: "07:00-22:00", desc: "飯店內大型土產店，大分縣特產一應俱全", tag: "飯店", lat: 33.2985, lng: 131.4725 },
-            { name: "別府交通中心", hours: "09:00-18:00", desc: "別府港旁的大型物產館，種類豐富", tag: "物產", lat: 33.3035, lng: 131.4825 },
-            { name: "地獄巡禮 商店", hours: "09:00-17:00", desc: "海地獄、血池地獄皆有特色紀念品", tag: "景點", lat: 33.3200, lng: 131.4430 },
-            { name: "Tokiwa 百貨", hours: "10:00-19:00", desc: "別府市區老牌百貨公司", tag: "百貨", lat: 33.2790, lng: 131.5010 },
-            { name: "Youme Town", hours: "09:30-21:30", desc: "大型購物中心，超市、藥妝、服飾", tag: "商場", lat: 33.2755, lng: 131.5055 }
-        ],
-        specialties: [
-            { name: "別府溫泉粉", hours: "09:00-22:00", desc: "【Myoban湯之花】國家指定無形文化財，在家享受天然溫泉", tag: "用品", lat: 33.3345, lng: 131.4335, image: "images/湯之花.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=みょうばん湯の里" },
-            { name: "極樂饅頭", hours: "08:30-18:00", desc: "地獄蒸氣現蒸小饅頭，一口一個停不下來", tag: "甜點", lat: 33.3225, lng: 131.4512, image: "images/極樂饅頭.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=血の池地獄" },
-            { name: "地獄蒸布丁 (岡本屋)", hours: "08:30-18:30", desc: "苦甜焦糖與濃郁蛋香，別府最人氣甜點", tag: "甜點", lat: 33.3355, lng: 131.4345, image: "images/pudding.png", mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋売店" },
-            { name: "Zabon漬 (ざぼん漬)", hours: "09:00-18:00", desc: "別府特產糖漬文旦皮，酸甜古早味", tag: "零食", lat: 33.2798, lng: 131.5005, image: "images/Zabon漬 (ざぼん漬).jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+ざぼん漬" },
-            { name: "別府竹細工", hours: "09:00-17:00", desc: "傳統工藝編織籃、餐具，質感極佳", tag: "工藝", lat: 33.3055, lng: 131.4855, image: "images/別府竹細工.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府市竹細工伝統産業会館" },
-            { name: "大分酸橙 (Kabosu)", hours: "超市皆有", desc: "各式酸橙調味料、果汁、餅乾", tag: "伴手禮", lat: 33.2798, lng: 131.5005, image: "images/大分酸橙 (Kabosu).webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+カボス" },
-            { name: "雞肉天婦羅仙貝", hours: "超市皆有", desc: "大分名物炸雞肉天婦羅仙貝，酥脆好吃", tag: "餅乾", lat: 33.2798, lng: 131.5005, image: "images/雞肉天婦羅仙貝.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+とり天せんべい" }
-        ],
-        supermarkets: [
-            { name: "Tokiwa 鶴見園", hours: "09:00-21:00", desc: "近飯店的大型超市", tag: "補給", lat: 33.2950, lng: 131.4780 }
         ]
     },
     {
@@ -411,7 +400,7 @@ const dataDay3to7 = [
             ],
             dinner: [
                 { name: "吉塚鰻魚屋 (再訪精品)", hours: "11:00-21:00", desc: "回到博多的豪邁慶功晚宴！中洲河畔最耀眼的鰻魚名門。在精雕細琢的百年古宅中，品嚐如絲緞般滑韌的「蒲燒鰻魚」。配上一杯地滴美酒，慰勞七天來的辛勞高級🍱。", tag: "高級", igRecommend: true, lat: 33.5915, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=吉塚うなぎ屋" },
-                { name: "信秀本店 (博多燒鳥)", hours: "16:30-24:00", desc: "博多燒鳥界的活字典！在這裡一定要體驗道地博多「捲入生包菜」吃法。職人在炭火前揮灑汗水烤出的每一支肉串，都承載著跨越時空的博多熱情居酒屋🏮。", tag: "居酒屋", lat: 33.5925, lng: 130.4055, mapUrl: "https://www.google.com/maps/search/?api=1&query=天下の焼鳥+信秀本店" },
+                { name: "信秀本店 (博多燒鳥)", hours: "16:30-24:00", desc: "博多燒鳥界的活字典！在這裡一定要體驗道地博多「捲入生包菜」吃法。職人在炭火前揮灑汗水烤出的每一支肉串，都承載著跨越時空的博多熱情居酒屋🏮。", tag: "居酒屋", threadRecommend: true, lat: 33.5925, lng: 130.4055, mapUrl: "https://www.google.com/maps/search/?api=1&query=天下の焼鳥+信秀本店" },
                 { name: "博多藪 (深夜食堂)", hours: "19:00-03:00", desc: "在地老博多人的深夜靈魂地。雖然是蕎麥麵店，但其貌不揚的「特製豬排丼」卻擁有令人驚豔的濕潤口感與深沉底韻。是在中洲微醺後最暖心的味覺依靠麵食丼🍛。", tag: "麵食", lat: 33.5905, lng: 130.4035, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多薮" },
                 { name: "麵劇場 玄瑛", hours: "11:30-22:00", desc: "將拉麵昇华为一場劇場饗宴！階梯式的座位設計，讓您在觀賞職人如表演般煮麵的同時，品嚐口感細緻、湯頭層次分明的藝術拉麵拉麵🍜。", tag: "拉麵", igRecommend: true, lat: 33.5795, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=麺劇場+玄瑛" },
                 { name: "博多華味鳥 (總店)", hours: "17:00-23:00", desc: "最後一晚，重溫福岡水炊鍋的極致。總店限定的頂等「華味鳥」品種，肉質更顯彈牙鮮美。在一鍋如白乳般香濃的湯底中，為旅程畫下完美的總結鍋物🍵。", tag: "鍋物", lat: 33.5917, lng: 130.4042, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多華味鳥" },
@@ -441,7 +430,7 @@ const dataDay3to7 = [
                 igRecommend: true,
                 lat: 33.3200,
                 lng: 131.4430,
-                image: "images/pudding.png",
+                image: "images/地獄蒸布丁 (海地獄限定).jpg",
                 mapUrl: "https://www.google.com/maps/search/海地獄+売店"
             },
             {
@@ -518,7 +507,10 @@ const dataDay3to7 = [
                 { name: "Starbucks 博多站店", hours: "07:00-23:00", desc: "採買最後一刻的「日本限定隨行杯」。在這裡您可以一邊享用冷萃咖啡，一邊補齊遺落的博多限定商品，為旅程的咖啡地圖畫下完美句點咖啡☕。", tag: "咖啡", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=Starbucks+Hakata" },
                 { name: "Soup Stock Tokyo (暖心湯)", hours: "08:00-21:30", desc: "溫暖您的回程胃。堅持不添加人工調味的美味湯品，推薦：龍蝦濃湯或季節性鮮蔬湯。即使是忙碌的早晨，也能享受到如居家般溫潤的質感早餐湯品🍵。", tag: "湯品", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=Soup+Stock+Tokyo" },
                 { name: "Pronto Cafe (輕食)", hours: "07:00-22:00", desc: "博多車站內的便利首選。義式濾泡咖啡搭配現烤的熱壓三明治。洗鍊的快節奏環境，最適合在前往機場的地鐵出發前，來一場高效且美味的儀式補給咖啡☕。", tag: "咖啡", lat: 33.5895, lng: 130.4203, mapUrl: "https://www.google.com/maps/search/?api=1&query=Pronto+Cafe" },
-                { name: "Il Palazzo 絕美早餐", hours: "07:00-10:00", desc: "在普立茲克建築大師的作品中醒來。飯店提供融合中西美學的高級自助餐，嚴選福岡在地直送的有機食材。在充滿現代設計感的空間享用早餐，是行程最高規的落幕飯店🍽️。", tag: "飯店", lat: 33.5905, lng: 130.4025, mapUrl: "https://www.google.com/maps/search/?api=1&query=Il+Palazzo" }
+                { name: "Il Palazzo 絕美早餐", hours: "07:00-10:00", desc: "在普立茲克建築大師的作品中醒來。飯店提供融合中西美學的高級自助餐，嚴選福岡在地直送的有機食材。在充滿現代設計感的空間享用早餐，是行程最高規的落幕飯店🍽️。", tag: "飯店", lat: 33.5905, lng: 130.4025, mapUrl: "https://www.google.com/maps/search/?api=1&query=Il+Palazzo" },
+                { name: "爐端燒銀鮭", hours: "07:00-11:00", desc: "⚠️務必提前預約！福岡超人氣日式早餐🍳，現點現烤的神級銀鮭，明太子＋烤魚直接罪惡爆擊，喚醒最美好的早晨🐟。", tag: "朝食", igRecommend: true, threadRecommend: true, lat: 33.5900, lng: 130.4000, mapUrl: "https://www.google.com/maps/search/?api=1&query=爐端燒銀鮭+福岡" },
+                { name: "FUK COFFEE", hours: "08:00-20:00", desc: "必點招牌「硬派卡士達布丁＋霜淇淋」！日式布丁滑嫩綿密、焦糖微苦，搭配濃郁奶香霜淇淋，幸福感直接拉滿☕。", tag: "咖啡", igRecommend: true, threadRecommend: true, lat: 33.5908, lng: 130.4132, mapUrl: "https://www.google.com/maps/search/?api=1&query=FUK+COFFEE" },
+                { name: "Dacomecca", hours: "08:00-20:00", desc: "麵包控一定會失控的排隊名店！炭火烤腸麵包香到不行，一不小心就會整盤拿滿，博多車站旁的必訪麵包🥖。", tag: "麵包", igRecommend: true, threadRecommend: true, lat: 33.5890, lng: 130.4220, mapUrl: "https://www.google.com/maps/search/?api=1&query=Dacomecca" }
             ],
             lunch: [
                 { name: "博多一雙 (回味泡泡)", hours: "11:00-24:00", desc: "真的要說再見了！那口「豚骨卡布奇諾」的油脂香氣，絕對值得在登機前再來一碗。那份在嘴唇上留下的濃郁膠原蛋白，將是您對福岡最深刻的告別式拉麵🍜。", tag: "拉麵", igRecommend: true, lat: 33.5905, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/博多一双+博多駅東本店" },
@@ -582,6 +574,39 @@ const dataDay3to7 = [
                 mapUrl: "https://www.google.com/maps/search/PRESS+BUTTER+SAND+博多駅店"
             },
             {
+                name: "LeClerc (可麗露)",
+                hours: "09:00-21:00",
+                desc: "博多車站內必吃甜點！外皮脆、內餡軟的高評價可麗露。強烈推薦原味、起士和焦糖口味，是回國前必買的精緻伴手禮🧁。",
+                tag: "甜點",
+                igRecommend: true,
+                lat: 33.5897,
+                lng: 130.4207,
+                image: "images/LeClerc.jpeg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=LeClerc+博多"
+            },
+            {
+                name: "KIKUTARO",
+                hours: "09:30-21:00",
+                desc: "位於都飯店1樓的文青和菓子店。招牌「迷你奶油銅鑼燒」，紅豆餡搭配薄奶油，口感鹹甜交織，非常美味，伴手禮新寵兒🥞。",
+                tag: "甜點",
+                igRecommend: true,
+                lat: 33.5903,
+                lng: 130.4225,
+                image: "images/KIKUTARO.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=KIKUTARO+博多"
+            },
+            {
+                name: "如水庵 季節水果大福",
+                hours: "08:00-21:00",
+                desc: "博多車站 Ming 內的必買名產！水果新鮮多汁，最推橘子和草莓口味。外皮不黏膩，搭配綠豆餡更是絕妙的傳統美味🍓。",
+                tag: "和菓子",
+                igRecommend: true,
+                lat: 33.5897,
+                lng: 130.4207,
+                image: "images/如水庵 季節水果大福.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=如水庵+博多駅"
+            },
+            {
                 name: "鶴乃子 (石村萬盛堂)",
                 hours: "08:00-21:00",
                 desc: "博多流傳已久的柔軟滋味。外皮是觸感如同雲朵般的細緻棉花糖，內裡則包裹著由蛋黃與砂糖熬煮成的傳統黃味餡。甜度高雅且口感獨特，曾在博多山笠祭典中扮演重要角色，承載著福岡的歷史溫度。",
@@ -598,312 +623,313 @@ const dataDay3to7 = [
             { name: "AEON Shoppers 福岡店", hours: "09:00-22:00", desc: "天神地區大型超市，品項最齊全", tag: "大型", lat: 33.5930, lng: 130.3985 }
         ]
     }
+
 ];
 
-const coupons = [
-    {
-        id: "bic_camera",
-        name: "Bic Camera",
-        nameEn: "Bic Camera",
-        discount: "10% + 7%",
-        desc: "免稅 10% + 電器 7% / 藥妝 5% / 日本酒 3%",
-        color: "#ED1A3D",
-        textColor: "#FFFFFF",
-        icon: "📷",
-        link: "https://app.likejapan.com/zh-hk/coupon/BIC-CAMERA-%E5%84%AA%E6%83%A0%E5%88%B8",
-        tips: "結帳時出示優惠券條碼截圖即可使用"
-    },
-    {
-        id: "don_quijote",
-        name: "唐吉訶德",
-        nameEn: "Don Quijote",
-        discount: "10% + 5%~7%",
-        desc: "免稅 10% + 滿萬折 5% / 滿三萬折 7%",
-        color: "#1E2A5E",
-        textColor: "#FFFFFF",
-        icon: "🐧",
-        link: "https://japanportal.donki-global.com/coupon/?id=EA1A",
-        tips: "必須使用手機點擊連結顯示動態條碼，截圖無效"
-    },
-    {
-        id: "edion",
-        name: "愛電王",
-        nameEn: "EDION",
-        discount: "10% + 7%",
-        desc: "免稅 10% + 電器/手錶/玩具 7%",
-        color: "#005BAC",
-        textColor: "#FFFFFF",
-        icon: "⚡",
-        link: "https://app.likejapan.com/zh-hk/coupon/EDION-7percent-discount-coupon",
-        tips: "適用於大部分家電產品，部分商品除外"
-    },
-    {
-        id: "matsumoto",
-        name: "松本清",
-        nameEn: "Matsumoto Kiyoshi",
-        discount: "10% + 3%~7%",
-        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
-        color: "#FFF100",
-        textColor: "#000000",
-        icon: "💊",
-        link: "https://app.likejapan.com/zh-hk/coupon/%E8%97%A5%E5%A6%9D%E5%BA%97%E6%9D%BE%E6%9C%AC%E6%B8%85%E5%84%AA%E6%83%A0%E5%88%B8",
-        tips: "藥妝類商品最划算，部分化妝品不適用"
-    },
-    {
-        id: "sundrug",
-        name: "Sun Drug",
-        nameEn: "Sun Drug",
-        discount: "10% + 3%~7%",
-        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
-        color: "#D91F26",
-        textColor: "#FFFFFF",
-        icon: "💊",
-        link: "https://app.likejapan.com/zh-hk/coupon/sundrug-coupon-7percent-off",
-        tips: "尚都樂客藥妝，店舖數量多，價格競爭力強"
-    },
-    {
-        id: "tsuruha",
-        name: "鶴羽藥妝",
-        nameEn: "Tsuruha Drug",
-        discount: "10% + 3%~7%",
-        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
-        color: "#E60012",
-        textColor: "#FFFFFF",
-        icon: "🏗️",
-        link: "https://app.likejapan.com/zh-hk/coupon/tsuruha-drug",
-        tips: "北海道起家的大型藥妝連鎖，九州也有分店"
-    },
-    {
-        id: "sugi",
-        name: "杉藥局",
-        nameEn: "Sugi Pharmacy",
-        discount: "10% + 4%~8%",
-        desc: "免稅 10% + 滿額享 4% / 6% / 8% 折扣",
-        color: "#183883",
-        textColor: "#FFFFFF",
-        icon: "🌲",
-        keywords: ["sugi"],
-        link: "https://app.likejapan.com/zh-hk/coupon/sugi-pharmacy",
-        tips: "折數較高，最高可達 18% (含稅及折扣)"
-    },
-    {
-        id: "cocokara",
-        name: "Cocokara Fine",
-        nameEn: "Cocokara Fine",
-        discount: "10% + 3%~7%",
-        desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
-        color: "#EA5480",
-        textColor: "#FFFFFF",
-        icon: "✨",
-        keywords: ["parco"],
-        link: "https://app.likejapan.com/zh-hk/coupon/cocokarafine-coupon",
-        tips: "店舖明亮時尚，化妝品種類豐富"
-    },
-    {
-        id: "cosmos",
-        name: "Cosmos 藥妝",
-        nameEn: "Cosmos",
-        discount: "高達 19%",
-        desc: "免稅 10% + 5%~7% + 額外優惠",
-        color: "#2E8B57", // Usually pink/green, using green for distinction
-        textColor: "#FFFFFF",
-        icon: "🌸",
-        link: "https://app.likejapan.com/zh-hk/coupon/COSMOS-%E8%97%A5%E5%A6%9D-%E5%84%AA%E6%83%A0%E5%88%B8-7percent-off",
-        tips: "福岡起家，九州店舖極多，必逛！"
-    },
-    {
-        id: "welcia",
-        name: "Welcia 藥局",
-        nameEn: "Welcia",
-        discount: "10% + 3%~8%",
-        desc: "免稅 10% + 滿額享優惠",
-        color: "#285FAC",
-        textColor: "#FFFFFF",
-        icon: "⚕️",
-        link: "https://app.likejapan.com/zh-hk/coupon/welcia-drugstore-discount",
-        tips: "24小時營業店舖多，深夜急用方便"
-    },
-    {
-        id: "mitsui",
-        name: "MITSUI OUTLET",
-        nameEn: "Mitsui Outlet Park",
-        keywords: ["lalaport", "outlet"],
-        discount: "9折 + 免稅",
-        desc: "享 9 折 + 免稅 + 精美禮品",
-        color: "#000000",
-        textColor: "#FFFFFF",
-        icon: "🛍️",
-        link: "https://app.likejapan.com/zh-hk/coupon/mitsui-coupon",
-        tips: "適用於全日本 Mitsui Outlet Park (九州無分店，但可於其他地區使用)"
-    },
-    {
-        id: "daikoku",
-        name: "大國藥妝 (線上)",
-        nameEn: "Daikoku Online",
-        discount: "¥1,200 OFF",
-        desc: "線上商店滿萬折 ¥1,200",
-        color: "#FF6600",
-        textColor: "#FFFFFF",
-        icon: "💊",
-        link: "https://app.likejapan.com/zh-hk/coupon/daikoku-ec-coupon",
-        tips: "網路旗艦店專用，與實體店不同"
-    },
-    {
-        id: "sinseido",
-        name: "新生堂藥局",
-        nameEn: "Sinseido",
-        discount: "10% + 5%",
-        desc: "免稅 10% + 5% OFF",
-        color: "#8BC34A",
-        textColor: "#FFFFFF",
-        icon: "🏥",
-        link: "https://app.likejapan.com/zh-hk/coupon/sinseido",
-        tips: "九州在地藥局，服務親切"
-    },
-    {
-        id: "ohga",
-        name: "大賀藥局",
-        nameEn: "Ohga Pharmacy",
-        discount: "折抵 ¥500",
-        desc: "每滿 10,000 日圓折 500",
-        color: "#EF7D00",
-        textColor: "#FFFFFF",
-        icon: "💊",
-        link: "https://app.likejapan.com/zh-hk/coupon/ohga-drugstore-fukuoka-coupon",
-        tips: "福岡在地老牌藥局"
-    },
-    {
-        id: "yamada",
-        name: "山田電機 LABI",
-        nameEn: "Yamada Denki",
-        discount: "10% + 7%",
-        desc: "免稅 10% + 7% OFF",
-        color: "#FFD700",
-        textColor: "#000000",
-        icon: "⚡",
-        link: "https://app.likejapan.com/zh-hk/coupon/labi-yamada-7percent-coupon",
-        tips: "日本最大電器連鎖"
-    },
-    {
-        id: "kitamura",
-        name: "北村相機",
-        nameEn: "Kitamura Camera",
-        discount: "10% + 5%",
-        desc: "免稅 10% + 5% OFF",
-        color: "#000000",
-        textColor: "#FFFFFF",
-        icon: "📷",
-        link: "https://app.likejapan.com/zh-hk/coupon/kitamura-camera-discount",
-        tips: "二手相機與新品皆有"
-    },
-    {
-        id: "alpen",
-        name: "Alpen Group",
-        nameEn: "Alpen Group",
-        discount: "10% + 5%",
-        desc: "免稅 10% + 5% OFF",
-        color: "#003399",
-        textColor: "#FFFFFF",
-        icon: "⚽",
-        keywords: ["alpen"],
-        link: "https://app.likejapan.com/zh-hk/coupon/alpen-coupon",
-        tips: "運動用品專賣，包含 Sports Depot"
-    },
-    {
-        id: "victoria",
-        name: "Victoria / L-Breath",
-        nameEn: "Victoria Sports",
-        discount: "10% + 5%",
-        desc: "免稅 10% + 5% OFF",
-        color: "#0099CC",
-        textColor: "#FFFFFF",
-        icon: "⛺",
-        link: "https://app.likejapan.com/zh-hk/coupon/Victoria-L-Breath-SuperSportsXebio-sportwear-5percent-coupon",
-        tips: "戶外與運動用品專門店 (含 Super Sports Xebio)"
-    },
-    {
-        id: "daimaru",
-        name: "大丸・松坂屋",
-        nameEn: "Daimaru Matsuzakaya",
-        discount: "95折",
-        desc: "免稅 10% + 5% OFF",
-        color: "#006633",
-        textColor: "#FFFFFF",
-        icon: "🏬",
-        keywords: ["daimaru", "大丸"],
-        link: "https://app.likejapan.com/zh-hk/coupon/daimaru-departmentstore-5percent-off",
-        tips: "適用於大丸與松坂屋百貨 (福岡天神有店)"
-    },
-    {
-        id: "aoki",
-        name: "AOKI 西服",
-        nameEn: "AOKI",
-        discount: "10% + 10%",
-        desc: "免稅 10% + 10% OFF",
-        color: "#000000",
-        textColor: "#FFFFFF",
-        icon: "👔",
-        link: "https://app.likejapan.com/zh-hk/coupon/AOKI-10percent-off",
-        tips: "商務西裝、休閒服飾"
-    },
-    {
-        id: "orihica",
-        name: "ORIHICA",
-        nameEn: "ORIHICA",
-        discount: "10% + 10%",
-        desc: "免稅 10% + 10% OFF",
-        color: "#003366",
-        textColor: "#FFFFFF",
-        icon: "👔",
-        link: "https://app.likejapan.com/zh-hk/coupon/orihica",
-        tips: "休閒商務風格"
-    },
-    {
-        id: "sf_express",
-        name: "順豐國際 x eBackHome",
-        nameEn: "SF Express",
-        discount: "95折",
-        desc: "行李寄送 / 集運 95 折",
-        color: "#DC1E32",
-        textColor: "#FFFFFF",
-        icon: "📦",
-        link: "https://app.likejapan.com/zh-hk/coupon/%E9%A0%86%E8%B1%90%E5%9C%8B%E9%9A%9B%E6%97%A5%E6%9C%ACxeBackHome%E5%84%AA%E6%83%A0",
-        tips: "機場行李寄送服務"
-    },
-    {
-        id: "ninja",
-        name: "NINJA WiFi",
-        nameEn: "NINJA WiFi",
-        discount: "MAX 20%",
-        desc: "WiFi / SIM / eSIM 優惠",
-        color: "#000000",
-        textColor: "#FFFFFF",
-        icon: "📶",
-        link: "https://app.likejapan.com/zh-hk/coupon/NINJA-Wifi-discount",
-        tips: "日本上網服務"
-    },
-    {
-        id: "kappu",
-        name: "Kappu Coffee",
-        nameEn: "Kappu Coffee",
-        discount: "95折",
-        desc: "5% OFF 折扣優惠",
-        color: "#6F4E37",
-        textColor: "#FFFFFF",
-        icon: "☕",
-        link: "https://app.likejapan.com/zh-hk/coupon/Kappu-Coffee%E5%84%AA%E6%83%A0%E5%88%B8",
-        tips: "咖啡豆與器具"
-    },
-    {
-        id: "wamazing",
-        name: "完美行 WAmazing",
-        nameEn: "WAmazing",
-        discount: "購物優惠",
-        desc: "免排隊購買人氣伴手禮",
-        color: "#FF3366",
-        textColor: "#FFFFFF",
-        icon: "🎁",
-        link: "https://app.likejapan.com/zh-hk/coupon/wamazing-offer",
-        tips: "線上預訂，機場領取"
-    }
-];
+        const coupons = [
+            {
+                id: "bic_camera",
+                name: "Bic Camera",
+                nameEn: "Bic Camera",
+                discount: "10% + 7%",
+                desc: "免稅 10% + 電器 7% / 藥妝 5% / 日本酒 3%",
+                color: "#ED1A3D",
+                textColor: "#FFFFFF",
+                icon: "📷",
+                link: "https://app.likejapan.com/zh-hk/coupon/BIC-CAMERA-%E5%84%AA%E6%83%A0%E5%88%B8",
+                tips: "結帳時出示優惠券條碼截圖即可使用"
+            },
+            {
+                id: "don_quijote",
+                name: "唐吉訶德",
+                nameEn: "Don Quijote",
+                discount: "10% + 5%~7%",
+                desc: "免稅 10% + 滿萬折 5% / 滿三萬折 7%",
+                color: "#1E2A5E",
+                textColor: "#FFFFFF",
+                icon: "🐧",
+                link: "https://japanportal.donki-global.com/coupon/?id=EA1A",
+                tips: "必須使用手機點擊連結顯示動態條碼，截圖無效"
+            },
+            {
+                id: "edion",
+                name: "愛電王",
+                nameEn: "EDION",
+                discount: "10% + 7%",
+                desc: "免稅 10% + 電器/手錶/玩具 7%",
+                color: "#005BAC",
+                textColor: "#FFFFFF",
+                icon: "⚡",
+                link: "https://app.likejapan.com/zh-hk/coupon/EDION-7percent-discount-coupon",
+                tips: "適用於大部分家電產品，部分商品除外"
+            },
+            {
+                id: "matsumoto",
+                name: "松本清",
+                nameEn: "Matsumoto Kiyoshi",
+                discount: "10% + 3%~7%",
+                desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+                color: "#FFF100",
+                textColor: "#000000",
+                icon: "💊",
+                link: "https://app.likejapan.com/zh-hk/coupon/%E8%97%A5%E5%A6%9D%E5%BA%97%E6%9D%BE%E6%9C%AC%E6%B8%85%E5%84%AA%E6%83%A0%E5%88%B8",
+                tips: "藥妝類商品最划算，部分化妝品不適用"
+            },
+            {
+                id: "sundrug",
+                name: "Sun Drug",
+                nameEn: "Sun Drug",
+                discount: "10% + 3%~7%",
+                desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+                color: "#D91F26",
+                textColor: "#FFFFFF",
+                icon: "💊",
+                link: "https://app.likejapan.com/zh-hk/coupon/sundrug-coupon-7percent-off",
+                tips: "尚都樂客藥妝，店舖數量多，價格競爭力強"
+            },
+            {
+                id: "tsuruha",
+                name: "鶴羽藥妝",
+                nameEn: "Tsuruha Drug",
+                discount: "10% + 3%~7%",
+                desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+                color: "#E60012",
+                textColor: "#FFFFFF",
+                icon: "🏗️",
+                link: "https://app.likejapan.com/zh-hk/coupon/tsuruha-drug",
+                tips: "北海道起家的大型藥妝連鎖，九州也有分店"
+            },
+            {
+                id: "sugi",
+                name: "杉藥局",
+                nameEn: "Sugi Pharmacy",
+                discount: "10% + 4%~8%",
+                desc: "免稅 10% + 滿額享 4% / 6% / 8% 折扣",
+                color: "#183883",
+                textColor: "#FFFFFF",
+                icon: "🌲",
+                keywords: ["sugi"],
+                link: "https://app.likejapan.com/zh-hk/coupon/sugi-pharmacy",
+                tips: "折數較高，最高可達 18% (含稅及折扣)"
+            },
+            {
+                id: "cocokara",
+                name: "Cocokara Fine",
+                nameEn: "Cocokara Fine",
+                discount: "10% + 3%~7%",
+                desc: "免稅 10% + 滿額享 3% / 5% / 7% 折扣",
+                color: "#EA5480",
+                textColor: "#FFFFFF",
+                icon: "✨",
+                keywords: ["parco"],
+                link: "https://app.likejapan.com/zh-hk/coupon/cocokarafine-coupon",
+                tips: "店舖明亮時尚，化妝品種類豐富"
+            },
+            {
+                id: "cosmos",
+                name: "Cosmos 藥妝",
+                nameEn: "Cosmos",
+                discount: "高達 19%",
+                desc: "免稅 10% + 5%~7% + 額外優惠",
+                color: "#2E8B57", // Usually pink/green, using green for distinction
+                textColor: "#FFFFFF",
+                icon: "🌸",
+                link: "https://app.likejapan.com/zh-hk/coupon/COSMOS-%E8%97%A5%E5%A6%9D-%E5%84%AA%E6%83%A0%E5%88%B8-7percent-off",
+                tips: "福岡起家，九州店舖極多，必逛！"
+            },
+            {
+                id: "welcia",
+                name: "Welcia 藥局",
+                nameEn: "Welcia",
+                discount: "10% + 3%~8%",
+                desc: "免稅 10% + 滿額享優惠",
+                color: "#285FAC",
+                textColor: "#FFFFFF",
+                icon: "⚕️",
+                link: "https://app.likejapan.com/zh-hk/coupon/welcia-drugstore-discount",
+                tips: "24小時營業店舖多，深夜急用方便"
+            },
+            {
+                id: "mitsui",
+                name: "MITSUI OUTLET",
+                nameEn: "Mitsui Outlet Park",
+                keywords: ["lalaport", "outlet"],
+                discount: "9折 + 免稅",
+                desc: "享 9 折 + 免稅 + 精美禮品",
+                color: "#000000",
+                textColor: "#FFFFFF",
+                icon: "🛍️",
+                link: "https://app.likejapan.com/zh-hk/coupon/mitsui-coupon",
+                tips: "適用於全日本 Mitsui Outlet Park (九州無分店，但可於其他地區使用)"
+            },
+            {
+                id: "daikoku",
+                name: "大國藥妝 (線上)",
+                nameEn: "Daikoku Online",
+                discount: "¥1,200 OFF",
+                desc: "線上商店滿萬折 ¥1,200",
+                color: "#FF6600",
+                textColor: "#FFFFFF",
+                icon: "💊",
+                link: "https://app.likejapan.com/zh-hk/coupon/daikoku-ec-coupon",
+                tips: "網路旗艦店專用，與實體店不同"
+            },
+            {
+                id: "sinseido",
+                name: "新生堂藥局",
+                nameEn: "Sinseido",
+                discount: "10% + 5%",
+                desc: "免稅 10% + 5% OFF",
+                color: "#8BC34A",
+                textColor: "#FFFFFF",
+                icon: "🏥",
+                link: "https://app.likejapan.com/zh-hk/coupon/sinseido",
+                tips: "九州在地藥局，服務親切"
+            },
+            {
+                id: "ohga",
+                name: "大賀藥局",
+                nameEn: "Ohga Pharmacy",
+                discount: "折抵 ¥500",
+                desc: "每滿 10,000 日圓折 500",
+                color: "#EF7D00",
+                textColor: "#FFFFFF",
+                icon: "💊",
+                link: "https://app.likejapan.com/zh-hk/coupon/ohga-drugstore-fukuoka-coupon",
+                tips: "福岡在地老牌藥局"
+            },
+            {
+                id: "yamada",
+                name: "山田電機 LABI",
+                nameEn: "Yamada Denki",
+                discount: "10% + 7%",
+                desc: "免稅 10% + 7% OFF",
+                color: "#FFD700",
+                textColor: "#000000",
+                icon: "⚡",
+                link: "https://app.likejapan.com/zh-hk/coupon/labi-yamada-7percent-coupon",
+                tips: "日本最大電器連鎖"
+            },
+            {
+                id: "kitamura",
+                name: "北村相機",
+                nameEn: "Kitamura Camera",
+                discount: "10% + 5%",
+                desc: "免稅 10% + 5% OFF",
+                color: "#000000",
+                textColor: "#FFFFFF",
+                icon: "📷",
+                link: "https://app.likejapan.com/zh-hk/coupon/kitamura-camera-discount",
+                tips: "二手相機與新品皆有"
+            },
+            {
+                id: "alpen",
+                name: "Alpen Group",
+                nameEn: "Alpen Group",
+                discount: "10% + 5%",
+                desc: "免稅 10% + 5% OFF",
+                color: "#003399",
+                textColor: "#FFFFFF",
+                icon: "⚽",
+                keywords: ["alpen"],
+                link: "https://app.likejapan.com/zh-hk/coupon/alpen-coupon",
+                tips: "運動用品專賣，包含 Sports Depot"
+            },
+            {
+                id: "victoria",
+                name: "Victoria / L-Breath",
+                nameEn: "Victoria Sports",
+                discount: "10% + 5%",
+                desc: "免稅 10% + 5% OFF",
+                color: "#0099CC",
+                textColor: "#FFFFFF",
+                icon: "⛺",
+                link: "https://app.likejapan.com/zh-hk/coupon/Victoria-L-Breath-SuperSportsXebio-sportwear-5percent-coupon",
+                tips: "戶外與運動用品專門店 (含 Super Sports Xebio)"
+            },
+            {
+                id: "daimaru",
+                name: "大丸・松坂屋",
+                nameEn: "Daimaru Matsuzakaya",
+                discount: "95折",
+                desc: "免稅 10% + 5% OFF",
+                color: "#006633",
+                textColor: "#FFFFFF",
+                icon: "🏬",
+                keywords: ["daimaru", "大丸"],
+                link: "https://app.likejapan.com/zh-hk/coupon/daimaru-departmentstore-5percent-off",
+                tips: "適用於大丸與松坂屋百貨 (福岡天神有店)"
+            },
+            {
+                id: "aoki",
+                name: "AOKI 西服",
+                nameEn: "AOKI",
+                discount: "10% + 10%",
+                desc: "免稅 10% + 10% OFF",
+                color: "#000000",
+                textColor: "#FFFFFF",
+                icon: "👔",
+                link: "https://app.likejapan.com/zh-hk/coupon/AOKI-10percent-off",
+                tips: "商務西裝、休閒服飾"
+            },
+            {
+                id: "orihica",
+                name: "ORIHICA",
+                nameEn: "ORIHICA",
+                discount: "10% + 10%",
+                desc: "免稅 10% + 10% OFF",
+                color: "#003366",
+                textColor: "#FFFFFF",
+                icon: "👔",
+                link: "https://app.likejapan.com/zh-hk/coupon/orihica",
+                tips: "休閒商務風格"
+            },
+            {
+                id: "sf_express",
+                name: "順豐國際 x eBackHome",
+                nameEn: "SF Express",
+                discount: "95折",
+                desc: "行李寄送 / 集運 95 折",
+                color: "#DC1E32",
+                textColor: "#FFFFFF",
+                icon: "📦",
+                link: "https://app.likejapan.com/zh-hk/coupon/%E9%A0%86%E8%B1%90%E5%9C%8B%E9%9A%9B%E6%97%A5%E6%9C%ACxeBackHome%E5%84%AA%E6%83%A0",
+                tips: "機場行李寄送服務"
+            },
+            {
+                id: "ninja",
+                name: "NINJA WiFi",
+                nameEn: "NINJA WiFi",
+                discount: "MAX 20%",
+                desc: "WiFi / SIM / eSIM 優惠",
+                color: "#000000",
+                textColor: "#FFFFFF",
+                icon: "📶",
+                link: "https://app.likejapan.com/zh-hk/coupon/NINJA-Wifi-discount",
+                tips: "日本上網服務"
+            },
+            {
+                id: "kappu",
+                name: "Kappu Coffee",
+                nameEn: "Kappu Coffee",
+                discount: "95折",
+                desc: "5% OFF 折扣優惠",
+                color: "#6F4E37",
+                textColor: "#FFFFFF",
+                icon: "☕",
+                link: "https://app.likejapan.com/zh-hk/coupon/Kappu-Coffee%E5%84%AA%E6%83%A0%E5%88%B8",
+                tips: "咖啡豆與器具"
+            },
+            {
+                id: "wamazing",
+                name: "完美行 WAmazing",
+                nameEn: "WAmazing",
+                discount: "購物優惠",
+                desc: "免排隊購買人氣伴手禮",
+                color: "#FF3366",
+                textColor: "#FFFFFF",
+                icon: "🎁",
+                link: "https://app.likejapan.com/zh-hk/coupon/wamazing-offer",
+                tips: "線上預訂，機場領取"
+            }
+        ];

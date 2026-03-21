@@ -252,6 +252,7 @@ function renderDayPanel(d) {
 function renderMeals(meals) {
     return meals.map((m, i) => {
         const igBadge = m.igRecommend ? '<span class="ig-badge">IG推薦</span>' : '';
+        const threadBadge = m.threadRecommend ? '<span class="thread-badge">Threads推薦</span>' : '';
         return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
@@ -261,6 +262,7 @@ function renderMeals(meals) {
                 </a>
                 <div class="tag-group">
                     ${igBadge}
+                    ${threadBadge}
                     <span class="tag">${m.tag}</span>
                 </div>
             </div>
@@ -331,6 +333,7 @@ function renderSpecialties(specs) {
         ` : '';
 
         const igBadge = s.igRecommend ? '<span class="ig-badge">IG推薦</span>' : '';
+        const threadBadge = s.threadRecommend ? '<span class="thread-badge">Threads推薦</span>' : '';
 
         return `
         <div class="specialty-item" data-index="${i}" onclick="focusOnSpecialty(${i}, ${s.lat}, ${s.lng})">
@@ -339,6 +342,7 @@ function renderSpecialties(specs) {
                 <h4><span class="item-num gold">${i + 1}</span> ${s.name}</h4>
                 <div class="tag-group">
                     ${igBadge}
+                    ${threadBadge}
                     <span class="tag">${s.tag}</span>
                 </div>
             </div>

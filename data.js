@@ -1,5 +1,8 @@
 const state = { day: 1, mode: 'drive' };
 
+// ⚠️ TODO: 出發前 7-10 天（約 6/1-6/4）請至 Windy (https://www.windy.com/33.590/130.410) 查看實際預報並更新以下資料
+// ⚠️ UPDATE: Check Windy forecast 7-10 days before departure (around 6/1-6/4) and update below
+// 目前為六月中旬梅雨季歷年氣候統計預估值 / Current values are historical climate estimates for mid-June rainy season
 const weather = [
     { date: '06/11', dow: '四', icon: '🌦️', high: 27, low: 21, rain: 50, gear: '攜帶折傘，梅雨季午後易陣雨', clothing: '短袖+薄長褲，備薄外套(室內冷氣強)' },
     { date: '06/12', dow: '五', icon: '🌧️', high: 26, low: 22, rain: 65, gear: '務必帶大傘/輕便雨衣', clothing: '透氣排汗衣+快乾短褲，鞋子選防水款' },
@@ -40,7 +43,7 @@ const data = [
                 { name: "博多鐵鍋餃子", hours: "17:00-23:00", desc: "祇園名物！上桌時還滋滋作響的高熱鐵鍋。一口大小的餃子皮薄底脆，內餡鮮美多汁。必點：鐵鍋餃子配上一杯大杯生啤酒🍻。", tag: "餃子", lat: 33.5888, lng: 130.4155, mapUrl: "https://www.google.com/maps/search/?api=1&query=鉄なべ+祇園店" },
                 { name: "Sushi Sakaba Sashisu (KITTE)", hours: "11:00-23:00", desc: "打破傳統的時髦壽司酒吧。招牌「鮪魚鐵火捲」肉量爆炸、油脂豐富。新鮮、平價且氣氛極佳，是博多站內極受年輕人歡迎的排隊店🍣。", tag: "壽司", igRecommend: true, lat: 33.5892, lng: 130.4215, mapUrl: "https://www.google.com/maps/search/?api=1&query=すし酒場+さしす+KITTE博多" },
                 { name: "Hakata seafood Uoden", hours: "11:00-22:00", desc: "福岡必拍！衝擊視覺的「明太子玉子燒蓋飯」。金黃歐姆蛋包覆著整支肥美明太子，搭配特製醬汁與魚池海味，口感豐富且話題度滿分🍳。", tag: "海鮮", igRecommend: true, lat: 33.5897, lng: 130.4108, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多魚介+うおでん" },
-                { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "引起全日排隊狂潮的生甜甜圈。麵體濕潤軟綿且入口即化。推薦：開心果、巧克力口味，每一顆都充滿了手作的靈魂味道🍩。", tag: "甜點", igRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" },
+                { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "引起全日排隊狂潮的生甜甜圈。麵體濕潤軟綿且入口即化。推薦：開心果、巧克力口味，每一顆都充滿了手作的靈魂味道🍩。", tag: "甜點", igRecommend: true, threadRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" },
                 { name: "元祖博多めんたい重", hours: "07:00-22:30", desc: "日本第一家明太子飯專賣店。將一整條昆布醃漬明太子橫躺在海苔飯上，淋上客製辛辣度的「元祖醬汁」，是博多極致奢華的味覺體驗🍚。", tag: "海鮮", igRecommend: true, lat: 33.5905, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=元祖博多めんたい重" },
                 { name: "極味や 博多店", hours: "11:00-22:00", desc: "互動式燒烤趣味！將半熟漢堡排切克放在高溫石塊上，自行調整喜愛的熟度。肉汁在石塊上跳動爆發的香氣，每一口都是最完美的火侯🔥。", tag: "燒肉", igRecommend: true, lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=極味や+博多店" }
             ],
@@ -180,15 +183,18 @@ const data = [
             ],
             lunch: [
                 { name: "LaLaport 美食街", hours: "11:00-21:00", desc: "福岡最大規模的美食廣場！集合了「日本金賞炸雞」、「博多名代烏龍麵」等多家九州名店。空間寬敞且選擇多元，是全家人都能找到心目中第一名美味的最佳場所廣場🍲。", tag: "美食街", lat: 33.5665, lng: 130.4283, mapUrl: "https://www.google.com/maps/search/?api=1&query=LaLaport+Fukuoka" },
+                { name: "Frisco 炭烤牛肉漢堡", hours: "11:30-20:00", desc: "100%純牛肉只用鹽和胡椒調味！炭火直烤牛肉排＋麵包，香氣超誇張，一口咬下肉汁直接爆開的極致漢堡🍔。", tag: "漢堡", igRecommend: true, threadRecommend: true, lat: 33.5878, lng: 130.3958, mapUrl: "https://www.google.com/maps/search/?api=1&query=Frisco+福岡" },
+                { name: "糸島海鮮堂", hours: "11:00-18:30", desc: "若有自駕可順遊糸島！推薦糸島海鮮丼與炸雞丼，海鮮滿溢的超強視覺與味覺雙享受🍣。", tag: "海鮮", igRecommend: true, lat: 33.6265, lng: 130.1985, mapUrl: "https://www.google.com/maps/search/?api=1&query=糸島海鮮堂" },
                 { name: "伊都Kingu (草莓)", hours: "10:00-20:00", desc: "草莓控的究極聖地！主打福岡限定「王樣（Amaou）」草莓製作。強烈推薦：草莓銅鑼燒與季節限定草莓凍飲。酸甜平衡的奢華口感，每一口都是粉紅色的幸福滋味🍓。", tag: "甜點", lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ+天神店" },
                 { name: "天神博多華味鳥", hours: "11:30-14:30", desc: "中午也能輕鬆享用傳統水炊鍋！午間限定套餐提供高 CP 值的雞肉定食與精製雞湯塊。口感清爽、膠原蛋白滿滿，深受女性喜愛的精緻午餐選擇鍋物🍵。", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=華味鳥+天神店" },
                 { name: "Shin-Shin 拉麵", hours: "11:00-03:00", desc: "天神地區的排隊傳奇。湯頭走的是博多少見的「清爽豚骨」風格，搭配極細麵條，口感輕盈卻香氣十足。必點：煮蛋拉麵，是在地天神上班族的靈魂午餐🍜。", tag: "拉麵", igRecommend: true, lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=Shin-Shin+天神本店" },
-                { name: "麺屋兼虎", hours: "10:30-23:00", desc: "超越味覺極限的濃厚！招牌「極厚魚介沾麵」湯頭佈滿魚粉香氣，麵條 Q 彈帶勁。那種近乎固態的濃醇滋味，是沾麵愛好者來到福岡必訪的神選之店🍜。", tag: "拉麵", igRecommend: true, lat: 33.5890, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=麺屋兼虎+天神本店" },
+                { name: "麺屋兼虎", hours: "10:30-23:00", desc: "超越味覺極限的濃厚！招牌「極厚魚介沾麵」湯頭佈滿魚粉香氣，麵條 Q 彈帶勁。那種近乎固態的濃醇滋味，是沾麵愛好者來到福岡必訪的神選之店🍜。", tag: "拉麵", igRecommend: true, threadRecommend: true, lat: 33.5890, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=麺屋兼虎+天神本店" },
                 { name: "一蘭天神店 (方型碗)", hours: "10:00-23:00", desc: "全球唯一使用「重箱（方型陶瓷碗）」的一蘭！這款精緻的瓷碗不僅視覺震撼，更能保溫讓湯頭更香醇。太宰府天滿官風格的設計，只有在這裡才能體驗到的儀式感拉麵🍜。", tag: "拉麵", lat: 33.5905, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+天神店" },
                 { name: "明太子 やまや總本店 (白金小徑)", hours: "11:00-15:00", desc: "優雅極致的明太子料理。限定供應的「明太子陶鍋飯」現場悶煮，伴隨著米飯焦香與明太子的鮮甜。在充滿和式美學的空間中，體驗明太子的最高規格禮遇🍱。", tag: "博多料理", igRecommend: true, lat: 33.5825, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=やまや總本店+白金小徑" }
             ],
             dinner: [
                 { name: "博多水炊鍋 華味鳥", hours: "17:00-23:00", desc: "福岡夜晚最溫暖的雞湯饗宴。依序品嚐清湯、雞肉塊、手工雞肉丸與精華雜炊。全程職人桌邊服務，感受極致的職人精神與雞鮮味之美鍋物🍵。", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=水たき料亭+博多華味鳥+天神店" },
+                { name: "藥院燒肉", hours: "16:00-24:00", desc: "推薦品項為特選 7 種部位套餐。肉質鮮美，是夜晚在藥院區大啖和牛的最佳據點🥩。", tag: "燒肉", igRecommend: true, lat: 33.5815, lng: 130.3980, mapUrl: "https://www.google.com/maps/search/?api=1&query=藥院燒肉" },
                 { name: "笑樂 牛腸鍋", hours: "11:00-23:00", desc: "在繁華天神享用老舖風味。牛腸處理得乾淨無腥味，入口即化，推薦點選「經典醬油」口味帶出牛油的清甜。這也是福岡上班族下班後聚會的元氣來源鍋物🍲。", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋+笑楽+天神店" },
                 { name: "燒肉 孫三郎", hours: "17:00-23:00", desc: "天神鬧區中的精品燒肉！嚴選高品質黑毛和牛，肉質鮮紅油花細密。推薦：和牛六種盛合。在洗鍊的裝潢中享用炭火直燒的高級肉質感🥩。", tag: "燒肉", lat: 33.5895, lng: 130.3965, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+孫三郎+天神店" },
                 { name: "稚加榮 (晚餐時段)", hours: "17:00-21:00", desc: "傍晚時分，料亭氛圍更顯靜謐高雅。圍繞巨大魚池享用「現撈活造刺身」與傳統懷石料理。每一道菜都如藝術品般精緻，是博多夜晚最高規格的海鮮款待料亭🍤。", tag: "料亭", lat: 33.5885, lng: 130.3925, mapUrl: "https://www.google.com/maps/search/?api=1&query=稚加榮" },
@@ -247,6 +253,17 @@ const data = [
                 lng: 130.3985,
                 image: "images/itoking_real.png",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=伊都きんぐ"
+            },
+            {
+                name: "またいちの塩 (自駕推薦)",
+                hours: "10:00-17:00",
+                desc: "糸島自駕必訪的絕美海景與「原味花鹽布丁」。在海岸邊品嚐純粹的鹽香與焦糖甜相互輝映的當地名物，打卡必備🍮。",
+                tag: "甜點",
+                igRecommend: true,
+                lat: 33.5385,
+                lng: 130.1170,
+                image: "images/またいちの塩.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=またいちの塩"
             },
             {
                 name: "二◯加煎餅 (東雲堂)",

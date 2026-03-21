@@ -2937,6 +2937,18 @@ html {
     white-space: nowrap;
 }
 
+/* Threads Recommend Badge - Threads風格推薦標籤 */
+.thread-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: #000000;
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 /* Coupon Modal Structure */
 #coupon-modal {
     display: none;
