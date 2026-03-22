@@ -880,6 +880,58 @@ function openPrepModal(type) {
                 Meat products are strictly prohibited. Violators face fines up to ¥1,000,000.</p>
             </div>
         `;
+    } else if (type === 'returning') {
+        body.innerHTML = `
+            <div class="guide-header">
+                <h2>🇹🇼 回國注意事項</h2>
+                <p>Returning to Taiwan Precautions</p>
+            </div>
+
+            <div class="guide-section">
+                <h3>🚫 九州特產禁帶清單 Prohibited Specialties</h3>
+                <div class="guide-item" style="border-left: 4px solid #d9534f; background: rgba(217, 83, 79, 0.05);">
+                    <h4>❌ 努努雞 (冷炸雞) Nunu-ki</h4>
+                    <p><strong>絕對禁止！</strong> 屬於禽肉製品，不論冷熱、真空包裝皆不可帶回台灣。</p>
+                </div>
+                <div class="guide-item" style="border-left: 4px solid #d9534f; background: rgba(217, 83, 79, 0.05);">
+                    <h4>❌ 熊本馬肉刺身 Basashi</h4>
+                    <p><strong>絕對禁止！</strong> 生鮮肉類、肉乾類製品一律嚴禁入境。</p>
+                </div>
+                <div class="guide-item" style="border-left: 4px solid #d9534f; background: rgba(217, 83, 79, 0.05);">
+                    <h4>❌ 新鮮水果 & 生雞蛋</h4>
+                    <p>• <strong>水果</strong>：如伊都 King 的鮮草莓、超市水蜜桃等皆禁止。<br>
+                       • <strong>生雞蛋</strong>：うちのたまご 等生蛋禁止，溫泉蛋/溏心蛋需全熟才保險。</p>
+                </div>
+                <div class="guide-item" style="border-left: 4px solid #f0ad4e; background: rgba(240, 173, 78, 0.05);">
+                    <h4>⚠️ 含肉調理包 / 拉麵禮盒</h4>
+                    <p>• <strong>一蘭/Shin-Shin</strong>：純麵條與粉末包可入境。若內含「肉塊」調理包則禁止。</p>
+                </div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🛂 台灣海關一般規定 General Regulations</h3>
+                <div class="guide-item">
+                    <h4>🍶 酒類 & 菸草</h4>
+                    <p>• <strong>酒類</strong>：1 公升（不限瓶數，需年滿 18 歲）。<br>
+                       • <strong>捲菸</strong>：200 支 (1條)；<strong>加熱菸</strong>：全面禁止攜入。</p>
+                </div>
+                <div class="guide-item">
+                    <h4>💊 藥物自用限制</h4>
+                    <p>• <strong>非處方藥</strong>：每種 12 瓶，合計不超過 36 瓶。<br>
+                       • <strong>合利他命/合利他命</strong>：屬於藥品，需遵守上述數量限制。</p>
+                </div>
+                <div class="guide-item">
+                    <h4>💰 申報限額</h4>
+                    <p>• 外幣逾等值美金 1 萬元需申報。<br>
+                       • 台幣逾 10 萬元、人民幣逾 2 萬元需申報。</p>
+                </div>
+            </div>
+
+            <div class="guide-tip">
+                <h4>💡 放心帶回清單 Safe Items</h4>
+                <p>博多通饅頭、明月堂、茅乃舍高湯粉（不含肉塊）、Menbei 仙貝、筑紫麻糬、八女茶、柚子胡椒等<strong>加工品</strong>皆可安全入境。</p>
+            </div>
+        `;
     }
 
     modal.classList.add('active');
