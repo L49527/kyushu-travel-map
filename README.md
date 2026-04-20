@@ -28,14 +28,24 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 
 ---
 
-## 🚀 最近更新 / Recent Updates (2026.02)
+## 🚀 最近更新 / Recent Updates (2026.04.20)
+
+### 🌤️ 即時7天天氣預報 / Live 7-Day Forecast Integration
+- **Open-Meteo API**：整合完全免費、**無需 API Key** 的 [Open-Meteo](https://open-meteo.com/) 天氣服務。
+- **動態取代靜態資料**：載入後以福岡即時7天日預報**覆蓋 `weather` 陣列**，使 Day 1–7 導覽列的天氣圖示與溫度資料成為真實預報值。
+- **超出預報範圍自動降級**：出發日若尚未進入 16 天預報範圍，保留靜態歷史估計資料，不顯示錯誤。
+- **WMO 天氣代碼**：完整實作 WMO weathercode 對應中文描述與 Emoji 圖示。
+- **自動更新裝備/服裝建議**：依即時降雨機率與氣溫動態生成建議文字。
+- **錯誤降級**：API 失敗時靜默保留靜態資料，不影響任何功能。
+
+---
+
+## 🚀 更新紀錄 / Update History (2026.02)
 
 ### 🛍️ 購物導覽強化 / Shopping Guide Enhancements
 - **Alpen Fukuoka**：加入第一天購物行程，並在購物指南中提升為**獨立主題項目**。
 - **Uniqlo & GU**：加入第二天行程，提供**天神旗艦店**的專屬推薦標記。
 - **超市清單**：每日新增附近推薦超市推薦（如 Lopia, Sunny, AEON 等）。
-
----
 
 ## 🛠️ 技術棧 / Tech Stack
 

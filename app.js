@@ -16,6 +16,7 @@ function init() {
     renderShoppingGuideModal();
     renderPrepModal();
     updateCountdown();
+    fetchForecastWeather(); // 🌤️ 載入即時7天預報 / Load live 7-day forecast
 
     document.querySelectorAll('.mode-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -34,6 +35,143 @@ function init() {
             showDay(state.day);
         });
     });
+}
+
+// =============================================
+// Live 7-Day Forecast — Open-Meteo API
+// 即時7天天氣預報（無需 API Key / No API key required）
+// 資料來源：福岡市座標 (33.59, 130.40)
+// Data source: Fukuoka City coordinates
+// =============================================
+
+// WMO 天氣代碼 → Emoji + 描述
+// WMO weather code → emoji + description (Chinese)
+function wmoToEmoji(code) {
+    if (code === 0)  return { icon: '☀️',  desc: '晴天' };
+    if (code <= 2)   return { icon: '⛅',  desc: '多雲' };
+    if (code === 3)  return { icon: '☁️',  desc: '陰天' };
+    if (code <= 49)  return { icon: '🌫️',  desc: '霧' };
+    if (code <= 57)  return { icon: '🌧️',  desc: '毛毛雨' };
+    if (code <= 67)  return { icon: '🌧️',  desc: '雨' };
+    if (code <= 77)  return { icon: '❄️',  desc: '雪' };
+    if (code <= 82)  return { icon: '🌦️',  desc: '陣雨' };
+    if (code <= 86)  return { icon: '🌨️',  desc: '陣雪' };
+    if (code <= 99)  return { icon: '⛈️',  desc: '雷雨' };
+    return { icon: '🌡️', desc: '未知' };
+}
+
+// 裝備建議：依 WMO 天氣代碼 + 降雨機率 + 最高溫複合判斷
+// Gear suggestion: composite of WMO code, rain probability, and daily high
+function buildGear(rain, high, wmoCode) {
+    const isThunder = wmoCode >= 80 && wmoCode <= 99;
+    const isSnow    = wmoCode >= 71 && wmoCode <= 77;
+    const isHeavyR  = rain >= 60;
+    const isLightR  = rain >= 30;
+    const isHot     = high >= 30;
+    const isFoggy   = wmoCode >= 40 && wmoCode <= 49;
+
+    if (isThunder)      return '⚠️ 雷雨風險高，務必備雨衣並避開山區戶外活動';
+    if (isSnow)         return '❄️ 山區可能降雪，防滑鞋 + 厚外套必備';
+    if (isHeavyR)       return '☔ 強降雨機率高，建議帶大折傘或輕便雨衣';
+    if (isFoggy)        return '🌫️ 能見度低，山路駕車放慢速度，備薄外套防濕';
+    if (isLightR && isHot) return '🌂 帶折傘備用；氣溫高，注意水分補充';
+    if (isLightR)       return '🌂 有降雨機率，建議隨身攜帶折疊傘';
+    if (isHot)          return '🌞 晴熱高溫，防曬乳+遮陽帽+補水必備';
+    return '👌 天氣穩定，輕裝出發，備件薄外套即可';
+}
+
+// 服裝建議：依最高溫 + 最低溫 + 降雨複合判斷
+// Clothing suggestion: composite of high/low temp and rain
+function buildClothing(high, low, rain) {
+    const isWet  = rain >= 40;
+    const isHot  = high >= 30;
+    const isWarm = high >= 26;
+    const isCool = high <= 22;
+    const isCold = high <= 18;
+
+    if (isCold)                 return '🧥 厚外套+長褲+保暖內裡，注意保暖';
+    if (isCool && isWet)        return '🥋 薄長袖+防風外套，鞋子選防水款';
+    if (isCool)                 return '👔 薄長袖或薄外套，室內冷氣留意';
+    if (isHot && isWet)         return '🩴 涼感短袖+速乾短褲，備替換衣物(溫泉/淋雨用)';
+    if (isHot)                  return '👕 涼感短袖+輕薄短褲，注意防曬';
+    if (isWarm && isWet)        return '👕 短袖+薄長褲，備快乾外套，鞋選防水款';
+    if (isWarm)                 return '👕 短袖+薄長褲，備薄外套(室內冷氣強)';
+    return '🧢 舒適輕便穿搭，帶件薄外套備用';
+}
+
+async function fetchForecastWeather() {
+    // 以福岡為基準取7天預報 / Fetch 7-day forecast based on Fukuoka
+    const url = [
+        'https://api.open-meteo.com/v1/forecast',
+        '?latitude=33.5904&longitude=130.4017',
+        '&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max',
+        '&timezone=Asia%2FTokyo',
+        '&forecast_days=16'   // 出發日超過7天，抓16天以備不時之需
+    ].join('');
+
+    try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const { time, weathercode, temperature_2m_max, temperature_2m_min, precipitation_probability_max } = data.daily;
+
+        // 行程出發日期 / Trip departure date
+        const TRIP_START = '2026-06-11';
+
+        // 對應 weather[0..6] 與 API 結果
+        // Match weather[0..6] with API daily forecast entries
+        weather.forEach((w, i) => {
+            // 計算出發後第 i 天的日期字串
+            const targetDate = new Date(TRIP_START);
+            targetDate.setDate(targetDate.getDate() + i);
+            const dateStr = targetDate.toISOString().slice(0, 10); // 'YYYY-MM-DD'
+
+            const idx = time.indexOf(dateStr);
+            if (idx === -1) return; // 超出預報範圍，保留靜態值
+
+            const wmoCode = weathercode[idx];
+            const { icon, desc } = wmoToEmoji(wmoCode);
+            const high   = Math.round(temperature_2m_max[idx]);
+            const low    = Math.round(temperature_2m_min[idx]);
+            const rain   = precipitation_probability_max[idx] ?? 0;
+
+            // 動態覆蓋靜態 weather 陣列 / Dynamically override static weather array
+            w.icon      = icon;
+            w.high      = high;
+            w.low       = low;
+            w.rain      = rain;
+            w.gear      = buildGear(rain, high, wmoCode);
+            w.clothing  = buildClothing(high, low, rain);
+            w._live     = true; // 標記為即時資料 / Mark as live data
+        });
+
+        // 重刷導覽列天氣圖示 / Re-render day nav with live weather icons
+        renderDayNav();
+        // 若當前 Day Panel 已顯示，也更新天氣列 / Also refresh current day panel's weather strip
+        showDay(state.day);
+
+        // 顯示即時更新時間標記 / Show live update timestamp badge
+        const now = new Date();
+        const hh  = String(now.getHours()).padStart(2, '0');
+        const mm  = String(now.getMinutes()).padStart(2, '0');
+        let badge = document.getElementById('weather-live-badge');
+        if (!badge) {
+            badge = document.createElement('div');
+            badge.id = 'weather-live-badge';
+            // 插入在 day-nav 之後 / Insert after day-nav
+            const dayNav = document.getElementById('day-nav');
+            if (dayNav && dayNav.parentNode) {
+                dayNav.parentNode.insertBefore(badge, dayNav.nextSibling);
+            }
+        }
+        badge.innerHTML = `⛅ 即時預報已更新 · Open-Meteo · <span class="badge-time">${hh}:${mm}</span>`;
+        badge.classList.add('visible');
+
+        console.log('[Weather] ✅ Live 7-day forecast loaded from Open-Meteo');
+    } catch (err) {
+        console.warn('[Weather] ⚠️ Forecast fetch failed, using static data:', err);
+        // 靜態資料保留，不做任何變更 / Keep static data, no changes
+    }
 }
 
 
