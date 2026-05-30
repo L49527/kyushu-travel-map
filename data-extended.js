@@ -74,13 +74,13 @@ const dataDay3to7 = [
             { time: "09:00", act: "出發前往由布院", desc: "沿途山景，經過狹霧台" },
             { time: "11:00", act: "由布院散策", desc: "湯之坪街道，Floral Village，金鱗湖" },
             { time: "13:30", act: "九州自然動物公園", desc: "門票¥2600/叢林巴士¥1500 (自駕免叢林巴士費)" },
-            { time: "17:30", act: "前往別府", desc: "入住Galleria Midobaru溫泉飯店" }
+            { time: "17:30", act: "前往別府", desc: "入住御宿 野乃別府溫泉旅館" }
         ],
         spots: [
             { name: "由布院", lat: 33.2667, lng: 131.3667 },
             { name: "金鱗湖", lat: 33.2615, lng: 131.3725 },
             { name: "九州自然動物公園", lat: 33.3439, lng: 131.4733 },
-            { name: "Galleria Midobaru", lat: 33.3125, lng: 131.4785 }
+            { name: "御宿 野乃別府", lat: 33.2795, lng: 131.4985 }
         ],
         meals: {
             breakfast: [

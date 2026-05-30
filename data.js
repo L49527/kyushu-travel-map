@@ -218,7 +218,6 @@ const data = [
             { name: "天神地下街", hours: "10:00-20:00", desc: "600米歐風地下街，150家店舖", tag: "地下街", lat: 33.5902, lng: 130.3985, floorGuide: "https://www.tenchika.com/map/" },
             { name: "岩田屋百貨", hours: "10:00-20:00", desc: "老牌百貨，茅乃舍高湯包專櫃", tag: "百貨", lat: 33.5905, lng: 130.3988, floorGuide: "https://www.iwataya-mitsukoshi.mistore.jp.t.kq.hp.transer.com/iwataya/shops.html" },
             { name: "天神PARCO", hours: "10:00-20:30", desc: "【優惠券】B1有Cocokara Fine藥妝", tag: "百貨", lat: 33.5895, lng: 130.3978, floorGuide: "https://fukuoka.parco.jp/floor/" },
-            { name: "天神CORE", hours: "10:00-20:00", desc: "女性服飾雜貨為主", tag: "商場", lat: 33.5900, lng: 130.3980 },
             { name: "Solaria Plaza", hours: "10:00-21:00", desc: "與天神站直結，便利購物", tag: "商場", lat: 33.5908, lng: 130.3995, floorGuide: "https://www.solariaplaza.com/floor/" }
         ],
         specialties: [

@@ -1,5 +1,11 @@
 // Main application functions
 const allData = [...data, ...dataDay3to7];
+
+function getCurrentDayData() {
+    const dayPlans = allData.filter(x => x.day === state.day);
+    return dayPlans.find(x => x.plan === state.plan) || dayPlans[0];
+}
+
 let mainMap, localMap;
 let currentMealType = 'breakfast';
 let currentSection = 'meals'; // 'meals', 'shopping', or 'specialties'
@@ -164,7 +170,7 @@ async function fetchForecastWeather() {
                 dayNav.parentNode.insertBefore(badge, dayNav.nextSibling);
             }
         }
-        badge.innerHTML = `⛅ 即時預報已更新 · Open-Meteo · <span class="badge-time">${hh}:${mm}</span>`;
+        badge.innerHTML = `⛅ 即時預報已更新 (以16天內為限) / Live Forecast Updated (within 16 days) · Open-Meteo · <span class="badge-time">${hh}:${mm}</span>`;
         badge.classList.add('visible');
 
         console.log('[Weather] ✅ Live 7-day forecast loaded from Open-Meteo');
@@ -280,7 +286,7 @@ function renderDayPanel(d) {
                     </div>
                     <div class="info-cell">
                         <span class="info-label">WEATHER</span>
-                        <span class="info-value">${w.icon} ${w.high}°/${w.low}° 💧${w.rain}%</span>
+                        <span class="info-value">${w.icon} ${w.high}°/${w.low}° 💧${w.rain}% <span class="weather-source-tag" style="font-size:0.75rem;opacity:0.8;display:inline-block;padding:1px 4px;border-radius:3px;background:rgba(184,160,96,0.15)">${w._live ? '📡即時/Live' : '⏳歷史/Est'}</span></span>
                     </div>
                     <div class="info-cell">
                         <span class="info-label">☂️ GEAR</span>
@@ -306,7 +312,7 @@ function renderDayPanel(d) {
                     <span class="hotel-label">🏨 今晚住宿</span>
                     <h3 class="hotel-name">${d.hotel}</h3>
                     <p class="hotel-description">${d.hotelDesc || ''}</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}" target="_blank" class="hotel-link">
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (d.area || 'Japan'))}" target="_blank" rel="noopener noreferrer" class="hotel-link">
                         查看地圖位置 →
                     </a>
                 </div>
@@ -314,10 +320,10 @@ function renderDayPanel(d) {
                     <img src="${d.hotelImage}" alt="${d.hotel}">
                 </div>
             </div>
-            ` : d.hotel !== '溫暖的家' ? `
+            ` : d.hotel !== '溫慢的家' ? `
             <div class="hotel-simple">
                 <span>🏨</span>
-                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}" target="_blank">${d.hotel}</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (d.area || 'Japan'))}" target="_blank" rel="noopener noreferrer">${d.hotel}</a>
                 ${d.hotelDesc ? `<p>${d.hotelDesc}</p>` : ''}
             </div>
             ` : ''}
@@ -394,7 +400,7 @@ function renderMeals(meals) {
         return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
-                <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
+                <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
                     <span class="item-num">${i + 1}</span> ${m.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
@@ -438,7 +444,7 @@ function renderShopping(shops) {
         return `
             <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
                 <div class="shopping-header">
-                    <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()">
+                    <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
                         <span class="item-num purple">${i + 1}</span> ${s.name}
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
@@ -465,7 +471,7 @@ function renderSpecialties(specs) {
 
         // Link Element (if exists)
         const linkHtml = s.link ? `
-            <a href="${s.link}" target="_blank" class="blog-link">
+            <a href="${s.link}" target="_blank" rel="noopener noreferrer" class="blog-link">
                 🔗 閱讀詳細介紹
             </a>
         ` : '';
@@ -487,7 +493,7 @@ function renderSpecialties(specs) {
             <div class="hours">🕒 ${s.hours}</div>
             <p>${s.desc}</p>
             ${linkHtml}
-            <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
+            <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
         </div>
     `}).join('');
 }
@@ -502,7 +508,7 @@ function renderSupermarkets(supers) {
             </div>
             <div class="hours">🕒 ${s.hours}</div>
             <p>${s.desc}</p>
-            <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}`}" target="_blank" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
+            <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
         </div>
     `).join('');
 }
@@ -514,7 +520,7 @@ function switchSection(btn, section) {
     document.querySelectorAll('.section-content').forEach(c => c.classList.remove('active'));
     document.getElementById(`section-${section}`).classList.add('active');
 
-    const d = allData.find(x => x.day === state.day);
+    const d = getCurrentDayData();
     updateMapMarkers(d);
 }
 
@@ -525,7 +531,7 @@ function switchMeal(btn, type) {
     document.querySelectorAll('.meal-list').forEach(l => l.classList.remove('active'));
     document.getElementById(`meal-${type}`).classList.add('active');
 
-    const d = allData.find(x => x.day === state.day);
+    const d = getCurrentDayData();
     updateMapMarkers(d);
 }
 
@@ -562,7 +568,7 @@ function initLocalMap(d) {
             className: '', iconSize: [32, 32], iconAnchor: [16, 16]
         });
         L.marker([d.hotelLat, d.hotelLng], { icon: hotelIcon }).addTo(localMap)
-            .bindPopup(`<div class="popup-day">🏨 今晚住宿</div><div class="popup-title">${d.hotel}</div><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (allData.find(x => x.day === state.day).area || 'Japan'))}" target="_blank" style="font-size:11px;color:#E8A598">📍 Google Map</a>`);
+            .bindPopup(`<div class="popup-day">🏨 今晚住宿</div><div class="popup-title">${d.hotel}</div><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (d.area || 'Japan'))}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#E8A598">📍 Google Map</a>`);
     }
 
     // Add supermarket markers
@@ -630,7 +636,7 @@ function initLocalMap(d) {
     }
 
     // Initial update of markers visibility
-    updateMapMarkers(allData.find(x => x.day === state.day));
+    updateMapMarkers(d);
 }
 
 function updateMapMarkers(d) {
@@ -655,31 +661,17 @@ function updateMapMarkers(d) {
 }
 
 function focusOnSpot(index) {
-    const d = allData.find(x => x.day === state.day);
+    const d = getCurrentDayData();
     if (!d.spots || !d.spots[index]) return;
     const spot = d.spots[index];
     localMap.setView([spot.lat, spot.lng], 15, { animate: true });
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function focusOnSpecialty(index, lat, lng) {
-    localMap.setView([lat, lng], 16, { animate: true });
-    document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    specialtyMarkers[index]?.openPopup();
 }
 
 function focusOnSupermarket(index, lat, lng) {
     localMap.setView([lat, lng], 16, { animate: true });
     document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     supermarketMarkers[index]?.openPopup();
-}
-
-function focusOnSpot(index) {
-    const d = allData.find(x => x.day === state.day);
-    if (!d.spots || !d.spots[index]) return;
-    const spot = d.spots[index];
-    localMap.setView([spot.lat, spot.lng], 15, { animate: true });
-    document.getElementById('local-map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function focusOnMeal(index, lat, lng) {
@@ -965,7 +957,7 @@ function openPrepModal(type) {
                 <div class="guide-item prep-vjw-highlight">
                     <h4>🔑 Visit Japan Web</h4>
                     <p><strong>出發前必填！</strong>線上預先登錄入境資訊與海關申報<br>
-                    <a href="https://www.vjw.digital.go.jp/" target="_blank" class="prep-link">前往 Visit Japan Web →</a></p>
+                    <a href="https://www.vjw.digital.go.jp/" target="_blank" rel="noopener noreferrer" class="prep-link">前往 Visit Japan Web →</a></p>
                 </div>
             </div>
 
@@ -1221,7 +1213,7 @@ function renderCoupons() {
                 <div class="coupon-discount">${coupon.discount}</div>
                 <div class="coupon-desc">${coupon.desc}</div>
                 <div class="coupon-tips">💡 ${coupon.tips}</div>
-                <a href="${coupon.link}" target="_blank" class="coupon-btn">領取優惠券 Get Coupon</a>
+                <a href="${coupon.link}" target="_blank" rel="noopener noreferrer" class="coupon-btn">領取優惠券 Get Coupon</a>
             </div>
         </div>
     `).join('');

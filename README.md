@@ -26,9 +26,20 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 ### 4. PWA 支援 / Progress Web App Support
 - 整合 Service Worker 與 Web Manifest，支援離線快取與安裝至主畫面。
 
+## 🚀 最近更新 / Recent Updates (2026.05.30)
+
+### 🛠️ 核心功能修復與 PWA 體驗改善 / Core Fixes & PWA Enhancements
+- **Day 5 方案切換修復 / Day 5 Plan Selection Fix**：新增 `getCurrentDayData()` 函式以正確區分 A/B 方案，解決點擊景點/美食/購物時地圖聚焦至錯誤方案資料的問題。
+- **清除重複定義 / Duplicate Clean-up**：移除 `app.js` 中重複定義的 `focusOnSpot` 和 `focusOnSpecialty` 函式。
+- **天氣更新範圍釐清 / Weather Range Clarification**：在天氣時間戳記上明確標示「以 16 天內為限」，並在每日天氣列表中依據即時狀態附加 `(即時/Live)` 或 `(預估/Est)` 標籤。
+- **Day 4 住宿一致性 / Day 4 Accommodation Alignment**：將 Day 4 的時間軸與景點與飯店住宿統一改為「御宿 野乃別府」，並校正經緯度。
+- **移除停業景點 / Closed Spot Removal**：移除了已於 2020 年停業的 `天神CORE` 購物點。
+- **PWA 離線快取升級 / PWA Caching Upgrade**：在 `sw.js` 中實作 Stale-While-Revalidate 與 Network-First 快取策略，並預先快取 Leaflet CDN、Google Fonts 及首頁封面與飯店主要圖片，提升離線體驗。
+- **連結安全提升 / Link Security**：為所有 `target="_blank"` 的外部連結補上 `rel="noopener noreferrer"`。
+
 ---
 
-## 🚀 最近更新 / Recent Updates (2026.04.20)
+## 🚀 歷史更新 / Update History (2026.04.20)
 
 ### 🌤️ 即時7天天氣預報 / Live 7-Day Forecast Integration
 - **Open-Meteo API**：整合完全免費、**無需 API Key** 的 [Open-Meteo](https://open-meteo.com/) 天氣服務。
