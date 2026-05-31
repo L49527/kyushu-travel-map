@@ -12,6 +12,40 @@ let currentSection = 'meals'; // 'meals', 'shopping', or 'specialties'
 let mealMarkers = [];
 let specialtyMarkers = [];
 let shoppingMarkers = [];
+let supermarketMarkers = [];
+
+function toggleHotelDesc() {
+    const el = document.getElementById('hotel-desc-full');
+    const btn = document.querySelector('.hotel-desc-toggle');
+    if (!el || !btn) return;
+    const isHidden = el.style.display === 'none';
+    el.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? '📄 收起介紹' : '📄 查看完整介紹';
+    if (isHidden) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderHeroWeatherWidget() {
+    const container = document.getElementById('weather-cities');
+    const updateEl = document.getElementById('weather-widget-update');
+    if (!container) return;
+
+    const dayLabels = ['Day 1 福岡', 'Day 2 福岡', 'Day 3 太宰府', 'Day 4 由布院', 'Day 5 阿蘇', 'Day 6 別府', 'Day 7 福岡'];
+    container.innerHTML = weather.map((w, i) => `
+        <div class="weather-city-card">
+            <span class="wc-name">${dayLabels[i]}</span>
+            <span class="wc-icon">${w.icon}</span>
+            <span class="wc-temp">${w.high}°/${w.low}°</span>
+            <span class="wc-desc">💧${w.rain}%</span>
+        </div>
+    `).join('');
+
+    if (updateEl) {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        updateEl.textContent = weather[0]?._live ? `📡 ${hh}:${mm}` : '⏳ 歷年統計';
+    }
+}
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -22,6 +56,7 @@ function init() {
     renderShoppingGuideModal();
     renderPrepModal();
     updateCountdown();
+    renderHeroWeatherWidget();
     fetchForecastWeather(); // 🌤️ 載入即時7天預報 / Load live 7-day forecast
 
     document.querySelectorAll('.mode-btn').forEach(btn => {
@@ -153,6 +188,8 @@ async function fetchForecastWeather() {
 
         // 重刷導覽列天氣圖示 / Re-render day nav with live weather icons
         renderDayNav();
+        // 更新 Hero Weather Widget
+        renderHeroWeatherWidget();
         // 若當前 Day Panel 已顯示，也更新天氣列 / Also refresh current day panel's weather strip
         showDay(state.day);
 
@@ -176,7 +213,15 @@ async function fetchForecastWeather() {
         console.log('[Weather] ✅ Live 7-day forecast loaded from Open-Meteo');
     } catch (err) {
         console.warn('[Weather] ⚠️ Forecast fetch failed, using static data:', err);
-        // 靜態資料保留，不做任何變更 / Keep static data, no changes
+        // 顯示錯誤提示 / Show error notification
+        const errorEl = document.getElementById('weather-error');
+        if (errorEl) {
+            errorEl.textContent = '⚠️ 即時天氣載入失敗，顯示為歷年統計資料 / Live forecast unavailable, showing historical estimates';
+            errorEl.style.display = 'block';
+            setTimeout(() => { errorEl.style.display = 'none'; }, 8000);
+        }
+        const updateEl = document.getElementById('weather-widget-update');
+        if (updateEl) updateEl.textContent = '⚠️ 離線';
     }
 }
 
@@ -311,13 +356,17 @@ function renderDayPanel(d) {
                 <div class="hotel-showcase-info">
                     <span class="hotel-label">🏨 今晚住宿</span>
                     <h3 class="hotel-name">${d.hotel}</h3>
-                    <p class="hotel-description">${d.hotelDesc || ''}</p>
+                    <div class="hotel-description">${d.hotelDesc || ''}</div>
+                    ${d.hotelDescFull ? `
+                    <div class="hotel-desc-full" id="hotel-desc-full" style="display:none">${d.hotelDescFull}</div>
+                    <button class="hotel-desc-toggle" onclick="toggleHotelDesc()">📄 查看完整介紹</button>
+                    ` : ''}
                     <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.hotel + ' ' + (d.area || 'Japan'))}" target="_blank" rel="noopener noreferrer" class="hotel-link">
                         查看地圖位置 →
                     </a>
                 </div>
                 <div class="hotel-showcase-image">
-                    <img src="${d.hotelImage}" alt="${d.hotel}">
+                    <img src="${d.hotelImage}" alt="${d.hotel}" onerror="this.onerror=null; this.style.display='none'">
                 </div>
             </div>
             ` : d.hotel !== '溫慢的家' ? `
@@ -342,15 +391,34 @@ function renderDayPanel(d) {
                 <div class="card">
                     <div class="card-title">🗺️ 當日行程</div>
                     <div class="timeline">
-                        ${d.timeline.map((t, i) => `
+                        ${d.timeline.map((t, i) => {
+                            const spot = d.spots && d.spots[i];
+                            const mapLink = spot && spot.mapUrl ? `<a href="${spot.mapUrl}" target="_blank" rel="noopener noreferrer" class="timeline-map-link" onclick="event.stopPropagation()">🔗 Google Maps</a>` : '';
+                            return `
                             <div class="timeline-item" onclick="focusOnSpot(${i})">
                                 <span class="time">${t.time}</span>
-                                <h4><span class="timeline-num">${i + 1}</span> ${t.act}</h4>
+                                <h4><span class="timeline-num">${i + 1}</span> ${t.act} ${mapLink}</h4>
                                 <p>${t.desc}</p>
+                            </div>
+                        `}).join('')}
+                    </div>
+                </div>
+                
+                ${d.facilities ? `
+                <div class="card facility-card">
+                    <div class="card-title">🏛️ 館內設施介紹</div>
+                    <div class="facility-grid">
+                        ${d.facilities.map(f => `
+                            <div class="facility-item">
+                                <h4>${f.icon} ${f.name}</h4>
+                                <p>${f.desc}</p>
+                                ${f.mapUrl ? `<a href="${f.mapUrl}" target="_blank" rel="noopener noreferrer" class="facility-link">🔗 Google Maps</a>` : ''}
+                                ${f.hours ? `<span class="facility-hours">🕒 ${f.hours}</span>` : ''}
                             </div>
                         `).join('')}
                     </div>
                 </div>
+                ` : ''}
                 
                 <div class="card">
                     <div class="section-tabs">
@@ -400,7 +468,7 @@ function renderMeals(meals) {
         return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
-                <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng}); event.stopPropagation();">
                     <span class="item-num">${i + 1}</span> ${m.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
@@ -444,7 +512,7 @@ function renderShopping(shops) {
         return `
             <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
                 <div class="shopping-header">
-                    <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                    <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng}); event.stopPropagation();">
                         <span class="item-num purple">${i + 1}</span> ${s.name}
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
@@ -542,7 +610,7 @@ function initLocalMap(d) {
     mealMarkers = { breakfast: [], lunch: [], dinner: [] };
     specialtyMarkers = [];
     shoppingMarkers = [];
-    supermarketMarkers = []; // New array
+    supermarketMarkers = [];
 
     localMap = L.map('local-map').setView(d.center, 13);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -556,8 +624,9 @@ function initLocalMap(d) {
                 html: `<div class="spot-marker"><span>${i + 1}</span></div>`,
                 className: '', iconSize: [36, 36], iconAnchor: [18, 18]
             });
+            const mapLink = spot.mapUrl ? ` <a href="${spot.mapUrl}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#B8A060;display:inline-block;margin-top:4px">📍 Google Maps</a>` : '';
             L.marker([spot.lat, spot.lng], { icon }).addTo(localMap)
-                .bindPopup(`<div class="popup-day">行程 ${i + 1}</div><div class="popup-title">${spot.name}</div>`);
+                .bindPopup(`<div class="popup-day">行程 ${i + 1}</div><div class="popup-title">${spot.name}</div>${mapLink}`);
         });
     }
 
@@ -598,7 +667,7 @@ function initLocalMap(d) {
                         });
                         const marker = L.marker([m.lat, m.lng], { icon })
                             .bindPopup(`<div class="popup-day">🍽️ 美食 ${i + 1}</div><div class="popup-title">${m.name}</div><p>${m.tag}</p>`);
-                        mealMarkers[type].push(marker);
+                        mealMarkers[type][i] = marker;
                     }
                 });
             }
@@ -1094,13 +1163,6 @@ function closePrepModal() {
         item.addEventListener('click', (e) => {
             const href = item.getAttribute('href');
 
-            // Skip if it's the coupon button (handled separately)
-            if (item.id === 'coupon-nav-btn') {
-                e.preventDefault();
-                window.openCouponModal();
-                return;
-            }
-
             // Explore button -> jump to meals
             if (item.id === 'explore-nav-btn') {
                 e.preventDefault();
@@ -1139,6 +1201,15 @@ function closePrepModal() {
                 return;
             }
 
+            if (item.id === 'coupon-nav-btn') {
+                e.preventDefault();
+                if (typeof window.openCouponModal === 'function') {
+                    window.openCouponModal();
+                }
+                if (window.innerWidth <= 768) nav.classList.remove('open');
+                return;
+            }
+
             if (href === '#') {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1155,16 +1226,12 @@ function closePrepModal() {
     });
 
     const header = document.querySelector('.header');
-    const couponBtn = document.getElementById('coupon-btn');
-
-    // Show nav & coupon btn after scrolling past hero 離開首頁才顯示
+    // Show nav after scrolling past hero 離開首頁才顯示
     const observer = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
             nav.classList.remove('visible');
-            if (couponBtn) couponBtn.classList.remove('visible');
         } else {
             nav.classList.add('visible');
-            if (couponBtn) couponBtn.classList.add('visible');
         }
     }, { threshold: 0.1 });
 
@@ -1275,8 +1342,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add listener for a floating coupon button if it exists
-    const couponFab = document.getElementById('coupon-btn');
-    if (couponFab) {
-        couponFab.onclick = () => window.openCouponModal();
-    }
 });

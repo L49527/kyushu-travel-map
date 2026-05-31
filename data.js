@@ -1,4 +1,4 @@
-const state = { day: 1, mode: 'drive' };
+const state = { day: 1, mode: 'drive', plan: 'A' };
 
 // ⚠️ TODO: 出發前 7-10 天（約 6/1-6/4）請至 Windy (https://www.windy.com/33.590/130.410) 查看實際預報並更新以下資料
 // ⚠️ UPDATE: Check Windy forecast 7-10 days before departure (around 6/1-6/4) and update below
@@ -8,7 +8,7 @@ const weather = [
     { date: '06/12', dow: '五', icon: '🌧️', high: 26, low: 22, rain: 65, gear: '務必帶大傘/輕便雨衣', clothing: '透氣排汗衣+快乾短褲，鞋子選防水款' },
     { date: '06/13', dow: '六', icon: '☁️', high: 27, low: 21, rain: 40, gear: '備用折傘，太宰府多戶外步行', clothing: '短袖+舒適好走鞋，備帽子遮陽' },
     { date: '06/14', dow: '日', icon: '🌧️', high: 25, low: 19, rain: 60, gear: '大傘+輕便雨衣(由布院山區易起霧)', clothing: '薄長袖+薄外套(由布院比市區涼3-4°C)' },
-    { date: '06/15', dow: '一', icon: '🌫️', high: 22, low: 15, rain: 55, gear: '雨衣必備，阿蘇山區霧氣重', clothing: '長袖+防風薄外套(阿蘇山上體感僅15°C)' },
+    { date: '06/15', dow: '一', icon: '🌧️', high: 21, low: 16, rain: 70, gear: '☔ 降雨機率高，全天建議穿防水外套+防水鞋。宙館室內設施完善，泡湯最搭', clothing: '👕 短袖+薄長褲，泡湯請帶泳衣（Aqua Garden泳池需要泳帽）' },
     { date: '06/16', dow: '二', icon: '⛅', high: 27, low: 22, rain: 35, gear: '折傘備用，別府溫泉區濕氣重', clothing: '短袖涼感衣+短褲，帶替換衣物(溫泉用)' },
     { date: '06/17', dow: '三', icon: '🌦️', high: 28, low: 22, rain: 40, gear: '輕便折傘，最終日遮陽防曬', clothing: '輕便夏裝，方便搭機' }
 ];

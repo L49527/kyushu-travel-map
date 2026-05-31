@@ -26,7 +26,26 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 ### 4. PWA 支援 / Progress Web App Support
 - 整合 Service Worker 與 Web Manifest，支援離線快取與安裝至主畫面。
 
-## 🚀 最近更新 / Recent Updates (2026.05.30)
+
+## 🚀 最近更新 / Recent Updates (2026.05.31)
+
+### 🐛 Bug 修復與功能補齊 / Bug Fixes & Feature Completion
+- **修復 Floating Coupon Button / Fixed Coupon FAB**：補上遺失的 `#coupon-btn` 懸浮按鈕，原有 JS 功能正常運作。
+- **啟用 Hero Weather Widget / Enabled Hero Weather Widget**：將 CSS 已存在的天氣小部件渲染至首頁，顯示 7 天預報卡片。
+- **修正全域變數與初始狀態 / Fixed Globals & Initial State**：補上 `supermarketMarkers` 的 `let` 宣告與 `state.plan` 初始值。
+- **新增圖片載入錯誤處理 / Added Image Error Fallback**：飯店圖片載入失敗時隱藏，避免破圖。
+- **天氣 API 失敗提示 / Weather API Error Notification**：Open-Meteo 失敗時在使用者介面顯示提示。
+
+### ☔ 6/15 雨天宙館行程 / Rainy Day Sora-kan Itinerary
+- **方案 B 全面改寫 / Plan B Rewrite**：針對 6/15 下雨天，將方案 B 重新設計為「宙館雨天完整攻略」，包含館內 10 項設施介紹、時間軸、美食推薦與地圖景點。
+- **天氣資料更新**：6/15 天氣改為 🌧️ 70%，裝備建議新增泳衣提醒。
+- **照片放大修正**：移除 hover 縮放效果，改用 `object-fit: contain` 避免裁切變形。
+- **設施介紹展開/收起**：飯店描述改為精簡版，點擊「📄 查看完整介紹」展開詳細設施說明。
+- **另開視窗連結**：時間軸與設施卡片加入 `🔗 Google Maps` 按鈕，可直接開啟地圖。
+
+---
+
+## 🚀 歷史更新 / Update History (2026.05.30)
 
 ### 🛠️ 核心功能修復與 PWA 體驗改善 / Core Fixes & PWA Enhancements
 - **Day 5 方案切換修復 / Day 5 Plan Selection Fix**：新增 `getCurrentDayData()` 函式以正確區分 A/B 方案，解決點擊景點/美食/購物時地圖聚焦至錯誤方案資料的問題。
@@ -57,6 +76,27 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 - **Alpen Fukuoka**：加入第一天購物行程，並在購物指南中提升為**獨立主題項目**。
 - **Uniqlo & GU**：加入第二天行程，提供**天神旗艦店**的專屬推薦標記。
 - **超市清單**：每日新增附近推薦超市推薦（如 Lopia, Sunny, AEON 等）。
+
+## 📝 每次修改後提交 Git / Git Workflow
+
+每次修改檔案後，用以下指令記錄版本：
+
+```bash
+# 查看哪些檔案被修改
+git status
+
+# 查看修改內容
+git diff
+
+# 加入所有修改並提交
+git add -A
+git commit -m "簡短描述這次修改的內容"
+
+# 查看提交歷史
+git log --oneline
+```
+
+---
 
 ## 🛠️ 技術棧 / Tech Stack
 
