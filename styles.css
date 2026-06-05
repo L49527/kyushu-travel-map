@@ -1218,6 +1218,16 @@ body {
     color: var(--kinpaku);
     border-color: var(--kinpaku);
 }
+.tag-chip-more {
+    background: var(--sakura);
+    border-color: var(--kinpaku);
+    color: var(--kinpaku);
+    font-weight: 700;
+}
+.tag-chip-more:hover {
+    background: var(--kinpaku);
+    color: white;
+}
 
 .meal-list {
     display: none;
