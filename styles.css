@@ -1187,10 +1187,12 @@ body {
 .tag-bar {
     display: flex;
     gap: 8px;
-    overflow-x: auto;
+    overflow-x: scroll;
     white-space: nowrap;
+    flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
+    overscroll-behavior-x: contain;
     padding: 4px 0 10px;
     margin-bottom: 4px;
     scrollbar-width: none;
