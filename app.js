@@ -10,7 +10,6 @@ let mainMap, localMap;
 let currentMealType = 'breakfast';
 let currentSection = 'meals'; // 'meals', 'shopping', or 'specialties'
 let currentTag = 'all';
-let tagBarExpanded = false;
 let mealMarkers = [];
 let specialtyMarkers = [];
 let shoppingMarkers = [];
@@ -291,7 +290,6 @@ function showDay(dayNum) {
     currentMealType = 'breakfast';
     currentSection = 'meals';
     currentTag = 'all';
-    tagBarExpanded = false;
 
     // Find all plans for this day
     const dayPlans = allData.filter(x => x.day === dayNum);
@@ -473,31 +471,14 @@ function getUniqueTags(items) {
 
 function renderTagBar(tags, activeTag) {
     if (!tags || tags.length <= 2) return '';
-
-    const isMobile = window.innerWidth < 768;
-    const maxChips = 5;
-    let displayTags = tags;
-    let extraCount = 0;
-
-    if (isMobile && !tagBarExpanded && tags.length > maxChips) {
-        displayTags = tags.slice(0, maxChips);
-        extraCount = tags.length - maxChips;
-    }
-
     return `
         <div class="tag-bar">
-            ${displayTags.map(t => {
+            ${tags.map(t => {
                 const label = t === 'all' ? '全部' : t;
                 return `<button class="tag-chip ${t === activeTag ? 'active' : ''}" data-tag="${t}" onclick="event.stopPropagation(); setTagFilter('${t}')">${label}</button>`;
             }).join('')}
-            ${extraCount > 0 ? `<button class="tag-chip tag-chip-more" onclick="event.stopPropagation(); expandTagBar()">+${extraCount}</button>` : ''}
         </div>
     `;
-}
-
-function expandTagBar() {
-    tagBarExpanded = true;
-    setTagFilter(currentTag);
 }
 
 function setTagFilter(tag) {
@@ -661,7 +642,6 @@ function renderSupermarkets(supers, activeTag = 'all') {
 function switchSection(btn, section) {
     currentSection = section;
     currentTag = 'all';
-    tagBarExpanded = false;
     document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.section-content').forEach(c => c.classList.remove('active'));
@@ -674,7 +654,6 @@ function switchSection(btn, section) {
 function switchMeal(btn, type) {
     currentMealType = type;
     currentTag = 'all';
-    tagBarExpanded = false;
     btn.parentElement.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.meal-list').forEach(l => l.classList.remove('active'));
