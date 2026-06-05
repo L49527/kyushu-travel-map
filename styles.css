@@ -1183,6 +1183,42 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+.tag-bar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 10px;
+    margin-bottom: 4px;
+    scrollbar-width: none;
+}
+.tag-bar::-webkit-scrollbar {
+    display: none;
+}
+.tag-chip {
+    flex-shrink: 0;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(184, 160, 96, 0.3);
+    background: white;
+    color: var(--stone);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.tag-chip:hover {
+    border-color: var(--kinpaku);
+    color: var(--sumi-black);
+}
+.tag-chip.active {
+    background: linear-gradient(135deg, var(--sumi-black), #2a2a2a);
+    color: var(--kinpaku);
+    border-color: var(--kinpaku);
+}
+
 .meal-list {
     display: none;
 }

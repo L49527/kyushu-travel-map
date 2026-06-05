@@ -27,7 +27,17 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 - 整合 Service Worker 與 Web Manifest，支援離線快取與安裝至主畫面。
 
 
-## 🚀 最近更新 / Recent Updates (2026.05.31)
+## 🚀 最近更新 / Recent Updates (2026.06.05)
+
+### 🍡 新增美食與特產景點 / Added Gourmet & Specialty Spot
+- **新增 Imonne Hakata (いもんね)**：將位於博多車站 KITTE 百貨 1F 的人氣「現包麻糬冰淇淋」甜點店新增至 Day 1（6/11）的 `meals.lunch` 與 `specialties` 清單。
+- **AI 圖片生成與整合 / AI Image Generation & Integration**：使用 `generate_image` 工具生成該店現包麻糬冰淇淋的精美示意圖，存放於 `images/imonne_hakata.png`。
+- *Added Imonne Hakata (いもんね): Added the popular "freshly wrapped mochi ice cream" dessert shop on the 1st floor of KITTE Hakata to Day 1 (6/11) meals.lunch and specialties lists.*
+- *AI Image Generation & Integration: Generated a premium mockup image of the mochi ice cream using `generate_image` and saved it to `images/imonne_hakata.png`.*
+
+---
+
+## 🚀 歷史更新 / Update History (2026.05.31)
 
 ### 🐛 Bug 修復與功能補齊 / Bug Fixes & Feature Completion
 - **修復 Floating Coupon Button / Fixed Coupon FAB**：補上遺失的 `#coupon-btn` 懸浮按鈕，原有 JS 功能正常運作。

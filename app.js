@@ -9,6 +9,7 @@ function getCurrentDayData() {
 let mainMap, localMap;
 let currentMealType = 'breakfast';
 let currentSection = 'meals'; // 'meals', 'shopping', or 'specialties'
+let currentTag = 'all';
 let mealMarkers = [];
 let specialtyMarkers = [];
 let shoppingMarkers = [];
@@ -288,6 +289,7 @@ function showDay(dayNum) {
     state.day = dayNum;
     currentMealType = 'breakfast';
     currentSection = 'meals';
+    currentTag = 'all';
 
     // Find all plans for this day
     const dayPlans = allData.filter(x => x.day === dayNum);
@@ -434,9 +436,9 @@ function renderDayPanel(d) {
                             <button class="meal-tab" onclick="switchMeal(this, 'lunch')">🍛 午餐</button>
                             <button class="meal-tab" onclick="switchMeal(this, 'dinner')">🌙 晚餐</button>
                         </div>
-                        <div class="meal-list active" id="meal-breakfast">${renderMeals(d.meals.breakfast)}</div>
-                        <div class="meal-list" id="meal-lunch">${renderMeals(d.meals.lunch)}</div>
-                        <div class="meal-list" id="meal-dinner">${renderMeals(d.meals.dinner)}</div>
+                        <div class="meal-list active" id="meal-breakfast">${renderMeals(d.meals.breakfast, currentTag)}</div>
+                        <div class="meal-list" id="meal-lunch">${renderMeals(d.meals.lunch, currentTag)}</div>
+                        <div class="meal-list" id="meal-dinner">${renderMeals(d.meals.dinner, currentTag)}</div>
                     </div>
                     
                     <div class="section-content" id="section-shopping">
@@ -445,15 +447,15 @@ function renderDayPanel(d) {
                             <button class="open-guide-btn" onclick="openShoppingGuide()">✨ 查看福岡購物攻略 Guide</button>
                         </div>
                         ` : ''}
-                        <div class="shopping-list">${renderShopping(d.shopping)}</div>
+                        <div class="shopping-list">${renderShopping(d.shopping, currentTag)}</div>
                     </div>
                     
                     <div class="section-content" id="section-specialties">
-                        <div class="specialty-list">${renderSpecialties(d.specialties)}</div>
+                        <div class="specialty-list">${renderSpecialties(d.specialties, currentTag)}</div>
                     </div>
 
                     <div class="section-content" id="section-supermarkets">
-                        <div class="specialty-list">${renderSupermarkets(d.supermarkets || [])}</div>
+                        <div class="specialty-list">${renderSupermarkets(d.supermarkets || [], currentTag)}</div>
                     </div>
                 </div>
             </div>
@@ -461,15 +463,57 @@ function renderDayPanel(d) {
     `;
 }
 
-function renderMeals(meals) {
-    return meals.map((m, i) => {
+function getUniqueTags(items) {
+    if (!items || items.length === 0) return ['all'];
+    const tags = [...new Set(items.map(i => i.tag).filter(Boolean))];
+    return ['all', ...tags];
+}
+
+function renderTagBar(tags, activeTag) {
+    if (!tags || tags.length <= 2) return '';
+    return `
+        <div class="tag-bar">
+            ${tags.map(t => {
+                const label = t === 'all' ? '全部' : t;
+                return `<button class="tag-chip ${t === activeTag ? 'active' : ''}" data-tag="${t}" onclick="event.stopPropagation(); setTagFilter('${t}')">${label}</button>`;
+            }).join('')}
+        </div>
+    `;
+}
+
+function setTagFilter(tag) {
+    currentTag = tag;
+    const d = getCurrentDayData();
+    if (!d) return;
+
+    if (currentSection === 'meals') {
+        const el = document.getElementById(`meal-${currentMealType}`);
+        if (el) el.innerHTML = renderMeals(d.meals[currentMealType], currentTag);
+    } else if (currentSection === 'shopping') {
+        const el = document.querySelector('#section-shopping .shopping-list');
+        if (el) el.innerHTML = renderShopping(d.shopping, currentTag);
+    } else if (currentSection === 'specialties') {
+        const el = document.querySelector('#section-specialties .specialty-list');
+        if (el) el.innerHTML = renderSpecialties(d.specialties, currentTag);
+    } else if (currentSection === 'supermarkets') {
+        const el = document.querySelector('#section-supermarkets .specialty-list');
+        if (el) el.innerHTML = renderSupermarkets(d.supermarkets || [], currentTag);
+    }
+}
+
+function renderMeals(meals, activeTag = 'all') {
+    const tagBar = renderTagBar(getUniqueTags(meals), activeTag);
+    let displayIdx = 0;
+    return tagBar + meals.map((m, i) => {
+        if (activeTag !== 'all' && m.tag !== activeTag) return '';
+        displayIdx++;
         const igBadge = m.igRecommend ? '<span class="ig-badge">IG推薦</span>' : '';
         const threadBadge = m.threadRecommend ? '<span class="thread-badge">Threads推薦</span>' : '';
         return `
         <div class="meal-item" data-index="${i}" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng})">
             <div class="meal-item-header">
                 <a href="${m.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="focusOnMeal(${i}, ${m.lat}, ${m.lng}); event.stopPropagation();">
-                    <span class="item-num">${i + 1}</span> ${m.name}
+                    <span class="item-num">${displayIdx}</span> ${m.name}
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                 </a>
                 <div class="tag-group">
@@ -481,12 +525,16 @@ function renderMeals(meals) {
             <div class="hours">🕒 ${m.hours}</div>
             <div class="desc">${m.desc}</div>
         </div>
-    `}).join('');
+    `}).filter(Boolean).join('') || '<div class="no-data">沒有符合此分類的項目</div>';
 }
 
-function renderShopping(shops) {
-    if (!shops) return '<p>暫無購物資訊</p>';
-    return shops.map((s, i) => {
+function renderShopping(shops, activeTag = 'all') {
+    if (!shops || shops.length === 0) return '<p>暫無購物資訊</p>';
+    const tagBar = renderTagBar(getUniqueTags(shops), activeTag);
+    let displayIdx = 0;
+    return tagBar + shops.map((s, i) => {
+        if (activeTag !== 'all' && s.tag !== activeTag) return '';
+        displayIdx++;
         // Coupon matching logic
         let matchedCouponId = null;
         if (typeof coupons !== 'undefined') {
@@ -513,7 +561,7 @@ function renderShopping(shops) {
             <div class="shopping-item" data-index="${i}" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng})">
                 <div class="shopping-header">
                     <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="focusOnShopping(${i}, ${s.lat}, ${s.lng}); event.stopPropagation();">
-                        <span class="item-num purple">${i + 1}</span> ${s.name}
+                        <span class="item-num purple">${displayIdx}</span> ${s.name}
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
                     <div class="tag-group">
@@ -525,11 +573,15 @@ function renderShopping(shops) {
                 <div class="desc">${s.desc}</div>
             </div>
         `;
-    }).join('');
+    }).filter(Boolean).join('') || '<p>沒有符合此分類的項目</p>';
 }
 
-function renderSpecialties(specs) {
-    return specs.map((s, i) => {
+function renderSpecialties(specs, activeTag = 'all') {
+    const tagBar = renderTagBar(getUniqueTags(specs), activeTag);
+    let displayIdx = 0;
+    return tagBar + specs.map((s, i) => {
+        if (activeTag !== 'all' && s.tag !== activeTag) return '';
+        displayIdx++;
         // Image Element (if exists)
         const imageHtml = s.image ? `
             <div class="specialty-image">
@@ -551,7 +603,7 @@ function renderSpecialties(specs) {
         <div class="specialty-item" data-index="${i}" onclick="focusOnSpecialty(${i}, ${s.lat}, ${s.lng})">
             ${imageHtml}
             <div class="specialty-header">
-                <h4><span class="item-num gold">${i + 1}</span> ${s.name}</h4>
+                <h4><span class="item-num gold">${displayIdx}</span> ${s.name}</h4>
                 <div class="tag-group">
                     ${igBadge}
                     ${threadBadge}
@@ -563,26 +615,33 @@ function renderSpecialties(specs) {
             ${linkHtml}
             <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
         </div>
-    `}).join('');
+    `}).filter(Boolean).join('') || '<p>沒有符合此分類的項目</p>';
 }
 
-function renderSupermarkets(supers) {
+function renderSupermarkets(supers, activeTag = 'all') {
     if (!supers || supers.length === 0) return '<div class="no-data">附近沒有推薦的超市</div>';
-    return supers.map((s, i) => `
+    const tagBar = renderTagBar(getUniqueTags(supers), activeTag);
+    let displayIdx = 0;
+    return tagBar + supers.map((s, i) => {
+        if (activeTag !== 'all' && s.tag !== activeTag) return '';
+        displayIdx++;
+        return `
         <div class="specialty-item" data-index="${i}" onclick="focusOnSupermarket(${i}, ${s.lat}, ${s.lng})">
             <div class="specialty-header">
-                <h4><span class="item-num supermarket-num">${i + 1}</span> ${s.name}</h4>
+                <h4><span class="item-num supermarket-num">${displayIdx}</span> ${s.name}</h4>
                 <span class="tag supermarket-tag">${s.tag}</span>
             </div>
             <div class="hours">🕒 ${s.hours}</div>
             <p>${s.desc}</p>
             <a href="${s.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (getCurrentDayData()?.area || 'Japan'))}`}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="map-link">📍 Google Map</a>
         </div>
-    `).join('');
+    `;
+    }).filter(Boolean).join('') || '<div class="no-data">沒有符合此分類的項目</div>';
 }
 
 function switchSection(btn, section) {
     currentSection = section;
+    currentTag = 'all';
     document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.section-content').forEach(c => c.classList.remove('active'));
@@ -594,6 +653,7 @@ function switchSection(btn, section) {
 
 function switchMeal(btn, type) {
     currentMealType = type;
+    currentTag = 'all';
     btn.parentElement.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.meal-list').forEach(l => l.classList.remove('active'));

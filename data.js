@@ -45,7 +45,8 @@ const data = [
                 { name: "Hakata seafood Uoden", hours: "11:00-22:00", desc: "福岡必拍！衝擊視覺的「明太子玉子燒蓋飯」。金黃歐姆蛋包覆著整支肥美明太子，搭配特製醬汁與魚池海味，口感豐富且話題度滿分🍳。", tag: "海鮮", igRecommend: true, lat: 33.5897, lng: 130.4108, mapUrl: "https://www.google.com/maps/search/?api=1&query=博多魚介+うおでん" },
                 { name: "I'm donut ? 福岡天神店", hours: "10:00-19:00", desc: "引起全日排隊狂潮的生甜甜圈。麵體濕潤軟綿且入口即化。推薦：開心果、巧克力口味，每一顆都充滿了手作的靈魂味道🍩。", tag: "甜點", igRecommend: true, threadRecommend: true, lat: 33.5902, lng: 130.3985, mapUrl: "https://www.google.com/maps/search/?api=1&query=I'm+donut+天神" },
                 { name: "元祖博多めんたい重", hours: "07:00-22:30", desc: "日本第一家明太子飯專賣店。將一整條昆布醃漬明太子橫躺在海苔飯上，淋上客製辛辣度的「元祖醬汁」，是博多極致奢華的味覺體驗🍚。", tag: "海鮮", igRecommend: true, lat: 33.5905, lng: 130.4045, mapUrl: "https://www.google.com/maps/search/?api=1&query=元祖博多めんたい重" },
-                { name: "極味や 博多店", hours: "11:00-22:00", desc: "互動式燒烤趣味！將半熟漢堡排切克放在高溫石塊上，自行調整喜愛的熟度。肉汁在石塊上跳動爆發的香氣，每一口都是最完美的火侯🔥。", tag: "燒肉", igRecommend: true, lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=極味や+博多店" }
+                { name: "極味や 博多店", hours: "11:00-22:00", desc: "互動式燒烤趣味！將半熟漢堡排切克放在高溫石塊上，自行調整喜愛的熟度。肉汁在石塊上跳動爆發的香氣，每一口都是最完美的火侯🔥。", tag: "燒肉", igRecommend: true, lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=極味や+博多店" },
+                { name: "Imonne Hakata (いもんね)", hours: "10:00-21:00", desc: "【KITTE博多1F】現包 Q 彈麻糬皮包住冰淇淋的超人氣甜點！招牌組合為下層焙茶冰淇淋、上層牛奶冰淇淋，包入麻糬皮後撒上調味粉，口感拉絲且茶香濃郁（約¥790）🍡。", tag: "甜點", igRecommend: true, lat: 33.5892, lng: 130.4215, mapUrl: "https://www.google.com/maps/search/?api=1&query=Imonne+Hakata" }
             ],
             dinner: [
                 { name: "大山牛腸鍋 (Oyama)", hours: "11:00-23:00", desc: "博多必吃的靈魂美食！推薦「濃厚味噌」口味，嚴選 Q 彈牛腸搭配大份量韭菜。湯頭越煮越甘甜，最後加入強棒麵（Champon）吸飽湯汁是王道組合🍲。", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋おおやま" },
@@ -147,6 +148,17 @@ const data = [
                 lng: 130.414378,
                 image: "images/もち吉 冰品.jpg",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=もち吉+博多本店"
+            },
+            {
+                name: "Imonne Hakata (いもんね)",
+                hours: "10:00-21:00",
+                desc: "【KITTE博多1F】現包 Q 彈麻糬皮包住冰淇淋的超人氣甜點！招牌組合為下層焙茶冰淇淋、上層牛奶冰淇淋，包入麻糬皮後撒上調味粉，口感拉絲且茶香濃郁（約¥790）🍡。",
+                tag: "甜點",
+                igRecommend: true,
+                lat: 33.5892,
+                lng: 130.4215,
+                image: "images/imonne_hakata.png",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=Imonne+Hakata"
             }
         ],
         supermarkets: [
