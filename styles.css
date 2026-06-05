@@ -1189,6 +1189,7 @@ body {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     padding: 4px 0 10px;
     margin-bottom: 4px;
     scrollbar-width: none;
@@ -1217,16 +1218,6 @@ body {
     background: linear-gradient(135deg, var(--sumi-black), #2a2a2a);
     color: var(--kinpaku);
     border-color: var(--kinpaku);
-}
-.tag-chip-more {
-    background: var(--sakura);
-    border-color: var(--kinpaku);
-    color: var(--kinpaku);
-    font-weight: 700;
-}
-.tag-chip-more:hover {
-    background: var(--kinpaku);
-    color: white;
 }
 
 .meal-list {
