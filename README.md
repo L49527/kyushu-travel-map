@@ -27,6 +27,29 @@ This is an interactive travel guide web application for a 7-day trip to Kyushu i
 - 整合 Service Worker 與 Web Manifest，支援離線快取與安裝至主畫面。
 
 
+## 🚀 最近更新 / Recent Updates (2026.06.06)
+
+### 🎁 補齊福岡機場免稅伴手禮 / Added Missing Fukuoka Airport Duty-Free Souvenirs
+- **補齊 9 種免稅伴手禮**：新增影片推薦且地圖中缺少的 Butter Butler、honey chocolate sand、花福堂、Amanberry、Mount Baum、Pista & Tokyo、KYOTO MILK MEISTER、NY perfect cheese、Tokyo Tulip Rose 到第七天（Day 7）的特產清單。
+- **更新現有特產描述**：更新「管狀明太子」加上 Yamaya 軟管與美乃滋介紹；更新 Day 1 的「茅乃舍高湯包」加上影片推薦的茶碗蒸與即食湯塊。
+- **圖片路徑更新與檔案搬移**：已將使用者提供的 9 張桌面圖片複製並重新命名移入專案 `images/` 資料夾下，並在代碼中完成了路徑及副檔名的關聯配置：
+  1. Butter Butler: `images/butter_butler.avif`
+  2. honey chocolate sand: `images/honey_chocolate.jpeg`
+  3. 花福堂: `images/hafukudo_millefeuille.png`
+  4. Amanberry: `images/amanberry.webp`
+  5. Mount Baum: `images/mount_baum.webp`
+  6. Pista & Tokyo: `images/pista_tokyo.webp`
+  7. KYOTO MILK MEISTER: `images/kyoto_milk_meister.avif`
+  8. NY perfect cheese: `images/ny_perfect_cheese.webp`
+  9. Tokyo Tulip Rose: `images/tulip_rose.jpg`
+- **清理未使用圖片**：經程式碼掃描，刪除了 `images/` 資料夾下 18 張未被任何頁面或代碼引用的冗餘/重複圖片檔案，維持專案資源乾淨。
+- *Added 9 Missing Souvenirs: Added missing items from the Instagram video to Day 7 specialties.*
+- *Updated Descriptions: Updated descriptions of Tube Mentaiko (added Yamaya tube/mayo) and Kayanoya soup stock (added chawanmushi/instant soup).*
+- *Images Moved & Configured: Successfully copied and renamed user's 9 Desktop images to the `images/` directory and configured code associations with their correct extensions.*
+- *Unused Images Cleanup: Scanned and deleted 18 unused/duplicate image files in the `images/` folder to keep project assets clean.*
+
+---
+
 ## 🚀 最近更新 / Recent Updates (2026.06.05)
 
 ### 🍡 新增美食與特產景點 / Added Gourmet & Specialty Spot
