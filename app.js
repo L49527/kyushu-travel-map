@@ -653,9 +653,52 @@ function renderPaymentSection() {
         { name: "富邦J卡", rate: "3%～6%", period: "常態", fee: "1.5%", note: "基本3%無上限，加碼需登錄", stores: "日本全通路" },
         { name: "中信LINE Pay卡", rate: "最高 5%", period: "常態", fee: "1.5%", note: "美日韓泰實體消費最高5%", stores: "日本全通路" },
     ];
-    const payments = [
-        { name: "PayPay", desc: "日本市佔率最高，免海外手續費。綁台新Richart最高5.3%、玉山熊本熊最高5%、全支付最高5%" },
-        { name: "Apple Pay (QUICPay)", desc: "聯邦吉鶴卡綁定Apple Pay在日本實體店感應享加碼回饋" },
+    const paypay = [
+        {
+            name: "玉山Wallet",
+            methods: "台幣帳戶 / 外幣帳戶 / 玉山信用卡",
+            note: "唯一可綁信用卡+外幣帳戶扣款，免1.5%手續費",
+            rate: "最高 5%",
+            limit: "熊本熊卡綁定3.5%（每季上限$100），帳戶折抵最高11.5%"
+        },
+        {
+            name: "Richart Life (台新Pay+)",
+            methods: "台新台幣帳戶 / 台新信用卡",
+            note: "免1.5%手續費，綁Richart卡[Pay著刷]回饋無上限",
+            rate: "最高 5.3%",
+            limit: "3.8%台新Point無上限 + 免手續費"
+        },
+        {
+            name: "街口支付",
+            methods: "街利存帳戶 / 銀行帳戶 / 街口帳戶 / 街口聯名卡",
+            note: "免1.5%手續費，街利存+街口卡回饋無上限",
+            rate: "最高 5%",
+            limit: "街利存2.5%無上限 / 聯名卡2%無上限 / 華南帳戶+5%（月上限$1000）"
+        },
+        {
+            name: "全支付",
+            methods: "銀行帳戶 / 全支付帳戶",
+            note: "免1.5%手續費，連結指定銀行再加碼",
+            rate: "最高 15%",
+            limit: "基本3.5%（單筆上限30點，月上限120點），國泰/將來帳戶+5%"
+        },
+        {
+            name: "iPASS MONEY",
+            methods: "iPASS MONEY 儲值帳戶",
+            note: "免1.5%手續費，每筆消費抽獎最高回饋¥10,000等值綠點",
+            rate: "抽獎制",
+            limit: "單筆上限¥10,000等值綠點，不限抽獎次數"
+        },
+        {
+            name: "全盈+PAY",
+            methods: "全盈儲值金 / 連結銀行帳戶",
+            note: "免1.5%手續費，新戶限時高回饋",
+            rate: "最高 28.5%",
+            limit: "新戶10%（月上限$100） / 舊戶5.5%（單筆上限50元，月上限$150）"
+        },
+    ];
+    const others = [
+        { name: "Apple Pay (QUICPay)", desc: "聯邦吉鶴卡綁定Apple Pay在日本實體店感應享加碼回饋，指定11大熱門店再加碼3%" },
         { name: "Suica / ICOCA", desc: "綁Apple Pay，信用卡儲值即刷即用。福岡地鐵支援信用卡感應(tap-to-pay)且有自動1日上限" },
     ];
     let html = `
@@ -676,9 +719,26 @@ function renderPaymentSection() {
     });
     html += `
             </div>
-            <h3 class="payment-section-title" style="margin-top:24px;">📱 行動支付</h3>
+            <h3 class="payment-section-title" style="margin-top:24px;">📱 台灣 PayPay 行動支付</h3>
+            <p class="payment-subtitle">綁定 HIVEX 跨境平台，免 1.5% 海外手續費，台幣直接扣</p>
+            <div class="paypay-grid">`;
+    paypay.forEach(p => {
+        html += `
+                <div class="paypay-card">
+                    <div class="paypay-header">
+                        <span class="paypay-name">${p.name}</span>
+                        <span class="paypay-rate">${p.rate}</span>
+                    </div>
+                    <div class="paypay-methods">💳 ${p.methods}</div>
+                    <div class="paypay-note">${p.note}</div>
+                    <div class="paypay-limit">📌 ${p.limit}</div>
+                </div>`;
+    });
+    html += `
+            </div>
+            <h3 class="payment-section-title" style="margin-top:24px;">🔗 其他支付方式</h3>
             <div class="payment-list-inner">`;
-    payments.forEach(p => {
+    others.forEach(p => {
         html += `
                 <div class="payment-item">
                     <strong>${p.name}</strong>
@@ -687,7 +747,7 @@ function renderPaymentSection() {
     });
     html += `
             </div>
-            <p class="payment-disclaimer">※ 以上資訊僅供參考，實際回饋以各銀行官網公告為準</p>
+            <p class="payment-disclaimer">※ 以上資訊僅供參考，實際回饋以各銀行/支付官網公告為準</p>
         </div>
     `;
     return html;

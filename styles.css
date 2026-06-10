@@ -3593,3 +3593,70 @@ html {
     text-decoration: line-through;
     color: #999;
 }
+
+/* PayPay Mobile Payment Cards */
+.payment-subtitle {
+    font-size: 0.8rem;
+    color: #888;
+    margin: -8px 0 12px 0;
+}
+
+.paypay-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.paypay-card {
+    background: rgba(0, 150, 136, 0.05);
+    border: 1px solid rgba(0, 150, 136, 0.15);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.paypay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.paypay-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.paypay-rate {
+    background: #009688;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.paypay-methods {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.paypay-note {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.paypay-limit {
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.4;
+}
+
+@media (min-width: 600px) {
+    .paypay-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
