@@ -585,7 +585,7 @@ function renderSpecialties(specs, activeTag = 'all') {
         // Image Element (if exists)
         const imageHtml = s.image ? `
             <div class="specialty-image">
-                <img src="${s.image}" alt="${s.name}" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">
+                <img src="${s.image}" alt="${s.name}" onclick="event.stopPropagation(); openImageLightbox('${s.image}', '${s.name}')" onerror="this.onerror=null; this.src='https://placehold.co/600x338/B8A060/FFFFFF?text=Specialty'">
             </div>
         ` : '';
 
@@ -1402,4 +1402,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add listener for a floating coupon button if it exists
+});
+
+// Image Lightbox
+function openImageLightbox(src, alt) {
+    const lightbox = document.getElementById('image-lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    const img = document.getElementById('lightbox-img');
+    img.src = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeImageLightbox();
 });

@@ -65,37 +65,41 @@ const dataDay3to7 = [
         ]
     },
     {
-        day: 4, date: "6/14(日)", title: "前進別府，動物奇遇", area: "由布院・動物園",
+        day: 4, date: "6/14(日)", title: "由布院半日輕裝行", area: "由布院・別府",
         hotel: "御宿 野乃別府", hotelLat: 33.2795, hotelLng: 131.4985, center: [33.30, 131.40],
         hotelImage: "images/御宿 野乃別府.webp",
         hotelDesc: "【別府站前】全館榻榻米日式溫泉旅館<br>♨️ 頂樓露天風呂「別府八湯」眺望別府灣<br>🍜 免費夜鳴拉麵・泡湯後免費冰棒/乳酸菌飲料<br>👘 館內提供多款花色浴衣體驗<br>🧺 投幣洗衣機・漫畫休息區",
-        transport: { drive: "【推薦自駕】福岡→由布院→動物園→別府<br>• 過路費：福岡→由布院約¥2,500-¥3,000<br>• 路線：由布院走縣道11號(Yamanami Hwy)往北約20分<br>• 動物園：可開自家車進野生動物區(免換巴士)", public: "【特急 由布院之森】博多→由布院(2小時¥5190)<br>• 09:17 / 10:11 / 14:38 發車(全車指定席)<br>※ 動物園大眾交通不便，強烈建議租車自駕" },
+        transport: { drive: "【推薦自駕】福岡→由布院→別府<br>• 過路費：福岡→由布院約¥2,500-¥3,000<br>• 路線：建議走大分道轉國道210號<br>• 車程：博多→由布院約 1.5 小時", public: "【特急 Sonic】博多 08:20 → 別府 10:25 (¥5190 自由席可)<br>• 別府站西口轉乘龜之井巴士 41/43 系統 → 由布院 (約 60 分)<br>• 回程選擇：<br>　(A) 由布院 17:28 特急自由座 → 別府 18:28<br>　(B) 由布院 17:35 巴士 → 別府 18:25<br>• 巴士回程票可在別府站前先買好" },
         timeline: [
-            { time: "09:00", act: "出發前往由布院", desc: "沿途山景，經過狹霧台" },
-            { time: "11:00", act: "由布院散策", desc: "湯之坪街道，Floral Village，金鱗湖" },
-            { time: "13:30", act: "九州自然動物公園", desc: "門票¥2600/叢林巴士¥1500 (自駕免叢林巴士費)" },
-            { time: "17:30", act: "前往別府", desc: "入住御宿 野乃別府溫泉旅館" }
+            { time: "07:30", act: "退房・博多站出發", desc: "買個駅弁或麵包帶上車" },
+            { time: "08:20", act: "Sonic 特急出發", desc: "博多→別府約 2h，沿途欣賞北九州海岸" },
+            { time: "10:25", act: "抵達別府站", desc: "行李寄放飯店或車站置物櫃，可在站前買回程巴士票" },
+            { time: "10:40", act: "巴士前往由布院", desc: "龜之井巴士 41/43 系統，車程約 60 分" },
+            { time: "11:30", act: "由布院午間散策", desc: "湯之坪街道吃午餐、逛雜貨甜點～17:00" },
+            { time: "17:28", act: "返回別府", desc: "特急 (A) 或 17:35 巴士 (B)，約 18:25 到" },
+            { time: "18:30", act: "入住御宿 野乃別府", desc: "チェックイン後泡湯放鬆，晚餐在別府" }
         ],
         spots: [
-            { name: "由布院", lat: 33.2667, lng: 131.3667 },
+            { name: "由布院駅", lat: 33.2624, lng: 131.3549 },
+            { name: "湯之坪街道", lat: 33.2635, lng: 131.3690 },
             { name: "金鱗湖", lat: 33.2615, lng: 131.3725 },
-            { name: "九州自然動物公園", lat: 33.3439, lng: 131.4733 },
             { name: "御宿 野乃別府", lat: 33.2795, lng: 131.4985 }
         ],
         meals: {
             breakfast: [
-                { name: "友永麵包屋", hours: "08:30-17:30", desc: "別府百年名店，紅豆麵包絕對要買", tag: "麵包", lat: 33.2795, lng: 131.5015, mapUrl: "https://www.google.com/maps/search/?api=1&query=友永パン屋" },
-                { name: "珈琲 Aoyama", hours: "08:00-18:00", desc: "懷舊日式早餐，手工三明治極佳", tag: "喫茶", lat: 33.2775, lng: 131.4965, mapUrl: "https://www.google.com/maps/search/?api=1&query=青山コーヒー舎" },
-                { name: "別府站 豐後茶屋", hours: "08:00-20:00", desc: "大分名物糰子湯與飯糰早餐", tag: "鄉土", lat: 33.2798, lng: 131.5005, mapUrl: "https://www.google.com/maps/search/?api=1&query=豊後茶屋+別府店" },
-                { name: "岡本屋 溫泉蛋", hours: "08:30-18:30", desc: "位於明礬，硫磺香氣十足的溫泉蛋", tag: "溫泉", lat: 33.3355, lng: 131.4345, mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋+売店" },
-                { name: "Lawson 別府車站店", hours: "24H", desc: "買些大分限定點心在路上享用", tag: "便利", lat: 33.2798, lng: 131.5005, mapUrl: "https://www.google.com/maps/search/?api=1&query=Lawson+別府駅" }
+                { name: "博多站 駅弁屋 祭", hours: "06:00-22:00", desc: "九州各地駅弁大集合，選一個帶上車！", tag: "駅弁", lat: 33.5902, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=駅弁屋+祭+博多駅" },
+                { name: "博多站 ヴィ・ド・フランス", hours: "07:00-21:00", desc: "車站內麵包店，買個三明治帶走", tag: "麵包", lat: 33.5900, lng: 130.4210, mapUrl: "https://www.google.com/maps/search/?api=1&query=ヴィ・ド・フランス+博多駅" },
+                { name: "Sonic 車內販賣", hours: "車內服務", desc: "特急車內有咖啡輕食推車", tag: "車內", lat: 33.5902, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/?api=1&query=JR+Sonic+特急" },
+                { name: "Lawson 博多站前店", hours: "24H", desc: "便利飯糰、飲料、零食隨便買", tag: "便利", lat: 33.5915, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=Lawson+博多駅前" },
+                { name: "Tully's Coffee 博多站", hours: "07:00-22:00", desc: "咖啡+輕食，車站內方便快速", tag: "咖啡", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/?api=1&query=Tully's+Coffee+博多駅" }
             ],
             lunch: [
-                { name: "動物園內餐廳", hours: "11:00-16:00", desc: "雖然一般，但餵完動物最方便", tag: "便利", lat: 33.3439, lng: 131.4733, mapUrl: "https://www.google.com/maps/search/?api=1&query=九州自然動物公園" },
-                { name: "地獄蒸工房 鐵輪", hours: "10:00-18:00", desc: "利用地熱蒸熟食材，體驗傳統烹飪", tag: "體驗", lat: 33.3195, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
-                { name: "別府冷麵 六盛", hours: "11:30-20:00", desc: "別府必嚐！Q彈麵條與酸甜湯頭", tag: "冷麵", lat: 33.2845, lng: 131.4905, mapUrl: "https://www.google.com/maps/search/?api=1&query=手のべ冷麺専門店+六盛" },
-                { name: "東洋軒 炸雞天婦羅", hours: "11:00-21:00", desc: "大分炸雞天婦羅創始名店", tag: "雞天", lat: 33.2825, lng: 131.4915, mapUrl: "https://www.google.com/maps/search/?api=1&query=とり天発祥の店+東洋軒" },
-                { name: "甘味茶屋", hours: "10:00-20:00", desc: "古宅改建，傳統糰子汁與日式甜點", tag: "鄉土", lat: 33.3205, lng: 131.4435, mapUrl: "https://www.google.com/maps/search/?api=1&query=甘味茶屋" }
+                { name: "由布まぶし 心（金鱗湖本店）", hours: "10:30-18:00", desc: "由布院最強釜飯！豐後牛、地雞、鰻魚三種吃法，排隊名店", tag: "釜飯", lat: 33.2605, lng: 131.3705, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布まぶし+心+金鱗湖本店" },
+                { name: "由布院 Milch", hours: "10:00-17:30", desc: "金賞コロッケ（可樂餅）邊走邊吃超幸福", tag: "小吃", lat: 33.2640, lng: 131.3680, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ミルヒ" },
+                { name: "花麹菊家 ぷりんどら", hours: "09:00-18:00", desc: "布丁銅鑼燒，經典散步甜點", tag: "甜點", lat: 33.2642, lng: 131.3682, mapUrl: "https://www.google.com/maps/search/?api=1&query=花麹菊家+由布院" },
+                { name: "YURARI 湯布院プリン", hours: "10:00-17:00", desc: "布丁專門店，濃厚綿密口感極品", tag: "甜點", lat: 33.2638, lng: 131.3685, mapUrl: "https://www.google.com/maps/search/?api=1&query=YURARI+湯布院プリン" },
+                { name: "こちょぱん", hours: "09:30-16:00", desc: "湯之坪人氣麵包店，現烤麵包香氣撲鼻", tag: "麵包", lat: 33.2635, lng: 131.3692, mapUrl: "https://www.google.com/maps/search/?api=1&query=こちょぱん+由布院" },
+                { name: "鞠智 スイートポテト", hours: "10:00-17:00", desc: "由布院極品地瓜甜點，口感如絲絹般細膩", tag: "甜點", lat: 33.2648, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/?api=1&query=鞠智+由布院" }
             ],
             dinner: [
                 { name: "別府 燒肉 Somuri", hours: "11:30-22:00", desc: "在地人推崇的頂級豐後牛燒肉", tag: "燒肉", lat: 33.2815, lng: 131.4925, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉レストラン+ソムリ" },
@@ -110,12 +114,11 @@ const dataDay3to7 = [
             { name: "由布院 Floral Village", hours: "09:30-17:30", desc: "歐風小鎮、宮崎駿商店、貓頭鷹", tag: "主題村", lat: 33.2640, lng: 131.3700, mapUrl: "https://www.google.com/maps/search/YUFUIN+FLORAL+VILLAGE" },
             { name: "B-Speak", hours: "10:00-17:00", desc: "蛋糕捲禮盒 (易完售)", tag: "甜點", lat: 33.2645, lng: 131.3678, mapUrl: "https://www.google.com/maps/search/B-Speak+由布院" },
             { name: "SNOOPY茶屋", hours: "10:00-17:00", desc: "史努比周邊商品", tag: "主題", lat: 33.2635, lng: 131.3695, mapUrl: "https://www.google.com/maps/search/SNOOPY茶屋+由布院" },
-            { name: "由布院之森 紀念品", hours: "JR車內", desc: "列車限定商品", tag: "限定", lat: 33.2624, lng: 131.3549, mapUrl: "https://www.google.com/maps/search/由布院駅" },
-            { name: "動物園紀念品店", hours: "09:30-17:00", desc: "非洲動物周邊商品", tag: "紀念品", lat: 33.3439, lng: 131.4733, mapUrl: "https://www.google.com/maps/search/九州自然動物公園" },
+            { name: "THEOMURATA", hours: "10:00-17:30", desc: "高級巧克力專賣，精緻伴手禮", tag: "甜點", lat: 33.2650, lng: 131.3670, mapUrl: "https://www.google.com/maps/search/THEOMURATA+由布院" },
+            { name: "鞠智 スイートポテト", hours: "10:00-17:00", desc: "地瓜甜點專賣，包裝精美適合送禮", tag: "甜點", lat: 33.2648, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/鞠智+由布院" },
             { name: "金鱗湖畔小店", hours: "09:00-17:00", desc: "手工皂、在地特產", tag: "雜貨", lat: 33.2615, lng: 131.3725, mapUrl: "https://www.google.com/maps/search/金鱗湖" }
         ],
         specialties: [
-            { name: "動物園限定周邊", hours: "09:30-17:00", desc: "可愛的獅子與長頸鹿娃娃", tag: "紀念品", lat: 33.3439, lng: 131.4733, image: "images/動物園周邊.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=九州自然動物公園" },
             {
                 name: "地獄蒸布丁 (岡本屋)",
                 hours: "08:30-18:30",
@@ -189,7 +192,66 @@ const dataDay3to7 = [
                 image: "images/柚子胡椒.jpg",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=ジャム工房ことこと屋"
             },
-            { name: "由布院之森 紀念品", hours: "JR車內", desc: "列車限定商品，錯過就買不到", tag: "限定", lat: 33.2624, lng: 131.3549, image: "images/由布院之森 紀念品.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院駅" }
+            {
+                name: "由布院 Milch ケーゼクーヘン",
+                hours: "10:00-17:30",
+                desc: "湯之坪街道上超人氣的半熟起司蛋糕！外層烤至微焦，內餡濃郁綿密如絲。剛出爐時熱騰騰切開，起司流心更是無法抗拒，是逛由布院必買的散步甜點。",
+                tag: "甜點",
+                lat: 33.2640,
+                lng: 131.3680,
+                image: "images/由布院Milch.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ミルヒ"
+            },
+            {
+                name: "五衛門 かぼすナッツサブレ",
+                hours: "09:00-18:00",
+                desc: "使用大分縣產かぼす（酸橘）製作的酥脆堅果餅乾，清爽果香與濃郁堅果的絕妙平衡。優雅的包裝設計讓每一片都充滿大分的風土滋味，送禮自用兩相宜。",
+                tag: "甜點",
+                lat: 33.2645,
+                lng: 131.3685,
+                image: "images/五衛門かぼすナッツサブレ.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=五衛門+由布院"
+            },
+            {
+                name: "湯布院醤油屋 匠醤油",
+                hours: "09:30-17:30",
+                desc: "由布院在地醬油老舖，堅持傳統木桶釀造。招牌的柚子ぽん酢和甘露醤油兼具深度與清爽感，搭配九州地雞或沙拉只需幾滴，即能在家重現由布院式的餐桌風景。",
+                tag: "調料",
+                lat: 33.2643,
+                lng: 131.3683,
+                image: "images/湯布院醤油屋.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=湯布院醤油屋"
+            },
+            {
+                name: "ざびえる（ざびえる本舗）",
+                hours: "09:00-19:00",
+                desc: "大分縣最具代表性的銘菓！將細緻的卡斯提拉蛋糕包覆著綿密的白餡，表面灑上細糖粉，象徵大分洋風文化的融合。口感高雅輕柔，是別府車站最受歡迎的伴手禮。",
+                tag: "甜點",
+                lat: 33.2798,
+                lng: 131.5005,
+                image: "images/ざびえる.webp",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=ざびえる本舗+別府駅"
+            },
+            {
+                name: "謎のとり天せんべい",
+                hours: "09:00-19:00",
+                desc: "別府限定的話題零食！將大分靈魂美食「とり天」化身為酥脆的煎餅，帶著淡淡雞肉鮮味與胡椒香氣。是非典型的趣味伴手禮，包裝設計也很適合當作旅途中的搞笑禮物。",
+                tag: "零食",
+                lat: 33.2798,
+                lng: 131.5005,
+                image: "images/謎のとり天せんべい.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=謎のとり天せんべい+別府"
+            },
+            {
+                name: "かぼすラングドシャ",
+                hours: "09:00-19:00",
+                desc: "將大分縣特產かぼす融入濃郁白巧克力夾心的法式貓舌餅乾。一口咬下，清新的柑橘香氣在口中化開，口感酥脆輕盈。精緻的鐵盒包裝是高質感的伴手禮首選。",
+                tag: "甜點",
+                lat: 33.2798,
+                lng: 131.5005,
+                image: "images/かぼすラングドシャ.jpg",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=かぼすラングドシャ+別府"
+            },
         ],
         supermarkets: [
             { name: "Tokiwa Industry 鶴見園", hours: "09:00-21:00", desc: "飯店下山步行約10分鐘，建議自駕或搭接駁車", tag: "最近", lat: 33.2950, lng: 131.4780 },
