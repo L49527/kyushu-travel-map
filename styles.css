@@ -3470,3 +3470,126 @@ html {
 .image-lightbox-close:hover {
     opacity: 1;
 }
+
+/* Payment Section */
+.payment-section {
+    padding: 8px 0;
+}
+
+.payment-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #B8A060;
+    margin: 0 0 12px 0;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.payment-card {
+    background: rgba(184, 160, 96, 0.06);
+    border: 1px solid rgba(184, 160, 96, 0.15);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.payment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.payment-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.payment-rate {
+    background: #B8A060;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.payment-detail {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+.payment-note {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.payment-stores {
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.4;
+}
+
+.payment-item {
+    background: rgba(184, 160, 96, 0.04);
+    border: 1px solid rgba(184, 160, 96, 0.1);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+}
+
+.payment-item strong {
+    display: block;
+    color: #B8A060;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.payment-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.payment-disclaimer {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.payment-list-inner {
+    margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+    .payment-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Packing Checklist */
+.packing-check {
+    margin-right: 8px;
+    transform: scale(1.1);
+    accent-color: #B8A060;
+    cursor: pointer;
+}
+
+.packing-check + label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.packing-check:checked + label {
+    text-decoration: line-through;
+    color: #999;
+}

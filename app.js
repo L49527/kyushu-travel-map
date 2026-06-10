@@ -428,6 +428,7 @@ function renderDayPanel(d) {
                         <button class="section-tab" onclick="switchSection(this, 'shopping')">🛒 購物</button>
                         <button class="section-tab" onclick="switchSection(this, 'specialties')">🎁 特產</button>
                         <button class="section-tab" onclick="switchSection(this, 'supermarkets')">🏪 超市</button>
+                        <button class="section-tab" onclick="switchSection(this, 'payment')">💳 優惠</button>
                     </div>
                     
                     <div class="section-content active" id="section-meals">
@@ -456,6 +457,10 @@ function renderDayPanel(d) {
 
                     <div class="section-content" id="section-supermarkets">
                         <div class="specialty-list">${renderSupermarkets(d.supermarkets || [], currentTag)}</div>
+                    </div>
+
+                    <div class="section-content" id="section-payment">
+                        <div class="payment-list">${renderPaymentSection()}</div>
                     </div>
                 </div>
             </div>
@@ -637,6 +642,55 @@ function renderSupermarkets(supers, activeTag = 'all') {
         </div>
     `;
     }).filter(Boolean).join('') || '<div class="no-data">沒有符合此分類的項目</div>';
+}
+
+function renderPaymentSection() {
+    const cards = [
+        { name: "玉山熊本熊卡", rate: "最高 8.5%", period: "~2026/6/30", fee: "1.5%", note: "需登錄，加碼6%每期上限¥500", stores: "松本清・唐吉訶德・大國藥妝・UNIQLO・GU・一蘭・壽司郎・BicCamera・SUICA儲值" },
+        { name: "聯邦吉鶴卡", rate: "最高 7%", period: "~2026/6", fee: "1.5%", note: "Apple Pay(QUICPay)感應加碼，11大熱門店再加碼3%", stores: "BicCamera・唐吉訶德・三越・伊勢丹・大丸・松坂屋・SOGO・西武・髙島屋・丸井・PARCO" },
+        { name: "台新Richart卡", rate: "最高 5.3%", period: "常態", fee: "免1.5%", note: "[Pay著刷]綁PayPay消費3.8%+免手續費", stores: "PayPay全日本加盟店" },
+        { name: "玉山Unicard", rate: "3.5%～4.5%", period: "常態", fee: "1.5%", note: "UP選方案最高4.5%，舊戶可刷¥69萬內", stores: "日本實體商店・指定通路" },
+        { name: "富邦J卡", rate: "3%～6%", period: "常態", fee: "1.5%", note: "基本3%無上限，加碼需登錄", stores: "日本全通路" },
+        { name: "中信LINE Pay卡", rate: "最高 5%", period: "常態", fee: "1.5%", note: "美日韓泰實體消費最高5%", stores: "日本全通路" },
+    ];
+    const payments = [
+        { name: "PayPay", desc: "日本市佔率最高，免海外手續費。綁台新Richart最高5.3%、玉山熊本熊最高5%、全支付最高5%" },
+        { name: "Apple Pay (QUICPay)", desc: "聯邦吉鶴卡綁定Apple Pay在日本實體店感應享加碼回饋" },
+        { name: "Suica / ICOCA", desc: "綁Apple Pay，信用卡儲值即刷即用。福岡地鐵支援信用卡感應(tap-to-pay)且有自動1日上限" },
+    ];
+    let html = `
+        <div class="payment-section">
+            <h3 class="payment-section-title">💳 信用卡回饋一覽</h3>
+            <div class="payment-grid">`;
+    cards.forEach(c => {
+        html += `
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <span class="payment-name">${c.name}</span>
+                        <span class="payment-rate">${c.rate}</span>
+                    </div>
+                    <div class="payment-detail">📅 ${c.period} ・ 💰 ${c.fee}</div>
+                    <div class="payment-note">${c.note}</div>
+                    <div class="payment-stores">🏬 ${c.stores}</div>
+                </div>`;
+    });
+    html += `
+            </div>
+            <h3 class="payment-section-title" style="margin-top:24px;">📱 行動支付</h3>
+            <div class="payment-list-inner">`;
+    payments.forEach(p => {
+        html += `
+                <div class="payment-item">
+                    <strong>${p.name}</strong>
+                    <p>${p.desc}</p>
+                </div>`;
+    });
+    html += `
+            </div>
+            <p class="payment-disclaimer">※ 以上資訊僅供參考，實際回饋以各銀行官網公告為準</p>
+        </div>
+    `;
+    return html;
 }
 
 function switchSection(btn, section) {
@@ -1189,6 +1243,64 @@ function openPrepModal(type) {
             <div class="guide-tip">
                 <h4>💡 放心帶回清單 Safe Items</h4>
                 <p>博多通饅頭、明月堂、茅乃舍高湯粉（不含肉塊）、Menbei 仙貝、筑紫麻糬、八女茶、柚子胡椒等<strong>加工品</strong>皆可安全入境。</p>
+            </div>
+        `;
+    } else if (type === 'packing') {
+        body.innerHTML = `
+            <div class="guide-header">
+                <h2>🧳 行李打包清單</h2>
+                <p>Packing Checklist</p>
+            </div>
+
+            <div class="guide-section">
+                <h3>👕 衣物 Clothing</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>長袖衣物（由布院山區比市區涼 3-4°C）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>薄外套 / 防風外套</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>短袖 T恤（白天炎熱）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>褲子 / 裙子</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>睡衣</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>內衣褲 & 襪子（每日換洗量）</label></div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🏊 泳具 Swim</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>泳衣 / 泳褲</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>泳帽</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>泳鏡</label></div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🌂 雨具 Rain Gear</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>摺疊雨傘（6月九州梅雨季）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>輕便雨衣</label></div>
+            </div>
+
+            <div class="guide-section">
+                <h3>📱 電子 & 文件 Electronics & Documents</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>護照（效期 6 個月以上）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>Visit Japan Web QR Code</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>來回機票 / 飯店訂房確認單</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>充電器 & 傳輸線</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>行動電源</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>日本上網（eSIM / SIM卡 / WiFi機）</label></div>
+            </div>
+
+            <div class="guide-section">
+                <h3>🧴 洗漱 & 備品 Toiletries</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>防曬乳</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>個人藥品（感冒藥、腸胃藥、過敏藥）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>隱形眼鏡 / 眼鏡</label></div>
+            </div>
+
+            <div class="guide-section">
+                <h3>💰 錢包 Wallet</h3>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>信用卡（熊本熊 / 吉鶴 / Richart / Unicard）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>日幣現金（建議 ¥30,000-50,000）</label></div>
+                <div class="guide-item"><input type="checkbox" class="packing-check"> <label>零錢包（日本大量使用硬幣）</label></div>
+            </div>
+
+            <div class="guide-tip">
+                <p>💡 點擊 checkbox 可以勾選！長袖衣物和雨傘是 6 月九州梅雨季必備 ☔</p>
             </div>
         `;
     }
