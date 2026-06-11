@@ -496,21 +496,6 @@ body {
     white-space: nowrap;
 }
 
-/* Mode Toggle Section - 交通模式選擇區 */
-.mode-toggle-section {
-    margin-top: 35px;
-    padding-top: 30px;
-    border-top: 1px solid var(--tatami);
-    text-align: center;
-}
-
-.mode-label {
-    font-size: 0.9rem;
-    color: var(--stone);
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
 /* Scroll Indicator - 向下滾動提示 */
 .hero-cover::after {
     content: '';
@@ -624,61 +609,7 @@ body {
     right: 10px;
 }
 
-/* Mode Toggle - 奢華交通模式選擇 Luxury Transport Mode */
-.mode-toggle {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 25px auto 35px;
-}
-
-.mode-btn {
-    padding: 14px 35px;
-    border: 1px solid var(--kinpaku);
-    border-radius: 30px;
-    background: transparent;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.4s ease;
-    color: var(--sumi-black);
-    letter-spacing: 2px;
-    position: relative;
-    overflow: hidden;
-}
-
-.mode-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--kinpaku), #C9A95A);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1;
-}
-
-.mode-btn:hover {
-    color: var(--sumi-black);
-    border-color: var(--kinpaku);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(184, 160, 96, 0.25);
-}
-
-.mode-btn:hover::before {
-    opacity: 0.15;
-}
-
-.mode-btn.active {
-    background: linear-gradient(135deg, var(--sumi-black), #2a2a2a);
-    color: var(--kinpaku);
-    border-color: var(--kinpaku);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.mode-btn.active::before {
-    opacity: 0;
-}
-
+/* Plan Toggle - 方案切換選項 */
 /* Plan Toggle - 方案切換選項 */
 .plan-toggle {
     display: flex;
@@ -2246,20 +2177,6 @@ body {
     .section-title span {
         font-size: 1.1rem;
         letter-spacing: 2px;
-    }
-
-    /* Mode Toggle */
-    .mode-toggle {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto 20px;
-    }
-
-    .mode-btn {
-        width: 100%;
-        padding: 12px 20px;
     }
 
     /* Day Navigation */

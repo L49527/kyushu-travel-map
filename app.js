@@ -30,7 +30,7 @@ function renderHeroWeatherWidget() {
     const updateEl = document.getElementById('weather-widget-update');
     if (!container) return;
 
-    const dayLabels = ['Day 1 福岡', 'Day 2 福岡', 'Day 3 太宰府', 'Day 4 由布院', 'Day 5 阿蘇', 'Day 6 別府', 'Day 7 福岡'];
+    const dayLabels = ['Day 1 福岡', 'Day 2 福岡', 'Day 3 太宰府', 'Day 4 由布院', 'Day 5 宙館', 'Day 6 別府', 'Day 7 福岡'];
     container.innerHTML = weather.map((w, i) => `
         <div class="weather-city-card">
             <span class="wc-name">${dayLabels[i]}</span>
@@ -59,15 +59,6 @@ function init() {
     updateCountdown();
     renderHeroWeatherWidget();
     fetchForecastWeather(); // 🌤️ 載入即時7天預報 / Load live 7-day forecast
-
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            state.mode = btn.dataset.mode;
-            showDay(state.day);
-        });
-    });
 
     document.querySelectorAll('.plan-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -296,12 +287,12 @@ function showDay(dayNum) {
 
     // Check if we need to show the plan toggle
     const planToggle = document.getElementById('plan-toggle');
-    if (dayPlans.length > 1) {
+    if (dayPlans.length > 1 && dayNum !== 5) {
         planToggle.style.display = 'flex';
         // Adjust labels based on day if needed, but currently only Day 5 has it
     } else {
         planToggle.style.display = 'none';
-        state.plan = 'A'; // Reset to default if no plan selection
+        state.plan = dayNum === 5 ? 'B' : 'A'; // Day 5 stays inside Suginoi SORA Kan
     }
 
     // Filter by plan if multiple exist, otherwise just take the first one
@@ -314,8 +305,6 @@ function showDay(dayNum) {
 }
 
 function renderDayPanel(d) {
-    const icon = state.mode === 'drive' ? '🚗' : '🚌';
-    const label = state.mode === 'drive' ? '自駕建議' : '公共交通建議';
     const w = weather[d.day - 1];
 
     return `
@@ -346,10 +335,10 @@ function renderDayPanel(d) {
                 </div>
             </div>
             
-            ${d.transport ? `
+            ${d.transport?.public ? `
             <div class="transport-box">
-                <h4>${icon} ${label}</h4>
-                <p>${d.transport[state.mode]}</p>
+                <h4>🚌 公共交通</h4>
+                <p>${d.transport.public}</p>
             </div>
             ` : ''}
             

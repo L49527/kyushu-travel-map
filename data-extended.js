@@ -5,7 +5,7 @@ const dataDay3to7 = [
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.52, 130.53],
         hotelImage: "images/都ホテル博多.jpg",
         hotelDesc: "【JR博多站直結】地下通道直達筑紫口，免淋雨<br>🛁 頂樓天然溫泉「都之湯」眺望博多夜景<br>🏊 室內恆溫泳池・健身房<br>🍽️ 3間餐廳酒吧・高樓層景觀房型<br>🧺 投幣洗衣機",
-        transport: { drive: "走福岡都市高速約30分鐘抵達太宰府，需停周邊收費停車場。<br>• 過路費：往返約¥960 (都市高+九州道)", public: "【觀光列車旅人號】西鐵福岡(天神)→太宰府(30分¥420)<br>• 09:46 / 10:16 發車(直達)<br>• 需至二日市站轉乘，約10-15分鐘/班" },
+        transport: { public: "【觀光列車旅人號】西鐵福岡(天神)→太宰府(30分¥420)<br>• 09:46 / 10:16 發車(直達)<br>• 需至二日市站轉乘，約10-15分鐘/班" },
         timeline: [
             { time: "10:30", act: "太宰府天滿宮", desc: "參拜學問之神，觸摸御神牛" },
             { time: "12:00", act: "表參道散步", desc: "隈研吾星巴克，現烤梅枝餅" },
@@ -69,13 +69,13 @@ const dataDay3to7 = [
         hotel: "御宿 野乃別府", hotelLat: 33.2795, hotelLng: 131.4985, center: [33.30, 131.40],
         hotelImage: "images/御宿 野乃別府.webp",
         hotelDesc: "【別府站前】全館榻榻米日式溫泉旅館<br>♨️ 頂樓露天風呂「別府八湯」眺望別府灣<br>🍜 免費夜鳴拉麵・泡湯後免費冰棒/乳酸菌飲料<br>👘 館內提供多款花色浴衣體驗<br>🧺 投幣洗衣機・漫畫休息區",
-        transport: { drive: "【推薦自駕】福岡→由布院→別府<br>• 過路費：福岡→由布院約¥2,500-¥3,000<br>• 路線：建議走大分道轉國道210號<br>• 車程：博多→由布院約 1.5 小時", public: "【特急 Sonic】博多 08:20 → 別府 10:25 (¥5190 自由席可)<br>• 別府站西口轉乘龜之井巴士 41/43 系統 → 由布院 (約 60 分)<br>• 回程選擇：<br>　(A) 由布院 17:28 特急自由座 → 別府 18:28<br>　(B) 由布院 17:35 巴士 → 別府 18:25<br>• 巴士回程票可在別府站前先買好" },
+        transport: { public: "【JR Pass 走法：博多→別府】<br>1. JR博多站 1樓大廳找「在来線 / JR Lines / Conventional Lines」閘口，別走「新幹線 / Shinkansen」<br>2. 進閘後看電子看板，找「特急 ソニック 大分行き / Sonic for Oita」<br>3. 看看板顯示的「のりば / Platform」，搭手扶梯或電梯上 2樓月台；月台可能變動，以現場看板為準<br>4. 搭「特急 Sonic / 音速號」直達別府：博多 08:20 → 別府 10:25，約 2 小時，建議先用 JR Pass 劃指定席<br>5. 到別府站後從西口出站（出改札後跟「西口 / West Exit」指示）；御宿 野乃別府就在站前，先寄放行李最順<br>6. 若要接著去由布院：別府站西口外即為巴士乘車處，找「亀の井バス / Kamenoi Bus」，搭乘車頭標示「由布院駅前バスセンター 行き」或「由布院方面」的班次（41/43 系統），約 60 分到由布院<br>7. 【寄放行李後搭車建議】10:25 抵達 → 10:30-10:50 寄放行李 → 約 11:00 返回別府站西口，搭 11:00 或之後開往由布院的巴士（10:40 太趕，不建議）。確切班次請當天查詢最新時刻表或交通 App<br>• JR Kyushu Pass 可搭特急 Sonic；若沒劃位也可搭自由席，但旺季建議劃位<br>• 回程選擇：由布院 17:28 特急自由席 → 別府 18:28，或 17:35 巴士 → 別府 18:25（回程時間請當天確認）<br>• 巴士不一定包含在 JR Pass 內，請現場確認或另付車資" },
         timeline: [
             { time: "07:30", act: "退房・博多站出發", desc: "買個駅弁或麵包帶上車" },
-            { time: "08:20", act: "Sonic 特急出發", desc: "博多→別府約 2h，沿途欣賞北九州海岸" },
-            { time: "10:25", act: "抵達別府站", desc: "行李寄放飯店或車站置物櫃，可在站前買回程巴士票" },
-            { time: "10:40", act: "巴士前往由布院", desc: "龜之井巴士 41/43 系統，車程約 60 分" },
-            { time: "11:30", act: "由布院午間散策", desc: "湯之坪街道吃午餐、逛雜貨甜點～17:00" },
+            { time: "08:20", act: "Sonic 特急出發", desc: "JR博多站搭特急 Sonic 往大分・別府方向，JR Pass 可用，建議事先劃指定席" },
+            { time: "10:25", act: "抵達別府站", desc: "從別府站西口出站，御宿 野乃別府在站前；先寄放行李再去由布院最順" },
+            { time: "11:00", act: "巴士前往由布院", desc: "別府站西口搭龜之井巴士往由布院，車程約 60 分（建議11點後班次，詳細時刻請現場確認）" },
+            { time: "12:00", act: "由布院午間散策", desc: "湯之坪街道吃午餐、逛雜貨甜點～17:00" },
             { time: "17:28", act: "返回別府", desc: "特急 (A) 或 17:35 巴士 (B)，約 18:25 到" },
             { time: "18:30", act: "入住御宿 野乃別府", desc: "チェックイン後泡湯放鬆，晚餐在別府" }
         ],
@@ -95,15 +95,18 @@ const dataDay3to7 = [
             ],
             lunch: [
                 { name: "由布まぶし 心（金鱗湖本店）", hours: "10:30-18:00", desc: "由布院最強釜飯！豐後牛、地雞、鰻魚三種吃法，排隊名店", tag: "釜飯", lat: 33.2605, lng: 131.3705, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布まぶし+心+金鱗湖本店" },
-                { name: "由布院 Milch", hours: "10:00-17:30", desc: "金賞コロッケ（可樂餅）邊走邊吃超幸福", tag: "小吃", lat: 33.2640, lng: 131.3680, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ミルヒ" },
+                { name: "由布院 Milch", hours: "10:00-17:30", desc: "湯之坪街道大排長龍的半熟起司蛋糕名店！現烤ケーゼクーヘン外微焦內濃郁，搭配濃厚霜淇淋，散步由布院必吃甜點", tag: "甜點", lat: 33.2640, lng: 131.3680, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ミルヒ" },
+                { name: "金賞コロッケ（金賞可樂餅）", hours: "10:00-17:30", desc: "Milch 櫃檯現炸的得獎可樂餅！外皮金黃酥脆、內餡綿密香甜，湯之坪街道最受歡迎的邊走邊吃散步小吃", tag: "小吃", lat: 33.2640, lng: 131.3680, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ミルヒ" },
                 { name: "花麹菊家 ぷりんどら", hours: "09:00-18:00", desc: "布丁銅鑼燒，經典散步甜點", tag: "甜點", lat: 33.2642, lng: 131.3682, mapUrl: "https://www.google.com/maps/search/?api=1&query=花麹菊家+由布院" },
                 { name: "YURARI 湯布院プリン", hours: "10:00-17:00", desc: "布丁專門店，濃厚綿密口感極品", tag: "甜點", lat: 33.2638, lng: 131.3685, mapUrl: "https://www.google.com/maps/search/?api=1&query=YURARI+湯布院プリン" },
                 { name: "こちょぱん", hours: "09:30-16:00", desc: "湯之坪人氣麵包店，現烤麵包香氣撲鼻", tag: "麵包", lat: 33.2635, lng: 131.3692, mapUrl: "https://www.google.com/maps/search/?api=1&query=こちょぱん+由布院" },
                 { name: "鞠智 スイートポテト", hours: "10:00-17:00", desc: "由布院極品地瓜甜點，口感如絲絹般細膩", tag: "甜點", lat: 33.2648, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/?api=1&query=鞠智+由布院" }
             ],
             dinner: [
-                { name: "別府 燒肉 Somuri", hours: "11:30-22:00", desc: "在地人推崇的頂級豐後牛燒肉", tag: "燒肉", lat: 33.2815, lng: 131.4925, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉レストラン+ソムリ" },
-                { name: "生一本 居酒屋", hours: "17:30-00:00", desc: "別府車站附近，新鮮地魚刺身", tag: "居酒屋", lat: 33.2795, lng: 131.4985, mapUrl: "https://www.google.com/maps/search/?api=1&query=生一本+別府" },
+                { name: "焼肉 春香苑", hours: "11:00-22:00（LO21:30）", desc: "想吃真正燒肉就排這間，不再用牛排館 Somuri 代替；建議出發前用 Google Maps 確認營業與訂位", tag: "燒肉", lat: 33.2798, lng: 131.5005, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+春香苑+別府" },
+                { name: "生一本 居酒屋", hours: "17:30-00:00", desc: "別府站附近居酒屋，刺身、烤魚、炸物配大分地酒最順", tag: "居酒屋", lat: 33.2795, lng: 131.4985, mapUrl: "https://www.google.com/maps/search/?api=1&query=生一本+別府" },
+                { name: "東洋軒 とり天", hours: "17:00-22:00", desc: "大分名物雞肉天婦羅發源名店，想吃別府代表味道就排這間", tag: "雞天", lat: 33.2825, lng: 131.5025, mapUrl: "https://www.google.com/maps/search/?api=1&query=レストラン東洋軒+別府" },
+                { name: "とよ常 天丼", hours: "11:00-20:00", desc: "別府老舖天丼，招牌特製天丼有大尾炸蝦，晚餐想簡單吃很適合", tag: "天丼", lat: 33.2805, lng: 131.4945, mapUrl: "https://www.google.com/maps/search/?api=1&query=とよ常+別府" },
                 { name: "龜正 壽司", hours: "11:00-21:00", desc: "別府最火紅迴轉壽司，魚貨超大塊", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
                 { name: "水天 壽司", hours: "11:00-22:00", desc: "高品質迴轉壽司，環境更精緻舒適", tag: "壽司", lat: 33.3055, lng: 131.4855, mapUrl: "https://www.google.com/maps/search/?api=1&query=廻転寿司+水天+別府店" },
                 { name: "海鮮料理 魚心", hours: "11:30-21:30", desc: "專營別府灣新鮮海產，價格親民", tag: "海鮮", lat: 33.2755, lng: 131.5055, mapUrl: "https://www.google.com/maps/search/?api=1&query=海鮮いけす料理+魚心" }
@@ -129,6 +132,17 @@ const dataDay3to7 = [
                 lng: 131.4345,
                 image: "images/地獄蒸布丁 (岡本屋).jpg",
                 mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋+売店"
+            },
+            {
+                name: "大分地酒（ちえびじん・西の関・八鹿）",
+                hours: "晚餐時段",
+                desc: "別府晚餐可以問店員「大分の地酒ありますか？」清爽派選ちえびじん，旨味派選西の関，想喝麥燒酎可找八鹿或銀座のすずめ。配刺身、雞天、烤魚都很合。",
+                tag: "地酒",
+                igRecommend: true,
+                lat: 33.2795,
+                lng: 131.4985,
+                image: "images/九州限定酒精飲品.webp",
+                mapUrl: "https://www.google.com/maps/search/?api=1&query=別府駅+大分+地酒+居酒屋"
             },
             {
                 name: "湯之花 (別府溫泉粉)",
@@ -283,10 +297,7 @@ const dataDay3to7 = [
 <br>🌸 屋上庭園「ソラニワ」 — 星空散步道・大分縣蝶拍照點・彈跳床
 <br>🛍️ 売店「別風ゆのや」 — 大分特產一應俱全（07:00-22:00）
 <br>🚌 免費接駁車 — JR別府站西口（約15分鐘/班）・免費戶外停車場`,
-        transport: {
-            drive: "今日主打飯店設施，建議直接前往杉乃井飯店。飯店提供免費戶外停車場，佔地廣大。<br>⏰ 接駁車：別府站西口每15分鐘一班，車程10分鐘。",
-            public: "【免費接駁車】JR別府站西口→杉乃井飯店（每15分鐘/班，車程10分鐘）<br>🚌 別府龜之井巴士前往飯店：從別府站前搭乘10號巴士（¥200）"
-        },
+        transport: { public: "【免費接駁車】JR別府站西口→杉乃井飯店（每15分鐘/班，車程10分鐘）<br>🚌 別府龜之井巴士前往飯店：從別府站前搭乘10號巴士（¥200）" },
         timeline: [
             { time: "10:00", act: "Check-in 寄放行李", desc: "提前到飯店寄放行李，領取館內設施地圖。先到賣店或大廳休息區規劃今日動線" },
             { time: "10:30", act: "屋上庭園 ソラニワ", desc: "即使雨天也有遮雨步道。大分縣蝶拍照打卡、彈跳床放電、360度眺望別府灣" },
@@ -326,7 +337,7 @@ const dataDay3to7 = [
                 { name: "和ダイニング星 HOSHI", hours: "17:00-21:30", desc: "【星館頂樓】和食自助餐，壽司/生魚片/藁燒鰹魚。星空天花板設計，浪漫氛圍滿點", tag: "飯店", lat: 33.2985, lng: 131.4735, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+HOSHI" },
                 { name: "プロント (Pronto)", hours: "07:00-23:00", desc: "館內的咖啡酒吧，晚餐後小酌一杯的好去處。雞尾酒與輕食", tag: "酒吧", lat: 33.2980, lng: 131.4720 },
                 { name: "海鮮居酒屋 魚心", hours: "17:00-23:00", desc: "若想外出用餐，在地人推薦的新鮮生魚片與當季海鮮料理（開車5分）", tag: "居酒屋", lat: 33.2755, lng: 131.5055, mapUrl: "https://www.google.com/maps/search/?api=1&query=海鮮いけす料理+魚心" },
-                { name: "燒肉 Somuri", hours: "17:00-22:00", desc: "【豐後牛】嚴選A5等級黑毛和牛，別府燒肉首選（開車5分）", tag: "燒肉", lat: 33.2815, lng: 131.4925, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉レストラン+ソムリ" }
+                { name: "焼肉 元相 別府", hours: "17:30-22:00（LO21:30）", desc: "別府想吃燒肉的備案，適合從杉乃井搭車外出；請當天確認營業時間與是否需要訂位（週末假日17:00開）", tag: "燒肉", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+元相+別府" }
             ]
         },
         shopping: [
@@ -362,22 +373,24 @@ const dataDay3to7 = [
         ]
     },
     {
-        day: 5, plan: "A", date: "6/15(一)", title: "阿蘇火山壯麗絕景 (室外方案)", area: "阿蘇・草千里",
-        hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [32.90, 131.10],
+        day: 5, plan: "A", date: "6/15(一)", title: "宙館館內度假日", area: "別府・杉乃井",
+        hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [33.2985, 131.4725],
         hotelImage: "images/杉乃井飯店 宙館.jpg",
         hotelDesc: "【別府最大溫泉度假村】最新館別「宙館」<br>♨️ 頂樓無邊際展望露天風呂「宙湯」<br>🏊 Aqua Garden 溫泉泳池・夜間雷射水舞秀<br>🍽️ TERRAZZA 豪華自助餐廳 (鰻魚/牛排吃到飽)<br>🚌 別府車站免費接駁巴士・保齡球館",
-        transport: { drive: "由布院/別府→阿蘇 (Yamanami Highway)：**免費**。<br>• 飯店提供免費戶外停車場，佔地廣大，建議先在門口下行李。", public: "【觀光巴士】別府出發的一日觀光巴士團<br>• 參加 Klook/KKday 行程最便利<br>• 包含阿蘇火山、草千里、九重夢大吊橋<br>【前往飯店】別府車站西口搭乘免費接駁車 (約15分鐘/班)" },
+        transport: { public: "【飯店館內日】今天不去阿蘇，專心享受杉乃井飯店宙館。<br>• JR別府站西口搭免費接駁車前往杉乃井飯店，約15分鐘/班<br>• 抵達後以寄放行李、溫泉、Aqua Garden、SUGINOI BOWL & PARK、自助餐為主<br>• 若要短暫外出，只建議別府市區晚餐或超市補給" },
         timeline: [
-            { time: "09:00", act: "前往阿蘇", desc: "途經大觀峰，眺望阿蘇五岳" },
-            { time: "11:30", act: "阿蘇中岳火山口", desc: "近距離觀看綠色火口湖" },
-            { time: "13:00", act: "草千里之濱", desc: "廣闘草原，背景冒煙火山" },
-            { time: "18:00", act: "杉乃井飯店", desc: "著名的棚湯露天溫泉" }
+            { time: "10:00", act: "抵達宙館寄放行李", desc: "領取館內設施地圖，先確認餐廳、溫泉與娛樂設施位置" },
+            { time: "11:30", act: "棚湯或館內午餐", desc: "先泡棚湯，或直接安排 TERRAZZA / シーダパレス 午餐" },
+            { time: "14:00", act: "SUGINOI BOWL & PARK", desc: "保齡球、桌球、卡拉OK、飛鏢，下午不用出飯店也能玩" },
+            { time: "16:30", act: "宙湯 + Aqua Garden", desc: "頂樓宙湯看別府灣，再到 Aqua Garden 溫泉泳池放鬆" },
+            { time: "18:30", act: "館內自助晚餐", desc: "TERRAZZA 或 HOSHI 享用晚餐，飯後看 Aqua Garden 噴泉秀" }
         ],
         spots: [
-            { name: "大觀峰", lat: 32.9565, lng: 131.0625 },
-            { name: "阿蘇中岳火山口", lat: 32.8844, lng: 131.0844 },
-            { name: "草千里", lat: 32.8833, lng: 131.0667 },
-            { name: "杉乃井飯店", lat: 33.2985, lng: 131.4725 }
+            { name: "杉乃井飯店 宙館", lat: 33.2985, lng: 131.4725 },
+            { name: "展望露天風呂 宙湯", lat: 33.2988, lng: 131.4725 },
+            { name: "大展望露天風呂 棚湯", lat: 33.2975, lng: 131.4735 },
+            { name: "Aqua Garden", lat: 33.2978, lng: 131.4728 },
+            { name: "SUGINOI BOWL & PARK", lat: 33.2972, lng: 131.4732 }
         ],
         meals: {
             breakfast: [
@@ -465,7 +478,7 @@ const dataDay3to7 = [
         hotel: "ホテル イル・パラッツォ (Il Palazzo)", hotelLat: 33.5905, hotelLng: 130.4025, center: [33.30, 131.45],
         hotelImage: "images/Il Palazzo.jpg",
         hotelDesc: "【建築大師 Aldo Rossi 設計】日本首間設計旅館<br>🏆 榮獲普立茲克建築獎大師代表作<br>🍸 傳奇地下酒吧 EL DORADO (房客專屬)<br>🚶 步行5分鐘至中洲屋台・春吉橋旁<br>🧺 自助洗衣房・頂級視聽設備",
-        transport: { drive: "下午走高速公路返回福岡(約2小時)。<br>• 過路費：約¥3,700 (ETC)<br>• 飯店停車場(每晚¥2,500)或周邊收費停車場。", public: "【特急 音速號 Sonic】別府→博多(2小時¥5500)<br>• 09:53 / 10:53 等每小時2班<br>【前往飯店】地鐵「中洲川端」站步行約7分鐘<br>• 沿著那珂川散步回飯店，欣賞河景" },
+        transport: { public: "【特急 音速號 Sonic】別府→博多(2小時¥5500)<br>• 09:53 / 10:53 等每小時2班<br>【前往飯店】地鐵「中洲川端」站步行約7分鐘<br>• 沿著那珂川散步回飯店，欣賞河景" },
         timeline: [
             { time: "09:30", act: "別府地獄巡禮", desc: "套票：成人¥2200/兒童¥1000 (海地獄/血池地獄...)" },
             { time: "11:00", act: "地獄蒸體驗", desc: "高溫溫泉蒸氣蒸煮食物" },
@@ -587,7 +600,7 @@ const dataDay3to7 = [
         hotel: "溫暖的家", hotelLat: 0, hotelLng: 0, center: [33.59, 130.42],
         hotelImage: "",
         hotelDesc: "帶著滿滿回憶與戰利品回家",
-        transport: { drive: "前往機場還車(若尚未還車)。福岡機場國內線/國際線還車點不同，請先確認。", public: "【地鐵空港線】博多站→福岡機場(5分¥260)<br>• 運行時間 05:30-00:24<br>• 約5-8分鐘/班<br>• 國際線需在國內線站下車後搭免費接駁巴士(約15分鐘)" },
+        transport: { public: "【地鐵空港線】博多站→福岡機場(5分¥260)<br>• 運行時間 05:30-00:24<br>• 約5-8分鐘/班<br>• 國際線需在國內線站下車後搭免費接駁巴士(約15分鐘)" },
         timeline: [
             { time: "10:00", act: "博多車站 / AMU Plaza", desc: "最後伴手禮採買" },
             { time: "11:30", act: "燕子廣場", desc: "博多車站頂樓花園，市景眺望" },

@@ -1,4 +1,4 @@
-const state = { day: 1, mode: 'drive', plan: 'A' };
+const state = { day: 1, mode: 'drive', plan: 'B' };
 
 // ⚠️ TODO: 出發前 7-10 天（約 6/1-6/4）請至 Windy (https://www.windy.com/33.590/130.410) 查看實際預報並更新以下資料
 // ⚠️ UPDATE: Check Windy forecast 7-10 days before departure (around 6/1-6/4) and update below
@@ -19,7 +19,7 @@ const data = [
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.59, 130.41],
         hotelImage: "images/都ホテル博多.jpg",
         hotelDesc: "【JR博多站直結】地下通道直達筑紫口，免淋雨<br>🛁 頂樓天然溫泉「都之湯」眺望博多夜景<br>🏊 室內恆溫泳池・健身房<br>🍽️ 3間餐廳酒吧・高樓層景觀房型<br>🧺 投幣洗衣機",
-        transport: { drive: "抵達福岡機場後取車，約10分鐘至飯店。飯店付費停車場(每日¥2,000)，市區停車費高，今日建議步行或搭地鐵移動。", public: "【地鐵空港線】福岡機場→博多站(5分¥260)<br>• 運行時間 05:30-00:24<br>• 平日尖峰 3-4分鐘/班，離峰 7-8分鐘/班<br>• 博多站筑紫口出站，地下通道直結飯店" },
+        transport: { public: "【地鐵空港線】福岡機場→博多站(5分¥260)<br>• 運行時間 05:30-00:24<br>• 平日尖峰 3-4分鐘/班，離峰 7-8分鐘/班<br>• 博多站筑紫口出站，地下通道直結飯店" },
         timeline: [
             { time: "14:00", act: "抵達福岡機場", desc: "辦理入境手續，領取行李" },
             { time: "15:30", act: "飯店 Check-in", desc: "都ホテル博多 寄放行李" },
@@ -172,7 +172,7 @@ const data = [
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.60, 130.41],
         hotelImage: "images/都ホテル博多.jpg",
         hotelDesc: "【JR博多站直結】地下通道直達筑紫口，免淋雨<br>🛁 頂樓天然溫泉「都之湯」眺望博多夜景<br>🏊 室內恆溫泳池・健身房<br>🍽️ 3間餐廳酒吧・高樓層景觀房型<br>🧺 投幣洗衣機",
-        transport: { drive: "今日市區行程不建議開車。Lalaport有3,000台停車場(首2小時免費)，天神百貨停車優惠。", public: "【前往Lalaport】JR鹿兒島本線 博多→竹下(3分¥190)<br>• 運行時間 05:18-00:32<br>• 約10-15分鐘/班，尖峰更密集<br>【前往天神】地鐵空港線 博多→天神(5分¥210)<br>• 3-8分鐘/班，直結天神地下街" },
+        transport: { public: "【前往Lalaport】JR鹿兒島本線 博多→竹下(3分¥190)<br>• 運行時間 05:18-00:32<br>• 約10-15分鐘/班，尖峰更密集<br>【前往天神】地鐵空港線 博多→天神(5分¥210)<br>• 3-8分鐘/班，直結天神地下街" },
         timeline: [
             { time: "10:00", act: "Lalaport 福岡", desc: "1:1 ν鋼彈立像，整點聲光演出" },
             { time: "13:00", act: "Lalaport 美食街", desc: "聚集許多九州名店" },
@@ -206,6 +206,7 @@ const data = [
             ],
             dinner: [
                 { name: "博多水炊鍋 華味鳥", hours: "17:00-23:00", desc: "福岡夜晚最溫暖的雞湯饗宴。依序品嚐清湯、雞肉塊、手工雞肉丸與精華雜炊。全程職人桌邊服務，感受極致的職人精神與雞鮮味之美鍋物🍵。", tag: "鍋物", lat: 33.5902, lng: 130.4125, mapUrl: "https://www.google.com/maps/search/?api=1&query=水たき料亭+博多華味鳥+天神店" },
+                { name: "Kawaya Gion かわ屋 (祇園店)", hours: "17:00-24:00", desc: "福岡名物雞皮串名店！外皮烤到酥脆、內裡帶醬香，適合 Day 2 晚上從天神回博多後續攤。建議先訂位或早點到。", tag: "串燒", igRecommend: true, lat: 33.5945, lng: 130.4145, mapUrl: "https://www.google.com/maps/search/?api=1&query=かわ屋+祇園店" },
                 { name: "藥院燒肉", hours: "16:00-24:00", desc: "推薦品項為特選 7 種部位套餐。肉質鮮美，是夜晚在藥院區大啖和牛的最佳據點🥩。", tag: "燒肉", igRecommend: true, lat: 33.5815, lng: 130.3980, mapUrl: "https://www.google.com/maps/search/?api=1&query=藥院燒肉" },
                 { name: "笑樂 牛腸鍋", hours: "11:00-23:00", desc: "在繁華天神享用老舖風味。牛腸處理得乾淨無腥味，入口即化，推薦點選「經典醬油」口味帶出牛油的清甜。這也是福岡上班族下班後聚會的元氣來源鍋物🍲。", tag: "鍋物", lat: 33.5905, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=もつ鍋+笑楽+天神店" },
                 { name: "燒肉 孫三郎", hours: "17:00-23:00", desc: "天神鬧區中的精品燒肉！嚴選高品質黑毛和牛，肉質鮮紅油花細密。推薦：和牛六種盛合。在洗鍊的裝潢中享用炭火直燒的高級肉質感🥩。", tag: "燒肉", lat: 33.5895, lng: 130.3965, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+孫三郎+天神店" },
