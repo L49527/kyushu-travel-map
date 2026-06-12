@@ -5,14 +5,18 @@ const dataDay3to7 = [
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.52, 130.53],
         hotelImage: "images/都ホテル博多.jpg",
         hotelDesc: "【JR博多站直結】地下通道直達筑紫口，免淋雨<br>🛁 頂樓天然溫泉「都之湯」眺望博多夜景<br>🏊 室內恆溫泳池・健身房<br>🍽️ 3間餐廳酒吧・高樓層景觀房型<br>🧺 投幣洗衣機",
-        transport: { public: "【上午太宰府】博多→天神→西鐵福岡(天神)→太宰府，約45-55分<br>• 西鐵福岡(天神)→太宰府約30分，部分班次需在西鐵二日市轉乘<br>• 建議 08:30 前後出發，11:30 前離開太宰府，12:15 左右回博多午餐與逛街<br>• 九州國立博物館不排入主線；一蘭太宰府只當不排隊時的備案" },
+        transport: { public: "【🚌 直達巴士】博多バスターミナル1階 11番のりば→太宰府(40分¥800)<br>• 「太宰府ライナーバス旅人」— 不經天神，直達太宰府駅前<br>• 博多駅中央改札出→左前方「AMU PLAZA」入口→右側巴士大樓入口<br>  👀 標的物：中央改札出來左邊第一間「Hakata Gift & Gourmet」→左前方玻璃門<br>• 完全キャッシュレス：交通系IC(Suica/ICOCA)或信用卡感應，不收現金<br>• 土曜時刻(6/13 博多発→太宰府 ～12:00)：<br>  08:00直・08:15・08:30・08:45・09:00～11:48每12分・12:00・12:15・12:30・12:50<br>• 回程(太宰府→博多)：11:00・11:30・12:00・12:30・12:45<br>  👉 11:30発→12:08着、11:00発→11:38着<br>• 不用預約<br><br>💡 建議08:30前後出發，約09:20抵太宰府；11:30離開，12:08回博多<br><br>【🎮 Nintendo FUKUOKA】AMU Plaza 博多 8F<br>博多駅中央改札出站→往左前方進AMU Plaza→靠右走到底找東急ハンズ前面電梯→8F出電梯右手邊（步行約5分）" },
         timeline: [
-            { time: "08:30", act: "博多出發往太宰府", desc: "先到天神轉西鐵，目標 09:20 左右抵達太宰府站" },
-            { time: "09:20", act: "表參道快逛", desc: "隈研吾星巴克外觀、現烤梅枝餅，先拍照再往天滿宮走" },
-            { time: "09:50", act: "太宰府天滿宮", desc: "參拜學問之神，觸摸御神牛，購買學業/合格御守" },
-            { time: "10:50", act: "表參道補伴手禮", desc: "かさの家梅枝餅、天山鬼瓦最中、梅園鷽餅擇一補貨" },
-            { time: "11:30", act: "離開太宰府", desc: "搭西鐵回天神，再轉地鐵/JR回博多" },
-            { time: "12:15", act: "回博多午餐與逛街", desc: "博多站午餐後接 AMU Plaza、博多Deitos、Ming、博多阪急地下街" }
+            { time: "08:30", act: "博多→太宰府", desc: "🚌博多駅中央改札→巴士大樓1F 11番のりば→太宰府(40分¥800)。步行到巴士站約5分" },
+            { time: "09:20", act: "巴士站→天滿宮", desc: "表參道步行約10分到天滿宮" },
+            { time: "09:45", act: "天滿宮參拜", desc: "境內步行移動約15分（本殿・御神牛・御守）" },
+            { time: "10:30", act: "天滿宮→菖蒲池→表參道", desc: "菖蒲池在天滿宮東側步行5分，回表參道商店步行10分" },
+            { time: "11:30", act: "太宰府→博多", desc: "🚌巴士站步行2分→太宰府駅前搭車→博多(38分¥800)" },
+            { time: "12:10", act: "午餐", desc: "博多站步行1～5分可到各餐廳" },
+            { time: "13:15", act: "Nintendo FUKUOKA", desc: "中央改札→AMU Plaza 8F、步行約5分" },
+            { time: "14:30", act: "購物", desc: "AMU Plaza→博多阪急地下→Ming、館內步行3～8分" },
+            { time: "17:30", act: "晚餐", desc: "博多站→天神步行15分／地下鐵2分¥210。中洲步行20分" },
+            { time: "19:30", act: "回飯店", desc: "天神→博多駅地下鐵2分¥210／步行15分。飯店直結筑紫口" }
         ],
         spots: [
             { name: "太宰府天滿宮", lat: 33.5197, lng: 130.5358 },
@@ -28,11 +32,12 @@ const dataDay3to7 = [
                 { name: "太宰府 暖暮拉麵 (早場)", hours: "10:00-22:00", desc: "曾經榮獲全九州第一名拉麵頭銜的神級店家！細麵條完美鎖住醇郁卻不油膩的豚骨湯頭，搭配店家特製的辛辣紅醬提鮮。在表參道人潮湧現前，先來碗熱騰騰的暖心滋味拉麵🍜。", tag: "拉麵", lat: 33.5205, lng: 130.5345, mapUrl: "https://www.google.com/maps/search/?api=1&query=暖暮+太宰府駅前店" }
             ],
             lunch: [
-                { name: "梅枝餅 (多間名店)", hours: "09:00-18:00", desc: "太宰府最具歷史溫度的靈魂甜食！糯米外皮壓印梅花圖案後現烤至微脆，內裹綿密的紅豆內餡。推薦趁熱吃，感受外焦內軟、甜而不膩的經典古都滋味甜點🍡。", tag: "甜點", lat: 33.5205, lng: 130.5345, mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府+梅ヶ枝餅" },
-                { name: "一蘭太宰府店 (五角碗)", hours: "09:00-20:00", desc: "全日本唯一的「合格一蘭」！麵條長度是一般的兩倍（象徵長久），碗底是五角形設計（日文諧音「合格」）。在這裡吃拉麵不只是享受美味，更是在為學業與夢想祈福的儀式拉麵🍜。", tag: "拉麵", lat: 33.5208, lng: 130.5348, mapUrl: "https://www.google.com/maps/search/?api=1&query=一蘭+太宰府参道店" },
-                { name: "寺子屋本舖 仙貝", hours: "09:30-17:30", desc: "散步表參道的人氣點心。除了酥脆的傳統硬仙貝，更推薦口感軟帶 Q 的「串烤濕仙貝」，搭配七味粉或海苔，在那種似餅又似糕的口感中體驗傳統職人手感小吃🍘。", tag: "小吃", lat: 33.5202, lng: 130.5346, mapUrl: "https://www.google.com/maps/search/?api=1&query=寺子屋本舖+太宰府店" },
-                { name: "阿蘇之森 (和風定食)", hours: "11:00-16:00", desc: "在天滿宮旁的寧靜角落，由古宅改建的小餐館。提供精緻的時令野菜定食與手作和菓子。在一片綠意的窗景前，細品太宰府歷史帶來的寧靜與美味定食🍱。", tag: "定食", lat: 33.5215, lng: 130.5358, mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇の森+太宰府" },
-                { name: "梅園 (和菓子)", hours: "10:00-17:00", desc: "傳承千年的和菓子極致工藝。必點限定款「鬼瓦最中」與「鷽餅」。造型雅緻且口感細膩，搭配一杯抹茶，在舌尖上完成一場穿越時空的古都對話甜點🍵。", tag: "甜點", lat: 33.5200, lng: 130.5350, mapUrl: "https://www.google.com/maps/search/?api=1&query=太宰府+梅園" }
+                { name: "博多 たんや HAKATA", hours: "07:00-22:00", desc: "牛舌早午餐名店，薄切炭烤牛舌定食附山藥泥與麥飯。因為售完為止，中午回博多後要把握時間！博多駅博多口広場前 1F日式🍚。", tag: "定食", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/たんやHAKATA" },
+                { name: "大地のうどん", hours: "07:00-23:00", desc: "博多駅地下「ちかてん」區域。招牌「巨大牛蒡天婦羅烏龍麵」視覺震撼，炸牛蒡比臉還長，湯頭是鰹魚醬油清甜系，與烏龍麵滑溜口感絕配麵食🍜。", tag: "麵食", lat: 33.5893, lng: 130.4195, mapUrl: "https://www.google.com/maps/search/大地のうどん+博多駅ちかてん" },
+                { name: "資さんうどん 博多", hours: "00:00-24:00", desc: "北九州最具代表性的當地連鎖，博多站一出改札正對面就有一家。不只うどん，還有博多名物「ぼた餅」可當飯後甜點，價格親民CP值超高麵食🍜。", tag: "麵食", lat: 33.5905, lng: 130.4203, mapUrl: "https://www.google.com/maps/search/資さんうどん+博多駅" },
+                { name: "二葉亭 博多ラーメン", hours: "10:00-23:00", desc: "位在博多駅地下街的經典豚骨拉麵老舖，湯頭濃郁但不油膩，細麵條可調硬度，加點一份燉三層肉（とろ肉）絕對是完美搭配拉麵🍜。", tag: "拉麵", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/二葉亭+博多駅" },
+                { name: "博多めんたい重 うお八", hours: "10:00-22:00", desc: "明太子控的天堂！明太子燒烤後鋪在飯上做成「めんたい重」，香氣四溢、微辣回甘。配上吸滿明太子高湯的茶漬け二吃，是博多限定幸福定食🍱。", tag: "定食", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/博多めんたい重+うお八" },
+                { name: "魚べい ヨドバシ博多", hours: "11:00-22:00", desc: "高CP值迴轉壽司，新幹線送餐。適合大食量卻又不想花大錢的午餐選擇壽司🍣。", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/魚べい+ヨドバシ博多店" }
             ],
             dinner: [
                 { name: "博多 魚米壽司", hours: "11:00-23:00", desc: "高品質卻平價的迴轉壽司天堂！食材均由漁港直送，推薦本鮪魚中腹與炙燒鮭魚。新幹線列車送餐的高科技感與鮮美海味的完美融合，是結束太宰府行程後最省心又滿足的選擇壽司🍣。", tag: "壽司", lat: 33.5895, lng: 130.4200, mapUrl: "https://www.google.com/maps/search/?api=1&query=魚べい+ヨドバシ博多店" },
@@ -50,7 +55,15 @@ const dataDay3to7 = [
             { name: "博多Deitos", hours: "08:00-21:00", desc: "中午回博多後主力伴手禮區", tag: "博多站", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/博多デイトス" },
             { name: "マイング (Ming)", hours: "09:00-21:00", desc: "博多站地下土產街，適合補福岡盒裝點心", tag: "博多站", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/博多駅+マイング" },
             { name: "博多阪急 地下", hours: "10:00-20:00", desc: "高級甜點、熟食與精緻伴手禮", tag: "百貨", lat: 33.5898, lng: 130.4210, mapUrl: "https://www.google.com/maps/search/博多阪急+地下" },
-            { name: "AMU Plaza 博多", hours: "10:00-20:00", desc: "下午購物主場，服飾、雜貨、餐廳一次解決", tag: "百貨", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/AMU+Plaza+Hakata" }
+            { name: "AMU Plaza 博多", hours: "10:00-20:00", desc: "下午購物主場，服飾、雜貨、餐廳一次解決", tag: "百貨", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/AMU+Plaza+Hakata" },
+            { name: "Nintendo FUKUOKA", hours: "10:00-20:00", desc: "AMU Plaza 8F。JR博多站中央改札口出站→左前方AMU Plaza入口→東急ハンズ側電梯→8F出電梯右手邊", tag: "遊戲", lat: 33.5905, lng: 130.4210, mapUrl: "https://www.google.com/maps/search/?api=1&query=Nintendo+FUKUOKA+アミュプラザ博多" },
+            { name: "Curensology カレンソロジー", hours: "10:00-20:00", desc: "AMU 3F。九州初出店！「旅する知的でエレガントな女性」為概念的職場/日常女裝品牌，簡約洗鍊", tag: "女裝", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/Curensology+アミュプラザ博多" },
+            { name: "Conte コンテ", hours: "10:00-20:00", desc: "AMU 2F。九州初出店！韓國人氣當代女裝，簡約帶設計感，日常穿搭實用性高", tag: "女裝", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/コンテ+アミュプラザ博多" },
+            { name: "URBAN RESEARCH", hours: "10:00-20:00", desc: "AMU 4F。メンズ・レディス。2025年3月リニューアル，經典日系選品店，女裝線 LAATO 也很推", tag: "女裝", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/URBAN+RESEARCH+アミュプラザ博多" },
+            { name: "LUSH アミュエスト博多店", hours: "10:00-20:00", desc: "アミュエスト博多 1F（AMU Plaza 相連棟）。英國天然手工 cosmetics，必買 bath bomb 系列", tag: "美妝", lat: 33.5895, lng: 130.4212, mapUrl: "https://www.google.com/maps/search/LUSH+アミュエスト博多" },
+            { name: "Aesop イソップ", hours: "10:00-20:00", desc: "AMU 6F。澳洲高端天然護膚品牌。AMU店空間由SIMPLICITY操刀設計，有專屬香水鑑賞區", tag: "美妝", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/Aesop+アミュプラザ博多" },
+            { name: "clear クリア", hours: "10:00-21:00", desc: "博多マルイ 4F。エレガンス女裝，簡約優雅路線，ON/OFF 皆可穿", tag: "女裝", lat: 33.5895, lng: 130.4215, mapUrl: "https://www.google.com/maps/search/clear+博多マルイ" },
+            { name: "POLO Ralph Lauren Women's（TWICE SANA）", hours: "10:00-20:00", desc: "大丸福岡天神店 本館7F（官方福岡 Women's 店點）。TWICE SANA 相關 Polo Play／女裝包款可先查庫存，避免現場缺貨。", tag: "女裝", lat: 33.5898, lng: 130.3982, mapUrl: "https://www.google.com/maps/search/大丸福岡天神店+ポロ+ラルフ+ローレン+ウィメンズ" }
         ],
         specialties: [
             { name: "梅枝餅 (かさの家)", hours: "09:00-18:00", desc: "太宰府必吃現烤紅豆甜點", tag: "甜點", lat: 33.5205, lng: 130.5345, image: "images/梅枝餅.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=かさの家" },

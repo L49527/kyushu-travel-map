@@ -298,6 +298,13 @@ function showDay(dayNum) {
     // Filter by plan if multiple exist, otherwise just take the first one
     const d = dayPlans.find(x => x.plan === state.plan) || dayPlans[0];
 
+    // Show Dazaifu section only on Day 3
+    const dazaifuSection = document.getElementById('dazaifu-plan');
+    if (dazaifuSection) {
+        dazaifuSection.style.display = dayNum === 3 ? '' : 'none';
+        if (dayNum === 3) setTimeout(initNintendoRouteMap, 200);
+    }
+
     document.querySelectorAll('.day-nav-btn').forEach((btn, i) => btn.classList.toggle('active', i + 1 === dayNum));
 
     document.getElementById('day-content').innerHTML = renderDayPanel(d);
@@ -417,7 +424,6 @@ function renderDayPanel(d) {
                         <button class="section-tab" onclick="switchSection(this, 'shopping')">🛒 購物</button>
                         <button class="section-tab" onclick="switchSection(this, 'specialties')">🎁 特產</button>
                         <button class="section-tab" onclick="switchSection(this, 'supermarkets')">🏪 超市</button>
-                        <button class="section-tab" onclick="switchSection(this, 'payment')">💳 優惠</button>
                     </div>
                     
                     <div class="section-content active" id="section-meals">
@@ -446,10 +452,6 @@ function renderDayPanel(d) {
 
                     <div class="section-content" id="section-supermarkets">
                         <div class="specialty-list">${renderSupermarkets(d.supermarkets || [], currentTag)}</div>
-                    </div>
-
-                    <div class="section-content" id="section-payment">
-                        <div class="payment-list">${renderPaymentSection()}</div>
                     </div>
                 </div>
             </div>
@@ -869,6 +871,45 @@ function initLocalMap(d) {
 
     // Initial update of markers visibility
     updateMapMarkers(d);
+}
+
+function initNintendoRouteMap() {
+    const mapEl = document.getElementById('nintendo-route-map');
+    if (!mapEl || mapEl.dataset.init === '1') return;
+    mapEl.dataset.init = '1';
+
+    const map = L.map('nintendo-route-map').setView([33.5901, 130.4203], 17);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19, attribution: '© OpenStreetMap © CARTO'
+    }).addTo(map);
+
+    const route = [
+        [33.58985, 130.42070],
+        [33.59005, 130.42035],
+        [33.59010, 130.42010],
+        [33.59030, 130.41980],
+        [33.59035, 130.41970],
+    ];
+
+    L.polyline(route, { color: '#e63946', weight: 5, opacity: 0.85, dashArray: '8, 6' }).addTo(map);
+
+    const markers = [
+        { pos: [33.58985, 130.42070], label: '① 中央改札口', color: '#e63946' },
+        { pos: [33.59005, 130.42035], label: '② AMU Plaza 入口', color: '#457b9d' },
+        { pos: [33.59030, 130.41980], label: '③ 東急ハンズ 電梯', color: '#2a9d8f' },
+        { pos: [33.59035, 130.41970], label: '④ Nintendo FUKUOKA 8F', color: '#e76f51' },
+    ];
+
+    markers.forEach(m => {
+        const icon = L.divIcon({
+            className: '',
+            html: '<div style="background:' + m.color + ';color:white;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.35);border:2px solid white;">' + m.label.charAt(0) + '</div>',
+            iconSize: [26, 26], iconAnchor: [13, 13]
+        });
+        L.marker(m.pos, { icon }).addTo(map).bindPopup(m.label);
+    });
+
+    map.fitBounds(L.latLngBounds(route), { padding: [35, 35] });
 }
 
 function updateMapMarkers(d) {
@@ -1351,6 +1392,14 @@ function openPrepModal(type) {
             <div class="guide-tip">
                 <p>💡 點擊 checkbox 可以勾選！長袖衣物和雨傘是 6 月九州梅雨季必備 ☔</p>
             </div>
+        `;
+    } else if (type === 'payment') {
+        body.innerHTML = `
+            <div class="guide-header">
+                <h2>💳 支付優惠</h2>
+                <p>Credit Cards & Mobile Payment Guide</p>
+            </div>
+            ${renderPaymentSection()}
         `;
     }
 
