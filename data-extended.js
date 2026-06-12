@@ -1,21 +1,23 @@
 // Day 3-7 Data
 const dataDay3to7 = [
 {
-        day: 3, date: "6/13(六)", title: "太宰府古都散策", area: "太宰府",
+        day: 3, date: "6/13(六)", title: "太宰府上午散策・中午回博多", area: "太宰府・博多",
         hotel: "都ホテル博多", hotelLat: 33.5903, hotelLng: 130.4225, center: [33.52, 130.53],
         hotelImage: "images/都ホテル博多.jpg",
         hotelDesc: "【JR博多站直結】地下通道直達筑紫口，免淋雨<br>🛁 頂樓天然溫泉「都之湯」眺望博多夜景<br>🏊 室內恆溫泳池・健身房<br>🍽️ 3間餐廳酒吧・高樓層景觀房型<br>🧺 投幣洗衣機",
-        transport: { public: "【觀光列車旅人號】西鐵福岡(天神)→太宰府(30分¥420)<br>• 09:46 / 10:16 發車(直達)<br>• 需至二日市站轉乘，約10-15分鐘/班" },
+        transport: { public: "【上午太宰府】博多→天神→西鐵福岡(天神)→太宰府，約45-55分<br>• 西鐵福岡(天神)→太宰府約30分，部分班次需在西鐵二日市轉乘<br>• 建議 08:30 前後出發，11:30 前離開太宰府，12:15 左右回博多午餐與逛街<br>• 九州國立博物館不排入主線；一蘭太宰府只當不排隊時的備案" },
         timeline: [
-            { time: "10:30", act: "太宰府天滿宮", desc: "參拜學問之神，觸摸御神牛" },
-            { time: "12:00", act: "表參道散步", desc: "隈研吾星巴克，現烤梅枝餅" },
-            { time: "14:00", act: "九州國立博物館", desc: "壯觀建築 (門票：成人¥700/大學生¥350)" },
-            { time: "16:00", act: "返回福岡市區", desc: "下午茶或購物" }
+            { time: "08:30", act: "博多出發往太宰府", desc: "先到天神轉西鐵，目標 09:20 左右抵達太宰府站" },
+            { time: "09:20", act: "表參道快逛", desc: "隈研吾星巴克外觀、現烤梅枝餅，先拍照再往天滿宮走" },
+            { time: "09:50", act: "太宰府天滿宮", desc: "參拜學問之神，觸摸御神牛，購買學業/合格御守" },
+            { time: "10:50", act: "表參道補伴手禮", desc: "かさの家梅枝餅、天山鬼瓦最中、梅園鷽餅擇一補貨" },
+            { time: "11:30", act: "離開太宰府", desc: "搭西鐵回天神，再轉地鐵/JR回博多" },
+            { time: "12:15", act: "回博多午餐與逛街", desc: "博多站午餐後接 AMU Plaza、博多Deitos、Ming、博多阪急地下街" }
         ],
         spots: [
             { name: "太宰府天滿宮", lat: 33.5197, lng: 130.5358 },
             { name: "隈研吾星巴克", lat: 33.5205, lng: 130.5345 },
-            { name: "九州國立博物館", lat: 33.5165, lng: 130.5405 }
+            { name: "博多站", lat: 33.5897, lng: 130.4207 }
         ],
         meals: {
             breakfast: [
@@ -45,9 +47,10 @@ const dataDay3to7 = [
             { name: "隈研吾星巴克", hours: "08:00-20:00", desc: "限定馬克杯與週邊商品", tag: "限定", lat: 33.5207, lng: 130.5347, mapUrl: "https://www.google.com/maps/search/スターバックス+コーヒー+太宰府天満宮表参道店" },
             { name: "天滿宮御守販賣所", hours: "06:00-19:00", desc: "學業御守、鷽鳥御守", tag: "御守", lat: 33.5197, lng: 130.5358, mapUrl: "https://www.google.com/maps/search/太宰府天満宮+授与所" },
             { name: "梅園菓子舗", hours: "09:00-17:00", desc: "鬼瓦最中、傳統和菓子", tag: "和菓子", lat: 33.5200, lng: 130.5350, mapUrl: "https://www.google.com/maps/search/梅園菓子処" },
-            { name: "博物館紀念品店", hours: "09:30-17:00", desc: "九州國博限定文創商品", tag: "紀念品", lat: 33.5165, lng: 130.5405, mapUrl: "https://www.google.com/maps/search/九州国立博物館+ミュージアムショップ" },
-            { name: "光明禪寺 朱印所", hours: "09:00-16:00", desc: "收集御朱印", tag: "寺廟", lat: 33.5190, lng: 130.5365, mapUrl: "https://www.google.com/maps/search/光明禅寺" },
-            { name: "天神 藥院商店街", hours: "10:00-20:00", desc: "回程順路逛逛", tag: "商店街", lat: 33.5875, lng: 130.3955, mapUrl: "https://www.google.com/maps/search/薬院駅" }
+            { name: "博多Deitos", hours: "08:00-21:00", desc: "中午回博多後主力伴手禮區", tag: "博多站", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/博多デイトス" },
+            { name: "マイング (Ming)", hours: "09:00-21:00", desc: "博多站地下土產街，適合補福岡盒裝點心", tag: "博多站", lat: 33.5895, lng: 130.4205, mapUrl: "https://www.google.com/maps/search/博多駅+マイング" },
+            { name: "博多阪急 地下", hours: "10:00-20:00", desc: "高級甜點、熟食與精緻伴手禮", tag: "百貨", lat: 33.5898, lng: 130.4210, mapUrl: "https://www.google.com/maps/search/博多阪急+地下" },
+            { name: "AMU Plaza 博多", hours: "10:00-20:00", desc: "下午購物主場，服飾、雜貨、餐廳一次解決", tag: "百貨", lat: 33.5897, lng: 130.4207, mapUrl: "https://www.google.com/maps/search/AMU+Plaza+Hakata" }
         ],
         specialties: [
             { name: "梅枝餅 (かさの家)", hours: "09:00-18:00", desc: "太宰府必吃現烤紅豆甜點", tag: "甜點", lat: 33.5205, lng: 130.5345, image: "images/梅枝餅.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=かさの家" },
