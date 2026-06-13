@@ -85,14 +85,15 @@ const dataDay3to7 = [
         hotel: "御宿 野乃別府", hotelLat: 33.2795, hotelLng: 131.4985, center: [33.30, 131.40],
         hotelImage: "images/御宿 野乃別府.webp",
         hotelDesc: "【別府站前】全館榻榻米日式溫泉旅館<br>♨️ 頂樓露天風呂「別府八湯」眺望別府灣<br>🍜 免費夜鳴拉麵・泡湯後免費冰棒/乳酸菌飲料<br>👘 館內提供多款花色浴衣體驗<br>🧺 投幣洗衣機・漫畫休息區",
-        transport: { public: "【JR Pass 走法：博多→別府】<br>1. JR博多站 1樓大廳找「在来線 / JR Lines / Conventional Lines」閘口，別走「新幹線 / Shinkansen」<br>2. 進閘後看電子看板，找「特急 ソニック 大分行き / Sonic for Oita」<br>3. 看看板顯示的「のりば / Platform」，搭手扶梯或電梯上 2樓月台；月台可能變動，以現場看板為準<br>4. 搭「特急 Sonic / 音速號」直達別府：博多 08:20 → 別府 10:25，約 2 小時，建議先用 JR Pass 劃指定席<br>5. 到別府站後從西口出站（出改札後跟「西口 / West Exit」指示）；御宿 野乃別府就在站前，先寄放行李最順<br>6. 若要接著去由布院：別府站西口外即為巴士乘車處，找「亀の井バス / Kamenoi Bus」，搭乘車頭標示「由布院駅前バスセンター 行き」或「由布院方面」的班次（41/43 系統），約 60 分到由布院<br>7. 【寄放行李後搭車建議】10:25 抵達 → 10:30-10:50 寄放行李 → 約 11:00 返回別府站西口，搭 11:00 或之後開往由布院的巴士（10:40 太趕，不建議）。確切班次請當天查詢最新時刻表或交通 App<br>• JR Kyushu Pass 可搭特急 Sonic；若沒劃位也可搭自由席，但旺季建議劃位<br>• 回程選擇：由布院 17:28 特急自由席 → 別府 18:28，或 17:35 巴士 → 別府 18:25（回程時間請當天確認）<br>• 巴士不一定包含在 JR Pass 內，請現場確認或另付車資" },
+        transport: { public: "【JR Pass 走法：博多→別府】<br>1. JR博多站 1樓大廳找「在来線 / JR Lines / Conventional Lines」閘口，別走「新幹線 / Shinkansen」<br>2. 進閘後看電子看板，找「特急 ソニック 大分行き / Sonic for Oita」<br>3. 看看板顯示的「のりば / Platform」，搭手扶梯或電梯上 2樓月台；月台可能變動，以現場看板為準<br>4. 搭「特急 Sonic / 音速號」直達別府：博多 08:20 → 別府 10:25，約 2 小時，建議先用 JR Pass 劃指定席<br>5. 到別府站後從西口出站（出改札後跟「西口 / West Exit」指示）；御宿 野乃別府就在站前，先寄放行李最順<br>6. 若要接著去由布院：別府站西口外即為巴士乘車處，找「亀の井バス / Kamenoi Bus」，搭乘車頭標示「由布院駅前バスセンター 行き」或「由布院方面」的班次（41/43 系統），約 60 分到由布院<br>7. 【寄放行李後搭車建議】10:25 抵達 → 10:30-10:50 寄放行李 → 約 11:00 返回別府站西口，搭 11:00 或之後開往由布院的巴士（10:40 太趕，不建議）。確切班次請當天查詢最新時刻表或交通 App<br>• JR Kyushu Pass 可搭特急 Sonic；若沒劃位也可搭自由席，但旺季建議劃位<br>• 【6/14(日) 回程：由布院→別府】JR Pass 可用班次<br>　16:01 普通 大分行 → 大分 17:03，同站轉日豊本線→別府 17:18 着<br>　17:06 普通 大分行 → 大分 18:04，轉乘→別府 18:18 着<br>　（16:01若從金鱗湖趕不上，可搭17:06，在駅前 Lawson 或候車室等）<br>• 特急ゆふ・ゆふいんの森直達別府：14:45後無班次（當天末班）<br>• 確切班次請當天查詢最新時刻表或交通 App<br>" },
         timeline: [
             { time: "07:30", act: "退房・博多站出發", desc: "買個駅弁或麵包帶上車" },
             { time: "08:20", act: "Sonic 特急出發", desc: "JR博多站搭特急 Sonic 往大分・別府方向，JR Pass 可用，建議事先劃指定席" },
             { time: "10:25", act: "抵達別府站", desc: "從別府站西口出站，御宿 野乃別府在站前；先寄放行李再去由布院最順" },
             { time: "11:00", act: "巴士前往由布院", desc: "別府站西口搭龜之井巴士往由布院，車程約 60 分（建議11點後班次，詳細時刻請現場確認）" },
-            { time: "12:00", act: "由布院午間散策", desc: "湯之坪街道吃午餐、逛雜貨甜點～17:00" },
-            { time: "17:28", act: "返回別府", desc: "特急 (A) 或 17:35 巴士 (B)，約 18:25 到" },
+            { time: "12:00", act: "由布院午間散策", desc: "湯之坪街道吃午餐、逛雜貨甜點～16:00" },
+            { time: "16:00", act: "步行往由布院駅", desc: "金鱗湖/湯之坪→駅徒歩15分" },
+            { time: "16:01", act: "普通 大分行", desc: "JR Pass 使用，約17:03到 大分，同站轉日豊本線→別府17:18着" },
             { time: "18:30", act: "入住御宿 野乃別府", desc: "チェックイン後泡湯放鬆，晚餐在別府" }
         ],
         spots: [
@@ -119,13 +120,13 @@ const dataDay3to7 = [
                 { name: "鞠智 スイートポテト", hours: "10:00-17:00", desc: "由布院極品地瓜甜點，口感如絲絹般細膩", tag: "甜點", lat: 33.2648, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/?api=1&query=鞠智+由布院" }
             ],
             dinner: [
-                { name: "焼肉 春香苑", hours: "11:00-22:00（LO21:30）", desc: "想吃真正燒肉就排這間，不再用牛排館 Somuri 代替；建議出發前用 Google Maps 確認營業與訂位", tag: "燒肉", lat: 33.2798, lng: 131.5005, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+春香苑+別府" },
-                { name: "生一本 居酒屋", hours: "17:30-00:00", desc: "別府站附近居酒屋，刺身、烤魚、炸物配大分地酒最順", tag: "居酒屋", lat: 33.2795, lng: 131.4985, mapUrl: "https://www.google.com/maps/search/?api=1&query=生一本+別府" },
-                { name: "東洋軒 とり天", hours: "17:00-22:00", desc: "大分名物雞肉天婦羅發源名店，想吃別府代表味道就排這間", tag: "雞天", lat: 33.2825, lng: 131.5025, mapUrl: "https://www.google.com/maps/search/?api=1&query=レストラン東洋軒+別府" },
-                { name: "とよ常 天丼", hours: "11:00-20:00", desc: "別府老舖天丼，招牌特製天丼有大尾炸蝦，晚餐想簡單吃很適合", tag: "天丼", lat: 33.2805, lng: 131.4945, mapUrl: "https://www.google.com/maps/search/?api=1&query=とよ常+別府" },
-                { name: "龜正 壽司", hours: "11:00-21:00", desc: "別府最火紅迴轉壽司，魚貨超大塊", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
-                { name: "水天 壽司", hours: "11:00-22:00", desc: "高品質迴轉壽司，環境更精緻舒適", tag: "壽司", lat: 33.3055, lng: 131.4855, mapUrl: "https://www.google.com/maps/search/?api=1&query=廻転寿司+水天+別府店" },
-                { name: "海鮮料理 魚心", hours: "11:30-21:30", desc: "專營別府灣新鮮海產，價格親民", tag: "海鮮", lat: 33.2755, lng: 131.5055, mapUrl: "https://www.google.com/maps/search/?api=1&query=海鮮いけす料理+魚心" }
+                { name: "大和田鮨", hours: "11:30-14:00 / 17:00-21:00（月休）", desc: "🍽️ 食べログ3.67・百名店受賞\n地魚にぎり（關鯖・關鯵厚切握壽司）・おまかせコース（主廚精選）", tag: "壽司", lat: 33.2800, lng: 131.4960, mapUrl: "https://www.google.com/maps/search/?api=1&query=大和田鮨+別府" },
+                { name: "亀正くるくる寿司", hours: "11:00-21:00", desc: "🍽️ 食べログ3.71 別府最火紅迴轉壽司，魚貨超大塊鮮度抜群", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
+                { name: "肴鶏魚 Miiima", hours: "17:30-23:00", desc: "🍽️ 食べログ3.61 駅徒歩3分\nおばんざい盛合せ（家常小菜拼盤）・本日の刺身いいとこ盛り（今日精選生魚片）・大分地酒", tag: "居酒屋", lat: 33.2790, lng: 131.4990, mapUrl: "https://www.google.com/maps/search/?api=1&query=肴鶏魚+Miiima+別府" },
+                { name: "焼肉 一力", hours: "17:00-24:00（木休）", desc: "🍽️ 食べログ3.57 駅徒歩3分！A5豊後牛\nヒレ角切（角切菲力）・ミノ刺し（蜂胃生魚片）・極上ロース（極上里肌肉）", tag: "燒肉", lat: 33.2815, lng: 131.4950, mapUrl: "https://www.google.com/maps/search/?api=1&query=焼肉+一力+別府" },
+                { name: "東洋軒 とり天", hours: "17:00-22:00", desc: "大正15年創業！大分名物\nとり天（雞肉天婦羅）發源名店", tag: "雞天", lat: 33.2825, lng: 131.5025, mapUrl: "https://www.google.com/maps/search/?api=1&query=レストラン東洋軒+別府" },
+                { name: "とよ常 天丼", hours: "11:00-20:00", desc: "別府老舖\n特製天丼（特製炸蝦天婦羅蓋飯）", tag: "天丼", lat: 33.2805, lng: 131.4945, mapUrl: "https://www.google.com/maps/search/?api=1&query=とよ常+別府" },
+                { name: "ふくばこ蕎麦店", hours: "11:00-21:00", desc: "🍽️ 食べログ3.59 駅前本格\n手打ち蕎麦（手打蕎麥麵）・天ぷら蕎麦（天婦羅蕎麥麵）", tag: "蕎麦", lat: 33.2800, lng: 131.4995, mapUrl: "https://www.google.com/maps/search/?api=1&query=ふくばこ蕎麦店+別府" }
             ]
         },
         shopping: [
@@ -135,7 +136,12 @@ const dataDay3to7 = [
             { name: "SNOOPY茶屋", hours: "10:00-17:00", desc: "史努比周邊商品", tag: "主題", lat: 33.2635, lng: 131.3695, mapUrl: "https://www.google.com/maps/search/SNOOPY茶屋+由布院" },
             { name: "THEOMURATA", hours: "10:00-17:30", desc: "高級巧克力專賣，精緻伴手禮", tag: "甜點", lat: 33.2650, lng: 131.3670, mapUrl: "https://www.google.com/maps/search/THEOMURATA+由布院" },
             { name: "鞠智 スイートポテト", hours: "10:00-17:00", desc: "地瓜甜點專賣，包裝精美適合送禮", tag: "甜點", lat: 33.2648, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/鞠智+由布院" },
-            { name: "金鱗湖畔小店", hours: "09:00-17:00", desc: "手工皂、在地特產", tag: "雜貨", lat: 33.2615, lng: 131.3725, mapUrl: "https://www.google.com/maps/search/金鱗湖" }
+            { name: "金鱗湖畔小店", hours: "09:00-17:00", desc: "手工皂、在地特產", tag: "雜貨", lat: 33.2615, lng: 131.3725, mapUrl: "https://www.google.com/maps/search/金鱗湖" },
+            { name: "みっふぃー森のきっちん＆べーかりー", hours: "09:30-17:30", desc: "Miffy 專賣店！ベーカリー＋雑貨，限定あんぱん與キッチン雑貨", tag: "キャラ", lat: 33.2635, lng: 131.3680, mapUrl: "https://www.google.com/maps/search/?api=1&query=みっふぃー森のきっちん+湯布院" },
+            { name: "どんぐりの森 湯布院店", hours: "10:00-17:00（土日祝09:30-17:00）", desc: "スタジオジブリ公式ショップ！トトロ・魔女宅・千尋グッズ", tag: "キャラ", lat: 33.2635, lng: 131.3690, mapUrl: "https://www.google.com/maps/search/?api=1&query=どんぐりの森+湯布院" },
+            { name: "ゆふいんのさんりお屋", hours: "09:30-17:30", desc: "サンリオキャラ雑貨・お土産", tag: "キャラ", lat: 33.2638, lng: 131.3688, mapUrl: "https://www.google.com/maps/search/?api=1&query=ゆふいんのさんりお屋" },
+            { name: "ゆふいんの猫屋敷", hours: "10:00-17:00", desc: "貓雜貨専門店，貓奴必逛", tag: "キャラ", lat: 33.2640, lng: 131.3692, mapUrl: "https://www.google.com/maps/search/?api=1&query=ゆふいんの猫屋敷" },
+            { name: "ゆふいんの犬家敷", hours: "10:00-17:00", desc: "犬雜貨専門店，狗奴必逛", tag: "キャラ", lat: 33.2640, lng: 131.3695, mapUrl: "https://www.google.com/maps/search/?api=1&query=ゆふいんの犬家敷" }
         ],
         specialties: [
             {
@@ -284,8 +290,9 @@ const dataDay3to7 = [
             },
         ],
         supermarkets: [
-            { name: "Tokiwa Industry 鶴見園", hours: "09:00-21:00", desc: "飯店下山步行約10分鐘，建議自駕或搭接駁車", tag: "最近", lat: 33.2950, lng: 131.4780 },
-            { name: "Lawson 別府石垣東店", hours: "24H", desc: "最近便利商店，距離飯店步行約 12 分鐘", tag: "便利", lat: 33.2965, lng: 131.4805 }
+            { name: "ローソン 別府駅前店", hours: "24H", desc: "飯店出來右手邊徒步約1分，買飲料零食最方便", tag: "便利", lat: 33.2798, lng: 131.4995 },
+            { name: "ファミリーマート 別府駅店", hours: "05:00-23:00", desc: "別府駅改札旁，徒步1分", tag: "便利", lat: 33.2795, lng: 131.4985 },
+            { name: "トキハ別府店 B1F", hours: "10:00-19:00", desc: "別府駅前百貨地下1F食品賣場，弁當・熟食・生鮮超市，徒步約3分", tag: "超市", lat: 33.2805, lng: 131.4970 }
         ]
     },
     {

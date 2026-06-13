@@ -3358,7 +3358,7 @@ html {
 
 .float-nav.visible {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: none;
 }
 
 .float-nav-toggle {
@@ -3375,6 +3375,7 @@ html {
     line-height: 1;
     color: var(--sumi-black);
     cursor: pointer;
+    pointer-events: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 2;
@@ -3423,6 +3424,7 @@ html {
     -webkit-backdrop-filter: blur(10px);
     justify-content: center;
     width: 100%;
+    pointer-events: auto;
 }
 
 .float-nav-pill:hover {

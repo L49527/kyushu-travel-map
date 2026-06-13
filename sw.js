@@ -1,8 +1,8 @@
-const CACHE_NAME = 'kyushu-travel-v4';
+const CACHE_NAME = 'kyushu-travel-v5';
 const ASSETS = [
     './',
     './index.html',
-    './styles.css',
+    './styles.css?v=5',
     './app.js',
     './data.js',
     './data-extended.js',
