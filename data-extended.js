@@ -296,7 +296,7 @@ const dataDay3to7 = [
         ]
     },
     {
-        day: 5, plan: "B", date: "6/15(一)", title: "☔ 宙館雨天完整攻略：飯店一日遊", area: "別府・杉乃井",
+        day: 5, date: "6/15(一)", title: "上午地獄めぐり → 下午宙館度假", area: "別府・杉乃井",
         hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [33.2985, 131.4725],
         hotelImage: "images/杉乃井飯店 宙館.jpg",
         hotelDesc: '🏆 2023年開幕最新旗艦館「宙館」全館336間客房<br>♨️ 宙湯（無邊際展望風呂）・棚湯（九州最大級梯田露天風呂）<br>🏊 Aqua Garden 溫泉泳池・🎳 保齡球/卡拉OK/桌球<br>🍽️ TERRAZZA 住客專屬自助餐（牛排/螃蟹/酒類喝到飽）',
@@ -320,25 +320,28 @@ const dataDay3to7 = [
 <br>🌸 屋上庭園「ソラニワ」 — 星空散步道・大分縣蝶拍照點・彈跳床
 <br>🛍️ 売店「別風ゆのや」 — 大分特產一應俱全（07:00-22:00）
 <br>🚌 免費接駁車 — JR別府站西口（約15分鐘/班）・免費戶外停車場`,
-        transport: { public: "【免費接駁車】JR別府站西口→杉乃井飯店（每15分鐘/班，車程10分鐘）<br>🚌 別府龜之井巴士前往飯店：從別府站前搭乘10號巴士（¥200）" },
+        transport: { public: "【上午地獄めぐり → 下午宙館】<br>• 11:00 御宿野乃別府退房 → 步行2分至別府駅前<br>• 11:05 亀の井巴士 別府駅前(5番乗り場) → 海地獄前（2・5・24・41番 ¥390・20分）<br>• 11:25 海地獄 → 步行5分 → かまど地獄 → 13:00午餐<br>• 13:00 亀の井巴士 鉄輪 → 別府駅前（¥390・20分）<br>• 13:30 別府駅西口 → 杉乃井 無料送迎巴士（15分/班・10分）<br>• 13:40-15:00 寄放行李 → 棚湯/売店/屋上庭園<br>• 15:00 宙館チェックイン" },
         timeline: [
-            { time: "10:00", act: "Check-in 寄放行李", desc: "提前到飯店寄放行李，領取館內設施地圖。先到賣店或大廳休息區規劃今日動線" },
-            { time: "10:30", act: "屋上庭園 ソラニワ", desc: "即使雨天也有遮雨步道。大分縣蝶拍照打卡、彈跳床放電、360度眺望別府灣" },
-            { time: "11:30", act: "棚湯 露天風呂", desc: "直奔 4,000㎡ 九州最大級五層梯田露天風呂「棚湯」。雨中泡湯別有風情🌧️♨️ 營業至23:00" },
-            { time: "13:00", act: "午餐：TERRAZZA 或 シーダパレス", desc: "推薦住客專屬的 TERRAZZA 自助餐，現切牛排與螃蟹吃到飽" },
-            { time: "14:30", act: "SUGINOI BOWL & PARK", desc: "保齡球/乒乓球/卡拉OK，8種室內娛樂全制霸🎳🎤🏓" },
-            { time: "16:30", act: "宙湯 + Aqua Garden", desc: "回房稍作休息後，上頂樓「宙湯」看雨景泡湯。再到 Aqua Garden 溫水泳池飄浮" },
-            { time: "18:30", act: "自助晚餐 + 噴泉秀", desc: "TERRAZZA 或 HOSHI 享用豪華自助餐。飯後到 Aqua Garden 觀賞 20:00 雷射噴泉秀" },
-            { time: "21:00", act: "夜間最後入浴", desc: "棚湯/宙湯最後入浴時間 21:30。睡前再泡一回，完美ending♨️" }
+            { time: "11:00", act: "御宿野乃別府 退房", desc: "步行至別府駅前2分鐘" },
+            { time: "11:05", act: "亀の井巴士 別府駅前→海地獄前", desc: "2・5・24・41番 ¥390・20分" },
+            { time: "11:25", act: "① 海地獄", desc: "钴蓝色温泉池，拍照25分" },
+            { time: "11:55", act: "② かまど地獄", desc: "步行5分，6种汤池20分" },
+            { time: "12:20", act: "午餐", desc: "地獄蒸工坊 或 鐵輪食堂" },
+            { time: "13:00", act: "亀の井巴士 鉄輪→別府駅前", desc: "¥390・20分" },
+            { time: "13:25", act: "步行至別府駅西口", desc: "5分" },
+            { time: "13:30", act: "杉乃井 無料送迎巴士", desc: "10分" },
+            { time: "13:40", act: "抵達杉乃井 → 寄放行李", desc: "棚湯/売店/屋上庭園自由利用" },
+            { time: "15:00", act: "宙館 チェックイン", desc: "可開始使用宙湯・BOWL等設施" },
+            { time: "18:30", act: "館内自助晚餐", desc: "TERRAZZA 或 HOSHI，飯後看Aqua Garden噴泉秀" }
         ],
         spots: [
-            { name: "杉乃井飯店 宙館", lat: 33.2985, lng: 131.4725, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+宙館" },
-            { name: "展望露天風呂 宙湯", lat: 33.2988, lng: 131.4725, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+宙湯" },
-            { name: "大展望露天風呂 棚湯", lat: 33.2975, lng: 131.4735, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+棚湯" },
-            { name: "Aqua Garden", lat: 33.2978, lng: 131.4728, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+アクアガーデン" },
-            { name: "SUGINOI BOWL & PARK", lat: 33.2972, lng: 131.4732, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ボウル" },
-            { name: "TERRAZZA 餐廳", lat: 33.2982, lng: 131.4722, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+TERRAZZA" },
-            { name: "屋上庭園 ソラニワ", lat: 33.2985, lng: 131.4718, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ソラニワ" }
+            { name: "海地獄", lat: 33.3200, lng: 131.4430, mapUrl: "https://www.google.com/maps/search/?api=1&query=海地獄" },
+            { name: "かまど地獄", lat: 33.3185, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=かまど地獄" },
+            { name: "杉乃井飯店 宙館", lat: 33.2985, lng: 131.4725 },
+            { name: "展望露天風呂 宙湯", lat: 33.2988, lng: 131.4725 },
+            { name: "大展望露天風呂 棚湯", lat: 33.2975, lng: 131.4735 },
+            { name: "Aqua Garden", lat: 33.2978, lng: 131.4728 },
+            { name: "SUGINOI BOWL & PARK", lat: 33.2972, lng: 131.4732 }
         ],
         meals: {
             breakfast: [
@@ -349,11 +352,8 @@ const dataDay3to7 = [
                 { name: "Lotteria 別府站", hours: "07:30-21:00", desc: "車站內快速早餐選擇", tag: "連鎖", lat: 33.2798, lng: 131.5005 }
             ],
             lunch: [
-                { name: "TERRAZZA 自助午餐 (宙館)", hours: "11:30-15:00", desc: "【🏆 宙館住客最推】現切牛排、壽司、螃蟹、生魚片吃到飽，含酒精飲料喝到爽。窗邊座位可看別府灣雨景", tag: "飯店", lat: 33.2982, lng: 131.4722, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+TERRAZZA" },
-                { name: "ワールドダイニング シーダパレス", hours: "11:30-15:00", desc: "【本館】世界各國自助料理，中央巨大水族箱超壯觀。適合想吃多樣化的家庭", tag: "飯店", lat: 33.2978, lng: 131.4735, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+シーダパレス" },
-                { name: "亜李蘭離宮 (中華)", hours: "11:30-14:30", desc: "飯店內的中華料理專門店，大分縣產食材結合粵菜工藝", tag: "中華", lat: 33.2980, lng: 131.4730 },
-                { name: "地獄蒸工坊 鐵輪", hours: "10:00-19:00", desc: "【體驗必選】利用98度溫泉蒸氣自煮蔬菜海鮮，健康美味（需開車前往）", tag: "體驗", lat: 33.3195, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
-                { name: "龜正迴轉壽司", hours: "11:00-21:00", desc: "【排隊名店】別府最强壽司，魚料超大塊新鮮", tag: "壽司", lat: 33.2815, lng: 131.4935, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" }
+                { name: "地獄蒸工坊 鐵輪", hours: "10:00-19:00", desc: "【體驗必選】利用98度溫泉蒸氣自煮蔬菜海鮮，健康美味", tag: "體驗", lat: 33.3195, lng: 131.4425, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
+                { name: "鐵輪食堂", hours: "11:00-15:00", desc: "在地人的平價午餐，大分鄉土料理", tag: "鄉土", lat: 33.3190, lng: 131.4430 }
             ],
             dinner: [
                 { name: "TERRAZZA & DINING SORA 自助晚餐", hours: "17:00-21:30", desc: "【🏆 宙館住客限定旗艦餐廳】現切牛排、螃蟹、握壽司、北京烤鴨等 live cooking station。Mont Blanc 甜點吧＋紅白酒/沙瓦喝到飽，別府最強晚餐體驗", tag: "飯店", igRecommend: true, lat: 33.2982, lng: 131.4722, mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+TERRAZZA" },
@@ -366,134 +366,29 @@ const dataDay3to7 = [
         shopping: [
             { name: "杉乃井 売店「別風ゆのや」", hours: "07:00-22:00", desc: "館內大型土產店，大分縣特產、湯之花、地獄蒸布丁、Kabosu 商品一應俱全", tag: "飯店", lat: 33.2985, lng: 131.4725 },
             { name: "Youme Town", hours: "09:30-21:30", desc: "大型購物中心，開車5分鐘。超市、藥妝、UNIQLO、服飾", tag: "商場", lat: 33.2755, lng: 131.5055 },
-            { name: "Tokiwa 百貨", hours: "10:00-19:00", desc: "別府市區老牌百貨公司", tag: "百貨", lat: 33.2790, lng: 131.5010 },
-            { name: "別府交通中心", hours: "09:00-18:00", desc: "別府港旁的大型物產館，種類豐富", tag: "物產", lat: 33.3035, lng: 131.4825 }
+            { name: "海地獄 土產店", hours: "09:00-17:00", desc: "地獄主題商品、溫泉蛋", tag: "景點", lat: 33.3200, lng: 131.4430 },
+            { name: "Tokiwa 百貨", hours: "10:00-19:00", desc: "別府市區老牌百貨公司", tag: "百貨", lat: 33.2790, lng: 131.5010 }
         ],
         specialties: [
             { name: "別府溫泉粉", hours: "09:00-22:00", desc: "【Myoban湯之花】國家指定無形文化財，在家享受天然溫泉", tag: "用品", lat: 33.3345, lng: 131.4335, image: "images/湯之花.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=みょうばん湯の里" },
             { name: "極樂饅頭", hours: "08:30-18:00", desc: "地獄蒸氣現蒸小饅頭，一口一個停不下來", tag: "甜點", lat: 33.3225, lng: 131.4512, image: "images/極樂饅頭.webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=血の池地獄" },
             { name: "地獄蒸布丁 (岡本屋)", hours: "08:30-18:30", desc: "苦甜焦糖與濃郁蛋香，別府最人氣甜點", tag: "甜點", lat: 33.3355, lng: 131.4345, image: "images/地獄蒸布丁 (岡本屋).jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=岡本屋売店" },
             { name: "Zabon漬 (ざぼん漬)", hours: "09:00-18:00", desc: "別府特產糖漬文旦皮，酸甜古早味", tag: "零食", lat: 33.2798, lng: 131.5005, image: "images/Zabon漬 (ざぼん漬).jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+ざぼん漬" },
-            { name: "別府竹細工", hours: "09:00-17:00", desc: "傳統工藝編織籃、餐具，質感極佳", tag: "工藝", lat: 33.3055, lng: 131.4855, image: "images/別府竹細工.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府市竹細工傳統產業會館" },
-            { name: "大分酸橙 (Kabosu)", hours: "超市皆有", desc: "各式酸橙調味料、果汁、餅乾", tag: "伴手禮", lat: 33.2798, lng: 131.5005, image: "images/大分酸橙 (Kabosu).webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+カボス" },
-            { name: "雞肉天婦羅仙貝", hours: "超市皆有", desc: "大分名物炸雞肉天婦羅仙貝，酥脆好吃", tag: "餅乾", lat: 33.2798, lng: 131.5005, image: "images/雞肉天婦羅仙貝.jpg", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+とり天せんべい" }
+            { name: "大分酸橙 (Kabosu)", hours: "超市皆有", desc: "各式酸橙調味料、果汁、餅乾", tag: "伴手禮", lat: 33.2798, lng: 131.5005, image: "images/大分酸橙 (Kabosu).webp", mapUrl: "https://www.google.com/maps/search/?api=1&query=別府+カボス" }
         ],
         supermarkets: [
             { name: "Youme Town 別府", hours: "09:30-21:30", desc: "開車5分鐘的大型購物中心內有超市，補貨方便", tag: "商場", lat: 33.2755, lng: 131.5055 },
             { name: "Tokiwa 鶴見園", hours: "09:00-21:00", desc: "飯店步行10分鐘，在地超市", tag: "補給", lat: 33.2950, lng: 131.4780 }
         ],
         facilities: [
-            { icon: "♨️", name: "展望露天風呂「宙湯」", hours: "住客專用（最後入場 ~22:00）", desc: "宙館頂樓無邊際露天風呂，海拔250m 俯瞰別府灣與鶴見岳。室內大浴場亦有整面落地窗景，雨天泡湯別有風情。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+宙湯" },
-            { icon: "♨️", name: "大展望露天風呂「棚湯」", hours: "09:00-23:00（最後入場 21:30）", desc: "4,000㎡ 九州最大級五層梯田式露天風呂，可眺望別府灣至四國佐田岬。日歸入場 ¥1,500。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+棚湯" },
-            { icon: "🏊", name: "Aqua Garden 溫泉泳池", hours: "11:00-23:00（最後入場 22:00）", desc: "游泳圈OK的溫水泳池，夜間雷射噴泉秀（19:00/20:00/21:00/22:00 各10分鐘）。泳衣可租借 ¥440-¥1,100。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+アクアガーデン" },
-            { icon: "🌊", name: "アクアビート (Aqua Beat)", hours: "4/25-9/30 季節限定", desc: "室內水上樂園！人造浪、滑水道、漂漂河，完全不受天氣影響。適合親子同樂。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+アクアビート" },
-            { icon: "🎳", name: "SUGINOI BOWL & PARK", hours: "13:00-22:00", desc: "8種室內娛樂：保齡球18球道（¥600-700/局）、卡拉OK 6間包廂（¥3,000-5,000/hr）、飛鏢、撞球、桌球、數位射擊、兒童遊戲區。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ボウル" },
-            { icon: "🍽️", name: "TERRAZZA & DINING SORA", hours: "早餐 06:30-10:00 / 午餐 11:30-15:00 / 晚餐 17:00-21:30", desc: "【宙館住客限定旗艦餐廳】西式自助餐。現切牛排、螃蟹、握壽司、北京烤鴨等 live cooking station，Mont Blanc 甜點吧，含紅白酒/沙瓦喝到飽。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+TERRAZZA" },
-            { icon: "🍽️", name: "和ダイニング星 HOSHI", hours: "晚餐 17:00-21:30", desc: "【星館頂樓】和食自助餐。壽司、生魚片、藁燒鰹魚料理。星空天花板設計，浪漫氛圍滿點。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+HOSHI" },
-            { icon: "🌸", name: "屋上庭園「ソラニワ」", hours: "自由散步", desc: "屋上庭園，有遮雨步道。大分縣蝶紀念碑拍照點、兒童彈跳床、360度眺望別府灣。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ソラニワ" },
-            { icon: "🛍️", name: "売店「別風ゆのや」", hours: "07:00-22:00", desc: "館內大型土產店，大分縣特產、湯之花、地獄蒸布丁、Kabosu 商品一應俱全。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+売店" },
-            { icon: "🏋️", name: "Gold's Gym 健身房", hours: "設施營業時間內", desc: "專業健身器材齊全的健身房，泡湯前後可來運動一下。" }
-        ]
-    },
-    {
-        day: 5, plan: "A", date: "6/15(一)", title: "宙館館內度假日", area: "別府・杉乃井",
-        hotel: "杉乃井飯店 宙館", hotelLat: 33.2985, hotelLng: 131.4725, center: [33.2985, 131.4725],
-        hotelImage: "images/杉乃井飯店 宙館.jpg",
-        hotelDesc: "【別府最大溫泉度假村】最新館別「宙館」<br>♨️ 頂樓無邊際展望露天風呂「宙湯」<br>🏊 Aqua Garden 溫泉泳池・夜間雷射水舞秀<br>🍽️ TERRAZZA 豪華自助餐廳 (鰻魚/牛排吃到飽)<br>🚌 別府車站免費接駁巴士・保齡球館",
-        transport: { public: "【飯店館內日】今天不去阿蘇，專心享受杉乃井飯店宙館。<br>• JR別府站西口搭免費接駁車前往杉乃井飯店，約15分鐘/班<br>• 抵達後以寄放行李、溫泉、Aqua Garden、SUGINOI BOWL & PARK、自助餐為主<br>• 若要短暫外出，只建議別府市區晚餐或超市補給" },
-        timeline: [
-            { time: "10:00", act: "抵達宙館寄放行李", desc: "領取館內設施地圖，先確認餐廳、溫泉與娛樂設施位置" },
-            { time: "11:30", act: "棚湯或館內午餐", desc: "先泡棚湯，或直接安排 TERRAZZA / シーダパレス 午餐" },
-            { time: "14:00", act: "SUGINOI BOWL & PARK", desc: "保齡球、桌球、卡拉OK、飛鏢，下午不用出飯店也能玩" },
-            { time: "16:30", act: "宙湯 + Aqua Garden", desc: "頂樓宙湯看別府灣，再到 Aqua Garden 溫泉泳池放鬆" },
-            { time: "18:30", act: "館內自助晚餐", desc: "TERRAZZA 或 HOSHI 享用晚餐，飯後看 Aqua Garden 噴泉秀" }
-        ],
-        spots: [
-            { name: "杉乃井飯店 宙館", lat: 33.2985, lng: 131.4725 },
-            { name: "展望露天風呂 宙湯", lat: 33.2988, lng: 131.4725 },
-            { name: "大展望露天風呂 棚湯", lat: 33.2975, lng: 131.4735 },
-            { name: "Aqua Garden", lat: 33.2978, lng: 131.4728 },
-            { name: "SUGINOI BOWL & PARK", lat: 33.2972, lng: 131.4732 }
-        ],
-        meals: {
-            breakfast: [
-                { name: "飯店精緻早餐", hours: "07:00-09:00", desc: "在由布院的晨曦中醒來，享用由在地食材製作的精緻和式或西式早餐料理，為自駕之旅補足體力🌞。", tag: "飯店", lat: 33.2624, lng: 131.3549, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+ホテル+朝食" },
-                { name: "由布院 麵包店", hours: "09:00-18:00", desc: "推薦造訪「櫟之木（Quercus）」或由布院站前的特色小店。主打由高原山泉水製作的天然酵母麵包。推薦：天然鹽可頌與自家製果醬吐司，簡單卻充滿大自然香氣麵包🥐。", tag: "麵包", lat: 33.2642, lng: 131.3565, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布院+パン屋" },
-                { name: "Snoopy 茶屋", hours: "10:00-17:00", desc: "全球首家 Snoopy 主題茶屋！不僅裝潢可愛，融合大分縣名產的厚鬆餅與特製聖代更是視覺與味覺的雙重饗宴。適合在金鱗湖散步前，來一場療癒心靈的午茶時光甜點🍵。", tag: "主題", lat: 33.2678, lng: 131.3645, mapUrl: "https://www.google.com/maps/search/?api=1&query=SNOOPY茶屋+由布院" },
-                { name: "Mila's Gelato", hours: "10:00-17:00", desc: "由布院湯之坪街道上的繽紛風景。嚴選九州直送乳源製作，口感細緻滑順。推薦試試隱藏版的「大分卡伯斯（Kabosu）」酸甜口味，是散步途中的沁涼救星甜點🍦。", tag: "甜點", lat: 33.2655, lng: 131.3620, mapUrl: "https://www.google.com/maps/search/?api=1&query=Mila+Gelato+由布院" },
-                { name: "B-Speak 蛋糕捲", hours: "10:00-17:00", desc: "由布院最難買到的「神級」伴手禮！每一卷都注入了師傅的手感靈魂。海綿蛋糕如雲朵般輕盈，鮮奶油清甜不膩。強烈建議一早開門就去排隊，感受這份被譽為「蛋糕捲界藝術品」的滋味甜點🍰。", tag: "甜點", igRecommend: true, lat: 33.2645, lng: 131.3575, mapUrl: "https://www.google.com/maps/search/?api=1&query=B-speak" }
-            ],
-            lunch: [
-                { name: "地獄蒸工房 鐵輪", hours: "10:00-19:00", desc: "別府最原始、最有趣的烹飪體驗！利用攝氏 98 度的溫泉高壓蒸汽，瞬間鎖住食材的甘甜。推薦：海鮮蔬菜拼盤、溫泉蛋。在騰雲駕霧的廚房裡，親手感受大地能量煮出的鮮美滋味體驗🦀。", tag: "體驗", igRecommend: true, lat: 33.3155, lng: 131.4785, mapUrl: "https://www.google.com/maps/search/?api=1&query=地獄蒸し工房+鉄輪" },
-                { name: "別府灣SA (B-speak)", hours: "09:00-18:00", desc: "位於高速公路休息站的絕佳眺望地！不僅能再次購入 B-Speak 蛋糕捲，還能一邊俯瞰整片湛藍的別府灣，一邊享用大分縣名產料理，是自駕旅程中最美遼闊的中繼站觀景🍰。", tag: "觀景", lat: 33.3425, lng: 131.5225, mapUrl: "https://www.google.com/maps/search/?api=1&query=別府湾サービスエリア+下り線" },
-                { name: "地獄噴泉 溫泉蛋", hours: "08:30-17:00", desc: "地獄巡禮必吃小點！利用海地獄湧出的溫泉水直接煮熟的雞蛋，帶有淡雅的礦物質香氣。剝開微焦的蛋殼，熱騰騰的半熟蛋黃流出，是別府之旅最接地氣的美味小食🥚。", tag: "小吃", lat: 33.3145, lng: 131.4745, mapUrl: "https://www.google.com/maps/search/?api=1&query=海地獄+た職卵" },
-                { name: "龜正壽司", hours: "11:00-21:00", desc: "別府最狂、CP 值最高的迴轉壽司店！食材新鮮到像剛從海裡跳上來，魚肉厚度更是誠意滿滿。因為太受在地人歡迎，建議開店前半小時就去取號碼牌，迎接海味狂潮壽司🍣。", tag: "壽司", igRecommend: true, lat: 33.3125, lng: 131.4825, mapUrl: "https://www.google.com/maps/search/?api=1&query=亀正くるくる寿司" },
-                { name: "湖月 餃子", hours: "14:00-19:00", desc: "這不是一般餃子，這是別府人的鄉愁！隱身巷弄的老店，專賣酥脆薄皮的一口餃子。外皮煎到金黃如脆餅，焦香味十足。這款傳承數十年的簡單美味，是午後最棒的點心餃子🥟。", tag: "餃子", lat: 33.2845, lng: 131.5035, mapUrl: "https://www.google.com/maps/search/?api=1&query=湖月+別府" }
-            ],
-            dinner: [
-                { name: "東洋軒 炸雞天", hours: "11:00-22:00", desc: "別府名物「炸雞天（Tori-ten）」的發源地！不同於一般唐揚雞，這裡是將雞肉包裹輕盈的天婦羅粉漿炸製，口感更顯細緻嫩口。搭配獨家酸桔醬汁，清爽而不油膩，是來到別府絕對不能錯過的必吃首選炸雞🍗。", tag: "炸雞", igRecommend: true, lat: 33.2825, lng: 131.5025, mapUrl: "https://www.google.com/maps/search/?api=1&query=レストラン東洋軒" },
-                { name: "阿蘇 特產商店", hours: "自取", desc: "自駕進入阿蘇山區前的補給站。推薦購買熊本產的「馬肉刺身」即食包或阿蘇牧場直送鮮乳。在寧靜的阿蘇山腳下，簡單組合一份屬於大自然的美味晚餐輕食🥛。", tag: "輕食", lat: 32.9425, lng: 131.1225, mapUrl: "https://www.google.com/maps/search/?api=1&query=道の駅+阿蘇" },
-                { name: "由布まぶし 心", hours: "10:30-18:30", desc: "由布院的「三吃」傳奇！將炭火燒烤的豐後牛或地雞平鋪在陶罐米飯上。一吃原味、二吃辛香料、三吃高湯泡飯。那口陶鍋燒出的焦脆鍋巴，是豐饒之鄉獻給旅人最誠摯的禮物定食🥘。", tag: "定食", igRecommend: true, lat: 33.2628, lng: 131.3552, mapUrl: "https://www.google.com/maps/search/?api=1&query=由布まぶし+心+駅前支店" },
-                { name: "友永麵包店", hours: "08:30-18:00", desc: "別府最具歷史溫度的麵包房。創業於 1916 年，至今仍維持著手作的樸實感。招牌紅豆麵包與黃油捲，外皮充滿韌性、內餡甜香。這種「昭和時代的味道」，是別府夜晚最暖心的點心麵包🥖。", tag: "麵包", igRecommend: true, lat: 33.2785, lng: 131.5015, mapUrl: "https://www.google.com/maps/search/?api=1&query=友永パン屋" },
-                { name: "阿蘇 超市晚餐", hours: "19:00後", desc: "深度旅遊的樂趣！在平價超市挑選熊本產黑毛和牛或清甜的阿蘇野菜。配上一罐當地限定啤酒，在自駕民宿中享受一場屬於自己的阿蘇饗宴超市🍻。", tag: "超市早餐", lat: 32.8825, lng: 131.1025, mapUrl: "https://www.google.com/maps/search/?api=1&query=超市+阿蘇" }
-            ]
-        },
-        shopping: [
-            { name: "道之驛 阿蘇", hours: "09:00-18:00", desc: "農產品、熊本熊周邊、特產", tag: "道之驛", lat: 32.9505, lng: 131.0575 },
-            { name: "阿蘇神社門前町", hours: "09:00-17:00", desc: "熊本熊周邊、鄉土料理", tag: "老街", lat: 32.9485, lng: 131.0545 },
-            { name: "Aso Milk Factory", hours: "09:30-18:00", desc: "乳製品、起司蛋糕禮盒", tag: "甜點", lat: 32.9515, lng: 131.0585 },
-            { name: "大觀峰 土產店", hours: "09:00-17:00", desc: "阿蘇特色點心", tag: "土產", lat: 32.9565, lng: 131.0625 },
-            { name: "草千里物產館", hours: "09:00-17:00", desc: "草千里限定商品", tag: "紀念品", lat: 32.8833, lng: 131.0667 },
-            { name: "杉乃井飯店商店", hours: "07:00-22:00", desc: "溫泉用品、別府土產", tag: "飯店", lat: 33.2985, lng: 131.4725 },
-            { name: "高速公路休息站", hours: "24H", desc: "各式九州土產一站購齊", tag: "休息站", lat: 33.1500, lng: 131.3000 }
-        ],
-        specialties: [
-            {
-                name: "阿蘇牛奶 / 冰淇淋",
-                hours: "09:30-18:00",
-                desc: "阿蘇大草原孕育出的極致鮮美。由牧場直送的純淨鮮乳，擁有不可思議的濃厚乳脂與自然甜度。在草千里或大觀峰來一支新鮮現做的冰淇淋，是阿蘇之旅必經的朝聖儀式！",
-                tag: "飲品",
-                igRecommend: true,
-                lat: 32.9515,
-                lng: 131.0585,
-                image: "images/aso_milk.png",
-                mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇牛奶牧場"
-            },
-            {
-                name: "阿蘇高菜漬",
-                hours: "店鋪營業時間",
-                desc: "阿蘇著名的土產漬物。選用高海拔寒冷氣候下成長的高菜，經過醃漬發酵後帶有獨特的芥末辛香與酸甜味感。無論是切碎拌入熱騰騰的白飯或是做成飯糰，都極度開胃，是熊本鄉間最道地的靈魂味道。",
-                tag: "漬物",
-                lat: 32.9505,
-                lng: 131.0565,
-                image: "images/阿蘇高菜漬.jpg",
-                mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇+高菜漬"
-            },
-            {
-                name: "赤牛味噌",
-                hours: "09:00-17:00",
-                desc: "將阿蘇引以為傲的「熊本赤牛」精肉切碎，融入濃厚的大麥味噌中熬煮而成。牛油脂的鮮香與味噌的醇厚交織，是拌麵、配飯或是加入湯頭提味的極品調味料，將阿蘇的豪邁風味帶回家。",
-                tag: "調料",
-                igRecommend: true,
-                lat: 32.9495,
-                lng: 131.0555,
-                image: "images/赤牛味噌.jpg",
-                mapUrl: "https://www.google.com/maps/search/?api=1&query=阿蘇+赤牛味噌"
-            },
-            {
-                name: "內牧溫泉粉",
-                hours: "09:00-18:00",
-                desc: "來自阿蘇著名溫泉區「內牧溫泉」的入浴結晶。含有豐富的礦物質成分，包裝上更有可愛的熊本熊官方圖案。讓您在回到台灣後，依然能在家中白濁的暖湯中，重溫阿蘇的懷抱。",
-                tag: "用品",
-                lat: 32.9655,
-                lng: 131.0255,
-                image: "images/熊本熊周邊.jpg",
-                mapUrl: "https://www.google.com/maps/search/?api=1&query=内牧温泉"
-            }
-        ],
-        supermarkets: [
-            { name: "Tokiwa Industry 鶴見園", hours: "09:00-21:00", desc: "飯店下山步行約10分鐘，建議自駕或搭接駁車", tag: "最近", lat: 33.2950, lng: 131.4780 },
-            { name: "Lawson 別府石垣東店", hours: "24H", desc: "最近便利商店，距離飯店步行約 12 分鐘", tag: "便利", lat: 33.2965, lng: 131.4805 }
+            { icon: "♨️", name: "展望露天風呂「宙湯」", hours: "住客專用（最後入場 ~22:00）", desc: "宙館頂樓無邊際露天風呂，海拔250m 俯瞰別府灣與鶴見岳。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+宙湯" },
+            { icon: "♨️", name: "大展望露天風呂「棚湯」", hours: "09:00-23:00（最後入場 21:30）", desc: "4,000㎡ 九州最大級五層梯田式露天風呂。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+棚湯" },
+            { icon: "🏊", name: "Aqua Garden 溫泉泳池", hours: "11:00-23:00（最後入場 22:00）", desc: "游泳圈OK的溫水泳池，夜間雷射噴泉秀。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+アクアガーデン" },
+            { icon: "🌊", name: "アクアビート (Aqua Beat)", hours: "4/25-9/30 季節限定", desc: "室內水上樂園！人造浪、滑水道、漂漂河。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+アクアビート" },
+            { icon: "🎳", name: "SUGINOI BOWL & PARK", hours: "13:00-22:00", desc: "保齡球、卡拉OK、飛鏢、撞球、桌球等8種娛樂。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ボウル" },
+            { icon: "🌸", name: "屋上庭園「ソラニワ」", hours: "自由散步", desc: "屋上庭園，有遮雨步道。360度眺望別府灣。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+ソラニワ" },
+            { icon: "🛍️", name: "売店「別風ゆのや」", hours: "07:00-22:00", desc: "館內大型土產店。", mapUrl: "https://www.google.com/maps/search/?api=1&query=杉乃井ホテル+売店" },
+            { icon: "🏋️", name: "Gold's Gym 健身房", hours: "設施營業時間內", desc: "專業健身器材齊全。" }
         ]
     },
     {

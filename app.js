@@ -287,12 +287,11 @@ function showDay(dayNum) {
 
     // Check if we need to show the plan toggle
     const planToggle = document.getElementById('plan-toggle');
-    if (dayPlans.length > 1 && dayNum !== 5) {
+    if (dayPlans.length > 1) {
         planToggle.style.display = 'flex';
-        // Adjust labels based on day if needed, but currently only Day 5 has it
     } else {
         planToggle.style.display = 'none';
-        state.plan = dayNum === 5 ? 'B' : 'A'; // Day 5 stays inside Suginoi SORA Kan
+        state.plan = 'A';
     }
 
     // Filter by plan if multiple exist, otherwise just take the first one
