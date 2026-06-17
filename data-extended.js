@@ -527,8 +527,8 @@ const dataDay3to7 = [
             { time: "14:15", act: "搭機返國", desc: "星宇航空 JX841 → 台北桃園 15:45着" }
         ],
         spots: [
-            { name: "博多站", lat: 33.5897, lng: 130.4207 },
-            { name: "福岡機場", lat: 33.5850, lng: 130.4514 }
+            { name: "福岡市役所前 (HEARTS乗車處)", lat: 33.5908, lng: 130.4015, mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡市役所前+バス停" },
+            { name: "福岡機場国際線", lat: 33.5910, lng: 130.4470, mapUrl: "https://www.google.com/maps/search/?api=1&query=福岡空港+国際線ターミナル" }
         ],
         meals: {
             breakfast: [
