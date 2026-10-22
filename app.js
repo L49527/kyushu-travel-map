@@ -222,7 +222,7 @@ async function fetchForecastWeather() {
 
 function initMainMap() {
     mainMap = L.map('main-map').setView([33.2, 131.0], 8);
-   L.tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${cb1_4rij_1_8ef4ac26ad8394446e6bf433}`, {
+   L.tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
         attribution: '© OpenStreetMap © CARTO'
     }).addTo(mainMap);
 
@@ -778,7 +778,7 @@ function initLocalMap(d) {
     supermarketMarkers = [];
 
     localMap = L.map('local-map').setView(d.center, 13);
-    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${cb1_4rij_1_8ef4ac26ad8394446e6bf433}`, {
+    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
         attribution: '© OpenStreetMap © CARTO'
     }).addTo(localMap);
 
@@ -879,7 +879,7 @@ function initNintendoRouteMap() {
     mapEl.dataset.init = '1';
 
     const map = L.map('nintendo-route-map').setView([33.5901, 130.4203], 17);
-    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${cb1_4rij_1_8ef4ac26ad8394446e6bf433}`, {
+    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`, {
         maxZoom: 19, attribution: '© OpenStreetMap © CARTO'
     }).addTo(map);
 
