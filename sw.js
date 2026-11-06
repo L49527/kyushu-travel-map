@@ -1,103 +1,41 @@
-const CACHE_NAME = 'kyushu-travel-v5';
-const ASSETS = [
-    './',
-    './index.html',
-    './styles.css?v=5',
-    './app.js',
-    './data.js',
-    './data-extended.js',
-    './manifest.json',
-    // Leaflet CDN Resources
-    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-    'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-    // Google Fonts
-    'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap',
-    // Core cover & UI images
-    './images/福岡.jpg',
-    './images/由布院.webp',
-    './images/別府.jpg',
-    './images/阿蘇.png',
-    './images/apple-touch-icon.png',
-    './images/icon-192.png',
-    './images/icon-512.png',
-    './images/都ホテル博多.jpg',
-    './images/御宿 野乃別府.webp',
-    './images/杉乃井飯店 宙館.jpg',
-    './images/Il Palazzo.jpg'
-];
-
-// Install Event - file caching
-self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                return cache.addAll(ASSETS);
-            })
-    );
-});
-
-// Activate Event - clean up old caches
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(keys => {
-            return Promise.all(keys.map(key => {
-                if (key !== CACHE_NAME) return caches.delete(key);
-            }));
-        })
-    );
-});
-
-// Fetch Event - Dynamic Strategies
-self.addEventListener('fetch', event => {
-    // Skip non-GET requests
-    if (event.request.method !== 'GET') return;
-
-    const url = new URL(event.request.url);
-
-    // Strategy 1: Stale-While-Revalidate for CDNs, Map Tiles, Google Fonts, and Images
-    if (
-        url.hostname.includes('basemaps.cartocdn.com') ||
-        url.hostname.includes('unpkg.com') ||
-        url.hostname.includes('fonts.googleapis.com') ||
-        url.hostname.includes('fonts.gstatic.com') ||
-        event.request.destination === 'image'
-    ) {
-        event.respondWith(
-            caches.match(event.request)
-                .then(cachedResponse => {
-                    const fetchPromise = fetch(event.request)
-                        .then(networkResponse => {
-                            if (networkResponse.status === 200 || networkResponse.type === 'opaque') {
-                                const clonedResponse = networkResponse.clone();
-                                caches.open(CACHE_NAME).then(cache => {
-                                    cache.put(event.request, clonedResponse);
-                                });
-                            }
-                            return networkResponse;
-                        })
-                        .catch(() => {
-                            // Suppress errors for background fetch failures when offline
-                        });
-
-                    return cachedResponse || fetchPromise;
-                })
-        );
-    } else {
-        // Strategy 2: Network-First for local HTML, CSS, JS, JSON
-        event.respondWith(
-            fetch(event.request)
-                .then(networkResponse => {
-                    if (networkResponse.status === 200) {
-                        const clonedResponse = networkResponse.clone();
-                        caches.open(CACHE_NAME).then(cache => {
-                            cache.put(event.request, clonedResponse);
-                        });
-                    }
-                    return networkResponse;
-                })
-                .catch(() => {
-                    return caches.match(event.request);
-                })
-        );
-    }
+const CACHE_NAME='sapporo-travel-shell-v43';
+const PRECACHE=["./","./index.html","./css/site.css?v=20261106-rooms1","./css/responsive-fixes.css","./css/interaction-effects.css?v=20261104-motion3","./css/cover-layout.css?v=20261104-cover2","./js/app.js?v=20261106-rooms2","./js/photo-loader.js","./js/cover-carousel.js","./js/checklist.js","./js/embedded-photo.js","./js/map-local-advice.js","./js/map.js","./js/map-status.js","./js/pwa-register.js","./js/dining-catalog.js","./js/food-guide.js","./js/interaction-effects.js?v=20261104-motion3","./assets/photos/sapporo-odori-cover.webp","./assets/photos/sapporo-odori-backup.webp","./manifest.webmanifest","./icons/icon.svg","./icons/icon-192.png","./icons/icon-512.png","./icons/icon-maskable-512.png","./icons/apple-touch-icon.png","./assets/photos/restaurants/ajinoDaioNoboribetsu.webp","./assets/photos/restaurants/asperges.png","./assets/photos/restaurants/cafeYoshimiAkarenga.webp","./assets/photos/restaurants/chibaNoboribetsu.webp","./assets/photos/restaurants/darumaHonten.webp","./assets/photos/restaurants/donburiChayaNijo.png","./assets/photos/restaurants/enmakenNoboribetsu.webp","./assets/photos/restaurants/farmTomitaSouvenirs.webp","./assets/photos/restaurants/franseJozan.webp","./assets/photos/restaurants/fujizushiShakotan.webp","./assets/photos/restaurants/fukuzushi.png","./assets/photos/restaurants/furukawaFruitGlacee.webp","./assets/photos/restaurants/garakuSapporoHonten.webp","./assets/photos/restaurants/hachikyoHonten.webp","./assets/photos/restaurants/hakkenzanKitchenMarche.webp","./assets/photos/restaurants/hanabusaNewChitose.webp","./assets/photos/restaurants/hokkaidoBbqNobojin.webp","./assets/photos/restaurants/ichigenNewChitose.webp","./assets/photos/restaurants/ichigenSohonten.webp","./assets/photos/restaurants/isezushiOtaruEkinaka.png","./assets/photos/restaurants/kakizakiSeafoodKobo.webp","./assets/photos/restaurants/kamaeiFactoryStore.webp","./assets/photos/restaurants/kaniHonkeSapporoEkimae.webp","./assets/photos/restaurants/kantaroNewChitose.webp","./assets/photos/restaurants/keyakiNewChitose.webp","./assets/photos/restaurants/keyakiSusukinoHonten.webp","./assets/photos/restaurants/kitaNoboruUdon.webp","./assets/photos/restaurants/kodamaya.png","./assets/photos/restaurants/kumagera.png","./assets/photos/restaurants/lakesideKitchenTonton.webp","./assets/photos/restaurants/matsuiJingisukanOdoriMinami1.webp","./assets/photos/restaurants/memereLakesideSweets.webp","./assets/photos/restaurants/misakiShakotan.webp","./assets/photos/restaurants/nakamurayaShakotan.webp","./assets/photos/restaurants/narutoHonten.png","./assets/photos/restaurants/naturalDiningFurano.png","./assets/photos/restaurants/nemuroHanamaruJrTower.webp","./assets/photos/restaurants/noboribetsuOnsenIchiba.webp","./assets/photos/restaurants/northernTerraceDiner.webp","./assets/photos/restaurants/okushibaSoseiji.webp","./assets/photos/restaurants/otaruMasazushiHonten.webp","./assets/photos/restaurants/otaruNewSankoNewChitose.webp","./assets/photos/restaurants/otaruPoseidonSakaimachi.webp","./assets/photos/restaurants/rinkouShokudo.webp","./assets/photos/restaurants/sandriaHonten.webp","./assets/photos/restaurants/sapporoBeerGarden.webp","./assets/photos/restaurants/shingenMinami6.webp","./assets/photos/restaurants/shirakabaSansoNewChitose.webp","./assets/photos/restaurants/shiumaiHayama.webp","./assets/photos/restaurants/shokudoIchiJozan.webp","./assets/photos/restaurants/shokudoKonnoJozan.webp","./assets/photos/restaurants/suagePlus.webp","./assets/photos/restaurants/suginoUnizenShakotan.webp","./assets/photos/restaurants/takinamiShokudo.png","./assets/photos/restaurants/tomitaMelonHouse.png","./assets/photos/restaurants/warakuOtaru.webp","./assets/photos/restaurants/yuigaDoxon.png"];
+PRECACHE.push("./assets/photos/specialties/bieiCornBread.png","./assets/photos/specialties/jagaPokkuru.png","./assets/photos/specialties/horiYubariMelonPureJelly.png","./assets/photos/specialties/furanoLavenderCandle.png","./assets/photos/specialties/furanoWineCheddarCheese.png");
+PRECACHE.push("./assets/photos/restaurants/juneCoffeeSapporo.png");
+PRECACHE.push("./assets/photos/restaurants/starbucksSapporoStellarPlace.png");
+PRECACHE.push("./assets/photos/restaurants/ohisoNijoMarket.png");
+PRECACHE.push("./assets/photos/restaurants/uomasaMarketSushi.png");
+PRECACHE.push("./assets/photos/restaurants/kitanogurumeSeafood.png");
+PRECACHE.push("./css/tax-refund.css?v=20261105-tax1","./assets/illustrations/japan-tax-refund-2026-v1.webp","./assets/illustrations/japan-tax-refund-2026-v1.png");
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(async cache=>{await Promise.allSettled(PRECACHE.map(url=>cache.add(new Request(url,{cache:'reload'}))));}).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sapporo-travel-shell-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))),self.clients.claim()]))});
+self.addEventListener('fetch',event=>{
+ const req=event.request;
+ if(req.method!=='GET')return;
+ const url=new URL(req.url);
+ if(url.origin!==self.location.origin)return;
+ if(!url.pathname.startsWith(new URL('./',self.registration.scope).pathname))return;
+ const isDocument=req.mode==='navigate';
+ event.respondWith((async()=>{
+  try{
+   // Documents must never come from the HTTP cache: a stale index.html would
+   // keep pointing at older css/js versions even after an update.
+   const res=isDocument
+    ?await fetch(req.url,{cache:'reload',credentials:'same-origin'})
+    :await fetch(req);
+   if(res&&res.ok&&!isDocument){
+    const cache=await caches.open(CACHE_NAME);
+    cache.put(req,res.clone()).catch(()=>{});
+   }
+   return res;
+  }catch(err){
+   const cached=await caches.match(req,{ignoreSearch:true});
+   if(cached)return cached;
+   if(isDocument){
+    const home=await caches.match(new URL('./index.html',self.registration.scope));
+    if(home)return home;
+   }
+   throw err;
+  }
+ })());
 });
